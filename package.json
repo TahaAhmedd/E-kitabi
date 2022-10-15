@@ -18,10 +18,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-<<<<<<< HEAD
-=======
     "@fortawesome/angular-fontawesome": "^0.11.1",
->>>>>>> 4d13de407f3a637caff46be09b4a31911b087116
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.2.2",
     "rxjs": "~7.5.0",
