@@ -1,0 +1,387 @@
+/* Start Header */
+.bodylist {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.bodylist .all {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bodylist .all .leftcontent {
+    width: 25%;
+
+}
+
+.bodylist .all .rightcontent {
+    width: 70%;
+}
+
+.bodylist .all .leftcontent h3 {
+    border-bottom: 2px solid #555;
+    padding: 20px 0;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.bodylist .all .leftcontent .content {
+    padding-top: 20px;
+    width: 80%;
+}
+
+.bodylist .all .leftcontent .content .one {
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.bodylist .all .leftcontent .content .one li {
+    padding-bottom: 10px;
+    border-bottom: 1px dotted rgb(189, 189, 189);
+    margin-bottom: 20px;
+    color: #555;
+    cursor: pointer;
+    transition: all .5s;
+    text-transform: capitalize;
+
+}
+
+.bodylist .all .leftcontent .content .one li:hover {
+    color: #ce7852;
+}
+
+.bodylist .all .leftcontent .content .one li span {
+    float: right;
+}
+
+.bodylist .all .leftcontent .content .two {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.bodylist .all .leftcontent .content .two li {
+    padding: 10px 10px;
+
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #99999959;
+    color: #444;
+    transition: all .5s;
+}
+
+.bodylist .all .leftcontent .content .two li:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(1) {
+    width: 40%;
+}
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(2) {
+    width: 55%;
+}
+
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(3) {
+    width: 55%;
+}
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(4) {
+    width: 40%;
+}
+
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(5) {
+    width: 45%;
+}
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(6) {
+    width: 50%;
+}
+
+
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(7) {
+    width: 55%;
+}
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(8) {
+    width: 40%;
+}
+
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(9) {
+    width: 35%;
+}
+
+.bodylist .all .leftcontent .content .two li:nth-of-type(10) {
+    width: 60%;
+}
+
+.bodylist .all .leftcontent .content .des {
+    margin-top: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.bodylist .all .leftcontent .content .des img {
+    width: 100%;
+}
+
+.bodylist .all .leftcontent .content .des .con {
+    color: #fff;
+    width: 80%;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    margin-left: -120px;
+    margin-top: -25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.bodylist .all .leftcontent .content .des .con h6 {
+    color: #ce7852;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.bodylist .all .leftcontent .content .des .con h2 {
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+.bodylist .all .leftcontent .content .des .con h2 strong {
+    color: #ce7852;
+    padding-right: 5px;
+}
+
+.bodylist .all .leftcontent .content .des .con::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 6px 5px 0;
+    height: 50px;
+    margin: 0 auto 20px;
+
+
+}
+
+.bodylist .all .leftcontent .content .des .con::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 0 5px 6px;
+    height: 50px;
+    margin: 20px auto 0;
+
+}
+
+/* Start Right Content */
+
+.bodylist .all .rightcontent .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(136 136 136 / 25%);
+    border-bottom: 1px solid rgb(136 136 136 / 25%);
+    padding: 5px 0;
+}
+
+.bodylist .all .rightcontent .head .lefticon i {
+    border: 1px solid #99999963;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.bodylist .all .rightcontent .head .ssort {
+    padding: 4px 5px;
+    cursor: pointer;
+    background-color: #888;
+    color: #fff;
+    border: none;
+    transition: all .5s;
+}
+.bodylist .all .rightcontent .head .ssort:hover {
+    background-color: #ce7852;
+    color: #FFF;
+}
+.bodylist .all .rightcontent .head .lefticon i:hover {
+    color: #ce7852;
+}
+
+.bodylist .all .rightcontent .head .centertext {
+    font-size: 13px;
+    color: #333;
+    width: 200px;
+    height: 25px;
+    position: relative;
+}
+.bodylist .all .rightcontent .head .centertext input
+{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #999;
+}
+.bodylist .all .rightcontent .head .centertext .search
+{
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+    background-color: #555;
+    color: #FFF;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.bodylist .all .rightcontent .head .centertext .search:hover
+{
+    color: #FFF;
+    background-color: #ce7852;
+}
+
+.bodylist .all .rightcontent .head .rightsort h3 {
+    display: inline-block;
+    color: #555;
+    font-size: 12px;
+    padding-right: 5px;
+    text-transform: capitalize;
+}
+
+.bodylist .all .rightcontent .head .rightsort select {
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+
+}
+.bodylist .all .rightcontent .head .rightsort .op
+{
+    text-transform: uppercase;
+    
+}
+
+.bodylist .all .rightcontent .appcontentbody .childcontentbody {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-bottom: 1px solid #9999992b;
+    padding-bottom: 20px;
+}
+
+.bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg {
+    width: 20%;
+}
+
+.bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg img {
+    width: 100%;
+}
+
+.bodylist .all .rightcontent .appcontentbody .childcontentbody .righttext {
+    width: 65%;
+}
+
+.appcontentbody .childcontentbody .righttext h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.appcontentbody .childcontentbody .righttext ul {
+    margin-bottom: 5px;
+}
+
+.appcontentbody .childcontentbody .righttext ul li {
+    display: inline-block;
+}
+
+.appcontentbody .childcontentbody .righttext ul li i {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.appcontentbody .childcontentbody .righttext ul li i:hover {
+    color: #ce7852;
+}
+
+.appcontentbody .childcontentbody .righttext h4 {
+    margin-bottom: 2px;
+    color: #ce7852;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.appcontentbody .childcontentbody .righttext h4 span {
+    margin-left: 10px;
+    font-size: 15px;
+    color: #777;
+}
+.appcontentbody .childcontentbody .righttext h5 {
+    color: #ce7852;
+    margin-bottom: 10px;
+
+}
+.appcontentbody .childcontentbody .righttext h5 span {
+    margin-left: 30px;
+    color: #999;
+
+}
+.appcontentbody .childcontentbody .righttext p {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 20px;
+    width: 50ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.appcontentbody .childcontentbody .righttext button {
+    background-color: #000;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-right: 25px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.appcontentbody .childcontentbody .righttext button:hover 
+{
+    background-color: #FFF;
+    color: #000;
+}
+
+.appcontentbody .childcontentbody .righttext .twoicon {
+    font-size: 20px;
+    color: #555;
+}
+
+.appcontentbody .childcontentbody .righttext .twoicon i:first-of-type {
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.appcontentbody .childcontentbody .righttext .twoicon i:last-of-type {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.appcontentbody .childcontentbody .righttext .twoicon i:first-of-type:hover,
+.appcontentbody .childcontentbody .righttext .twoicon i:last-of-type:hover {
+    color: #ce7852;
+}
