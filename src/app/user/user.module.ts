@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { DownloadBookComponent } from './download-book/download-book.component';
+import { FooterComponent } from './../footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { NewbooksComponent } from './newbooks/newbooks.component';
 import { SomebookComponent } from './somebook/somebook.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { uMainComponent } from './main/main.component';
+import { NavparComponent } from '../navpar/navpar.component';
 
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
@@ -20,6 +22,9 @@ let routes : Routes =[
 
 @NgModule({
   declarations: [
+    NavparComponent,
+    FooterComponent,
+    uMainComponent,
     CategoriesComponent,
     CategoriesListComponent,
     DownloadBookComponent,
@@ -29,7 +34,7 @@ let routes : Routes =[
     SomebookComponent,
   ],
   imports: [
-    SharedModule,
+  SharedModule,
     RouterModule.forChild(routes)
   ]
 })
