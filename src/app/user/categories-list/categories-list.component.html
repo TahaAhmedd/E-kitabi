@@ -4,8 +4,8 @@
         <div class="all">
 
             <div class="leftcontent">
-                <h3>Product Categories</h3>
                 <div class="content">
+                    <h3>Books Categories</h3>
                     <ul class="one">
                         <li>Biography <span>(58)</span></li>
                         <li>Business <span>(65)</span></li>
@@ -21,7 +21,7 @@
                         <li>hoodies <span>(48)</span></li>
                     </ul>
 
-                    <h3>Product Tages</h3>
+                    <h3>Books Tages</h3>
                     <ul class="two" id="tagg">
                         <li title="js">js</li>
                         <li title="node">Node</li>
@@ -60,13 +60,6 @@
                         <li title="angular">Anguler</li>                         
                     </ul>
 
-                    <div class="des">
-                        <img src="./images/banner_left.webp" alt="">
-                        <div class="con">
-                            <h6>new products</h6>
-                            <h2>save up to<br> <strong>40%</strong>off</h2>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -74,33 +67,20 @@
 
                 <div class="head">
 
-                    <div class="lefticon">
-                        <i class="fa fa-list" aria-hidden="true"></i>
-                        <i class="fa fa-th" aria-hidden="true"></i>
-                        <button class="ssort" onclick="funcSortByPageCount()">Sort By page Count</button>
-                        <button class="ssort" onclick="funcSortByName()">Sort By Name</button>
+                    <div class="leftSort">
+                        <!-- <button class="ssort" >Sort By page Count</button>
+                        <button class="ssort" >Sort By Name</button> -->
+                        <select name="sort" id="">
+                            <option value="0">All...</option>
+                            <option value="1">Sort By page Count</option>
+                            <option value="2">Sort By Name</option>
+                        </select>
                     </div>
 
                     <div class="centertext">
                         <input type="text" id="searccInput"  placeholder="Search by book name">
-                        <span class="search" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="search" id="searchButton"><i class="fa fa-search" aria-hidden="true" title="Search"></i></span>
                     </div>
-
-                    <div class="rightsort">
-                        <h3>Sort By Type Books</h3>
-                        <select id="selectOption">
-                            <option class="op" value="angular">angular</option>
-                            <option class="op" value="css">Css</option>
-                            <option class="op" value="js">Js</option>
-                            <option class="op" value="php">php</option>
-                            <option class="op" value="react">react</option>
-                            <option class="op" value="test">test</option>
-                            <option class="op" value="testing">testing</option>
-                            <option class="op" value="loop">loop</option>
-
-                        </select>
-                    </div>
-
                 </div>
 
 
@@ -124,18 +104,18 @@
                             </ul>
                             <h4>published Date:<span>2020-09-04</span></h4>
                             <h5>Page Count:<span>430</span></h5>
-                            <p>If you want to build cross-platform web applications using the robust Angular web framework, this book is for you. Learning Angular will cover the core concepts of frontend web development using easy-to-follow instructions to help you get up and running with Angular web development in no time.!</p>
                             <a >
-                                <button>Details</button>
-                                <ul class="twoicon">
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <i class="fa fa-refresh" aria-hidden="true"></i>
-                                </ul>
+                                <button title="Details To Book">Details</button>
                             </a>
+                            <ul class="twoicon">
+                                <i class="fa fa-heart" aria-hidden="true" title="Like"></i>
+                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                            </ul>
+                            
                         </div>
                     </div>
 
-                    <div class="childcontentbody">
+                    <!-- <div class="childcontentbody">
 
                         <div class="leftimg">
                             <img src="http://books.google.com/books/content?id=1GmGzQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api" alt="">
@@ -389,7 +369,7 @@
                                 <i class="fa fa-refresh" aria-hidden="true"></i>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
