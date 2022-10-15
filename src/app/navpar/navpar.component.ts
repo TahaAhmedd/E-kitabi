@@ -11,5 +11,8 @@ export class NavparComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+shownav(){
+  let textShow = document.getElementById("text-show")
+  textShow?.classList.toggle("showNav")
+}
 }

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:"home",pathMatch:'full'},
+  {path:'',redirectTo:"user/home",pathMatch:'full'},
   {
     path: 'user', 
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
