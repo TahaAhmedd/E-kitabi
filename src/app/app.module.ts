@@ -7,6 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavparComponent } from './navpar/navpar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
