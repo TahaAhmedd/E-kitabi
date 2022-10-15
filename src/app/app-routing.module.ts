@@ -5,7 +5,7 @@ import { uMainComponent } from './user/main/main.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:"home",pathMatch:'full'},
+  {path:'',redirectTo:"user/home",pathMatch:'full'},
 
   {
     path: 'user', component:uMainComponent, 
