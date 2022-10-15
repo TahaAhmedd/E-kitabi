@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { NewbooksComponent } from './newbooks/newbooks.component';
 import { SomebookComponent } from './somebook/somebook.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent } from '../articles/list/articles-list.component';
 import { SharedModule } from '../shared/shared.module';
 
 let routes : Routes =[
