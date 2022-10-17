@@ -40,7 +40,7 @@ footer .ficon li i:hover {
     color: #ce7852;
 }
 
-footer .flist li {
+footer .flist li a {
     padding: 20px 15px;
     font-weight: 400;
     font-size: 14px;
