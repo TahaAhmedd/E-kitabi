@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { dMainComponent } from './dashboard/component/main/main.component';
 import { uMainComponent } from './user/main/main.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:'',redirectTo:"home",pathMatch:'full'},
+  {path:'login',component:LoginComponent,},
 
   {
     path: 'user', component:uMainComponent, 

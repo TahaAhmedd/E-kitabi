@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { dMainComponent } from './main.component';
+import { BookeCategoryComponent } from './booke-category.component';
 
-describe('dMainComponent', () => {
-  let component: dMainComponent;
-  let fixture: ComponentFixture<dMainComponent>;
+describe('BookeCategoryComponent', () => {
+  let component: BookeCategoryComponent;
+  let fixture: ComponentFixture<BookeCategoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ dMainComponent ]
+      declarations: [ BookeCategoryComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(dMainComponent);
+    fixture = TestBed.createComponent(BookeCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
