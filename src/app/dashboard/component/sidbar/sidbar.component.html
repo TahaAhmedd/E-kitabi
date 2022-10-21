@@ -23,24 +23,26 @@
             <li><a routerLink="addBooke"><span class="icon">
                         <i name="information-circle-outline"></i>
                     </span><span class="titel">Add new booke</span></a></li>
-                    <li>
-                        <a routerLink="Allcategorey"><span class="icon">
-                                <i name="settings-outline"></i>
-                            </span><span class="titel">All Category</span>
-                        </a>
-                    </li>
+            <li>
+                <a routerLink="Allcategorey"><span class="icon">
+                        <i name="settings-outline"></i>
+                    </span><span class="titel">All Category</span>
+                </a>
+            </li>
             <li>
                 <a routerLink="Editaccount"><span class="icon">
                         <i name="settings-outline"></i>
                     </span><span class="titel">Setting</span>
                 </a>
             </li>
-            <li><a href="#"><span class="icon">
-                        <i name="lock-closed-outline"></i>
-                    </span><span class="titel"> Change Password</span></a></li>
-            <li><a href="#"><span class="icon">
+            <li>
+                <a (click)="logout()">
+                    <span class="icon">
                         <i name="log-out-outline"></i>
-                    </span><span class="titel">sign out</span></a></li>
+                    </span>
+                    <span class="titel">sign out</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
