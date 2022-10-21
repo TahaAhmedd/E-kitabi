@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { uMainComponent } from './main/main.component';
 import { NavparComponent } from '../navpar/navpar.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
@@ -18,6 +20,8 @@ let routes : Routes =[
   {path:'categories', component:CategoriesComponent},
   {path:'list', component:CategoriesListComponent},
   {path:'download', component:DownloadBookComponent},
+  {path:'aboutus', component:AboutusComponent},
+  {path:'contactus', component:ContactusComponent},
 ]
 
 @NgModule({
@@ -32,6 +36,8 @@ let routes : Routes =[
     HeaderComponent,
     NewbooksComponent,
     SomebookComponent,
+    AboutusComponent,
+    ContactusComponent,
   ],
   imports: [
   SharedModule,

@@ -1,0 +1,66 @@
+/* Start Catigoris */
+
+.parent{
+    margin-top: 150px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 50px;
+    row-gap: 10px;
+}
+
+.child{
+    width: 30%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.parent .child a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.5s;
+}
+.parent .child a .box img{
+    width: 100%;
+    height: 100%;
+}
+.parent .child a .box:hover{
+    transform: translateY(-5px);
+}
+.parent .child a .box:hover .box_title{
+    background-color: #ce7852;
+    /* color: #fff; */
+}
+.parent .child a .box:hover .box_title h5{
+    color: #fff;
+}
+.box .box_title{
+    position: absolute;
+    bottom: 0; 
+    background-color: #eee;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+.box .box_title h5{
+    font-size: 20px;
+    color: #ce7852;
+}

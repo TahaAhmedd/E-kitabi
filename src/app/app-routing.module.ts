@@ -6,8 +6,12 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+<<<<<<< HEAD
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'login',component:LoginComponent,},
+=======
+  {path:'',redirectTo:"user/home",pathMatch:'full'},
+>>>>>>> 9ab2f1b0242234bba0bba28c1c41ab7592dd98b9
 
   {
     path: 'user', component:uMainComponent, 
