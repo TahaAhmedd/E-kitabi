@@ -140,16 +140,22 @@ font-size:3.5em ;
     text-decoration: none;
     border-radius: 6px;
 }
-.details table thead td{
- 
+.resentOrder table thead td{
+ /* background-color: aqua; */
 font-weight: 600;
 }
-.details table tbody tr {
+.dis p{
+   white-space: nowrap; 
+   width: 30ch !important; 
+   overflow: hidden !important;
+   text-overflow: ellipsis !important; 
+}
+.resentOrder table tbody tr {
  
 color: #FFC090  ;
 border-bottom: 1px solid rgba(0,0,0,0.1); 
  }
- .details table tbody tr:hover {
+ .resentOrder table tbody tr:hover {
     background: #FFC090;
     color: aliceblue;
  }

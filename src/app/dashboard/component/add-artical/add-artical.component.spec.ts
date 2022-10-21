@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { dMainComponent } from './main.component';
+import { AddArticalComponent } from './add-artical.component';
 
-describe('dMainComponent', () => {
-  let component: dMainComponent;
-  let fixture: ComponentFixture<dMainComponent>;
+describe('AddArticalComponent', () => {
+  let component: AddArticalComponent;
+  let fixture: ComponentFixture<AddArticalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ dMainComponent ]
+      declarations: [ AddArticalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(dMainComponent);
+    fixture = TestBed.createComponent(AddArticalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
