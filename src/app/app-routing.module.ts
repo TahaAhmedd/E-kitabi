@@ -7,9 +7,8 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:'',redirectTo:"user/home",pathMatch:'full'},
-  { path: 'login', component:LoginComponent },
 
-  {
+  { 
     path: 'user', component:uMainComponent, 
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
