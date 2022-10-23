@@ -12,10 +12,10 @@ import { AddBookeComponent } from './component/add-booke/add-booke.component';
 import { BookeCategoryComponent } from './component/booke-category/booke-category.component';
 import { AddCategoryComponent } from './component/add-category/add-category.component';
 import { LoginComponent } from '../login/login.component';
-
+import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
 let routes: Routes =[
-    { path: '', redirectTo:"/dashboard/login",pathMatch:'full'}
-    , { path: 'login', component:LoginComponent}//dashboard/home
+
+   { path: 'login', component:LoginComponent}//dashboard/home
   , { path: 'card', component:CardComponent}//dashboard/home
   , { path: 'list', component:ListBookeComponent}   //dashboard/list
   , { path: 'allartical',component :ListUserComponent }
@@ -36,12 +36,15 @@ let routes: Routes =[
     dMainComponent,
     BookeCategoryComponent,
     AddCategoryComponent,
-
+    AddArticalComponent
+    
     // MatPaginatorModule
   ],
   imports: [
+    ReactiveFormsModule,
   SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule ,
   ],
   exports:[
     RouterModule

@@ -1,9 +1,10 @@
+<form class="row g-3"  [formGroup]="addartical" onsubmit="AddArticle()">
 <div class="container mt-3">
   <h1 >Add New Articale:</h1>
   <div class="row">
     <h3 class="col-3 ">Select Category:</h3>
     <!-- <label class="visually-hidden" for="inlineFormSelectPref">Select Category:</label> -->
-    <select class="select col-5">
+    <select class="select col-5" name="catogry" id="category" formControlName="category">
       <option value="1">One</option>
       <option value="2">Two</option>
       <option value="3">Three</option>
@@ -16,15 +17,23 @@
   </div>
 
 <div class="mb-3 mt-2">
-    <label for="exampleFormControlInput1" class="form-label">Add Artical name:</label>
-    <input type="text" class="form-control w-75 " id="exampleFormControlInput1" placeholder="Add new Artical....">
+    <label for="articlename" class="form-label">Add Article name:</label>
+    <input type="text" class="form-control w-75 "  placeholder="Add new Artical...." id="articlename" formControlName="articlename">
+    <div  *ngIf="addartical.get('articlename')?.touched && addartical.get('articlename')?.invalid">
+      <span class="text-danger" *ngIf="addartical.get('articlename')?.errors?.['required']">Please enter a Article name</span>
+      <span class="text-danger" *ngIf="addartical.get('articlename')?.errors?.['minlength']">must be min 5 charcter</span>
+    </div>
   </div>
   <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Add outLinke:</label>
-    <input type="text" class="form-control w-75" id="exampleFormControlInput1" placeholder="Add out linke Related for Articale..">
+    <label for="linkarticle" class="form-label">Add outLink:</label>
+    <input type="text" class="form-control w-75" placeholder="Add out linke Related for Articale.." id="linkarticle" formControlName="linkarticle">
+    <div  *ngIf="addartical.get('linkarticle')?.touched && addartical.get('linkarticle')?.invalid">
+      <span class="text-danger" *ngIf="addartical.get('linkarticle')?.errors?.['required']">Please enter a Article name</span>
+      <span class="text-danger" *ngIf="addartical.get('linkarticle')?.errors?.['pattern']">Please enter valid link</span>
+    </div>
   </div>
-  <h4 class="col-3 ">Add KEyWord:</h4>
-  <div class="row border border-2 m-2 col-9">
+  <label class="col-3 " for="keywords">Add KeyWords:</label>
+  <div class="row border border-2 m-2 col-9" id="keywords" formControlName="keywords">
    
   <div class="form-group col-md-2">
     <label for="inputZip">Zip</label>
@@ -62,9 +71,19 @@
     <input type="text" class="form-control" id="inputZip">
   </div>
 </div>
-  <div class="mb-3 h-100">
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control h-100 w-75" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <div class="mb-3 h-100" >
+    <label for="description" class="form-label">description article</label>
+    <textarea class="form-control h-100 w-75" id="description" formControlName="description" rows="6"></textarea>
+    <div  *ngIf="addartical.get('description')?.touched && addartical.get('description')?.invalid">
+      <span class="text-danger" *ngIf="addartical.get('description')?.errors?.['required']">Please enter a description</span>
+    </div>
   </div>
+  <div>
+    <input id="input-2" (change)="readURL($event)" name="upload" id="fileimages" formControlName="fileimages" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple>
+    <div class="show-images">
+      <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150" alt="your image" />
+    </div>
+  </div>
+  <input id="input-1" name="submit" value="Add Article" type="submit" class="submit mt-4 btn btn-dark" >
 </div>
-<input id="input-2" name="input2[]" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple>
+</form>
