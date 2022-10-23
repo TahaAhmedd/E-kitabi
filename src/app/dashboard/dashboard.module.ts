@@ -12,17 +12,17 @@ import { AddBookeComponent } from './component/add-booke/add-booke.component';
 import { BookeCategoryComponent } from './component/booke-category/booke-category.component';
 import { AddCategoryComponent } from './component/add-category/add-category.component';
 import { LoginComponent } from '../login/login.component';
+import { AuthAdminGuard } from '../GArd/auth-admin.guard';
 import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
 let routes: Routes =[
-
-   { path: 'login', component:LoginComponent}//dashboard/home
-  , { path: 'card', component:CardComponent}//dashboard/home
-  , { path: 'list', component:ListBookeComponent}   //dashboard/list
-  , { path: 'allartical',component :ListUserComponent }
-  , { path: 'Editaccount',component :AccontingComponent}
-  , { path: 'addartical',component :AddArticalComponent}
-  , { path: 'addBooke',component :AddBookeComponent}
-  , { path: 'Allcategorey',component :BookeCategoryComponent}
+    { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
+  , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
+  , { path: 'list', component:ListBookeComponent ,canActivate:[AuthAdminGuard]}   //dashboard/list
+  , { path: 'allartical',component :ListUserComponent ,canActivate:[AuthAdminGuard]}
+  , { path: 'Editaccount',component :AccontingComponent ,canActivate:[AuthAdminGuard]}
+  , { path: 'addartical',component :AddArticalComponent ,canActivate:[AuthAdminGuard]}
+  , { path: 'addBooke',component :AddBookeComponent ,canActivate:[AuthAdminGuard]}
+  , { path: 'Allcategorey',component :BookeCategoryComponent ,canActivate:[AuthAdminGuard]}
 ]
 
 

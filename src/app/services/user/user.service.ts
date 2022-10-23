@@ -1,16 +1,28 @@
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { observable, Observable } from 'rxjs';
-
+import { BehaviorSubject, observable, Observable, Subject } from 'rxjs';
+import { PathUrl } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  // loginuser:Observable<string>
-  constructor(private httb:HttpClient) { 
-    // this.loginuser = new Observable<string>
-  }
- 
+   private  isloginuser !:BehaviorSubject<boolean>
+  constructor(private http:HttpClient) { 
+    this.isloginuser=new BehaviorSubject<boolean>(this.IsUserloged)
+   }
+
+    login(DAta: any):Observable<any>
+    { 
+        return  this.http.post(`https://fake-login-api-production.up.railway.app/api/auth/login`,DAta) 
+    };
+    Logout ()
+    {
+      localStorage.removeItem('token'); 
+    };
+     get IsUserloged():boolean
+     {
+       return (localStorage.getItem('token')!=null)? true: false
+     }
   // getUser(user:userlogin){
   //   console.log(user)
   //   let optios = {
@@ -23,6 +35,9 @@ export class UserService {
   }
 
 // }
+
+
+
 interface userlogin{
   Email:string;
   Password:string
