@@ -4,7 +4,6 @@ import { dMainComponent } from './dashboard/component/main/main.component';
 import { uMainComponent } from './user/main/main.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
-
 const routes: Routes = [
   {path:'',redirectTo:"user/home",pathMatch:'full'},
 
