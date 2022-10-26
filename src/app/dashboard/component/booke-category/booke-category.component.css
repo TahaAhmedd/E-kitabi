@@ -15,59 +15,81 @@
 }
 .cardHeadr h2{
     font-weight:600;
-    color: #FFC090;
+    color: #000;
 }
-.btn{
+/* .btn{
     position: relative;
     padding:5px 10px ;
     background: #FFC090;
     text-decoration: none;
     border-radius: 6px;
+} */
+
+.resentOrder table thead td {
+padding: 20px;
+margin-bottom: 20px;
 }
 .resentOrder table thead td{
  
 font-weight: 600;
 }
 .resentOrder table tbody tr {
- 
-color: #FFC090  ;
-border-bottom: 1px solid rgba(0,0,0,0.1); 
+    border-radius: 20px;
+    margin-bottom: 2px;
+color: #000000  ;
+padding: 10px;
+/* border-bottom: 1px solid rgba(0,0,0,0.1);  */
+
+ }
+ .dis{
+
+    padding: 10px;
  }
  .dis p{
     white-space: nowrap; 
     width: 30ch !important; 
     overflow: hidden !important;
     text-overflow: ellipsis !important; 
+    color: #000;
+
+ }
+ 
+ .resentOrder table tbody tr{
+    transition: all 0.5s ease-in-out ;
+    border-radius: 20px;
+padding: 20px;
  }
  .resentOrder table tbody tr:hover {
-    background: #FFC090;
+    background: #bcc2c5;
+    border-radius: 200px !important;
     color: aliceblue;
+    transition: all 0.5s ease-in-out ;
+
  }
- .status.delivered{
-  padding: 2px 4px;
-  background: greenyellow;
-  color:aliceblue ;
-  font-size: 14px;
-  font-weight: 500; 
+ .addcat{
+    background-color: #0d6efd;
+    color: #fff;
+    transition: all 0.5s ease-in-out ;
+
  }
- .status.pending{
-    padding: 2px 4px;
-    background:yellow;
-    color:aliceblue ;
-    font-size: 14px;
-    font-weight: 500; 
-   }
-   .status.return{
-    padding: 2px 4px;
-    background:red;
-    color:aliceblue ;
-    font-size: 14px;
-    font-weight: 500; 
-   }
-   .status.inprogress{
-    padding: 2px 4px;
-    background:dodgerblue;
-    color:aliceblue ;
-    font-size: 14px;
-    font-weight: 500; 
-   }
+.addcat:hover{
+    outline: #0d6efd solid 1px;
+    background-color: #fff;
+
+    outline-offset: 30px #0d6efd;
+    box-shadow: #0d6efd -2px 2px 10px;
+    transition: all 0.5s ease-in-out ;
+color: #0d6efd !important;
+}
+.btn-danger:hover{
+
+    box-shadow: #dc3545 -2px 2px 10px;
+    transition: all 0.5s ease-in-out ;
+    color: black;
+}
+.btn-primary:hover{
+
+    box-shadow: #0d6efd -2px 2px 10px;
+    transition: all 0.5s ease-in-out ;
+color: #000; 
+}

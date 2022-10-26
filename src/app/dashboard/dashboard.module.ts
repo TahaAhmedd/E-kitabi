@@ -13,7 +13,7 @@ import { BookeCategoryComponent } from './component/booke-category/booke-categor
 import { AddCategoryComponent } from './component/add-category/add-category.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthAdminGuard } from '../GArd/auth-admin.guard';
-
+import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
 let routes: Routes =[
     { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
   , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
@@ -36,12 +36,15 @@ let routes: Routes =[
     dMainComponent,
     BookeCategoryComponent,
     AddCategoryComponent,
-
+    AddArticalComponent
+    
     // MatPaginatorModule
   ],
   imports: [
+    ReactiveFormsModule,
   SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule ,
   ],
   exports:[
     RouterModule
