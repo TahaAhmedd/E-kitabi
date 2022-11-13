@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Routes } from '@angular/router';
+import { UserService } from './../../../services/user/user.service';
 
 @Component({
   selector: 'app-sidbar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Routes:Router
+             ,private AuthServes:UserService ) { }
 
   ngOnInit(): void {
   }
+  logout()
+  {
+    this.AuthServes.Logout();
+    this.Routes.navigateByUrl('/login')
 
+  }
 }
