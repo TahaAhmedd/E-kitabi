@@ -69,6 +69,7 @@ a{
   main .container .right-sec .search-btn input {
     border: none;
     padding: 5px 0;
+    padding-left: 10px;
   }
   main .container .right-sec .search-btn input:focus {
     outline: none;
@@ -87,10 +88,11 @@ a{
     height: auto;
   }
   main .container .right-sec .recent-post .post .content-post {
-    margin-left: 15px;
+    margin-left: 11px;
   }
   main .container .right-sec .recent-post .post .content-post h4 {
     margin-bottom: 8px;
+    font-size: 15px;
   }
   main .container .right-sec .recent-post .post .content-post h4 a {
     color: #000;
@@ -123,12 +125,20 @@ a{
   main .container .left-sec .post:not(:last-child) {
     margin-bottom: 20px;
   }
-  main .container .left-sec .post img {
-    width: 400px;
-    height: auto;
+  main .container .left-sec .post .box_image {
+    width: 215px;
+    height: 300px;
+    margin: auto;
+  }
+  main .container .left-sec .post .box_image img {
+    height: 100%;
+    width: 100%;
+    border: 2px solid #b93f0b;
+
   }
   main .container .left-sec .post .content-post h1 a {
     color: #000;
+    font-size: 25px;
     transition: all 0.3s;
   }
   main .container .left-sec .post .content-post h1 a:hover {
@@ -149,12 +159,13 @@ a{
   }
   main .container .left-sec .post .content-post h5 a {
     color: #000;
+    font-size: 17px;
     transition: all 0.3s;
   }
   
   main .container .left-sec .post .content-post h5 a:hover {
     color: #b93f0b;
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
     transition: all 0.3s;
   }
   

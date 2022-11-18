@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticlesService } from 'src/app/services/articles/articles.service';
 
 @Component({
   selector: 'app-ar-details',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArDetailsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  // This Var Use In Fetch Data In Html File
+  articles: any
+
+  // Enjection Services 
+  constructor(private serv:ArticlesService) { }
+
+  ngOnInit() {
+
+    this.serv.getArticles().subscribe(response => {
+      this.articles = response;
+
+
+      // Use Test 
+      console.log(response)
+    });
+
+
+    
+  
   }
-
+  
 }
