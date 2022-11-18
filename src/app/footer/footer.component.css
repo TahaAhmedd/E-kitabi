@@ -39,7 +39,12 @@ footer .ficon li i {
 footer .ficon li i:hover {
     color: #ce7852;
 }
-
+footer .flist li {
+    border-right: 1px solid #9996;
+}
+footer .flist li:first-of-type {
+    border-left: 1px solid #9996;
+}
 footer .flist li a {
     padding: 20px 15px;
     font-weight: 400;
