@@ -1,13 +1,46 @@
-/* Start Catigoris */
+.images-nav {
+    background-image: url(../../../assets/Articals/NewsNav.jpg) ;
+    background-size: cover;
+    background-attachment: fixed;
+  
+    height: 60vh;
+    display: block;
+    color: #fff;
+    margin-bottom: 70px;
+  }
+  .images-nav .header {
+    top: 90px;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 60vh;
+    width: 100% !important;
+  }
+  .images-nav h1 {
+    color: #fff;
+    position: relative;
+    top: 40%;
+    text-align: center;
+    
+  }
+  .images-nav h1::first-letter{
+    color: #ce7852;
+  }
 
+/* Start Catigoris */
+.title_cat{
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+.title_cat span{
+    color: #ce7852;
+}
 .parent{
-    margin-top: 150px;
+    margin-top: 50px;
     margin-bottom: 60px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
+    justify-content: center;
+    align-items: center;
     gap: 50px;
     row-gap: 10px;
 }
@@ -44,7 +77,6 @@
 }
 .parent .child a .box:hover .box_title{
     background-color: #ce7852;
-    /* color: #fff; */
 }
 .parent .child a .box:hover .box_title h5{
     color: #fff;
@@ -63,4 +95,28 @@
 .box .box_title h5{
     font-size: 20px;
     color: #ce7852;
+}
+
+
+/* media query */
+
+@media (max-width:1199px) {
+    .child{
+        width: 40%;
+    }
+}
+@media (max-width:767px) {
+    .parent{
+        flex-direction: column;
+    }
+    .child{
+        width: 60%;
+        height: 270px;
+    }
+}
+@media (max-width:450px) {
+    .child{
+        width: 70%;
+    }
+    
 }
