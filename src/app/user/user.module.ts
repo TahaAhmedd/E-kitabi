@@ -13,6 +13,8 @@ import { uMainComponent } from './main/main.component';
 import { NavparComponent } from '../navpar/navpar.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { PolicyComponent } from './policy/policy.component';
+import { PreviewComponent } from './preview/preview.component';
 
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
@@ -22,6 +24,8 @@ let routes : Routes =[
   {path:'download', component:DownloadBookComponent},
   {path:'aboutus', component:AboutusComponent},
   {path:'contactus', component:ContactusComponent},
+  {path:'policy', component:PolicyComponent},
+  {path:"preview",component:PreviewComponent}
 ]
 
 @NgModule({
@@ -38,6 +42,9 @@ let routes : Routes =[
     SomebookComponent,
     AboutusComponent,
     ContactusComponent,
+    PolicyComponent,
+    PreviewComponent,
+    
   ],
   imports: [
   SharedModule,

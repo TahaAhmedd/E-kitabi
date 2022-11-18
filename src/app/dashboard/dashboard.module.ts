@@ -17,14 +17,14 @@ import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
 import { AddNewAdminComponent } from './component/add-new-admin/add-new-admin.component';
 let routes: Routes =[
     { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
-  , { path: 'card', component:CardComponent ,}//dashboard/home
-  , { path: 'list', component:ListBookeComponent ,}   //dashboard/list
-  , { path: 'allartical',component :ListUserComponent }
-  , { path: 'Editaccount',component :AccontingComponent}
-  , { path: 'addartical',component :AddArticalComponent }
-  , { path: 'addBooke',component :AddBookeComponent }
-  , { path: 'Allcategorey',component :BookeCategoryComponent }
-  ,{path:'addnewadmin',component:AddNewAdminComponent}
+    , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
+    , { path: 'list', component:ListBookeComponent ,canActivate:[AuthAdminGuard]}   //dashboard/list
+    , { path: 'allartical',component :ListUserComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'Editaccount',component :AccontingComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'addartical',component :AddArticalComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'addBooke',component :AddBookeComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'Allcategorey',component :BookeCategoryComponent ,canActivate:[AuthAdminGuard]}
+  ,{path:'addnewadmin',component:AddNewAdminComponent,canActivate:[AuthAdminGuard]}
 ]
 
 
