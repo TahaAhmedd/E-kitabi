@@ -11,8 +11,8 @@ nav {
   width: 100%;
   z-index: 100000;
   top: 0;
-  background-color: #e8eae9 !important;
- box-shadow: 0 0  7px #000;
+  background-color: #ffffffeb ;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
  
 
@@ -25,6 +25,9 @@ nav  .text {
 nav .text li {
   margin-right: 10px;
   position: relative;
+}
+nav  .text li a{
+  width: fit-content;
 }
 nav  .text li a::before {
   position: absolute;
@@ -42,8 +45,7 @@ nav  .text li a:hover::before {
 nav  .text li a {
   color: #000;
   font-weight: 600;
-  font-size: 16px;
-
+  font-size: 18px;
   transition: all 0.5s;
 }
 
@@ -57,6 +59,9 @@ nav  .icons {
 
 nav  .icons li {
   padding: 10px;
+}
+nav ul li i{
+  font-size: larger;
 }
 nav  .icons .print {
   position: relative;
@@ -93,6 +98,8 @@ nav  .nav-respons i{
 .nav-link{
   display: inline-block;
 }
-
+.active{
+  color: #b93f0b !important;
+}
 /* End Nav */
 
