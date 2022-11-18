@@ -10,13 +10,20 @@ export class AddArticalComponent implements OnInit {
   addartical!: FormGroup;
   imageSrc: any ;
   imagearr:any=[];
+  Input:any[] = [{ zip: '' }]
+  addInput(){
+    this.Input.push({
+     zip:''
+    });
+  }
   constructor(private router:Router) {
     this.addartical = new FormGroup({
       category: new FormControl("", [Validators.required]),
       articlename: new FormControl("", [Validators.required,Validators.minLength(5)]),
       linkarticle: new FormControl("", [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]),
       description: new FormControl("", [Validators.required]),
-      file: new FormControl("", [Validators.required])
+      file: new FormControl("", [Validators.required]),
+      // zip: new FormControl("", [Validators.required]),
   })
    }
 

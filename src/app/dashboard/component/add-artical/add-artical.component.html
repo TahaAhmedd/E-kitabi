@@ -33,53 +33,26 @@
     </div>
   </div>
   <label class="col-3  addArtNa" for="keywords">Add KeyWords:</label>
-  <div class="row border border-2 m-2 col-9 p-2" id="keywords" formControlName="keywords">
-   
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
+  <button (click)="addInput()" style="position: relative; left: 370px;">Add keyword</button>
+  <div class="row border border-2 m-2 col-9 p-2" id="keywords" formControlName="keywords" >
 
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-   <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
+  <div class="form-group col-md-2"  *ngFor="let item of Input; let i = index;">
+    <label for="inputZip">{{i+1}}</label>
+    <input type="text" class="form-control" id="inputZip"  [(ngModel)]="item.zip">
   </div>
 </div>
-  <div class="mb-3 h-100" >
+  <div class="mb-3" >
     <label for="description" class="form-label mt-2 addArtNa">Description Article</label>
     <textarea class="form-control h-25 w-75 mt-4" id="description" formControlName="description" rows="6"></textarea>
     <div  *ngIf="addartical.get('description')?.touched && addartical.get('description')?.invalid">
       <span class="text-danger" *ngIf="addartical.get('description')?.errors?.['required']">Please enter a description</span>
     </div>
   </div>
-  <div class="contImg">
-    <input id="input-2" (change)="readURL($event)" name="upload" id="fileimages" formControlName="fileimages" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple>
+  <div class="contImg ">
+    <!-- <label for="input-2" class="md-button md-raised md-primary">Upload <i class="fa-solid fa-upload"></i></label> -->
+   
+
+    <input  id="input-2" (change)="readURL($event)" name="upload" id="fileimages" formControlName="fileimages" type="file" class="file "  data-show-upload="false" data-show-caption="true" multiple>
     <div class="show-images">
       <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150" alt="your image" />
     </div>

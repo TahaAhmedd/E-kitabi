@@ -8,5 +8,15 @@
     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Please Add Some Description About Book .... " rows="3"></textarea>
   </div>
+  <div class="contImg"  style="margin-top:20px">
+    <!-- <label for="input-2" class="md-button md-raised md-primary"> <i class="fa-solid fa-upload"></i></label> -->
+   
+
+    <input  id="input-2" (change)="readURL($event)" name="upload" id="fileimages" formControlName="fileimages" type="file" class="file "  data-show-upload="false" data-show-caption="true" multiple>
+    <div class="show-images">
+      <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150" alt="your image" />
+    </div>
+    <input id="input-1" name="submit" value="Add Article" type="submit" class="submit mb-5 mt-4 btn btn-dark" >
+  </div>
   <button type="submit" class="btn btn-primary butt">Add</button>
 </div>
