@@ -14,15 +14,17 @@ import { AddCategoryComponent } from './component/add-category/add-category.comp
 import { LoginComponent } from '../login/login.component';
 import { AuthAdminGuard } from '../GArd/auth-admin.guard';
 import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
+import { AddNewAdminComponent } from './component/add-new-admin/add-new-admin.component';
 let routes: Routes =[
     { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
-  , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
-  , { path: 'list', component:ListBookeComponent ,canActivate:[AuthAdminGuard]}   //dashboard/list
-  , { path: 'allartical',component :ListUserComponent ,canActivate:[AuthAdminGuard]}
-  , { path: 'Editaccount',component :AccontingComponent ,canActivate:[AuthAdminGuard]}
-  , { path: 'addartical',component :AddArticalComponent ,canActivate:[AuthAdminGuard]}
-  , { path: 'addBooke',component :AddBookeComponent ,canActivate:[AuthAdminGuard]}
-  , { path: 'Allcategorey',component :BookeCategoryComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
+    , { path: 'list', component:ListBookeComponent ,canActivate:[AuthAdminGuard]}   //dashboard/list
+    , { path: 'allartical',component :ListUserComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'Editaccount',component :AccontingComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'addartical',component :AddArticalComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'addBooke',component :AddBookeComponent ,canActivate:[AuthAdminGuard]}
+    , { path: 'Allcategorey',component :BookeCategoryComponent ,canActivate:[AuthAdminGuard]}
+  ,{path:'addnewadmin',component:AddNewAdminComponent,canActivate:[AuthAdminGuard]}
 ]
 
 
@@ -36,7 +38,8 @@ let routes: Routes =[
     dMainComponent,
     BookeCategoryComponent,
     AddCategoryComponent,
-    AddArticalComponent
+    AddArticalComponent,
+    AddNewAdminComponent
     
     // MatPaginatorModule
   ],

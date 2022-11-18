@@ -5,17 +5,22 @@
     /* min-height: 10px; */
     display: grid;
     padding: 20px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0,0.08);
+    box-shadow: 0px 7px 25px rgba(0, 0, 0,0.08);
     border-radius: 20px;
+    margin-top: 80px;
+    margin-right: 50px;
 }
 .cardHeadr{
     display: flex;
     justify-content: space-between;
     align-items:flex-start;
+    margin-bottom: 10px;
+    border-left: 3px solid #119DA4;
+    padding-left: 30px;
 }
 .cardHeadr h2{
     font-weight:600;
-    color: #FFC090;
+   color: #251101;
 }
 .btn{
     position: relative;
@@ -25,13 +30,24 @@
     border-radius: 6px;
 }
 .resentOrder table thead td{
- 
-font-weight: 600;
+    font-weight: 600;
+    padding-left: 20px;
+    margin-top: 10px;
+    padding-bottom: 20px; 
 }
 .resentOrder table tbody tr {
+color: #0077b6  ;
+padding: 10px;
+border-bottom: 1px solid #0077b6; 
+transition: all 0.2s ease-in-out;
  
-color: #FFC090  ;
-border-bottom: 1px solid rgba(0,0,0,0.1); 
+}
+ .delete:hover{
+    box-shadow: 0.5px 0.5px  5px #ff0e0e;
+ }
+ .upadte:hover{
+    box-shadow: 0.5px 0.5px 5px #009dff;
+
  }
  .dis p{
     white-space: nowrap; 
@@ -40,34 +56,19 @@ border-bottom: 1px solid rgba(0,0,0,0.1);
     text-overflow: ellipsis !important; 
  }
  .resentOrder table tbody tr:hover {
-    background: #FFC090;
-    color: aliceblue;
+    background: #119da476;
+    color: #070707;
+    transition: all 0.5s ease-in-out;
+    
+}
+.resentOrder table tbody td {
+    padding: 10px;
+    padding-top: 10px;
+
+
  }
- .status.delivered{
-  padding: 2px 4px;
-  background: greenyellow;
-  color:aliceblue ;
-  font-size: 14px;
-  font-weight: 500; 
+.resentOrder table tbody td:hover {
+    
+    padding: 10px;
+
  }
- .status.pending{
-    padding: 2px 4px;
-    background:yellow;
-    color:aliceblue ;
-    font-size: 14px;
-    font-weight: 500; 
-   }
-   .status.return{
-    padding: 2px 4px;
-    background:red;
-    color:aliceblue ;
-    font-size: 14px;
-    font-weight: 500; 
-   }
-   .status.inprogress{
-    padding: 2px 4px;
-    background:dodgerblue;
-    color:aliceblue ;
-    font-size: 14px;
-    font-weight: 500; 
-   }
