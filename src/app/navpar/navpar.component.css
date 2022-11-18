@@ -1,16 +1,9 @@
 
 /* @import url(./defualt.css); */
-a {
-    text-decoration: none !important;
-  }
-  ul {
-    list-style-type: none;
-    display: inline-block;
-  }
+
+ 
   
-  ul li {
-    display: inline-block;
-  }
+
 /* Start Header */
 
 nav {
@@ -18,22 +11,22 @@ nav {
   width: 100%;
   z-index: 100000;
   top: 0;
-  background-color: #fff;
+  background-color: #e8eae9 !important;
  box-shadow: 0 0  7px #000;
 }
  
 
 nav  .text {
   text-transform: capitalize;
-  /* font-size: 25px; */
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  margin-left: auto;
 }
 
 nav .text li {
   margin-right: 10px;
   position: relative;
 }
-nav  .text li::before {
+nav  .text li a::before {
   position: absolute;
   content: "";
   bottom: 0;
@@ -43,7 +36,7 @@ nav  .text li::before {
   height: 2px;
   transition: all 0.5s;
 }
-nav  .text li:hover::before {
+nav  .text li a:hover::before {
   width: 100%;
 }
 nav  .text li a {
@@ -91,13 +84,14 @@ nav  .icons li i {
 nav  .icons li i:hover {
   color: #ce7852;
 }
-nav  .nav-respons{
-    display: none;
-}
+
 nav  .nav-respons i{
   color: #000;
   font-size: 20px;
   margin-left: 20px;
+}
+.nav-link{
+  display: inline-block;
 }
 
 /* End Nav */

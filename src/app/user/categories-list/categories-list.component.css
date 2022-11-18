@@ -1,4 +1,9 @@
 /* Start Header */
+.container_books{
+    width: 80%;
+    margin: 0 auto;
+}
+
 .bodylist {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -59,6 +64,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .bodylist .all .leftcontent .content .two li {
@@ -198,19 +204,20 @@
     padding: 5px 0;
 }
 
-.bodylist .all .rightcontent .head .lefticon i {
+/* .bodylist .all .rightcontent .head .lefticon i {
     border: 1px solid #99999963;
     padding: 10px;
     cursor: pointer;
     transition: all .5s;
-}
+} */
 .bodylist .all .rightcontent .head .ssort {
-    padding: 4px 5px;
+    padding: 4px 10px;
     cursor: pointer;
     background-color: #888;
     color: #fff;
     border: none;
     transition: all .5s;
+    margin: 0 5px;
 }
 .bodylist .all .rightcontent .head .ssort:hover {
     background-color: #ce7852;
@@ -261,14 +268,14 @@
     text-transform: capitalize;
 }
 
-.bodylist .all .rightcontent .head .rightsort select {
+.bodylist .all .rightcontent .head .leftSort select {
     padding: 5px 10px;
     cursor: pointer;
     outline: none;
-    border: none;
+    border: 1px solid #333;
 
 }
-.bodylist .all .rightcontent .head .rightsort .op
+.bodylist .all .rightcontent .head .leftSort .op
 {
     text-transform: uppercase;
     
@@ -287,7 +294,7 @@
 }
 
 .bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg img {
-    width: 100%;
+    width: 100% ;
 }
 
 .bodylist .all .rightcontent .appcontentbody .childcontentbody .righttext {
@@ -295,11 +302,19 @@
 }
 
 .appcontentbody .childcontentbody .righttext h2 {
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: bold;
     margin-bottom: 5px;
     color: #555;
 }
+.appcontentbody .childcontentbody .righttext p {
+    margin: 0 !important;
 
+}
+.appcontentbody .childcontentbody .righttext .star{
+    margin: 8px 0;
+    padding: 0 !important;
+}
 .appcontentbody .childcontentbody .righttext ul {
     margin-bottom: 5px;
 }
@@ -310,11 +325,13 @@
 
 .appcontentbody .childcontentbody .righttext ul li i {
     cursor: pointer;
-    transition: all .5s;
+    margin: 0 2px;
+    transition: all .3s;
 }
 
 .appcontentbody .childcontentbody .righttext ul li i:hover {
     color: #ce7852;
+    font-size: 18px;
 }
 
 .appcontentbody .childcontentbody .righttext h4 {
@@ -322,6 +339,7 @@
     color: #ce7852;
     font-size: 13px;
     text-transform: capitalize;
+    margin: 8px 0;
 }
 
 .appcontentbody .childcontentbody .righttext h4 span {
@@ -332,7 +350,8 @@
 .appcontentbody .childcontentbody .righttext h5 {
     color: #ce7852;
     margin-bottom: 10px;
-
+    font-size:small;
+    margin: 8px 0;
 }
 .appcontentbody .childcontentbody .righttext h5 span {
     margin-left: 30px;
@@ -341,9 +360,8 @@
 }
 .appcontentbody .childcontentbody .righttext p {
     color: #555;
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 20px;
-    width: 50ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -353,7 +371,7 @@
     background-color: #000;
     color: #fff;
     padding: 4px 8px;
-    font-size: 12px;
+    font-size: 14px;
     margin-right: 25px;
     letter-spacing: 0.5px;
     cursor: pointer;
@@ -368,6 +386,8 @@
 .appcontentbody .childcontentbody .righttext .twoicon {
     font-size: 20px;
     color: #555;
+    display: inline-block;
+    
 }
 
 .appcontentbody .childcontentbody .righttext .twoicon i:first-of-type {
@@ -384,4 +404,60 @@
 .appcontentbody .childcontentbody .righttext .twoicon i:first-of-type:hover,
 .appcontentbody .childcontentbody .righttext .twoicon i:last-of-type:hover {
     color: #ce7852;
+}
+
+/* --------------Media ------------ */
+@media screen and (max-width:1000px){
+    .bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg{
+        width: auto;
+    }
+}
+@media screen and (max-width:768px) {
+    .all{
+        flex-direction: column-reverse;
+    }
+    .leftcontent{
+        width: 100% !important;
+    }
+    .rightcontent{
+        width: 100% !important;
+    }
+    .bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg{
+        width: 24%;
+    }
+}
+
+@media screen and (max-width:520px){
+    .content{
+        margin: 0 auto;
+    }
+    .bodylist .all .leftcontent h3{
+        text-align: center;
+    }
+    .leftSort select{
+        font-size: 12px;
+    }
+    .bodylist .all .rightcontent .appcontentbody .childcontentbody{
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+    }
+    .bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg{
+        width: auto;
+    }
+    .bodylist .all .rightcontent .appcontentbody .childcontentbody .righttext{
+        width: auto;
+    }
+    .bodylist .all .leftcontent h3{
+        font-size: 20px;
+    }
+    .appcontentbody .childcontentbody .righttext h5{
+        font-size: small;
+    }
+}
+
+@media screen and (max-width:375px){
+    .leftSort select{
+        width: 100px;
+    }
 }
