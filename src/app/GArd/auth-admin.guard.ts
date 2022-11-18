@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import {
+  ActivatedRoute,
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AppRoutingModule } from '../app-routing.module';
 import { UserService } from './../services/user/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthAdminGuard implements CanActivate {
-  constructor(private AuthServes: UserService) {}
+  constructor(private AuthServes: UserService , private router:Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -24,7 +27,7 @@ export class AuthAdminGuard implements CanActivate {
     if (this.AuthServes.IsUserloged) {
         return true;
     } else {
-      return false;
+      return this.router.navigate(["dashboard/login"])
     }
   }
 }
