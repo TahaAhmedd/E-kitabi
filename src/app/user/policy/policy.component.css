@@ -1,0 +1,28 @@
+.parent {
+    padding-top: 50px;
+}
+
+h3 {
+    font-weight: bold;
+    padding-top: 40px;
+    position: relative;
+}
+
+h3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 70px;
+    background-color: #888;
+}
+
+p {
+    color: #888;
+}
+
+ul li {
+    color: #888;
+}
+
