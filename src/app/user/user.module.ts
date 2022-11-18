@@ -25,7 +25,8 @@ let routes : Routes =[
   {path:'aboutus', component:AboutusComponent},
   {path:'contactus', component:ContactusComponent},
   {path:'policy', component:PolicyComponent},
-  {path:"preview",component:PreviewComponent}
+  {path:"preview",component:PreviewComponent},
+
 ]
 
 @NgModule({

@@ -1,10 +1,12 @@
 .newPrudect {
-
     padding-top: 60px;
-
-
 }
-
+.newBook_card{
+    transition: all 0.5s;
+}
+.newBook_card:hover{
+    transform: translateY(-5px);
+}
 .newPrudect .des {
     text-align: center;
 }
