@@ -11,6 +11,12 @@ export class AddArticalComponent implements OnInit {
   addartical!: FormGroup;
   imageSrc: any ;
   imagearr:any=[];
+  Input:any[] = [{ zip: '' }]
+  addInput(){
+    this.Input.push({
+     zip:''
+    });
+  }
   constructor(private router:Router,private serv:ArticlesService) {
     this.addartical = new FormGroup({
       categoryName: new FormControl("", [Validators.required]),
