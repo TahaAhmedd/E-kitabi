@@ -1,6 +1,7 @@
 /* Start Our Blog */
 .blog {
     padding-top: 50px;
+    background-color: #eee;
 }
 .blog .des {
     text-align: center;
@@ -16,10 +17,16 @@
 }
 .card_blog .card {
     margin-bottom: 30px;
+    box-shadow: 0 5px 15px #5555551a;
+    border: none;
+}
+.card_blog .card .card-body{
+    padding: 40px;
 }
 .card_blog .card .card-body h5 {
     padding-bottom: 10px;
     border-bottom: 1px solid #EEE;
+    
 }
 .card_blog .card .card-body p {
     color: #555;
