@@ -40,35 +40,9 @@
     <input type="text" class="form-control" id="keywords" formControlName="keywords">
   </div>
 
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-   <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputZip">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
+  <div class="form-group col-md-2"  *ngFor="let item of Input; let i = index;">
+    <label for="inputZip">{{i+1}}</label>
+    <input type="text" class="form-control" id="inputZip"  [(ngModel)]="item.zip">
   </div>
 </div>
   <div class="mb-3 h-100" >
