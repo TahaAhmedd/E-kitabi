@@ -1,4 +1,6 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { BookService } from 'src/app/services/books/book.service';
 
 @Component({
   selector: 'app-list-booke',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-booke.component.css']
 })
 export class ListBookeComponent implements OnInit {
-
-  constructor() { }
+   arrBook :any=[]
+  constructor(private httpServes:BookService) { }
 
   ngOnInit(): void {
+  this.arrBook=this.getdata()
   }
-
+  getdata()
+  {
+   return  this.httpServes.getAllBooks()
+    // console.log(this.arrBook);
+    
+  }
 }

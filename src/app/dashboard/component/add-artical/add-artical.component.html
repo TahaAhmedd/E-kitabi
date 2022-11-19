@@ -33,12 +33,13 @@
     </div>
   </div>
   <label class="col-3  addArtNa" for="keywords">Add KeyWords:</label>
+  <button (click)="addInput()" style="position: relative; left: 370px;">Add keyword</button>
   <div class="row border border-2 m-2 col-9 p-2" id="keywords" formControlName="keywords">
    
-  <div class="form-group col-md-2">
+  <!-- <div class="form-group col-md-2">
     <label for="keywords">Zip</label>
     <input type="text" class="form-control" id="keywords" formControlName="keywords">
-  </div>
+  </div> -->
 
   <div class="form-group col-md-2"  *ngFor="let item of Input; let i = index;">
     <label for="inputZip">{{i+1}}</label>
