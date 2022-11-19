@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ArticlesService } from 'src/app/services/articles/articles.service';
 @Component({
   selector: 'app-add-artical',
   templateUrl: './add-artical.component.html',
@@ -10,13 +11,14 @@ export class AddArticalComponent implements OnInit {
   addartical!: FormGroup;
   imageSrc: any ;
   imagearr:any=[];
-  constructor(private router:Router) {
+  constructor(private router:Router,private serv:ArticlesService) {
     this.addartical = new FormGroup({
-      category: new FormControl("", [Validators.required]),
-      articlename: new FormControl("", [Validators.required,Validators.minLength(5)]),
-      linkarticle: new FormControl("", [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]),
-      description: new FormControl("", [Validators.required]),
-      file: new FormControl("", [Validators.required])
+      categoryName: new FormControl("", [Validators.required]),
+      title: new FormControl("", [Validators.required,Validators.minLength(5)]),
+      links: new FormControl("", [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]),
+      text: new FormControl("", [Validators.required]),
+      keywords: new FormControl("", [Validators.required]),
+      cover: new FormControl("", [Validators.required])
   })
    }
 
@@ -25,8 +27,15 @@ export class AddArticalComponent implements OnInit {
   
 AddArticle(){
   
-    this.router.navigateByUrl('articles/details');
-  
+    // this.router.navigateByUrl('articles/details');
+    // console.log(this.addartical.value)
+
+
+
+    this.serv.addArticles(this.addartical.value).subscribe((d) => {
+
+      console.log(d)
+    })
 }
 // show images uploads
 readURL(event:any) {
