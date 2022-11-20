@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PathApi:"http://localhost:4000"
 };
 export const PathUrl=" https://fake-login-api-production.up.railway.app"
-export const PathApi="http://localhost:4000"
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
