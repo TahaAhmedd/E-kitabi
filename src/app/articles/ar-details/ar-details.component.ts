@@ -22,7 +22,7 @@ export class ArDetailsComponent implements OnInit {
 
 
       // Use Test 
-      console.log(response)
+      console.log(this.articles.data)
     });
 
 
