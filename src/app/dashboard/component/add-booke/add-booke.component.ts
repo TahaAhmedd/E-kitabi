@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import { FormGroup, FormControl, Validators ,ReactiveFormsModule  } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/services/books/book.service';
 @Component({
   selector: 'app-add-booke',
@@ -9,44 +10,74 @@ import { BookService } from 'src/app/services/books/book.service';
 })
 export class AddBookeComponent implements OnInit {
   addBook!: FormGroup;
-  imageSrc: any ;
-  imagearr:any=[];
- private imageaObj:any= []
+  imageSrc: any;
+  imagearr: any = [];
+  private imageaObj: any = []
 
-  constructor(private router:Router 
-    ,private httServes:BookService
-   ) {
+  constructor(private router: Router
+    , private httServes: BookService,
+    private tost: ToastrService
+  ) {
     this.addBook = new FormGroup({
-      bookName: new FormControl("", [Validators.required]),
-      Description: new FormControl("", [Validators.required,Validators.minLength(5)]),
-      fileimages: new FormControl("", [Validators.required]),
-      filebook: new FormControl("", [Validators.required]),
-  })
-   }
-  readURL(event:any) {
-    if (event.target.files && event.target.files[0]) {
-        const file = event.target.files;
-  for (var i = 0; i < file.length; i++) {
-    const reader = new FileReader();
-    reader.onload = e => this.imagearr.push(e.target!.result);
-    reader.readAsDataURL(file[i]);
-    
-    
+      title: new FormControl("", [Validators.required]),
+      description: new FormControl("", [Validators.required]),
+      bookImage: new FormControl("", [Validators.required]),
+      bookFile: new FormControl("", [Validators.required]),
+      keywords: new FormControl("", [Validators.required]),
+      categoryName: new FormControl("test", [Validators.required]),
+      fileSource: new FormControl(null),
+      imageSource: new FormControl(null)
+    })
   }
- 
-        
+  readURL(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const files = event.target.files;
+      const file = event.target.files[0]
+      this.addBook.patchValue({
+        imageSource:file
+      })
+      for (var i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = e => this.imagearr.push(e.target!.result);
+        reader.readAsDataURL(files[i]);
+
       }
+    }
+  }
+  fileChange(e: any){
+    // console.log(e.target.files)
+    if(e.target.files.length > 0){
+      const file = e.target.files[0];
+      this.addBook.patchValue({
+        fileSource: file
+      })
+    }
   }
   ngOnInit(): void {
   }
-  addBookData()
-  {
-   const data={ data:this.addBook.value}
-    this.imageaObj.push(this.addBook.value.filebook)
-    this.imageaObj.push(this.addBook.value.fileimages)
-     const sendData=data.data
-     
- this.httServes.postBook(sendData)
-}
+  addBookData() {
+    console.log(this.addBook.value)
+    const formData = new FormData()
+    formData.append("title",this.addBook.get("title").value)
+    formData.append("description", this.addBook.get("description").value)
+    formData.append("categoryName","test")
+    formData.append("keywords","")
+    formData.append("bookFile",this.addBook.get("fileSource").value)
+    formData.append("bookImage",this.addBook.get("imageSource").value)
+
+    this.httServes.postBook(formData).subscribe({
+      next:(value)=> {
+        this.tost.success("The Book is Added Succesfuly","",{
+          positionClass:"toast-bottom-right",
+          progressBar:true,
+          
+        })
+        // location.reload()
+      },
+      error(err) {
+        console.log(err)
+      },
+    })
+  }
 
 }

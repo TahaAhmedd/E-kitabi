@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule , ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr'
+// import { BrowserAnimationsModule  } from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     
@@ -12,14 +14,20 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    // BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass:'toast-bottom-right',
+      timeOut:2000,
+    }),
   ],
   exports :[
     CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule
   ]
 })
 export class SharedModule { }
