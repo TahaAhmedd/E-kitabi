@@ -1,0 +1,40 @@
+img{
+    margin-top: 50px;
+    position:relative;
+    /* left:600px
+     */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    }
+.text {
+    margin-left: 50px;
+    margin-top: 50px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.text h1{
+    transition: all 1s ease-in-out;
+}
+.text h1::first-letter{
+    color: #ce7852;
+}
+.text h1:hover{
+    transition: all 1s ease-in-out;
+letter-spacing: 2px;
+
+}
+.text p{
+width: 70%;
+margin-top: 50px;
+text-align: center;
+letter-spacing: 1px;
+line-height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text span{
+    color: #ce7852;
+    font-weight: 700;
+}

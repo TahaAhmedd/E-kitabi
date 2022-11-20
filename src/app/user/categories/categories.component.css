@@ -10,6 +10,8 @@
   }
   .images-nav .header {
     top: 90px;
+    /* background-attachment: fixed; */
+
     background-color: rgba(0, 0, 0, 0.6);
     height: 60vh;
     width: 100% !important;
@@ -47,6 +49,7 @@
 
 .child{
     width: 30%;
+    border: 1px solid #eee;
     height: 250px;
     display: flex;
     flex-direction: column;

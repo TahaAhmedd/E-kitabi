@@ -28,6 +28,9 @@ a{
     top: 40%;
     text-align: center;
   }
+  .images-nav h1::first-letter{
+    color: #ce7852;
+  }
   /* Start Main  */
   main .container {
     display: grid;
@@ -54,6 +57,7 @@ a{
     justify-content: space-between;
     align-items: baseline;
     border: 1px solid #b93f0b;
+    border-radius: 10px;
     width: 100%;
     padding: 5px 0;
     margin-bottom: 20px;
@@ -61,7 +65,7 @@ a{
   main .container .right-sec .search-btn button {
     background: none;
     border: none;
-    padding-right: 5px;
+    padding-right: 10px;
   }
   main .container .right-sec .search-btn button:hover {
     cursor: pointer;
@@ -73,8 +77,9 @@ a{
   }
   main .container .right-sec .search-btn input:focus {
     outline: none;
-    border-radius: 10px;
+   
     padding: 5px 0;
+    padding-left: 10px;
   }
   /* recent-post */
   main .container .right-sec .recent-post .post {
@@ -171,6 +176,12 @@ a{
   
   
 /* Responsive */
+@media (max-width:1199px) {
+  main .container .right-sec .search-btn button {
+  
+    padding-right: 35px;
+  }
+}
 @media (max-width:992px) {
    
     .images-nav{

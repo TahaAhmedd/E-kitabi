@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-
+catogry:any[]=["ahmed","ali","mohamed"]
+setlocalstorge(value){
+  localStorage.setItem("catogry",value)
+}
   constructor() { }
 
   ngOnInit(): void {
