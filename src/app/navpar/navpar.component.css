@@ -19,6 +19,7 @@ nav {
 nav  .text {
   text-transform: capitalize;
   /* margin-right: 20px; */
+  
   margin-left: auto;
 }
 
@@ -27,7 +28,8 @@ nav .text li {
   position: relative;
 }
 nav  .text li a{
-  width: fit-content;
+  /* width: fit-content; */
+  font-size: 16px !important;
 }
 nav  .text li a::before {
   position: absolute;
