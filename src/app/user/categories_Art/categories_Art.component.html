@@ -1,0 +1,25 @@
+ <!-- Image Under Nav -->
+ <div class="images-nav">
+  <div class="header">
+
+      <h1>Articals Categories</h1>
+  </div>
+</div>
+
+<!-- ------Start gatigories----- -->
+<div class="container">
+  <div class="title_cat d-flex justify-content-center align-items-center"><h2><span>All</span> Categories Articals</h2></div>
+  <div class="parent">
+      <div class="child" *ngFor="let catArt of catogry_art">
+          <a routerLink="/articles/details/{{catArt.title}}">
+              <div class="box">
+                  <img src="{{catArt.cover}}" alt="">
+                  <div class="box_title">
+                      <h5>{{catArt.title}}</h5>
+                  </div>
+              </div>
+          </a>
+      </div>
+  </div>
+</div>
+<!-- -----End Catigoury---- -->

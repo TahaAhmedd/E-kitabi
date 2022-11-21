@@ -9,24 +9,22 @@
 <main>
     <div class="container">
         <section class="left-sec">
-            <div class="post">
+            <div class="post" *ngFor="let one of catogeryName">
+                
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="box_image">
-                            <img src="../../../assets/Articals/section-book(1).jpeg" alt="">
+                            <img src="{{one.cover}}" alt="">
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <div class="content-post">
                             <h1>
-                                <a href="#">Signficant reading has a more info number</a>
+                                <a href="#">{{one.title}}</a>
                             </h1>
-                            <div class="post-defin"><span>POSTS BY: <span> BOIGHOR-DEMO ADMIN</span></span>
-                                /<span>June 11 2022</span></div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum similique illum blanditiis
-                                possimus enim minima quidem, fuga delectus corrupti laborum modi quam quasi ab asperiores
-                                voluptatibus nemo minus exercitationem consectetur...</p>
-                            <h5><a href="">Read More <i class=" fa fa-arrow-right"></i></a></h5>
+                            <div class="post-defin"><span>POSTS BY: <span>{{one.updatedAt}}</span></span></div>
+                            <p>{{one.text}}</p>
+                            <h5><a href="{{one.links}}">Read More <i class=" fa fa-arrow-right"></i></a></h5>
                         </div>
                     </div>
                 </div>

@@ -16,11 +16,13 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { PolicyComponent } from './policy/policy.component';
 import { PreviewComponent } from './preview/preview.component';
 import { LoginComponent } from '../login/login.component';
+import { Categories_ArtComponent } from './categories_Art/categories_Art.component';
 
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'categories', component:CategoriesComponent},
+  {path:'categories_art', component:Categories_ArtComponent},
   {path:'login', component:LoginComponent},
   {path:'list', component:CategoriesListComponent},
   {path:'download', component:DownloadBookComponent},
@@ -47,6 +49,8 @@ let routes : Routes =[
     ContactusComponent,
     PolicyComponent,
     PreviewComponent,
+    Categories_ArtComponent
+
     
   ],
   imports: [
