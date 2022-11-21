@@ -32,7 +32,15 @@ letter-spacing: 2px;
 }
 .new span{
     color: #FFC800;
-}   
+}  
+select{
+    outline: #FFC800 1px solid;
+    border: none;
+    height: 35px;
+}
+select option{
+    color: #119DA4;
+} 
 .butt{
     position:relative;
     left: 600px;

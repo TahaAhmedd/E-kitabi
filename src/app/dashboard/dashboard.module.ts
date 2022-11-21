@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SidbarComponent } from './component/sidbar/sidbar.component';
-import { ListUserComponent } from './component/list-user/list-user.component';
+import { ListUserComponent } from './component/list-Article/list-user.component';
 import { ListBookeComponent } from './component/list-booke/list-booke.component';
 import { AccontingComponent } from './component/acconting/acconting.component';
 import { RouterModule, Routes } from '@angular/router';

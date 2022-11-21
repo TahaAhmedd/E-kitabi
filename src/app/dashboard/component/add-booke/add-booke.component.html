@@ -11,7 +11,16 @@
         <small *ngIf="addBook.get('title')?.errors['required']">Please Enter Abook Name</small>
       </div>
     </div>
-
+    <div class="mt-5  w-50">
+      <label class="w-100 form-label">Select Category Name:</label>
+      <select class="select w-100" formControlName="categoryName" name="categoryName">
+        <option *ngFor="let i of dataSelect" [value]="i.title">{{i.title}}</option>
+      </select>
+      <div class="mt-2 p-1 alert alert-danger"
+        *ngIf="addBook.get('categoryName')?.touched && addBook.get('categoryName')?.errors">
+        <small *ngIf="addBook.get('categoryName')?.errors['required']">The Input Is Required</small>
+      </div>
+    </div>
 
     <div class="mt-5 w-50">
       <label for="exampleFormControlInput1" class="form-label">Key Word Book:</label>
@@ -37,7 +46,7 @@
       <!-- //image  -->
 
       <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="bookImage"
-        type="file" class="file " data-show-upload="false" data-show-caption="true" multiple>
+        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" >
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
         <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In Book</small>
@@ -50,8 +59,8 @@
     </div>
     <div class="contetFile w-50" style="margin-top:20px">
       <!-- fille -->
-      <input id="input-3" name="bookFile" id="filebook" formControlName="bookFile" type="file" class="file "
-        data-show-upload="false" data-show-caption="true" multiple (change)="fileChange($event)">
+      <input id="input-3" name="bookFile" id="filebook" formControlName="bookFile" accept=".pdf" type="file" class="file "
+        data-show-upload="false" data-show-caption="true"  (change)="fileChange($event)">
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addBook.get('bookFile')?.touched && addBook.get('bookFile')?.errors">
         <small *ngIf="addBook.get('bookFile')?.errors['required']">Please Select Pdf File</small>
