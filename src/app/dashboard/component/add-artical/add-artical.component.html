@@ -1,4 +1,4 @@
-<form class="row g-3" [formGroup]="addartical" (ngSubmit)="AddArticle()">
+<form class="row g-3" [formGroup]="addartical" (ngSubmit)="AddArticle()" enctype="multipart/form-data">
   <div class="container mt-3">
     <h1 class="new"><span> A</span>dd <span>N</span>ew <span>A</span>rticale:</h1>
 
@@ -7,26 +7,22 @@
       <h3 class="col-3 category ">Select Category:</h3>
       <label class="visually-hidden" for="inlineFormSelectPref">Select Category:</label>
       <select class="select col-5 " name="categoryName" id="category" formControlName="categoryName">
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-        <option value="4">Four</option>
-        <option value="5">Five</option>
-        <option value="6">Six</option>
-        <option value="7">Seven</option>
-        <option value="8">Eight</option>
+        <option [value]="i.title" *ngFor="let i of dataSelect">{{i.title}}</option>
       </select>
+      <div *ngIf="addartical.get('categoryName')?.touched && addartical.get('categoryName')?.invalid">
+        <span class="text-danger" *ngIf="addartical.get('categoryName')?.errors?.['required']">Please enter a Category Name</span>
+
+      </div>
     </div>
 
     <div class="mb-3 mt-2">
       <label for="title" class="form-label addArtNa">Add Article Name:</label>
       <input type="text" class="form-control w-75 " placeholder="Add new Artical...." id="title"
         formControlName="title">
-      <div *ngIf="addartical.get('articlename')?.touched && addartical.get('articlename')?.invalid">
-        <span class="text-danger" *ngIf="addartical.get('articlename')?.errors?.['required']">Please enter a Article
+      <div *ngIf="addartical.get('title')?.touched && addartical.get('title')?.invalid">
+        <span class="text-danger" *ngIf="addartical.get('title')?.errors?.['required']">Please enter a Article
           name</span>
-        <span class="text-danger" *ngIf="addartical.get('articlename')?.errors?.['minlength']">must be min 5
-          charcter</span>
+
       </div>
     </div>
 
@@ -49,9 +45,6 @@
 
     </div>
 
-
-
-    <!-- Add Add external links -->
     <div formArrayName="keywords">
 
       <div class="my-2">
@@ -60,7 +53,7 @@
 
       <div class="form-group mt-1" *ngFor="let keyword of keywordsControl; let i = index">
         <input type="text" placeholder="Add out linke Related for Articale.." class="form-control"
-          formControlName="{{i}}" />
+          formControlName={{i}} />
       </div>
 
     </div>
@@ -70,20 +63,23 @@
     <div class="mb-3">
       <label for="text" class="form-label mt-2 addArtNa">Description Article</label>
       <textarea class="form-control h-25 w-75 mt-4" id="text" formControlName="text" rows="6"></textarea>
-      <div *ngIf="addartical.get('text')?.touched && addartical.get('text')?.invalid">
-        <span class="text-danger" *ngIf="addartical.get('description')?.errors?.['required']">Please enter a
+      <div *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
+        <span class="text-danger" *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
           description</span>
       </div>
     </div>
     <div class="contImg">
       <input id="input-2" (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
-        type="file" class="file" data-show-upload="false" data-show-caption="true" multiple="">
+        type="file" accept="image/*" class="file" data-show-upload="false" data-show-caption="true" multiple="">
+        <div *ngIf="addartical.get('cover')?.touched && addartical.get('cover')?.errors">
+          <span class="text-danger" *ngIf="addartical.get('cover')?.errors?.['required']">Please enter a
+            Photo</span>
+        </div>
       <div class="show-images">
         <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
           alt="your image" />
       </div>
-      <button type="submit" class="btn btn-success mt-2">Add Art</button>
-      <!-- {{addartical.value | json }} -->
+      <button type="submit" class="btn btn-success mt-2" [disabled]="addartical.invalid">Add Art</button>
     </div>
 
   </div>
