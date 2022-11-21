@@ -47,17 +47,23 @@ export class BookService {
   }
   // Function Get Book By Id Api
   getBookByID(Id:String) {
-    console.log(Id)
+    // console.log(Id)
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/getBook/${Id}`);
   }
 
 
   // Function Get Book By CaticoryFrom Api
-  getBookByCatigory(category: any) {
+  getBookByCatigory(category: string) {
+    console.log(category);
+    
     return this.http.get(`${environment.PathApi}/book/books/${category}`);
   }
-
-
+  getBookByTitle(title: string) {
+    console.log(title);
+    
+    return this.http.get(`${environment.PathApi}/book/books/${title}`);
+  }
+ 
   // Function Add Book From Api
   postBook(book: any) {
     return this.http.post(`${environment.PathApi}/book/newbook`, book);

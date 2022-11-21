@@ -25,7 +25,7 @@ let routes : Routes =[
   {path:'categories_art', component:Categories_ArtComponent},
   {path:'login', component:LoginComponent},
   {path:'list', component:CategoriesListComponent},
-  {path:'download/:id', component:DownloadBookComponent},
+  {path:'download/:title', component:DownloadBookComponent},
   {path:'aboutus', component:AboutusComponent},
   {path:'contactus', component:ContactusComponent},
   {path:'policy', component:PolicyComponent},
