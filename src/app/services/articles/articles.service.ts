@@ -27,8 +27,10 @@ export class ArticlesService {
     return this.http.delete(`${environment.PathApi}/article/delete/${id}`)
   }
 
-  getByCatNAme(name:string){
-    return this.http.get(`${environment.PathApi}/article/articles/${name}`)
+  
+  // Get The Catogery With CatogeryName 
+  getWithCatName(title:string) :Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${environment.PathApi}/article/articles/${title}`)
   }
 
   updateArt(id:number , data:any){
