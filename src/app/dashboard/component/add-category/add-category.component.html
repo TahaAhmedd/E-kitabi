@@ -1,1 +1,39 @@
-<p>add-category works!</p>
+
+
+<form [formGroup]="addBook" (ngSubmit)="addBookData()" enctype="multipart/form-data">
+  
+    <div class="container">
+      <h1 class="new"><span> Making a new category for the books </span>:</h1>
+      <div class="w-50">
+        <label for="exampleFormControlInput1" class="form-label">Booke name:</label>
+        <input type="text" class="form-control" formControlName="title" placeholder="Please Add Book Name">
+        <div class="mt-2 p-1 alert alert-danger" *ngIf="addBook.get('title')?.touched && addBook.get('title')?.errors">
+          <small *ngIf="addBook.get('title')?.errors['required']">Please Enter Abook Name</small>
+        </div>
+      </div>
+  
+  
+  
+  
+      <div class="contImg w-50" style="margin-top:20px">
+        <!-- //image  -->
+  
+        <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="categoryImage"
+          type="file" class="file " data-show-upload="false" data-show-caption="true" multiple>
+        <div class="mt-2 p-1 alert alert-danger"
+          *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
+          <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In Book</small>
+        </div>
+        <div class="show-images">
+          <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+            alt="your image" />
+        </div>
+  
+      </div>
+
+  
+      <input id="input-1" name="submit" value="Add Book" [disabled]="addBook.invalid" type="submit"
+        class="submit mb-5 mt-4 btn btn-dark">
+  
+    </div>
+  </form>

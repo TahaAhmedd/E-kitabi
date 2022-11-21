@@ -54,7 +54,7 @@ footer .flist li a {
     transition: all .5s;
 }
 
-footer .flist li:hover {
+footer .flist li a:hover {
     color: #ce7852;
 }
 

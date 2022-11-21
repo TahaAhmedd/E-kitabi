@@ -4,10 +4,24 @@
 }
 .newBook_card{
     transition: all 0.5s;
+    cursor: pointer;
 }
 .newBook_card:hover{
     transform: translateY(-5px);
 }
+.card-img-top{
+    position: relative;
+}
+.newBook_card:hover .hover-img::before{
+    background-color: rgba(0, 0, 0, 0.314);
+    content: '';
+    position: absolute;
+    left: 0;
+    display: block;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+  }
 .newPrudect .des {
     text-align: center;
 }
@@ -26,19 +40,33 @@
     border: none;
     width: 100%;
 }
-.card {
-    margin-bottom: 40px;
+.button-style{
+    background-color: #ce7852;
+    border-radius: 50%;
+    padding: 20px;  
+    height: 50px;
+    width: 60px;
+    margin-top: 170px;
 }
 
+
+@media (min-width:993px) {
+    #newBookExampleControls{
+        display: none;
+    }
+}
 /* Media  */
 @media (max-width: 575px) {
     .card {
         width:  300px;
         margin: auto;
-        margin-bottom: 40px;
+        
     }
     .newPrudect .des p {
         font-size: 14px;
+    }
+    .row{
+        display: none;
     }
 
 }
@@ -47,16 +75,27 @@
 
 
     .card {
-        width:  250px;
+        width:  300px;
         margin: auto;
-        margin-bottom: 40px;
+        
     }
+    .row{
+        display: none;
+    }
+   
 }
 
 
-@media (min-width: 768px) { 
+@media (max-width: 500px) { 
 
-
+    .button-style{
+     
+        border-radius: 50%;
+        padding: 10px;  
+        height: 40px;
+        width: 40px;
+        margin-top: 170px;
+    }
  }
 
  @media (min-width: 992px) { 

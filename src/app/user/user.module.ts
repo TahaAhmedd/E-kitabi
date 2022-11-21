@@ -15,11 +15,13 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PolicyComponent } from './policy/policy.component';
 import { PreviewComponent } from './preview/preview.component';
+import { LoginComponent } from '../login/login.component';
 
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'categories', component:CategoriesComponent},
+  {path:'login', component:LoginComponent},
   {path:'list', component:CategoriesListComponent},
   {path:'download', component:DownloadBookComponent},
   {path:'aboutus', component:AboutusComponent},
@@ -48,7 +50,8 @@ let routes : Routes =[
     
   ],
   imports: [
-  SharedModule,
+
+SharedModule,
     RouterModule.forChild(routes)
   ]
 })

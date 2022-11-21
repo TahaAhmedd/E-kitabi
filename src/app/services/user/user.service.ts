@@ -1,7 +1,7 @@
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, observable, Observable, Subject } from 'rxjs';
-import { PathUrl } from 'src/environments/environment';
+import { environment } from './../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,30 +11,41 @@ export class UserService {
     this.isloginuser=new BehaviorSubject<boolean>(this.IsUserloged)
    }
 
+   //login Admin
     login(DAta: any):Observable<any>
     { 
-        return  this.http.post(`https://fake-login-api-production.up.railway.app/api/auth/login`,DAta) 
+        return  this.http.post(`${environment.PathApi}/admin/signin`, DAta) 
     };
+
+    //log out Admin
     Logout ()
     {
       localStorage.removeItem('token'); 
+      localStorage.removeItem('id')
     };
+
+//property 
      get IsUserloged():boolean
      {
        return (localStorage.getItem('token')!=null)? true: false
      }
-  // getUser(user:userlogin){
-  //   console.log(user)
-  //   let optios = {
-  //     headers:new HttpHeaders({
-  //       'Content-Type':'application/josn'
-  //     })
-    // }
-    // return this.httb.post("https://kitabi.azurewebsites.net/api/auth/login",{"Email":user.Email,"Password":user.Password})
-    // return this.httb.post("https://kitabi.azurewebsites.net/api/auth/login",JSON.stringify( user),optios)
+
+//update Account 
+update(accountId:any ,data :any):Observable<any>
+{
+   return  this.http.put(`${environment.PathApi}/admin/update/${accountId}`,data)
+}
+
+
+
+ 
+
+
+
+
   }
 
-// }
+
 
 
 

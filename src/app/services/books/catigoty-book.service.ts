@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiResponse } from 'src/app/Model/ApiResponse';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,8 +11,8 @@ export class CatigotyBookService {
 
   constructor(private httb:HttpClient) { }
 
-  getAllBookCat(){
-    return this.httb.get(`${environment.PathApi}/bookcate/all`)
+  getAllBookCat() :Observable<ApiResponse> {
+    return this.httb.get<ApiResponse>(`${environment.PathApi}/bookcate/all`)
   }
 
   postBookCat(data :any){

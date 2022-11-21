@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { async } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,16 +33,20 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.Authserver.login(this.loginForm.value).subscribe({
         next: (result) => {
-          let token='234326dasd'
-          localStorage.setItem('token',token)
-          console.log(result['user']['avatar']);
-           this.router.navigateByUrl('/dashboard/card')
+          console.log(result);        
+          let token=result.data.token
+          let id =result.data._id
+          localStorage.setItem('id', id)
+          localStorage.setItem('token', token )   
+          this.router.navigate(['dashboard/card']) 
+              
         },
         error:(err)=>{
           console.log(err)
           alert("the Email or Password valid!! ")
         
-        }
+        },
+
       });
     }
   }

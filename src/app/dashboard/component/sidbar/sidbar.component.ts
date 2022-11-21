@@ -14,10 +14,11 @@ export class SidbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
   logout()
   {
     this.AuthServes.Logout();
-    this.Routes.navigateByUrl('/login')
+    this.Routes.navigateByUrl('/user/login')
 
   }
 }

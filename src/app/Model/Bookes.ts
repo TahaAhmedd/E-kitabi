@@ -3,7 +3,7 @@ export class Bookes{
     Description:String;
     fileimages:String;
     filebook:String
-    keywords:[];
+    keywords!:[];
     updatedAt:string;
     _id:string;
     createdAt: string

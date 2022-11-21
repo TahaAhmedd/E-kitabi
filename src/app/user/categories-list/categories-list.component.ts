@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesListComponent implements OnInit {
 
+  filterCatogry=localStorage.getItem("catogry")
   constructor() { }
 
   ngOnInit(): void {
+    console.log();
   }
 
 }

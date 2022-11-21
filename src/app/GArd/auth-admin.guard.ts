@@ -27,7 +27,7 @@ export class AuthAdminGuard implements CanActivate {
     if (this.AuthServes.IsUserloged) {
         return true;
     } else {
-      return this.router.navigate(["dashboard/login"])
+      return this.router.navigate(["user/login"])
     }
   }
 }
