@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { ArticlesService } from 'src/app/services/articles/articles.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-add-artical',
   templateUrl: './add-artical.component.html',
@@ -18,10 +19,7 @@ export class AddArticalComponent implements OnInit {
     return (<FormArray>this.addartical.get('keywords')).controls;
  }
 
-
-
-
-  imageSrc: any ;
+  imageSrc: any = [];
   imagearr:any=[];
   // Input:any[] = [{ zip: '' }]
   // addInput(){
@@ -32,11 +30,12 @@ export class AddArticalComponent implements OnInit {
   constructor(public fb:FormBuilder ,private router:Router,private serv:ArticlesService, private http:HttpClient) {
     this.addartical =  this.fb.group({
       categoryName: new FormControl("", [Validators.required]),
-      title: new FormControl("", [Validators.required,Validators.minLength(5)]),
+      title: new FormControl("", [Validators.required]),
       links: new FormArray([]),
       text: new FormControl("", [Validators.required]),
       keywords: new FormArray([]),
-      cover: new FormControl("", [Validators.required])
+      cover: new FormControl("", [Validators.required]),
+      imageSource: new FormArray ([]),
   })
    }
 
@@ -45,17 +44,18 @@ export class AddArticalComponent implements OnInit {
   
 AddArticle(){
 
-  console.log(this.addartical.get('keywords').value)
-
+  // console.log(this.addartical.get('keywords').value)
+  console.log(this.addartical.value)
+  console.log(this.imageSrc)
   var formData: any = new FormData();
   formData.append('categoryName', this.addartical.get('categoryName').value);
   formData.append('title', this.addartical.get('title').value);
   formData.append('links', this.addartical.get('links').value);
   formData.append('text', this.addartical.get('text').value);
   formData.append('keywords', this.addartical.get('keywords').value);
-  formData.append('cover', this.addartical.get('cover').value);
+  formData.append('articleImages', this.imageSrc);
   this.http
-    .post('http://localhost:4000/article/newarticle', formData)
+    .post(`${environment.PathApi}/article/newarticle`, formData)
     .subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
@@ -72,8 +72,9 @@ for (var i = 0; i < file.length; i++) {
   const reader = new FileReader();
   reader.onload = e => this.imagearr.push(e.target!.result);
   reader.readAsDataURL(file[i]);
-  
-  
+  const files = event.target.files[0]
+  this.imageSrc.push(files)
+  // this.addartical.get("imageSource")
 }
 // console.log(this.imagearr);
       
