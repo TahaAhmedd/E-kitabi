@@ -1,4 +1,9 @@
 /* Start Image Nav */
+.edTitle {
+  text-transform: capitalize;
+  border-left: 3px solid #EEE;
+  padding-left: 5px;
+}
 a{
     text-decoration: none !important;
 }
@@ -161,6 +166,12 @@ a{
      color: rgba(0, 0, 0, 0.7);
      line-height: 25px;
      margin-bottom: 10px;
+ 
+     height: 150px;
+     white-space: wrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     
   }
   main .container .left-sec .post .content-post h5 a {
     color: #000;
