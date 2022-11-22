@@ -2,57 +2,85 @@
     <div class="navbar">
         <ul>
             <li>
-                <a href="#">
+                <a>
                     <span class="icon" toggle="test">
                         <i class="fa fa-book-open"></i>
-                    </span><span class="titel" style="font-size: 25px; color:#251101">E-Kitabi</span></a>
-            </li>
-            <li><a routerLink="card">
-                    <span class="icon">
-                        <i class="fas fa-home-outline"></i>
                     </span>
-                    <span class="titel">Dash Board</span></a></li>
-
-
-            <li><a routerLink="list"> <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
-                    </span><span class="titel">All Book</span></a></li>
-
-
-            <li><a routerLink="allartical"> <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
-                    </span><span class="titel">All Artical</span></a>
+                    <span class="titel" style="font-size: 25px; color:#251101">E-Kitabi</span>
+                </a>
             </li>
-
             <li>
-                <a routerLink="Allcategorey"> <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
-                    </span><span class="titel">All Category</span>
+                <a routerLink="card" routerLinkActive="active">
+                    <span class="icon">
+                        <i class="fa-solid fa-house-user"></i>
+                    </span>
+                    <span class="titel">Dash Board</span>
                 </a>
             </li>
 
-            <li><a routerLink="addartical"> <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
-                    </span><span class="titel">Add new Articale</span></a></li>
 
-
-            <li><a routerLink="addBooke"> <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
-                    </span><span class="titel">Add new booke</span></a></li>
-
-
-            <li><a routerLink="Addcategorey"> <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
-                    </span><span class="titel">Add new Category</span></a></li>
             <li>
-                <a routerLink="addnewadmin">
+                <a routerLink="list" routerLinkActive="active"> <span class="icon">
+                        <i class="fa-solid fa-book"></i>
+                    </span>
+                    <span class="titel">All Book</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a routerLink="allartical" routerLinkActive="active">
                     <span class="icon">
-                        <i class="fa fa-right-from-bracket"></i>
+                        <i class="fa-regular fa-newspaper"></i>
+                    </span>
+                    <span class="titel">All Artical</span>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="Allcategorey" routerLinkActive="active">
+                    <span class="icon">
+                        <i class="fa-solid fa-grip"></i>
+                    </span>
+                    <span class="titel">All Category</span>
+                </a>
+            </li>
+
+            <li><a routerLink="addartical" routerLinkActive="active">
+                    <span class="icon">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </span>
+                    <span class="titel">Add new Articale</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a routerLink="addBooke" routerLinkActive="active">
+                    <span class="icon">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </span><span class="titel">Add new booke</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a routerLink="Addcategorey" routerLinkActive="active">
+                    <span class="icon">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </span>
+                    <span class="titel">Add new Category</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="addnewadmin" routerLinkActive="active">
+                    <span class="icon">
+                        <i class="fa-solid fa-gear"></i>
                     </span><span class="titel">Eedit your Account</span>
                 </a>
             </li>
             <li>
-                <a (click)="logout()">
+                <a (click)="logout()" routerLinkActive="active">
                     <span class="icon">
                         <i class="fa fa-right-from-bracket"></i>
                     </span>
