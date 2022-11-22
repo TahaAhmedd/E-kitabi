@@ -1,7 +1,7 @@
 <form [formGroup]="addBook" (ngSubmit)="addBookData()" enctype="multipart/form-data">
 
   <div class="container">
-    <h1 class="new"><span> Making a new category for the books </span>:</h1>
+    <h1 class="new"> <span>M</span>aking <span>A </span> <span>N</span>ew <span>C</span>ategory <span>F</span>or <span>T</span>he <span>B</span>ooks:</h1>
     <div class="w-50">
       <label for="exampleFormControlInput1" class="form-label">Category Booke</label>
       <input type="text" class="form-control" formControlName="title" placeholder="Please Add Category Book Name">
@@ -12,12 +12,12 @@
 
     <div class="contImg w-50" style="margin-top:20px">
       <!-- //image  -->
-
-      <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="categoryImage"
-        type="file" class="file " data-show-upload="false" data-show-caption="true" multiple>
+      <label class="form-label w-100">Add Cover</label>
+      <input id="input-2 " (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="categoryImage"
+        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" multiple>
       <div class="mt-2 p-1 alert alert-danger"
-        *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
-        <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In Category Book</small>
+        *ngIf="addBook.get('categoryImage')?.touched && addBook.get('categoryImage')?.errors">
+        <small *ngIf="addBook.get('categoryImage')?.errors['required']">Please Select Cover Image In Category Book</small>
       </div>
       <div class="show-images">
         <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
@@ -28,7 +28,7 @@
 
 
     <input id="input-1" name="submit" value="Add Category Book" [disabled]="addBook.invalid" type="submit"
-      class="submit mb-5 mt-4 btn btn-dark">
+      class="submit mb-5 mt-4 btn btn-success">
 
   </div>
 </form>
@@ -41,7 +41,7 @@
 <form [formGroup]="addcatArt" (ngSubmit)="addArtData()" enctype="multipart/form-data">
 
   <div class="container">
-    <h1 class="new"><span> Making a new category for the Articles</span>:</h1>
+    <h1 class="new"> <span>M</span>aking <span>A </span> <span>N</span>ew <span>C</span>ategory <span>F</span>or <span>T</span>he <span>A</span>rticles:</h1>
     <div class="w-50">
       <label for="exampleFormControlInput1" class="form-label">Category Articles</label>
       <input type="text" class="form-control" formControlName="titleArt" placeholder="Please Add Category Book Name">
@@ -52,9 +52,9 @@
 
     <div class="contImg w-50" style="margin-top:20px">
       <!-- //image  -->
-
+      <label class="form-label w-100">Add Cover</label>
       <input id="input-2" (change)="readURLL($event)" name="bookImageArt" id="fileimages" formControlName="categoryImageArt"
-        type="file" class="file " data-show-upload="false" data-show-caption="true" multiple>
+        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" multiple>
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addcatArt.get('categoryImageArt')?.touched && addcatArt.get('categoryImageArt')?.errors">
         <small *ngIf="addcatArt.get('categoryImageArt')?.errors['required']">Please Select Cover Image In Category Articles</small>
@@ -68,7 +68,7 @@
 
 
     <input id="input-1" name="submit" value="Add Category Book" [disabled]="addcatArt.invalid" type="submit"
-      class="submit mb-5 mt-4 btn btn-dark">
+      class="submit mb-5 mt-4 btn btn-success">
 
   </div>
 </form>

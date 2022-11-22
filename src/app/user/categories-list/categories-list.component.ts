@@ -28,7 +28,7 @@ export class CategoriesListComponent implements OnInit {
       if (this.curentCat) {
         this.ApiServes.getBookByCatigory(this.curentCat).subscribe(
           (bookData) => {
-           console.log(bookData);
+            this.listBooke=bookData.data
             
           }
         );
@@ -36,6 +36,6 @@ export class CategoriesListComponent implements OnInit {
     });
     this.serBookCat.getAllBookCat().subscribe((response) => {
       this.catogry = response.data
-      console.log(this.catogry)
+      // console.log(this.catogry)
   })}
 }

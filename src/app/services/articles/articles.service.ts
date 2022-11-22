@@ -33,7 +33,14 @@ export class ArticlesService {
     return this.http.get<ApiResponse>(`${environment.PathApi}/article/articles/${title}`)
   }
 
+  // updateArt With Id 
   updateArt(id:number , data:any){
     return this.http.put(`${environment.PathApi}/article/update/${id}`,data)
+  }
+
+
+  // Get One Art With Id 
+  getArtWithId(id:any) {
+      return this.http.get(`${environment.PathApi}/getbyid/${id}`)
   }
 }

@@ -3,24 +3,23 @@
     <h1 class="new"><span> A</span>dd <span>N</span>ew <span>A</span>rticale:</h1>
 
 
-    <div class="row">
-      <h3 class="col-3 category ">Select Category:</h3>
-      <label class="visually-hidden" for="inlineFormSelectPref">Select Category:</label>
-      <select class="select col-5 " name="categoryName" id="category" formControlName="categoryName">
+    <div class="">
+      <h3 class="col-3 category w-50 ps-2">Select Category:</h3>
+      <select class="select w-50 mt-3" style="height: 35px;" name="categoryName" id="category" formControlName="categoryName">
         <option [value]="i.title" *ngFor="let i of dataSelect">{{i.title}}</option>
       </select>
-      <div *ngIf="addartical.get('categoryName')?.touched && addartical.get('categoryName')?.invalid">
-        <span class="text-danger" *ngIf="addartical.get('categoryName')?.errors?.['required']">Please enter a Category Name</span>
+      <div class="alert alert-danger w-50 mt-2 p-2" *ngIf="addartical.get('categoryName')?.touched && addartical.get('categoryName')?.invalid">
+        <span *ngIf="addartical.get('categoryName')?.errors?.['required']">Please enter a Category Name</span>
 
       </div>
     </div>
 
-    <div class="mb-3 mt-2">
+    <div class="mb-3 mt-5">
       <label for="title" class="form-label addArtNa">Add Article Name:</label>
       <input type="text" class="form-control w-75 " placeholder="Add new Artical...." id="title"
         formControlName="title">
-      <div *ngIf="addartical.get('title')?.touched && addartical.get('title')?.invalid">
-        <span class="text-danger" *ngIf="addartical.get('title')?.errors?.['required']">Please enter a Article
+      <div class="alert alert-danger w-75 mt-2 p-2" *ngIf="addartical.get('title')?.touched && addartical.get('title')?.invalid">
+        <span class="" *ngIf="addartical.get('title')?.errors?.['required']">Please enter a Article
           name</span>
 
       </div>
@@ -63,17 +62,16 @@
     <div class="mb-3">
       <label for="text" class="form-label mt-2 addArtNa">Description Article</label>
       <textarea class="form-control h-25 w-75 mt-4" id="text" formControlName="text" rows="6"></textarea>
-      <div *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
-        <span class="text-danger" *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
+      <div class="alert alert-danger w-75 mt-2 p-2" *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
+        <span  *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
           description</span>
       </div>
     </div>
     <div class="contImg">
       <input id="input-2" #attachments (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
         type="file" accept="image/*" class="file" data-show-upload="false" data-show-caption="true" multiple="">
-        <!-- <input " value="reset" type="reset"> -->
-        <div *ngIf="addartical.get('cover')?.touched && addartical.get('cover')?.errors">
-          <span class="text-danger" *ngIf="addartical.get('cover')?.errors?.['required']">Please enter a
+        <div class="alert alert-danger w-50 mt-2 p-2" *ngIf="addartical.get('cover')?.touched && addartical.get('cover')?.errors">
+          <span  *ngIf="addartical.get('cover')?.errors?.['required']">Please enter a
             Photo</span>
         </div>
       <div class="show-images" >
