@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BookService } from 'src/app/services/books/book.service';
+import { CatigotyBookService } from 'src/app/services/books/catigoty-book.service';
 @Component({
   selector: 'app-add-booke',
   templateUrl: './add-booke.component.html',
@@ -12,11 +13,13 @@ export class AddBookeComponent implements OnInit {
   addBook!: FormGroup;
   imageSrc: any;
   imagearr: any = [];
+  dataSelect:any[];
   private imageaObj: any = []
 
   constructor(private router: Router
     , private httServes: BookService,
-    private tost: ToastrService
+    private tost: ToastrService,
+    private catService: CatigotyBookService
   ) {
     this.addBook = new FormGroup({
       title: new FormControl("", [Validators.required]),
@@ -24,7 +27,7 @@ export class AddBookeComponent implements OnInit {
       bookImage: new FormControl("", [Validators.required]),
       bookFile: new FormControl("", [Validators.required]),
       keywords: new FormControl("", [Validators.required]),
-      categoryName: new FormControl("test", [Validators.required]),
+      categoryName: new FormControl("", [Validators.required]),
       fileSource: new FormControl(null),
       imageSource: new FormControl(null)
     })
@@ -54,7 +57,13 @@ export class AddBookeComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.allCatBook()
   }
+
+  allCatBook(){
+    this.catService.getAllBookCat().subscribe((e) => this.dataSelect = e.data)
+  }
+
   addBookData() {
     console.log(this.addBook.value)
     const formData = new FormData()
@@ -72,6 +81,7 @@ export class AddBookeComponent implements OnInit {
           progressBar:true,
           
         })
+        this.router.navigateByUrl("/dashboard/list")
         // location.reload()
       },
       error(err) {
