@@ -11,7 +11,7 @@ export class ArticleCategoryService {
 
   constructor(private httb : HttpClient) { }
 
-  gitAllCatArt():Observable <ApiResponse> {
+  gitAllCatArt():Observable<ApiResponse>{
     return this.httb.get<ApiResponse>(`${environment.PathApi}/articlecate/all`);
   }
 

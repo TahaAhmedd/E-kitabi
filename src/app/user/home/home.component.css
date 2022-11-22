@@ -19,6 +19,7 @@
     margin-bottom: 30px;
     box-shadow: 0 5px 15px #5555551a;
     border: none;
+    border-radius: 7% 93% 7% 93% / 95% 3% 97% 5% ;
 }
 .card_blog .card .card-body{
     padding: 40px;

@@ -41,15 +41,11 @@ export class ListBookeComponent implements OnInit, OnChanges {
     this.httpServes.deletBook(id).subscribe({
       next: () => {
         // this.tostSucces("The Book is Deleted Succesfuly")
-        this.toast.success("The Book is Deleted Succesfuly", "", {
-          // progressAnimation:"increasing",
-          positionClass: "toast-top-right",
-          progressBar: true,
-        })
+        this.toast.success("The Book is Deleted Succesfuly")
         this.getdata()
       },
-      error(err) {
-        console.log(err)
+      error:(err)=> {
+        this.toast.error("An error occurred, please try again")
       },
     })
   }
@@ -80,9 +76,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
       })
     }
   }
-  tostSucces(data: string) {
-    this.toast.success(data)
-  }
+
   updateBook(id: number) {
     const formData = new FormData()
     formData.append("title", this.addBook.get("title").value)
@@ -94,11 +88,11 @@ export class ListBookeComponent implements OnInit, OnChanges {
     this.httpServes.editBook(id, formData).subscribe({
       next: (value) => {
         // console.log(value)
-        // this.tostSucces("The Book is Deleted Succesfuly")
+        this.toast.success("The Book is Deleted Succesfuly")
         this.getdata()
       },
-      error(err) {
-        console.log(err)
+      error:(err)=> {
+        this.toast.error("An error occurred, please try again")
       },
     })
   }

@@ -1,0 +1,152 @@
+<!-- <app-sidbar></app-sidbar> -->
+
+
+
+<div class="resentOrder">
+  <div class="cardHeadr">
+    <h2> All Articale</h2>
+    <td>
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="form1" class="form-control" />
+        </div>
+        <button type="button" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </td>
+    <td>
+      <button class="btn btn-primary" routerLink="/dashboard/addartical">Add New Article</button>
+    </td>
+
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Discration</td>
+        <td>Category Name</td>
+        <td>Delete</td>
+        <td>Upadte</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of data">
+        <td class="dis">
+          <p>{{i.title}}</p>
+        </td>
+        <td class="dis">
+          <p>{{i.text}}</p>
+        </td>
+        <td class="text-center">
+          <p class="text-center">{{i.categoryName}}</p>
+        </td>
+        <td><button class="btn btn-outline-danger delete" (click)="deleteArt(i._id)">Delete</button></td>
+        <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#T'+i._id">
+            Upadte
+          </button></td>
+
+          <div class="modal fade" [id]="'T'+i._id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Ubdate Article ({{i.title}})</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="row g-3" [formGroup]="addartical" (ngSubmit)="updateArt(i._id)" enctype="multipart/form-data">
+                  <div class="container mt-3">                
+                    <div class="row">
+                      <h3 class="col-12 category ">Select Category:</h3>
+                      <label class="visually-hidden" for="inlineFormSelectPref">Select Category:</label>
+                      <select class="select col-10 " name="categoryName" id="category" formControlName="categoryName">
+                        <option [value]="i.title" *ngFor="let i of dataSelect">{{i.title}}</option>
+                      </select>
+                      <div *ngIf="addartical.get('categoryName')?.touched && addartical.get('categoryName')?.invalid">
+                        <span class="text-danger" *ngIf="addartical.get('categoryName')?.errors?.['required']">Please enter a Category Name</span>
+                
+                      </div>
+                    </div>
+                
+                    <div class="mb-3 mt-2">
+                      <label for="title" class="form-label addArtNa">Add Article Name:</label>
+                      <input type="text" class="form-control w-75 " placeholder="Add new Artical...." id="title"
+                        formControlName="title">
+                      <div *ngIf="addartical.get('title')?.touched && addartical.get('title')?.invalid">
+                        <span class="text-danger" *ngIf="addartical.get('title')?.errors?.['required']">Please enter a Article
+                          name</span>
+                
+                      </div>
+                    </div>
+                
+                
+                    <div class="mb-3">
+                
+                      <!-- Add Add external links -->
+                      <div formArrayName="links">
+                
+                        <div class="my-2">
+                          <button type="button" (click)="onAddLinks()" class="btn btn-sm btn-warning">Add external links</button>
+                        </div>
+                
+                        <div class="form-group mt-1" *ngFor="let link of linkesControls; let i = index">
+                          <input type="text" placeholder="Add out linke Related for Articale.." class="form-control"
+                            [formControlName]="i" />
+                        </div>
+                
+                      </div>
+                
+                    </div>
+                
+                    <div formArrayName="keywords">
+                
+                      <div class="my-2">
+                        <button type="button" (click)="onAddKeys()" class="btn btn-sm btn-warning">Add keywords</button>
+                      </div>
+                
+                      <div class="form-group mt-1" *ngFor="let keyword of keywordsControl; let i = index">
+                        <input type="text" placeholder="Add out linke Related for Articale.." class="form-control"
+                          formControlName={{i}} />
+                      </div>
+                
+                    </div>
+                
+                
+                
+                    <div class="mb-3">
+                      <label for="text" class="form-label mt-2 addArtNa">Description Article</label>
+                      <textarea class="form-control h-25 w-75 mt-4" id="text" formControlName="text" rows="6"></textarea>
+                      <div *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
+                        <span class="text-danger" *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
+                          description</span>
+                      </div>
+                    </div>
+                    <div class="contImg">
+                      <input id="input-2" (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
+                        type="file" accept="image/*" class="file" data-show-upload="false" data-show-caption="true" multiple="">
+                        <div *ngIf="addartical.get('cover')?.touched && addartical.get('cover')?.errors">
+                          <span class="text-danger" *ngIf="addartical.get('cover')?.errors?.['required']">Please enter a
+                            Photo</span>
+                        </div>
+                      <div class="show-images">
+                        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+                          alt="your image" />
+                      </div>
+                      <button type="submit" class="btn btn-success mt-2" [disabled]="addartical.invalid">Add Art</button>
+                    </div>
+                
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -64,11 +64,71 @@ transition: all 0.2s ease-in-out;
 .resentOrder table tbody td {
     padding: 10px;
     padding-top: 10px;
-
-
  }
 .resentOrder table tbody td:hover {
-    
     padding: 10px;
-
  }
+
+
+ .show-images{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.new{
+    border-left: 3px solid #119DA4;
+    margin-top: 20px;
+    padding-left: 20px;
+    transition: all 1s ease-in-out;
+    margin-bottom: 30px;
+
+}
+.new:hover
+{
+transition: all 1s ease-in-out;
+color: #119DA4;
+letter-spacing: 2px;
+}
+.new span{
+    color: #FFC800;
+}
+.category{
+    border-left: 3px solid #FFC800;
+
+}
+.row{
+    margin-bottom: 50px;
+}
+select{
+    outline: #FFC800 1px solid;
+    border: none;
+    height: 35px;
+}
+select option{
+    color: #119DA4;
+}
+.addArtNa{
+    border-left: 3px solid #31353b;
+    padding-left: 10px;
+    transition: all 1s ease-in-out;
+
+
+}
+.addArtNa:hover{
+    transition: all 1s ease-in-out;
+color: #119DA4;
+letter-spacing: 2px;
+}
+/* .contImg{ */
+    /* margin-bottom: -600px; */
+/* } */
+.file{
+letter-spacing: 2px;
+    
+    transition: all 1s ease-in-out;
+}
+.file:hover{
+    transition: all 1s ease-in-out;
+    border-radius: 0px 30px 30px 0px;
+    background-color: #119DA4;
+}
