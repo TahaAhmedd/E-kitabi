@@ -1,18 +1,19 @@
 
-    <main>
+     <main>
         <section class="img-header">
             <div class="img-content">
             </div>
             <h1>View the book</h1>
         </section>
         <div class="container">
+
             <div class="book-show">
                 <div class="right-content">
 
-                    <div class="book-imgcont">
-                        <img src="../../../assets/download/image-book.jpg" alt="">
+                    <div class="book-imgcont" >
+                        <img src="listBook.cover" alt="">
                         <div class="book-content">
-                            <h2>The Bullet That Missed</h2>
+                            <h2>{{listBook.title}}</h2>
                             <span class="stars">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -22,13 +23,9 @@
                             </span>
                             <hr>
                             <p>
-                                “The Bullet That Missed hits on every front. Its quandaries stymie, its solutions
-                                thrill, its banter
-                                is worth reciting and its characters exemplify an admirable camaraderie. One can only
-                                hope that the
-                                Thursday Murder Clubs next outing appears before long.
+                                {{listBook.description}}
                             </p>
-                            <button type="submit">Download</button>
+                            <button  type="submit">Download</button>
                             <i class="fa fa-heart-o"></i>
                             <div class="share-social">
                                 <span>share:</span>
@@ -43,13 +40,8 @@
                     <div class="description">
                         <h2>Description</h2>
                         <hr>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sapiente dignissimos natus ex
-                            dolores vitae ipsum? Quo ipsam maxime error, laudantium voluptates harum libero explicabo
-                            obcaecati vel doloremque corporis aliquam?
-                            Dicta explicabo dolore voluptas velit voluptatibus officia maiores veritatis quidem
-                            repudiandae eveniet minus culpa vero cupiditate aliquid, saepe ipsum, cum laudantium at ad
-                            et sequi ab magnam iste! Id, maiores.
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, maxime exercitationem eius beatae, minus alias enim incidunt optio aperiam numquam labore voluptas odit! Maxime nesciunt cum quis voluptatibus ipsum officiis?
+                        <p>{{listBook.description}}
+                       
                         </p>
                     </div>
                     <div class="related">
@@ -106,3 +98,5 @@
     </div>
 
     </main>
+
+

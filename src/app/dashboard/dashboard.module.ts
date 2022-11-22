@@ -27,7 +27,7 @@ let routes: Routes =[
     , { path: 'Allcategorey',component :BookeCategoryComponent ,canActivate:[AuthAdminGuard]}
     , { path: 'Addcategorey',component :AddCategoryComponent ,canActivate:[AuthAdminGuard]}
     ,{path:'addnewadmin',component:AddNewAdminComponent,canActivate:[AuthAdminGuard]}
-    ,{path:'login',component:LoginComponent}
+  
 ]
 
 
