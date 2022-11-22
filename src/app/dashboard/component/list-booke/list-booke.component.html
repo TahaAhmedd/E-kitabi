@@ -40,6 +40,7 @@
         <td>{{book.categoryName}}</td>
         <td><button class="btn btn-outline-danger delete" (click)="deletBook(book._id)">Delete</button></td>
         <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#T'+book._id"
+            (click)="getBookById(book._id)"
           >
             Upadte
           </button></td>
@@ -55,9 +56,20 @@
               <div class="modal-body">
                 <form [formGroup]="addBook" (ngSubmit)="updateBook(book._id)" enctype="multipart/form-data">
                   <div class="container d-flex justify-content-center flex-column align-items-center">
-                    <div class="w-75">
+                    <div class="mt-2  w-75">
+                      <label class="w-100 form-label">Select Category Name:</label>
+                      <select class="select w-100" formControlName="categoryName" name="categoryName">
+                        <option *ngFor="let i of dataSelect" [value]="i.title">{{i.title}}</option>
+                      </select>
+                      <div class="mt-2 p-1 alert alert-danger"
+                        *ngIf="addBook.get('categoryName')?.touched && addBook.get('categoryName')?.errors">
+                        <small *ngIf="addBook.get('categoryName')?.errors['required']">The Input Is Required</small>
+                      </div>
+                    </div>
+
+                    <div class="mt-3 w-75">
                       <label for="exampleFormControlInput1" class="form-label">Booke name:</label>
-                      <input type="text" class="form-control" formControlName="title" value={{book.title}} >
+                      <input type="text" class="form-control" formControlName="title">
                       <div class="mt-2 p-1 alert alert-danger" *ngIf="addBook.get('title')?.touched && addBook.get('title')?.errors">
                         <small *ngIf="addBook.get('title')?.errors['required']">Please Enter Abook Name</small>
                       </div>

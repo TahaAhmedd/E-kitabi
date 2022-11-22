@@ -95,11 +95,11 @@ export class AddCategoryComponent implements OnInit {
     this.serve.postBookCat(formData).subscribe({
       next:(value)=> {
         // console.log(value);
-        this.tost.success("The Book is Added Succesfuly","",{
+        this.tost.success("The Category of Books is Added Succesfuly","",{
           positionClass:"toast-bottom-right",
           progressBar:true,
         })
-        // location.reload()
+        this.router.navigateByUrl("/dashboard/Allcategorey")
       },
       error(err) {
         console.log(err)
@@ -118,15 +118,16 @@ export class AddCategoryComponent implements OnInit {
     this.servee.postCatArt(formData).subscribe({
       next:(value)=> {
         console.log(value);
-        this.tost.success("The Book is Added Succesfuly","",{
+        this.tost.success("The Category of Articles is Added Succesfuly","",{
           positionClass:"toast-bottom-right",
           progressBar:true,
 
         })
-        // location.reload()
+        this.router.navigateByUrl("/dashboard/Allcategorey")
       },
-      error(err) {
-        console.log(err)
+      error:(err)=> {
+        // console.log(err)
+        this.tost.error("An error occurred, please try again")
       },
     })
   }

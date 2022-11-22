@@ -70,7 +70,7 @@ export class AddBookeComponent implements OnInit {
     formData.append("title",this.addBook.get("title").value)
     formData.append("description", this.addBook.get("description").value)
     formData.append("categoryName",this.addBook.get("categoryName").value)
-    formData.append("keywords","")
+    formData.append("keywords",this.addBook.get("keywords").value)
     formData.append("bookFile",this.addBook.get("fileSource").value)
     formData.append("bookImage",this.addBook.get("imageSource").value)
 
@@ -82,10 +82,10 @@ export class AddBookeComponent implements OnInit {
           
         })
         this.router.navigateByUrl("/dashboard/list")
-        // location.reload()
       },
-      error(err) {
-        console.log(err)
+      error:(err)=> {
+        // console.log(err)
+        this.tost.error("An error occurred, please try again")
       },
     })
   }
