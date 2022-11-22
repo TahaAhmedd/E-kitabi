@@ -13,15 +13,19 @@
     <div class="contImg w-50" style="margin-top:20px">
       <!-- //image  -->
       <label class="form-label w-100">Add Cover</label>
-      <input id="input-2 " (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="categoryImage"
+      <input id="input-2 " #attachmentbook (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="categoryImage"
         type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" multiple>
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addBook.get('categoryImage')?.touched && addBook.get('categoryImage')?.errors">
         <small *ngIf="addBook.get('categoryImage')?.errors['required']">Please Select Cover Image In Category Book</small>
       </div>
-      <div class="show-images">
-        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
-          alt="your image" />
+      <div class="show-images" >
+        <div class="listimage" *ngFor="let item of imagearr let index= index">
+
+          <img  id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+            alt="your image" />
+            <i class="fa-solid fa-trash"   (click)="deleteImagebook(index)" ></i>
+        </div>
       </div>
 
     </div>
@@ -53,15 +57,21 @@
     <div class="contImg w-50" style="margin-top:20px">
       <!-- //image  -->
       <label class="form-label w-100">Add Cover</label>
-      <input id="input-2" (change)="readURLL($event)" name="bookImageArt" id="fileimages" formControlName="categoryImageArt"
+      <input id="input-2" #attachmentarticle (change)="readURLL($event)" name="bookImageArt" id="fileimages" formControlName="categoryImageArt"
         type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" multiple>
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addcatArt.get('categoryImageArt')?.touched && addcatArt.get('categoryImageArt')?.errors">
         <small *ngIf="addcatArt.get('categoryImageArt')?.errors['required']">Please Select Cover Image In Category Articles</small>
       </div>
-      <div class="show-images">
-        <img *ngFor="let one of imagearrr" id="blah" [src]="one || 'http://placehold.it/180'" height="150" width="150"
-          alt="your image" />
+      <div class="show-images" >
+   
+        
+          <div class="listimage" *ngFor="let one of imagearrr let index= index">
+
+            <img  id="blah" [src]="one || 'http://placehold.it/180'" height="150" width="150"
+              alt="your image" />
+              <i class="fa-solid fa-trash"   (click)="deleteImagearticle(index)" ></i>
+          </div>
       </div>
 
     </div>

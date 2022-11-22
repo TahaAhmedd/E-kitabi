@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit,ViewChild, NgModule } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +10,7 @@ import { CatigotyBookService } from 'src/app/services/books/catigoty-book.servic
   styleUrls: ['./add-booke.component.css']
 })
 export class AddBookeComponent implements OnInit {
+  @ViewChild('attachments') attachment: any;
   addBook!: FormGroup;
   imageSrc: any;
   imagearr: any = [];
@@ -45,6 +46,16 @@ export class AddBookeComponent implements OnInit {
         reader.readAsDataURL(files[i]);
 
       }
+    }
+  }
+  deleteImage(index) {
+   
+    this.imagearr.splice(index, 1);
+    // this.imageSrc.splice(index, 1);
+    if (this.imagearr==0) {
+      this.attachment.nativeElement.value = '';
+    } else {
+      
     }
   }
   fileChange(e: any){
