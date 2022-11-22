@@ -69,7 +69,7 @@ export class AddBookeComponent implements OnInit {
     const formData = new FormData()
     formData.append("title",this.addBook.get("title").value)
     formData.append("description", this.addBook.get("description").value)
-    formData.append("categoryName","test")
+    formData.append("categoryName",this.addBook.get("categoryName").value)
     formData.append("keywords","")
     formData.append("bookFile",this.addBook.get("fileSource").value)
     formData.append("bookImage",this.addBook.get("imageSource").value)
