@@ -19,39 +19,16 @@
         <div class="card_blog">
 
             <div class="row">
-                <div class="col-lg-4 col-sm-6 ">
+                <div class="col-lg-4 col-sm-6 " *ngFor="let art of artData">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">Find all the information you need to ensure your experience.Find all
-                                the information you need to ensure your experience . Find all the information you of.
-                            </p>
+                            <h5 class="card-title">{{art.title}}</h5>
+                            <p class="card-text">{{art.text}}</p>
                             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">Find all the information you need to ensure your experience.Find all
-                                the information you need to ensure your experience . Find all the information you of.
-                            </p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">Find all the information you need to ensure your experience.Find all
-                                the information you need to ensure your experience . Find all the information you of.
-                            </p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
         </div>

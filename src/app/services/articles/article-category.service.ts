@@ -16,7 +16,11 @@ export class ArticleCategoryService {
   }
 
   postCatArt(data :any){
-    return this.httb.post(`${environment.PathApi}/articlecate/newcategory`,data)
+    return this.httb.post(`${environment.PathApi}/articlecate/newcategory`,data);
+  }
+
+  deleteCat(id:any){
+    return this.httb.delete(`${environment.PathApi}/articlecate/delete/${id}`);
   }
 
 }
