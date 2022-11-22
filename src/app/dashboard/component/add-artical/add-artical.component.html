@@ -68,15 +68,20 @@
       </div>
     </div>
     <div class="contImg">
-      <input id="input-2" (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
+      <input id="input-2" #attachments (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
         type="file" accept="image/*" class="file" data-show-upload="false" data-show-caption="true" multiple="">
         <div class="alert alert-danger w-50 mt-2 p-2" *ngIf="addartical.get('cover')?.touched && addartical.get('cover')?.errors">
           <span  *ngIf="addartical.get('cover')?.errors?.['required']">Please enter a
             Photo</span>
         </div>
-      <div class="show-images">
-        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
-          alt="your image" />
+      <div class="show-images" >
+        <div class="listimage" *ngFor="let item of imagearr let index = index">
+          <img  id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+          alt="your image" 
+        
+          />
+          <i class="fa-solid fa-trash"   (click)="deleteImage(index)" ></i>
+        </div>
       </div>
       <button type="submit" class="btn btn-success mt-2" [disabled]="addartical.invalid">Add Art</button>
     </div>

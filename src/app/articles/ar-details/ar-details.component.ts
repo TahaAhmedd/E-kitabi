@@ -27,6 +27,8 @@ export class ArDetailsComponent implements OnInit {
 
   ngOnInit() {
 
+    window.scrollTo(0,0)
+
     const catogeryName = String(this.route.snapshot.paramMap.get('title'));
 
 
@@ -42,7 +44,7 @@ export class ArDetailsComponent implements OnInit {
     this.serv.getArticles().subscribe((d) => {
 
       this.articles = d.data
-      console.log(this.articles)
+      // console.log(this.articles)
     })
 
     

@@ -8,6 +8,7 @@ import { HomeComponent } from '../user/home/home.component';
 import { AboutusComponent } from '../user/aboutus/aboutus.component';
 import { ContactusComponent } from '../user/contactus/contactus.component';
 import { Categories_ArtComponent } from '../user/categories_Art/categories_Art.component';
+import { CommonModule } from '@angular/common';
 
 let routes : Routes =[
   {path:'list/:id', component:ArticlesListComponent},
@@ -24,9 +25,11 @@ let routes : Routes =[
 @NgModule({
   declarations: [
     ArDetailsComponent,
+    ArticlesListComponent
   ],
   imports: [
     SharedModule,
+    CommonModule,
     RouterModule.forChild(routes)    
   ]
 })
