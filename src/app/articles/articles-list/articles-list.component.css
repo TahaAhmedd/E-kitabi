@@ -1,3 +1,16 @@
+.boxImage {
+    height: 100px;
+    margin-bottom: 10px;
+    border: 1px solid #999;
+}   
+.boxImage img {
+    height: 100%;
+    width: 100%;
+}
+.boxTitle {
+    margin-left: 10px;
+    text-transform: capitalize;
+}
 .images-nav {
     background-image: url(../../../assets/Articals/NewsNav.jpg) ;
     background-size: cover;
@@ -65,7 +78,7 @@
 .side-con-one .content .sid-ecent-post {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    /* width: 80%; */
     /* flex-flow: r; */
 }
 

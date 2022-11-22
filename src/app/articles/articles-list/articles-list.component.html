@@ -15,48 +15,12 @@
                     <input class="inputSearch" type="text" placeholder="Sarch for Artical">
                     <h2 class="recent">RECENT POST</h2>
                     <div class="sid-ecent-post">
-                        <div class="content-set">
-                            <a href="#">
-                                <img src="../../../assets//Articals/section-book(4).jpg" alt="">
+                        <div class="content-set" *ngFor="let cat of getCatogry">
+                            <a  class="boxImage">
+                                <img src="{{cat?.cover}}" alt="">
                             </a>
-                            <h4>
-                                <a href="#">Lorem ipsum dolor...</a>
-                            </h4>
-                        </div>
-                        <div class="content-set"><a href="#">
-                                <img src="../../../assets//Articals/section-book(4).jpg" alt="">
-                            </a>
-                            <h4>
-                                <a href="#">Lorem ipsum dolor...</a>
-                            </h4>
-                        </div>
-                        <div class="content-set"> <a href="#">
-                                <img src="../../../assets//Articals/section-book(4).jpg" alt="">
-                            </a>
-                            <h4>
-                                <a href="#">Lorem ipsum dolor...</a>
-                            </h4>
-                        </div>
-                        <div class="content-set">
-                            <img src="../../../assets//Articals/section-book(4).jpg" alt="">
-                            <h4><a href="#" class="dis"><p>
-                                ON DEMAND
-                                Panel: The state of JavaScript
-                                Join some of the most influential minds in JavaScript for a live discussion on what the future holds for the language.</p></a>
-                            </h4>
-                        </div>
-                        <div class="content-set"><a href="#">
-                                <img src="../../../assets//Articals/section-book(4).jpg" alt="">
-                            </a>
-                            <h4>
-                                <a href="#">Lorem ipsum dolor...</a>
-                            </h4>
-                        </div>
-                        <div class="content-set"><a href="#">
-                                <img src="../../../assets//Articals/section-book(4).jpg" alt="">
-                            </a>
-                            <h4>
-                                <a  class="dis" href="#"><p>Lorem ipsum dolor...v Lorem ipsum dolor...Lorem ipsum dolor...Lorem ipsum dolor</p></a>
+                            <h4 class="boxTitle">
+                                <a>{{cat?.title}}</a>
                             </h4>
                         </div>
                     </div>
@@ -64,19 +28,12 @@
             </div>
             <div class="side-con-Two">
                 <h2 class="recent">ARCHIVE</h2>
-                <h5>July 2018</h5>
-                <h4><a href="">Lorem ipsum dolor sit amet...</a>
+                <h4  *ngFor="let ttest of allCategory">
+                    <span  routerLink="/articles/details/{{ttest.title}}" style="font-size: 15px; background-color: #999; padding:5px 10px; color: #FFF;cursor: pointer;">{{ttest.title}}</span>
                 </h4>
-                <h4><a href="">Lorem ipsum dolor sit amet...</a>
-                </h4>
-                <h4><a href="">Lorem ipsum dolor sit amet...</a>
-                </h4>
-                <h4><a href="">Lorem ipsum dolor sit amet...</a>
-                </h4>
-                <h4><a href="">Lorem ipsum dolor sit amet...</a>
-                </h4>
+
             </div>
-            <div class="side-con-Three">
+            <!-- <div class="side-con-Three">
                 <div class="tag">
                     <h2 class="recent">TAGS</h2>
                     <h5>July 2018</h5>
@@ -105,25 +62,17 @@
                     </h4>
                 </div>
 
-            </div>
+            </div> -->
         </div>
         <!--end sidpar-->
         <div class="main">
             <div class="content">
                 <!--imageArtica-->
-                <div><img class="imgArticle" src="../../../assets/Articals/section-book(1).jpeg" alt=""></div>
+                <div><img class="imgArticle" src="{{datas?.cover}}" alt=""></div>
                 <div class="contentArtical">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                    <p class="pragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Amet dicta repudiandae impedit numquam nesciunt a, doloribus quo? Illo harum ipsa qu
-                        ae ratione accusantium neque soluta reprehenderit, eius
-                        velit eveniet enim.
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Aliquid, laborum nostrum ipsa explicabo nihil adipisci maxime
-                        deleniti eos molestias quasi dolores
-                        . Voluptate rerum harum accusamus fuga cumque nihil, asperiores
-                        eligendi. </p>
-                    <p class="centerartical">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    <h3 style="border-left: 1px solid #b4352a;padding-left: 10px ;">{{datas?.title}}</h3>
+                    <p class="pragraph">{{datas?.text}}</p>
+                    <!-- <p class="centerartical">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                         In doloribus amet veritatis error dolorum laboriosam, nesciunt
                         nulla eveniet dolorem natus corrupti, sapiente nisi enim quisquam,
                         quidem aut ipsa delectus quas!</p>
@@ -191,7 +140,7 @@
                         atque nobis nemo sit odio veniam illo, ex totam quo? Dolorem sapiente corporis
                         sunt perspiciatis assumenda nihil optio! Dolores, nostrum?
                         <a href="#">read abot us this Artical Click Here</a>
-                    </p>
+                    </p> -->
                     <div class="endArtical">
                         <img src="./images/blog-dec-img1_large (1).webp" alt="">
                         <img src="./images/4 (1).webp" alt="">
