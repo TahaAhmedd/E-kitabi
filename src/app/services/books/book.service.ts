@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiResponse } from 'src/app/Model/ApiResponse';
 
@@ -47,23 +47,22 @@ export class BookService {
   }
   // Function Get Book By Id Api
   getBookByID(Id:String) {
-    // console.log(Id)
-    return this.http.get<ApiResponse>(`${environment.PathApi}/book/getBook/${Id}`);
+    console.log(Id)
+    return this.http.get<ApiResponse>(`${environment.PathApi}/book/getbyid/${Id}`);
   }
 
 
   // Function Get Book By CaticoryFrom Api
-  getBookByCatigory(category: string) {
+  getBookByCatigory(category: any):Observable<ApiResponse> {
     console.log(category);
-    
-    return this.http.get(`${environment.PathApi}/book/books/${category}`);
+    return this.http.get<ApiResponse>(`${environment.PathApi}/book/books/${category}`);
   }
   getBookByTitle(title: string) {
     console.log(title);
     
     return this.http.get(`${environment.PathApi}/book/books/${title}`);
   }
- 
+
   // Function Add Book From Api
   postBook(book: any) {
     return this.http.post(`${environment.PathApi}/book/newbook`, book);

@@ -81,7 +81,7 @@ export class AddBookeComponent implements OnInit {
           progressBar:true,
           
         })
-        this.router.navigateByUrl("/dadashboard/list")
+        this.router.navigateByUrl("/dashboard/list")
         // location.reload()
       },
       error(err) {

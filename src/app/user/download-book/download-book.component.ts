@@ -22,15 +22,15 @@ export class DownloadBookComponent implements OnInit {
     // this.curentId
     this.canActive.paramMap.subscribe(
       (pram) => {
-  this.curentId=pram.get('title')
+  this.curentId=pram.get('id')
   console.log(this.curentId);
   
     if(this.curentId)
     {
-      this.bookServes.getBookByTitle(this.curentId).subscribe(
+      this.bookServes.getBookByID(this.curentId).subscribe(
         (bookData)=>
       {
-      console.log(bookData);
+      this.listBook= bookData.data;
  
       })
     }

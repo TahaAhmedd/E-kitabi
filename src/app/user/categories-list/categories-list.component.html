@@ -6,9 +6,9 @@
             <div class="leftcontent">
                 <div class="content">
                     <h3>Books Categories</h3>
-                    <ul class="one">
-                        <li>Biography <span>(58)</span></li>
-                        <li>Business <span>(65)</span></li>
+                    <ul class="one" *ngFor="let item of catogry">
+                        <li>{{item.title}} <span>{{item.length}}</span></li>
+                        <!-- <li>Business <span>(65)</span></li>
                         <li>Cookbooks <span>(58)</span></li>
                         <li>Health & Fitness <span>(65)</span></li>
                         <li>History <span>(58)</span></li>
@@ -18,7 +18,7 @@
                         <li>Harry Potter <span>(78)</span></li>
                         <li>Harry Potter <span>(65)</span></li>
                         <li>Kids' Music <span>(89)</span></li>
-                        <li>hoodies <span>(48)</span></li>
+                        <li>hoodies <span>(48)</span></li> -->
                     </ul>
 
                     <!-- <h3>Books Tages</h3>
@@ -87,7 +87,7 @@
                 <div class="appcontentbody">
 
                     <div class="childcontentbody" *ngFor="let item of listBooke ">
-
+ {{listBooke|json}}
                         <div class="leftimg">
                             <img src="{{item.cover}}" alt="">
                         </div>
@@ -105,7 +105,7 @@
                             <h4>published Date:<span>{{item.createdAt}}</span></h4>
                             <h5>Page Count:<span>430</span></h5>
                             <a >
-                                <button title="Details To Book" [routerLink]="['/user/download',item.title]" >Details</button>
+                                <button title="Details To Book" [routerLink]="['/user/download',item._id]" >Details</button>
                             </a>
                             <ul class="twoicon">
                                 <i class="fa fa-heart" aria-hidden="true" title="Like"></i>
