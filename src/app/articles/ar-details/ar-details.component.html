@@ -12,7 +12,7 @@
             <div class="post" *ngFor="let one of catogeryName">
                 
                 <div class="row">
-                    <div class="col-lg-4" routerLink="/articles/list">
+                    <div class="col-lg-4" routerLink="/articles/list/{{one._id}}">
                         <div class="box_image">
                             <img src="{{one.cover}}" alt="">
                         </div>
@@ -20,11 +20,11 @@
                     <div class="col-lg-8">
                         <div class="content-post">
                             <h1>
-                                <a href="#"  routerLink="/articles/list/{{one._id}}">{{one.title}}</a>
+                                <a routerLink="/articles/list/{{one._id}}" class="edTitle">{{one.title}}</a>
                             </h1>
                             <div class="post-defin"><span>POSTS BY: <span>{{one.updatedAt}}</span></span></div>
-                            <p>{{one.text}}</p>
-                            <h5><a href=""  routerLink="/articles/list">Read More <i class=" fa fa-arrow-right"></i></a></h5>
+                            <p title="{{one.text}}" class="testText">{{one.text}}...</p>
+                            <h5><a routerLink="/articles/list/{{one._id}}">Read More <i class=" fa fa-arrow-right"></i></a></h5>
                         </div>
                     </div>
                 </div>
