@@ -25,6 +25,7 @@
       <tr>
         <td>Name</td>
         <td>Discration</td>
+        <td>Image</td>
         <td>Category Name</td>
         <td>Delete</td>
         <td>Upadte</td>
@@ -37,6 +38,9 @@
         </td>
         <td class="dis">
           <p>{{i.text}}</p>
+        </td>
+        <td>
+          <img [src]="i.cover[0]" style="width: 100px; height: 100px;" alt="Article Cover" />
         </td>
         <td class="text-center">
           <p class="text-center">{{i.categoryName}}</p>

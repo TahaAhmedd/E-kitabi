@@ -14,6 +14,7 @@
 .blog .des p {
     color:#777;
     padding-bottom: 10px;
+    
 }
 .card_blog .card {
     margin-bottom: 30px;
@@ -31,4 +32,9 @@
 }
 .card_blog .card .card-body p {
     color: #555;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    height: 22ch;
+    width: 100%;
+    overflow: hidden;
 }

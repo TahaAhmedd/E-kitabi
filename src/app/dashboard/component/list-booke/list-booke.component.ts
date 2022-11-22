@@ -59,7 +59,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
       this.arrBook = e.data;
     });
   }
-  deletBook(id: number) {
+  deletBook(id: any) {
     this.httpServes.deletBook(id).subscribe({
       next: () => {
         // this.tostSucces("The Book is Deleted Succesfuly")

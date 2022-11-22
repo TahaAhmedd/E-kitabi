@@ -9,11 +9,18 @@
 .newBook_card:hover{
     transform: translateY(-5px);
 }
+.card-title{
+    white-space: nowrap;
+    width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
 .card-img-top{
     position: relative;
 }
 .newBook_card:hover .hover-img::before{
-    background-color: rgba(0, 0, 0, 0.314);
+    /* background-color: rgba(0, 0, 0, 0.314); */
     content: '';
     position: absolute;
     left: 0;
@@ -21,7 +28,11 @@
     z-index: 99;
     height: 100%;
     width: 100%;
-  }
+}
+.down:hover{
+    cursor: pointer;
+}
+
 .newPrudect .des {
     text-align: center;
 }
@@ -39,6 +50,8 @@
     color: #FFF;
     border: none;
     width: 100%;
+    cursor: pointer !important;
+    height: 35px;
 }
 .button-style{
     background-color: #ce7852;

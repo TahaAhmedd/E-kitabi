@@ -18,4 +18,8 @@ export class CatigotyBookService {
   postBookCat(data :any){
     return this.httb.post(`${environment.PathApi}/bookcate/newcategory`,data)
   }
+
+  deleteCat(id:any){
+    return this.httb.delete(`${environment.PathApi}/bookcate/delete/${id}`)
+  }
 }

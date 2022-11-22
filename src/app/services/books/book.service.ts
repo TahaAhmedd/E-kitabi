@@ -43,7 +43,7 @@ export class BookService {
   }
 
   // Function Delte b Book
-  deletBook(id: number) {
+  deletBook(id : any) {
     return this.http.delete(`${environment.PathApi}/book/delete/${id}`);
   }
 

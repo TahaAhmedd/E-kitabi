@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { ArticlesService } from 'src/app/services/articles/articles.service';
@@ -12,6 +12,7 @@ import { ArticleCategoryService } from 'src/app/services/articles/article-catego
   styleUrls: ['./add-artical.component.css']
 })
 export class AddArticalComponent implements OnInit {
+  @ViewChild('attachments') attachment: any;
   addartical!: FormGroup;
   imageSrc: Array<File> = [];
   imagearr: any = [];
@@ -54,8 +55,8 @@ export class AddArticalComponent implements OnInit {
         const files = file[i]
         this.imageSrc.push(event.target.files[i])
       }
-      console.log(this.imageSrc)
-
+      // console.log(this.imagearr)
+      
     }
   }
 
@@ -83,6 +84,16 @@ export class AddArticalComponent implements OnInit {
         this.toast.error("An error occurred, please try again")        
       },
     })
+  }
+  deleteImage(index) {
+   
+    this.imagearr.splice(index, 1);
+    this.imageSrc.splice(index, 1);
+    if (this.imagearr==0) {
+      this.attachment.nativeElement.value = '';
+    } else {
+      
+    }
   }
 
 

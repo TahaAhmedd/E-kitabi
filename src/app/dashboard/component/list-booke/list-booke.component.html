@@ -25,6 +25,7 @@
         <td>Name</td>
         <td>Descration</td>
         <td>Image</td>
+        <td>Category Name</td>
         <td>Delete</td>
         <td>Upadte</td>
       </tr>
@@ -38,6 +39,7 @@
           <p>{{book.description}}</p>
         </td>
         <td class="dis"><img [src]="book.cover" style="width: 100px; height: 100px; " /></td>
+        <td>{{book.categoryName}}</td>
         <td><button class="btn btn-outline-danger delete" (click)="deletBook(book._id)">Delete</button></td>
         <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#T'+book._id"
           >
