@@ -5,7 +5,9 @@
     <td>
       <div class="input-group">
         <div class="form-outline">
-          <input type="search" id="form1"  (change)="searchBook()" class="form-control" />
+          <form [formGroup]="formsearch" > 
+          <input type="search" id="form1" formControlName="search"   class="form-control" />
+        </form>
         </div>
         <button type="button" class="btn btn-primary">
           <i class="fas fa-search"></i>
@@ -17,7 +19,7 @@
     </td>
 
   </div>
-  <table>
+  <table >
     <thead>
       <tr>
         <td>Name</td>
@@ -27,7 +29,7 @@
         <td>Upadte</td>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <tr *ngFor="let book of arrBook  index as i">
         <td class="dis">
           <p>{{book.title}}</p>
