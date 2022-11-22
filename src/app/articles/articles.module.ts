@@ -10,7 +10,7 @@ import { ContactusComponent } from '../user/contactus/contactus.component';
 import { Categories_ArtComponent } from '../user/categories_Art/categories_Art.component';
 
 let routes : Routes =[
-  {path:'list', component:ArticlesListComponent},
+  {path:'list/:id', component:ArticlesListComponent},
   // After Cat Art 
   {path:'details/:title', component:ArDetailsComponent},
   {path:'home', component:HomeComponent},
