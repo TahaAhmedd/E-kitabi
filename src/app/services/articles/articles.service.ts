@@ -40,7 +40,7 @@ export class ArticlesService {
 
 
   // Get One Art With Id 
-  getArtWithId(id:any) {
-      return this.http.get(`${environment.PathApi}/getbyid/${id}`)
+  getArtWithId(id:any) :Observable<ApiResponse> {
+      return this.http.get<ApiResponse>(`${environment.PathApi}/article/getbyid/${id}`)
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ArticleCategoryService } from 'src/app/services/articles/article-category.service';
 import { ArticlesService } from 'src/app/services/articles/articles.service';
 
 
@@ -11,23 +12,37 @@ import { ArticlesService } from 'src/app/services/articles/articles.service';
 })
 export class ArticlesListComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute, private serv:ArticlesService) { }
+  datas:any;
+  getCatogry:any;
+  allCategory:any;
+
+  constructor(private route:ActivatedRoute, private serv:ArticlesService, private artCSer:ArticleCategoryService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
 
     const idOneCat = String(this.route.snapshot.paramMap.get('id'));
 
-    console.log(idOneCat);
 
-
-      this.serv.getArtWithId(idOneCat).subscribe((f) => {
-  
-        console.log(f)
+    // Get Art With Id
+    this.serv.getArtWithId(idOneCat).subscribe((res) => {
+      this.datas = res.data
+      // Get Arts With CtgoryName 
+      this.serv.getWithCatName(this.datas?.categoryName).subscribe((allCategoryType) => {
+        this.getCatogry = allCategoryType.data
       })
+    })
 
 
+
+    // Get All Category 
+    this.artCSer.gitAllCatArt().subscribe((test) => {
+      this.allCategory = test.data
+      // console.log(test.data)
+    })
   }
 
 
+   
 
 }
