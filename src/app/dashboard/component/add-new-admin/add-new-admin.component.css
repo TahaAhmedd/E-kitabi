@@ -1,25 +1,24 @@
-.container{
-    margin-top: 200px;
-
-
-padding: 20px;
+.container {
+    padding: 20px;
     border-radius: 20px;
     padding-left: 5px;
-    /* box-shadow:   0px 2px 10px rgb(0, 0, 0); */
 }
-.container label{
+
+.container label {
     padding-left: 10px;
     border-left: 3px solid #FFC800;
     margin-bottom: 20px;
     transition: all 1s ease-in-out;
 
 }
-.container label:hover{
+
+.container label:hover {
     transition: all 1s ease-in-out;
-color: #119DA4;
-letter-spacing: 2px;
+    color: #119DA4;
+    letter-spacing: 2px;
 }
-.new{
+
+.new {
     border-left: 3px solid #119DA4;
     margin-top: 20px;
     padding-left: 20px;
@@ -27,17 +26,14 @@ letter-spacing: 2px;
     margin-bottom: 30px;
 
 }
-.new:hover
-{
-transition: all 1s ease-in-out;
-color: #119DA4;
-letter-spacing: 2px;
+
+.new:hover {
+    transition: all 1s ease-in-out;
+    color: #119DA4;
+    letter-spacing: 2px;
 }
-.new span{
+
+.new span {
     color: #FFC800;
-}  
-.butt{
-    position:relative;
-    left: 600px;
-        margin-top: 30px;
 }
+
