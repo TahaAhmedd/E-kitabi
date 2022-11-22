@@ -1,8 +1,8 @@
-<div class="topbar">
+<!-- <div class="topbar">
     <div class="toggel">
         <i name="menu-outline"></i>
     </div>
-    <!--search-->
+    search
     <div class="search">
         <label>
             <input type="search" placeholder="search here">
@@ -12,36 +12,38 @@
     <div class="userimage">
         <img src="./image/images.jpg" alt="">
     </div>
-</div>
-<div class="card ">
-    <div class="card1">
-        <div>
-            <div class="unmber">1,900</div>
-            <div class="namecard">views</div>
-            <div class="iconBox">
-                <i name="eye-outline"></i>
+</div> -->
+<div class="container">
+    <div class="card mt-5">
+        <div class="card1">
+            <div>
+                <div class="unmber">1,900</div>
+                <div class="namecard">views</div>
+                <div class="iconBox">
+                    <i name="eye-outline"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card1">
-        <div>
-            <div class="unmber">800</div>
-            <div class="namecard">Article</div>
-            <div class="iconBox">
-                <i name="cart-outline"></i>
+        <div class="card1">
+            <div>
+                <div class="unmber">{{artLength}}</div>
+                <div class="namecard">Article</div>
+                <div class="iconBox">
+                    <i name="cart-outline"></i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card1">
-        <div>
-            <div class="unmber">1,900</div>
-            <div class="namecard">Books</div>
-            <div class="iconBox">
-                <i name="chatbubble-ellipses-outline"></i>
+        <div class="card1">
+            <div>
+                <div class="unmber">{{bookLength}}</div>
+                <div class="namecard">Books</div>
+                <div class="iconBox">
+                    <i name="chatbubble-ellipses-outline"></i>
+                </div>
             </div>
         </div>
+    
     </div>
- 
 </div>
 
 <div class="resentOrder">
@@ -55,40 +57,62 @@
             <tr>
                 <td>Name</td>
                 <td>Discration</td>
+                <td>Image</td>
                 <td>Delete</td>
-                <td>Upadte</td>
+                <!-- <td>Upadte</td> -->
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="dis"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, illo!</p></td>
-                <td class="dis"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, voluptates.</p></td>
-                <td><button class="btn btn-outline-danger delete">Delete</button></td>
-                <td><button class="btn btn-outline-primary upadte">Update</button></td>
+            <tr *ngFor="let book of bookData">
+                <td class="dis">
+                    <p>{{book.title}}</p>
+                </td>
+                <td class="dis">
+                    <p>{{book.description}}</p>
+                </td>
+                <td class="dis">
+                    <img [src]="book.cover" style="width: 100px; height: 100px;" alt="Book Cover" />
+                </td>
+                <td><button class="btn btn-outline-danger delete" (click)="deleteBook(book._id)">Delete</button></td>
+                <!-- <td><button class="btn btn-outline-primary upadte">Update</button></td> -->
             </tr>
         </tbody>
     </table>
 </div>
-<div class="resentOrder">
+
+
+<div class="resentOrder mb-5">
     <div class="cardHeadr">
-        <h2 class="headlinerecent">Recent Artical </h2>
+        <h2 class="headlinerecent">Recent Article </h2>
         <a (click)="GoToArtical()" class="btn btn-primary">view all</a>
     </div>
     <table>
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Discration</td>
+                <td>Title</td>
+                <td>Descration</td>
+                <td>Image</td>
+                <td>Category Name</td>
                 <td>Delete</td>
-                <td>Upadte</td>
+                <!-- <td>Upadte</td> -->
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="dis"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, illo!</p></td>
-                <td class="dis"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, voluptates.</p></td>
-                <td><button class="btn btn-outline-danger delete">Delete</button></td>
-                <td><button class="btn btn-outline-primary upadte">Update</button></td>
+            <tr *ngFor="let art of artData">
+                <td class="dis">
+                    <p>{{art.title}}</p>
+                </td>
+                <td class="dis">
+                    <p>{{art.text}}</p>
+                </td>
+                <td>
+                    <img [src]="art.cover[0]" style="width: 100px; height: 100px;" alt="Article Cover" />
+                </td>
+                <td class="text-center">
+                    <p class="text-center">{{art.categoryName}}</p>
+                  </td>
+                <td><button class="btn btn-outline-danger delete" (click)="deleteArt(art._id)">Delete</button></td>
+                <!-- <td><button class="btn btn-outline-primary upadte">Update</button></td> -->
             </tr>
         </tbody>
     </table>

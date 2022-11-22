@@ -17,6 +17,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { PreviewComponent } from './preview/preview.component';
 import { LoginComponent } from '../login/login.component';
 import { Categories_ArtComponent } from './categories_Art/categories_Art.component';
+import { LoaderComponent } from '../loader/loader/loader.component';
 
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
@@ -34,29 +35,28 @@ let routes : Routes =[
 ]
 
 @NgModule({
-  declarations: [
-    NavparComponent,
-    FooterComponent,
-    uMainComponent,
-    CategoriesComponent,
-    CategoriesListComponent,
-    DownloadBookComponent,
-    HomeComponent,
-    HeaderComponent,
-    NewbooksComponent,
-    SomebookComponent,
-    AboutusComponent,
-    ContactusComponent,
-    PolicyComponent,
-    PreviewComponent,
-    Categories_ArtComponent
-
-    
-  ],
-  imports: [
-
-SharedModule,
-    RouterModule.forChild(routes)
-  ]
+    declarations: [
+        NavparComponent,
+        FooterComponent,
+        uMainComponent,
+        CategoriesComponent,
+        CategoriesListComponent,
+        DownloadBookComponent,
+        HomeComponent,
+        HeaderComponent,
+        NewbooksComponent,
+        SomebookComponent,
+        AboutusComponent,
+        ContactusComponent,
+        PolicyComponent,
+        PreviewComponent,
+        Categories_ArtComponent,
+        LoaderComponent,
+        
+    ],
+    imports: [
+        SharedModule,
+        RouterModule.forChild(routes),
+    ]
 })
 export class UserModule { }

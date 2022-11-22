@@ -6,7 +6,7 @@
 </button> -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -22,31 +22,63 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
         <!-- <app-sidbar></app-sidbar> -->
    
 
-        
+    <!--All Cat Book  -->
 <div class="resentOrder">
   <div class="cardHeadr">
-      <h2> All Category</h2>
-      <td><button class="btn btn-primary">Add new Category</button></td>
+      <h2> All Category Of Book</h2>
+      <td><button class="btn btn-primary" routerLink="/dashboard/Addcategorey">Add new Category</button></td>
   </div>
   <table>
       <thead>
           <tr>
               <td>Name</td>
-              <td>Discration</td>
+              <td>Cover</td>
               <td>Delete</td>
               <td>Upadte</td>
           </tr>
       </thead>
       <tbody>
-          <tr>
-              <td class="dis"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, illo!</p></td>
-              <td class="dis"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, voluptates.</p></td>
-              <td><button class="btn btn-outline-danger delete">Delete</button></td>
+          <tr *ngFor="let bookCat of bookCatData">
+              <td class="dis"><p>{{bookCat.title}}</p></td>
+              <td class="dis">
+                <img [src]="bookCat.cover" style="width: 100px; height: 100px;" />
+              </td>
+              <td><button class="btn btn-outline-danger delete" (click)="deleteBookCat(bookCat._id)">Delete</button></td>
               <td><button class="btn btn-outline-primary upadte">Update</button></td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+
+
+<!-- All Cat Article -->
+<div class="resentOrder">
+  <div class="cardHeadr">
+      <h2> All Category Of Article</h2>
+      <td><button class="btn btn-primary" routerLink="/dashboard/Addcategorey">Add new Category</button></td>
+  </div>
+  <table>
+      <thead>
+          <tr>
+              <td>Name</td>
+              <td>Cover</td>
+              <td>Delete</td>
+              <!-- <td>Upadte</td> -->
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let artCat of artCatData">
+              <td class="dis"><p>{{artCat.title}}</p></td>
+              <td class="dis">
+                <img [src]="artCat.cover" style="width: 100px; height: 100px;" />
+              </td>
+              <td><button class="btn btn-outline-danger delete" (click)="deleteCatArt(artCat._id)">Delete</button></td>
+              <!-- <td><button class="btn btn-outline-primary upadte">Update</button></td> -->
           </tr>
       </tbody>
   </table>

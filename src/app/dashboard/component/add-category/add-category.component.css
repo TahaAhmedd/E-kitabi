@@ -1,0 +1,46 @@
+.show-images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.new {
+    border-left: 3px solid #119DA4;
+    margin-top: 20px;
+    padding-left: 20px;
+    transition: all 1s ease-in-out;
+    margin-bottom: 30px;
+
+}
+
+.new:hover {
+    transition: all 1s ease-in-out;
+    color: #119DA4;
+    letter-spacing: 2px;
+}
+
+.new span {
+    color: #FFC800;
+}
+
+.file {
+    letter-spacing: 2px;
+
+    transition: all 1s ease-in-out;
+}
+
+.file:hover {
+    transition: all 1s ease-in-out;
+    border-radius: 0px 30px 30px 0px;
+    background-color: #119DA4;
+}
+
+.form-label {
+    border-left: 3px solid #FFC800;
+    padding-left: 5px;
+}
+.form-label:hover{
+    transition: all 1s ease-in-out;
+color: #119DA4;
+letter-spacing: 2px;
+}
