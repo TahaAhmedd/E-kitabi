@@ -3,6 +3,9 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.show-images .listimage{
+    margin: 20px 0;
+}
 .listimage{
     position: relative;
 }

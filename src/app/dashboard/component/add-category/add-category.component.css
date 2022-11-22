@@ -1,7 +1,27 @@
-.show-images {
+
+.show-images{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.show-images .listimage{
+    margin: 20px 0;
+}
+.listimage{
+    position: relative;
+}
+.fa-trash{
+    color: #ea5252;
+    background-color: #00000073;
+    width: 100%;
+    height: 25px;
+    font-size: 17px;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    padding-top: 4px;
+    right: 0px;
+    cursor: pointer;
 }
 
 .new {

@@ -45,15 +45,16 @@
     <div class="contImg w-50" style="margin-top:20px">
       <!-- //image  -->
 
-      <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="bookImage"
+      <input id="input-2" #attachment (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="bookImage"
         type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" >
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
         <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In Book</small>
       </div>
-      <div class="show-images">
-        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+      <div class="show-images" *ngFor="let item of imagearr let index= index">
+        <img  id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
           alt="your image" />
+          <i class="fa-solid fa-trash"   (click)="deleteImage(index)" ></i>
       </div>
 
     </div>
