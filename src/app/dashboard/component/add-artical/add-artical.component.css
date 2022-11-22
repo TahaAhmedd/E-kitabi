@@ -3,6 +3,22 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.listimage{
+    position: relative;
+}
+.fa-trash{
+    color: #ea5252;
+    background-color: #00000073;
+    width: 100%;
+    height: 25px;
+    font-size: 17px;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    padding-top: 4px;
+    right: 0px;
+    cursor: pointer;
+}
 .new{
     border-left: 3px solid #119DA4;
     margin-top: 20px;
