@@ -29,6 +29,7 @@ export class AddArticalComponent implements OnInit {
   //    zip:''
   //   });
   // }
+  
   constructor(public fb:FormBuilder ,private router:Router,private serv:ArticlesService, private http:HttpClient) {
     this.addartical =  this.fb.group({
       categoryName: new FormControl("", [Validators.required]),
@@ -75,9 +76,14 @@ for (var i = 0; i < file.length; i++) {
   
   
 }
-// console.log(this.imagearr);
-      
-    }
+console.log(this.addartical.get('cover').value);
+
+}
+}
+deleteImage(event:any) {
+ 
+  this.imagearr.splice(event, 1);
+  this.addartical.get('cover').value.splice(event, 1);
 }
 
 

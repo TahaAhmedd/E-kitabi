@@ -73,7 +73,7 @@
   <div class="contImg">
     <input id="input-2" (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple>
     <div class="show-images">
-      <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150" alt="your image" />
+      <img (click)="deleteImage($event)" *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150" alt="your image"  />
     </div>
     <button type="submit" class="btn btn-success mt-2">Add Art</button>
     <!-- {{addartical.value | json }} -->
