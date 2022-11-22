@@ -124,7 +124,7 @@ a{
   }
   /* Left Posts */
   main .container .left-sec .post {
-    display: flex;
+    /* display: flex; */
     gap: 20px;
   }
   main .container .left-sec .post:not(:last-child) {
