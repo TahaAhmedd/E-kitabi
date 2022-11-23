@@ -61,14 +61,27 @@
 
     <div class="mb-3">
       <label for="text" class="form-label mt-2 addArtNa">Description Article</label>
-      <textarea class="form-control h-25 w-75 mt-4" id="text" formControlName="text" rows="6"></textarea>
-      <div class="alert alert-danger w-75 mt-2 p-2" *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
-        <span  *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
+      <textarea class="form-control  w-75 mt-4" id="text" formControlName="description" rows="4" style="max-height:150px ;"></textarea>
+      <div class="alert alert-danger w-75 mt-2 p-2" *ngIf="addartical.get('description')?.touched && addartical.get('description')?.errors">
+        <span  *ngIf="addartical.get('description')?.errors?.['required']">Please enter a
           description</span>
       </div>
     </div>
+
+
+    <div class="mb-3">
+      <label for="text" class="form-label mt-2 addArtNa">Article Text</label>
+      <textarea class="form-control w-75 mt-4" id="text" formControlName="text" rows="6" style="max-height:250px ;"></textarea>
+      <div class="alert alert-danger w-75 mt-2 p-2" *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
+        <span  *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
+          Text In Article</span>
+      </div>
+    </div>
+
+
     <div class="contImg">
-      <input id="input-2" #attachments (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
+      <label for="Photo" class="form-label w-100 mb-3 mt-2 addArtNa">Article Pictures</label>
+      <input id="Photo" #attachments (change)="readURL($event)" name="articleImages" id="fileimages" formControlName="cover"
         type="file" accept="image/*" class="file" data-show-upload="false" data-show-caption="true" multiple="">
         <div class="alert alert-danger w-50 mt-2 p-2" *ngIf="addartical.get('cover')?.touched && addartical.get('cover')?.errors">
           <span  *ngIf="addartical.get('cover')?.errors?.['required']">Please enter a
@@ -83,7 +96,7 @@
           <i class="fa-solid fa-trash"   (click)="deleteImage(index)" ></i>
         </div>
       </div>
-      <button type="submit" class="btn btn-success mt-2" [disabled]="addartical.invalid">Add Art</button>
+      <button type="submit" class="btn btn-success mt-4" [disabled]="addartical.invalid">Add Art</button>
     </div>
 
   </div>

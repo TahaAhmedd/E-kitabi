@@ -17,8 +17,7 @@ import { PolicyComponent } from './policy/policy.component';
 import { PreviewComponent } from './preview/preview.component';
 import { LoginComponent } from '../login/login.component';
 import { Categories_ArtComponent } from './categories_Art/categories_Art.component';
-import { LoaderComponent } from '../loader/loader/loader.component';
-
+import { LoaderComponent } from '../loader/loader.component'
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home', component:HomeComponent},
@@ -51,8 +50,7 @@ let routes : Routes =[
         PolicyComponent,
         PreviewComponent,
         Categories_ArtComponent,
-        LoaderComponent,
-        
+        LoaderComponent
     ],
     imports: [
         SharedModule,

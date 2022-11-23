@@ -65,3 +65,14 @@ select option{
     left: 0px;
     cursor: pointer;
 }
+.file {
+    letter-spacing: 2px;
+
+    transition: all 1s ease-in-out;
+}
+
+.file:hover {
+    transition: all 1s ease-in-out;
+    border-radius: 0px 30px 30px 0px;
+    background-color: #119DA4;
+}
