@@ -4,10 +4,10 @@ import {HttpClientModule} from '@angular/common/http'
 import { FormsModule , ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr'
-// import { BrowserAnimationsModule  } from '@angular/platform-browser/animations'
+import { LoaderComponent } from '../loader/loader.component';
 @NgModule({
   declarations: [
-    
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +15,6 @@ import { ToastrModule } from 'ngx-toastr'
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    // BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:'toast-bottom-left',
       timeOut:2000,
@@ -27,7 +26,8 @@ import { ToastrModule } from 'ngx-toastr'
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    ToastrModule
+    ToastrModule,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

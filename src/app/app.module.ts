@@ -8,7 +8,6 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { SharedModule } from './shared/shared.module';
 import {FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoaderComponent } from './loader/loader.component';
 import { MatProgressSpinnerModule  } from '@angular/material/progress-spinner'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './services/loader.interceptor';
@@ -18,7 +17,6 @@ import { LoaderInterceptor } from './services/loader.interceptor';
     AppComponent,
     NotfoundComponent,
     LoginComponent,
-    LoaderComponent,
     
   ],
   imports: [
@@ -28,7 +26,7 @@ import { LoaderInterceptor } from './services/loader.interceptor';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

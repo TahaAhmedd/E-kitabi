@@ -4,7 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6e6d6d12;
+    background-color: #fff;
+    position: fixed;
+    z-index: 10000000;
+    top: 0;
+    left: 0;
 }
 
 .lds-roller {

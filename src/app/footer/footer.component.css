@@ -36,22 +36,24 @@ footer .ficon li i {
     transition: all .5s;
 }
 
-footer .ficon li:nth-child(1) i:hover {
+footer .ficon li:nth-child(1) i{
     color: #1877F2;
 }
-footer .ficon li:nth-child(2) i:hover {
+footer .ficon li:nth-child(2) i {
     color: #1DA1F2;
 }
-footer .ficon li:nth-child(3) i:hover {
+footer .ficon li:nth-child(3) i {
     color: #db4a39;
 }
-footer .ficon li:nth-child(4) i:hover {
+footer .ficon li:nth-child(4) i {
     color: #CD201F;
 }
-footer .ficon li:nth-child(5) i:hover {
+footer .ficon li:nth-child(5) i {
     color: #E4405F;
 }
-
+.ficon li i:hover{
+    filter: grayscale(100);
+}
 footer .flist li {
     border-right: 1px solid #9996;
 }
