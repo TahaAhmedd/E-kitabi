@@ -7,18 +7,8 @@
                 <div class="content">
                     <h3>Books Categories</h3>
                     <ul class="one" *ngFor="let item of catogry">
-                        <li>{{item.title}} <span>{{item.length}}</span></li>
-                        <!-- <li>Business <span>(65)</span></li>
-                        <li>Cookbooks <span>(58)</span></li>
-                        <li>Health & Fitness <span>(65)</span></li>
-                        <li>History <span>(58)</span></li>
-                        <li>Inspiration <span>(65)</span></li>
-                        <li>Romance <span>(58)</span></li>
-                        <li>Fiction/Fantasy <span>(25)</span></li>
-                        <li>Harry Potter <span>(78)</span></li>
-                        <li>Harry Potter <span>(65)</span></li>
-                        <li>Kids' Music <span>(89)</span></li>
-                        <li>hoodies <span>(48)</span></li> -->
+                       <a [routerLink]="['/user/list',item.title]"> <li>{{item.title}} <span>{{item.length}}</span></li></a>
+                        
                     </ul>
 
                     <!-- <h3>Books Tages</h3>

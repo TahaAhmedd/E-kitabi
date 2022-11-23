@@ -68,7 +68,7 @@
         <div class="main">
             <div class="content">
                 <!--imageArtica-->
-                <div><img class="imgArticle" src="{{datas?.cover}}" alt=""></div>
+                <div><img class="imgArticle" src="{{datas?.cover[0]}}" alt="Artical"></div>
                 <div class="contentArtical">
                     <h3 style="border-left: 1px solid #b4352a;padding-left: 10px ;">{{datas?.title}}</h3>
                     <p class="pragraph">{{datas?.text}}</p>
@@ -141,9 +141,12 @@
                         sunt perspiciatis assumenda nihil optio! Dolores, nostrum?
                         <a href="#">read abot us this Artical Click Here</a>
                     </p> -->
+                    <a href="{{datas.links}}">Read more About Artical</a>
                     <div class="endArtical">
-                        <img src="./images/blog-dec-img1_large (1).webp" alt="">
-                        <img src="./images/4 (1).webp" alt="">
+                        <!-- {{datas|json}} -->
+
+                        <img src="{{datas.cover[1]}}" alt="the Artical">
+                        <img src="{{datas.cover[2]}}" alt="the Artical ">
                     </div>
                     <div class="end-artical">
                         <p>Tags: library, shop</p>
