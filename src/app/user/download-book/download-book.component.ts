@@ -12,6 +12,7 @@ import { observable } from 'rxjs';
 export class DownloadBookComponent implements OnInit {
   curentId: string;
   listBook: ApiResponse | any;
+  loading:boolean = false
   constructor(
     private canActive: ActivatedRoute,
     private bookServes: BookService
@@ -37,6 +38,15 @@ export class DownloadBookComponent implements OnInit {
 
   }
 )}
+
+
+setLoading(){
+  this.loading = true
+  window.scrollTo(0,0)
+  setTimeout(() => {
+    this.loading = false
+  }, 3000);
+}
     // getbookById(id:string) {
     //   this.bookServes.getBookByID(this.curentId).subscribe((res) => {
     //     this.listBook = res.data;

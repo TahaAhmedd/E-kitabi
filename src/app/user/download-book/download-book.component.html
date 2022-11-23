@@ -1,5 +1,5 @@
-
-     <main>
+    <app-loader *ngIf="loading"></app-loader>
+     <main *ngIf="!loading">
         <section class="img-header">
             <div class="img-content">
             </div>
@@ -25,7 +25,7 @@
                             <p>
                                 {{listBook.description}}
                             </p>
-                            <button  type="submit">Download</button>
+                            <button  type="submit" (click)="setLoading()">Download</button>
                             <i class="fa fa-heart-o"></i>
                             <div class="share-social">
                                 <span>share:</span>
