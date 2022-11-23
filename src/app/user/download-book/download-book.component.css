@@ -1,160 +1,189 @@
 main .img-header {
-    background-image: url(../../../assets/download/books-view.jpg);
-    height: 60vh;
-    background-size: contain;
-    margin-bottom: 60px;
-    background-attachment: fixed;
-    position: relative;
-  }
-  main .img-header .img-content {
-    background-color: rgba(0, 0, 0, 0.8);
-    height: 60vh;
-  }
-  main .img-header h1 {
-    color: white;
-    position: absolute;
-    bottom: 45%;
-    left: 40%;
-  }
-  main .container .book-show {
-    display: flex;
-    flex-direction: row-reverse;
-   justify-content: space-between;
-    gap: 20px;
-  }
-  main .container .book-show .right-content {
-    display: flex;
-    flex-direction: column;
-  }
-  main .container .book-show .right-content .book-imgcont {
-    display: flex;
-    gap: 10px;
-  }
-  main .container .book-show .right-content .book-imgcont img {
-    width: 600px;
-  }
-  main .container .book-show .right-content .book-imgcont{
-      margin-bottom: 25px;
-  }
-  
-  /* main .container .book-show .book-content {
+  background-image: url(../../../assets/download/books-view.jpg);
+  height: 60vh;
+  background-size: contain;
+  margin-bottom: 60px;
+  background-attachment: fixed;
+  position: relative;
+}
+
+main .img-header .img-content {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 60vh;
+}
+
+main .img-header h1 {
+  color: white;
+  position: absolute;
+  bottom: 45%;
+  left: 40%;
+}
+
+main .container .book-show {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 20px;
+  row-gap: 40px;
+}
+
+main .container .book-show .right-content {
+  display: flex;
+  flex-direction: column;
+}
+
+main .container .book-show .right-content .book-imgcont {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+main .container .book-show .right-content .book-imgcont img {
+  width: 400px;
+}
+
+main .container .book-show .right-content .book-imgcont {
+  margin-bottom: 40px;
+}
+
+/* main .container .book-show .book-content {
     width: 90%;
   } */
-  main .container .book-show .book-content h4 {
-    margin: 20px 0;
-  }
-  main .container .book-show .book-content .stars i {
-    font-size: 20px;
-    color: goldenrod;
-  }
-  
-  main .container .book-show .book-content hr {
-    margin: 20px 0;
-    opacity: 0.3;
-    /* width: 80%; */
-  }
-  main .container .book-show .book-content p {
-    margin-bottom: 15px;
-    line-height: 25px;
-    /* width: 90%; */
-  }
-  main .container .book-show .book-content button {
-    padding: 10px;
-    font-size: 17px;
-    cursor: pointer;
-    background-color: #000;
-    color: white;
-    font-weight: 600;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.3s;
-  }
-  main .container .book-show .book-content button:hover {
-    background-color: #ce7852;
-    transition: all 0.3s;
-  }
-  main .container .book-show .book-content .fa-heart-o {
-    font-size: 25px;
-    margin-left: 20px;
-  }
-  main .container .book-show .book-content .share-social {
-    margin-top: 20px;
-  }
-  main .container .book-show .book-content .share-social span{
-      font-size: 20px;
-      font-weight: 700;
-  }
-  main .container .book-show .book-content .share-social a i {
-      font-size: 22px;
-    margin: 10px;
-    color: rgba(0, 0, 0, 0.8);
-    transition: all .3s;
-  
-  }
-  main .container .book-show .book-content .share-social a i:hover {
-      color: #ce7852;
-      transition: all .3s;
-  }
-  
-  main .container .book-show .right-content .description hr{
-      margin: 15px 0;
-      opacity: 0.5;
-      /* width: 70%; */
-  }
-  main .container .book-show .right-content .description p{
-      margin-bottom: 55px;
-      line-height: 25px;
-      width: 80%;
-  }
-  main .container .book-show .right-content .related .slide{
-    margin: 0 auto;
-  }
-  main .container .book-show .right-content .related .slide img{
-    height: 70vh;
-  }
-  main .container .book-show .right-content .related .slide .carousel-item{
-text-align: center;
-    
-  }
+main .container .book-show .book-content h4 {
+  margin: 20px 0;
+}
 
-  main .container .book-show .right-content .related h1{
-      text-align: center;
-      margin-bottom: 40px;
-  
-  }
+main .container .book-show .book-content .stars i {
+  font-size: 20px;
+  color: goldenrod;
+}
 
- 
-  
+main .container .book-show .book-content hr {
+  margin: 20px 0;
+  opacity: 0.3;
+  /* width: 80%; */
+}
+
+main .container .book-show .book-content p {
+  margin-bottom: 15px;
+  line-height: 25px;
+  /* width: 90%; */
+}
+
+main .container .book-show .book-content button {
+  padding: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: #000;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s;
+}
+
+main .container .book-show .book-content button:hover {
+  background-color: #ce7852;
+  transition: all 0.3s;
+}
+
+main .container .book-show .book-content .fa-heart-o {
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+main .container .book-show .book-content .share-social {
+  margin-top: 20px;
+}
+
+main .container .book-show .book-content .share-social span {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+main .container .book-show .book-content .share-social a i {
+  font-size: 22px;
+  margin: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  transition: all .3s;
+
+}
+
+main .container .book-show .book-content .share-social a i:hover {
+  color: #ce7852;
+  transition: all .3s;
+}
+
+main .container .book-show .right-content .description hr {
+  margin: 15px 0;
+  opacity: 0.5;
+  /* width: 70%; */
+}
+
+main .container .book-show .right-content .description p {
+  margin-bottom: 55px;
+  line-height: 25px;
+  width: 80%;
+}
+
+main .container .book-show .right-content .related .slide {
+  margin: 0 auto;
+}
+
+main .container .book-show .right-content .related .slide img {
+  height: 70vh;
+}
+
+main .container .book-show .right-content .related .slide .carousel-item {
+  text-align: center;
+
+}
+
+main .container .book-show .right-content .related h1 {
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+
+
 /* Responsive */
 
-@media (max-width:990px){
+@media (max-width:990px) {
   main .container .book-show {
     display: flex;
     flex-direction: column;
-    }
-    main .container .book-show .right-content .book-imgcont img{
-      width: 500px;
-    }
-    main .container .book-show .right-content .book-imgcont{
-      flex-direction: column;
-    }
-    main .container .book-show .left-content .content .two{
-      gap: 10px;
-    }
+  }
+
+  main .container .book-show .right-content .book-imgcont img {
+    width: 500px;
+  }
+
+  main .container .book-show .right-content .book-imgcont {
+    flex-direction: column;
+  }
+
+  main .container .book-show .left-content .content .two {
+    gap: 10px;
+  }
 }
-@media (max-width:675px){
-  main .img-header h1{
-      left: 40%;
+
+@media (max-width:675px) {
+  main .img-header h1 {
+    left: 40%;
   }
 
 }
-@media (max-width:550px){
-  main .img-header h1{
-      left: 25%;
+
+@media (max-width:550px) {
+  main .img-header h1 {
+    left: 25%;
   }
-  main .container .book-show .right-content .book-imgcont img{
-      width: 300px;
+
+  main .container .book-show .right-content .book-imgcont img {
+    width: 300px;
   }
-  
- 
-  }
+
+
+}

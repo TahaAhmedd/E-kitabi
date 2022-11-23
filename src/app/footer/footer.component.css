@@ -36,9 +36,22 @@ footer .ficon li i {
     transition: all .5s;
 }
 
-footer .ficon li i:hover {
-    color: #ce7852;
+footer .ficon li:nth-child(1) i:hover {
+    color: #1877F2;
 }
+footer .ficon li:nth-child(2) i:hover {
+    color: #1DA1F2;
+}
+footer .ficon li:nth-child(3) i:hover {
+    color: #db4a39;
+}
+footer .ficon li:nth-child(4) i:hover {
+    color: #CD201F;
+}
+footer .ficon li:nth-child(5) i:hover {
+    color: #E4405F;
+}
+
 footer .flist li {
     border-right: 1px solid #9996;
 }
