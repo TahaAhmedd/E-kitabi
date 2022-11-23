@@ -33,7 +33,7 @@ export class UserService {
    //login Admin
     login(DAta: any):Observable<any>
     { 
-        return  this.http.post(`${environment.PathApi}/admin/signin`, DAta ,this.httpOption)
+        return  this.http.post(`${environment.PathApi}/admin/login`, DAta ,this.httpOption)
         .pipe(
           retry(2),
           catchError(this.handleError)

@@ -3,6 +3,8 @@ import { BookService } from 'src/app/services/books/book.service';
 import { ApiResponse } from 'src/app/Model/ApiResponse';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatigotyBookService } from 'src/app/services/books/catigoty-book.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-categories-list',
@@ -13,11 +15,27 @@ export class CategoriesListComponent implements OnInit {
   listBooke: ApiResponse | any;
   curentCat: string;
   catogry :any
+  formsearch: FormGroup = new FormGroup({
+    search: new FormControl(''),
+  });
   constructor(
      private ApiServes: BookService
    , private canActive: ActivatedRoute
    , private serBookCat :CatigotyBookService
-  ) {}
+  ) {
+    this.formsearch
+
+    .get('search')
+    .valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap((item) => this.ApiServes.searchBooke(item))
+    )
+    .subscribe((v) => {
+      console.log(v.data);
+      this.listBooke = v?.data;
+    });
+  }
 
   ngOnInit(): void {
     //get CatName From Route

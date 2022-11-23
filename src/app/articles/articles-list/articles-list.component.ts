@@ -27,6 +27,8 @@ export class ArticlesListComponent implements OnInit {
     // Get Art With Id
     this.serv.getArtWithId(idOneCat).subscribe((res) => {
       this.datas = res.data
+      console.log(this.datas);
+      
       // Get Arts With CtgoryName 
       this.serv.getWithCatName(this.datas?.categoryName).subscribe((allCategoryType) => {
         this.getCatogry = allCategoryType.data

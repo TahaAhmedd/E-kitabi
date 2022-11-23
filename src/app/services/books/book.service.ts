@@ -12,7 +12,7 @@ import { environment } from './../../../environments/environment';
 export class BookService {
   constructor(private http: HttpClient) {}
 
-  getAll():Observable<ApiResponse>{
+  getAll(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/all`);
   }
 
@@ -21,15 +21,17 @@ export class BookService {
     // console.log(Id)
     return this.http.get<ApiResultBookById>(`${environment.PathApi}/book/getbyid/${Id}`);
   }
-  
+
   // Function Get Book By CaticoryFrom Api
-  getBookByCatigory(category: any):Observable<ApiResponse> {
+  getBookByCatigory(category: any): Observable<ApiResponse> {
     console.log(category);
-    return this.http.get<ApiResponse>(`${environment.PathApi}/book/books/${category}`);
+    return this.http.get<ApiResponse>(
+      `${environment.PathApi}/book/books/${category}`
+    );
   }
   getBookByTitle(title: string) {
     console.log(title);
-    
+
     return this.http.get(`${environment.PathApi}/book/books/${title}`);
   }
 
@@ -38,15 +40,17 @@ export class BookService {
     return this.http.post(`${environment.PathApi}/book/newbook`, book);
   }
 
-
   // Function Delte b Book
   deletBook(id : any) {
     return this.http.delete(`${environment.PathApi}/book/delete/${id}`);
   }
 
-
   // Function Edit  Book From Api
-  editBook(id:number , data:any) {
-    return this.http.put(`${environment.PathApi}/book/update/${id}`,data);
+  editBook(id: number, data: any) {
+    return this.http.put(`${environment.PathApi}/book/update/${id}`, data);
+  }
+  //Function Search about Book
+  searchBooke(search: string):Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${environment.PathApi}/book/search/${search}`);
   }
 }
