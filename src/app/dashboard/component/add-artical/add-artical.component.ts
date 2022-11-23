@@ -31,6 +31,7 @@ export class AddArticalComponent implements OnInit {
       title: new FormControl("", [Validators.required]),
       links: new FormArray([]),
       text: new FormControl("", [Validators.required]),
+      description: new FormControl("", [Validators.required]),
       keywords: new FormArray([]),
       cover: new FormControl("", [Validators.required]),
       imageSource: new FormControl([]),
@@ -72,6 +73,7 @@ export class AddArticalComponent implements OnInit {
     formData.append('title', this.addartical.get('title').value);
     formData.append('links', this.addartical.get('links').value);
     formData.append('text', this.addartical.get('text').value);
+    formData.append('description', this.addartical.get('description').value);
     formData.append('keywords', this.addartical.get('keywords').value);
 
     this.artService.addArticles(formData).subscribe({
