@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,8 @@ import { CatigotyBookService } from 'src/app/services/books/catigoty-book.servic
   styleUrls: ['./add-category.component.css']
 })
 export class AddCategoryComponent implements OnInit {
-
+  @ViewChild('attachmentbook') book: any;
+  @ViewChild('attachmentarticle') article: any;
   addBook:FormGroup;
   imagearr: any = [];
 
@@ -55,15 +56,30 @@ export class AddCategoryComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       const files = event.target.files;
       const file = event.target.files[0]
-      this.addBook.patchValue({
-        categoryImage:file
-      })
-      for (var i = 0; i < files.length; i++) {
+      console.log(this.imagearr);
+      console.log(file.name);
+      console.log(files);
+      
+      for (let i = 0; i < files.length; i++) {
         const reader = new FileReader();
         reader.onload = e => this.imagearr.push(e.target!.result);
         reader.readAsDataURL(files[i]);
-
+        
       }
+      console.log(this.imagearr);
+      this.addBook.patchValue({
+        categoryImage:file
+      })
+    }
+  }
+  deleteImagebook(index) {
+   
+    this.imagearr.splice(index, 1);
+    // this.imageSrc.splice(index, 1);
+    if (this.imagearr==0) {
+      this.book.nativeElement.value = '';
+    } else {
+      
     }
   }
 
@@ -72,18 +88,27 @@ export class AddCategoryComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       const files = event.target.files;
       const file = event.target.files[0]
-      this.addcatArt.patchValue({
-        categoryImageArt:file
-      })
-      for (var i = 0; i < files.length; i++) {
+      for (let i = 0; i < files.length; i++) {
         const reader = new FileReader();
         reader.onload = e => this.imagearrr.push(e.target!.result);
         reader.readAsDataURL(files[i]);
-
+        
       }
+      this.addcatArt.patchValue({
+        categoryImageArt:file
+      })
     }
   }
-
+  deleteImagearticle(index) {
+   
+    this.imagearrr.splice(index, 1);
+    // this.imageSrc.splice(index, 1);
+    if (this.imagearrr==0) {
+      this.article.nativeElement.value = '';
+    } else {
+      
+    }
+  }
 
 
   // Submit Book Cat 
@@ -95,11 +120,11 @@ export class AddCategoryComponent implements OnInit {
     this.serve.postBookCat(formData).subscribe({
       next:(value)=> {
         // console.log(value);
-        this.tost.success("The Book is Added Succesfuly","",{
+        this.tost.success("The Category of Books is Added Succesfuly","",{
           positionClass:"toast-bottom-right",
           progressBar:true,
         })
-        // location.reload()
+        this.router.navigateByUrl("/dashboard/Allcategorey")
       },
       error(err) {
         console.log(err)
@@ -118,15 +143,16 @@ export class AddCategoryComponent implements OnInit {
     this.servee.postCatArt(formData).subscribe({
       next:(value)=> {
         console.log(value);
-        this.tost.success("The Book is Added Succesfuly","",{
+        this.tost.success("The Category of Articles is Added Succesfuly","",{
           positionClass:"toast-bottom-right",
           progressBar:true,
 
         })
-        // location.reload()
+        this.router.navigateByUrl("/dashboard/Allcategorey")
       },
-      error(err) {
-        console.log(err)
+      error:(err)=> {
+        // console.log(err)
+        this.tost.error("An error occurred, please try again")
       },
     })
   }

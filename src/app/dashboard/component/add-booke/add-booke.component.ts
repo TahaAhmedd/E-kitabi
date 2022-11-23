@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit,ViewChild, NgModule } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -10,6 +10,7 @@ import { CatigotyBookService } from 'src/app/services/books/catigoty-book.servic
   styleUrls: ['./add-booke.component.css']
 })
 export class AddBookeComponent implements OnInit {
+  @ViewChild('attachments') attachment: any;
   addBook!: FormGroup;
   imageSrc: any;
   imagearr: any = [];
@@ -47,6 +48,16 @@ export class AddBookeComponent implements OnInit {
       }
     }
   }
+  deleteImage(index) {
+   
+    this.imagearr.splice(index, 1);
+    // this.imageSrc.splice(index, 1);
+    if (this.imagearr==0) {
+      this.attachment.nativeElement.value = '';
+    } else {
+      
+    }
+  }
   fileChange(e: any){
     // console.log(e.target.files)
     if(e.target.files.length > 0){
@@ -70,7 +81,7 @@ export class AddBookeComponent implements OnInit {
     formData.append("title",this.addBook.get("title").value)
     formData.append("description", this.addBook.get("description").value)
     formData.append("categoryName",this.addBook.get("categoryName").value)
-    formData.append("keywords","")
+    formData.append("keywords",this.addBook.get("keywords").value)
     formData.append("bookFile",this.addBook.get("fileSource").value)
     formData.append("bookImage",this.addBook.get("imageSource").value)
 
@@ -82,10 +93,10 @@ export class AddBookeComponent implements OnInit {
           
         })
         this.router.navigateByUrl("/dashboard/list")
-        // location.reload()
       },
-      error(err) {
-        console.log(err)
+      error:(err)=> {
+        // console.log(err)
+        this.tost.error("An error occurred, please try again")
       },
     })
   }

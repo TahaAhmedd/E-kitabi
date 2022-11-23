@@ -43,12 +43,11 @@ export class ArDetailsComponent implements OnInit {
     // Get All Articles 
     this.serv.getArticles().subscribe((d) => {
 
-      this.articles = d.data
+      this.articles = d.data.slice(-4)
       // console.log(this.articles)
     })
 
-    
-  
   }
+  
   
 }

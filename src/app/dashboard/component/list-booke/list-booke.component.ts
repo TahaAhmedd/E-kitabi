@@ -2,10 +2,10 @@ import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { debounce, debounceTime, distinct, distinctUntilChanged } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
 import { DataBookResult } from 'src/app/Model/ApiResponse';
 import { BookService } from 'src/app/services/books/book.service';
-import { map, switchMap } from 'rxjs/operators';
+import { CatigotyBookService } from 'src/app/services/books/catigoty-book.service';
 
 @Component({
   selector: 'app-list-booke',
@@ -22,14 +22,18 @@ export class ListBookeComponent implements OnInit, OnChanges {
 
   addBook!: FormGroup;
   imagearr: any = [];
-  constructor(private httpServes: BookService, private toast: ToastrService) {
+  dataSelect:any[];
+  dataBook:DataBookUpdate
+  constructor(private httpServes: BookService, private toast: ToastrService,
+              private catService : CatigotyBookService
+    ) {
     this.addBook = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      bookImage: new FormControl('', [Validators.required]),
-      bookFile: new FormControl('', [Validators.required]),
-      keywords: new FormControl('', [Validators.required]),
-      categoryName: new FormControl('test', [Validators.required]),
+      title: new FormControl(this.dataBook?.title, [Validators.required]),
+      description: new FormControl(this.dataBook?.description, [Validators.required]),
+      bookImage: new FormControl("", [Validators.required]),
+      bookFile: new FormControl("", [Validators.required]),
+      keywords: new FormControl(this.dataBook?.keywords, [Validators.required]),
+      categoryName: new FormControl(this.dataBook?.categoryName, [Validators.required]),
       fileSource: new FormControl(null),
       imageSource: new FormControl(null),
     });
@@ -37,7 +41,6 @@ export class ListBookeComponent implements OnInit, OnChanges {
     //search
 
   this.formsearch
-
       .get('search')
       .valueChanges.pipe(
         debounceTime(1000),
@@ -52,7 +55,8 @@ export class ListBookeComponent implements OnInit, OnChanges {
   ngOnChanges(): void {}
 
   ngOnInit(): void {
-    this.getdata();
+    this.allCatBook()
+    this.getdata()
   }
   getdata() {
     return this.httpServes.getAll().subscribe((e) => {
@@ -98,14 +102,25 @@ export class ListBookeComponent implements OnInit, OnChanges {
     }
   }
 
+  allCatBook(){
+    this.catService.getAllBookCat().subscribe((e) => this.dataSelect = e.data)
+  }
+
+  getBookById(id:any){
+    this.httpServes.getBookByID(id).subscribe((res)=>{
+      this.dataBook = Object.assign(res.data)
+    })
+
+
+  }
   updateBook(id: number) {
-    const formData = new FormData();
-    formData.append('title', this.addBook.get('title').value);
-    formData.append('description', this.addBook.get('description').value);
-    formData.append('categoryName', 'test');
-    formData.append('keywords', '');
-    formData.append('bookFile', this.addBook.get('fileSource').value);
-    formData.append('bookImage', this.addBook.get('imageSource').value);
+    const formData = new FormData()
+    formData.append("title", this.addBook.get("title").value)
+    formData.append("description", this.addBook.get("description").value)
+    formData.append("categoryName", this.addBook.get("categoryName").value)
+    formData.append("keywords", this.addBook.get("keywords").value)
+    formData.append("bookFile", this.addBook.get("fileSource").value)
+    formData.append("bookImage", this.addBook.get("imageSource").value)
     this.httpServes.editBook(id, formData).subscribe({
       next: (value) => {
         // console.log(value)
@@ -119,3 +134,18 @@ export class ListBookeComponent implements OnInit, OnChanges {
   }
   //////////////search ///////////////
 }
+
+
+export class DataBookUpdate{
+  title:string ="";
+  description:string = "";
+  _id:string ="";
+  keywords:[] = [];
+  link:string = "";
+  cover:string = "";
+  createdAt:string = "";
+  categoryName:string = "";
+  updatedAt:string = ""
+}
+
+
