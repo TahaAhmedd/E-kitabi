@@ -1,7 +1,7 @@
 /* Start Our Blog */
 .blog {
-    padding-top: 50px;
-    background-color: #eee;
+    padding: 50px;
+    background-color: #fff;
 }
 .blog .des {
     text-align: center;
@@ -19,9 +19,12 @@
 }
 .card_blog .card {
     margin-bottom: 30px;
-    box-shadow: 0 5px 15px #5555551a;
     border: none;
-  
+    transition: all 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}   
+.card_blog .card:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .card_blog .card .card-body{
     padding: 40px;

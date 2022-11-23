@@ -1,0 +1,26 @@
+.text{
+    text-transform: capitalize;
+    color: #333;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+}
+main{
+    background-color: #eee;
+    padding: 20px;
+}
+h3{
+    margin-top: 20px;
+}
+button{
+    outline: none;
+    padding: 10px 30px;
+    border: none;
+    background-color: #ce7852;
+    color: #fff;
+    font-weight: 400;
+    transition: all 0.5s;
+}
+button:hover{
+    background-color: #000;
+}

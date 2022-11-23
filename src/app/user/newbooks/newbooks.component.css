@@ -1,6 +1,6 @@
 .newPrudect {
-    padding-top: 60px;
-    background-color: #FFF;
+    padding: 60px;
+    background-color: #eee;
 }
 .newBook_card{
     transition: all 0.5s;
@@ -52,6 +52,10 @@
     width: 100%;
     cursor: pointer !important;
     height: 35px;
+    transition: all 0.5s;
+}
+.down:hover{
+    background-color: #000;
 }
 .button-style{
     background-color: #ce7852;
@@ -78,24 +82,20 @@
     .newPrudect .des p {
         font-size: 14px;
     }
-    .row{
-        display: none;
+    .row > div{
+        margin-bottom: 20px;
     }
-
 }
 @media (min-width: 576px) and (max-width:992px) { 
-
-
-
     .card {
         width:  300px;
         margin: auto;
         
     }
-    .row{
-        display: none;
+
+    .row > div{
+        margin-bottom: 20px;
     }
-   
 }
 
 

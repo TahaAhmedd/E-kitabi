@@ -20,9 +20,18 @@
     color: #FFF;
     border: none;
     width: 100%;
+    height: 35px;
+    transition: all 0.5s;
+}
+.down:hover{
+    background-color: #000;
 }
 .card {
     margin-bottom: 40px;
+    transition: all 0.5s;
+}
+.card:hover{
+    transform: translateY(-5px);
 }
 .allPrudect .list {
     padding-bottom: 30px;
@@ -84,3 +93,6 @@
 
 
   }
+
+
+  
