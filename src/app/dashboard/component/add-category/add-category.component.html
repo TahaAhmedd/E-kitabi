@@ -14,7 +14,7 @@
       <!-- //image  -->
       <label class="form-label w-100">Add Cover</label>
       <input id="input-2 " #attachmentbook (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="categoryImage"
-        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" multiple>
+        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" >
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addBook.get('categoryImage')?.touched && addBook.get('categoryImage')?.errors">
         <small *ngIf="addBook.get('categoryImage')?.errors['required']">Please Select Cover Image In Category Book</small>
@@ -58,7 +58,7 @@
       <!-- //image  -->
       <label class="form-label w-100">Add Cover</label>
       <input id="input-2" #attachmentarticle (change)="readURLL($event)" name="bookImageArt" id="fileimages" formControlName="categoryImageArt"
-        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" multiple>
+        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" >
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addcatArt.get('categoryImageArt')?.touched && addcatArt.get('categoryImageArt')?.errors">
         <small *ngIf="addcatArt.get('categoryImageArt')?.errors['required']">Please Select Cover Image In Category Articles</small>
