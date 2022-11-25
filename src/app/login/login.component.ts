@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { async } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,8 @@ import { async } from 'rxjs';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private Authserver: UserService
-             ,private router:Router  ) {}
+             ,private router:Router ,
+             private toast : ToastrService ) {}
   ngOnInit(): void {
     this.iniForm();
   }
@@ -43,7 +45,10 @@ export class LoginComponent implements OnInit {
         },
         error:(err)=>{
           console.log(err)
-          alert("the Email or Password valid!! ")
+          this.toast.error("The Email Or Password Is Not Valid","",{
+            positionClass:"toast-top-center"
+          })
+          // alert("the Email or Password valid!! ")
         
         },
 
