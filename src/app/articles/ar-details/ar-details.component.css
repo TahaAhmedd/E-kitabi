@@ -8,9 +8,6 @@ a{
     text-decoration: none !important;
 }
 
-.container{
-    margin: 0 auto;
-}
 .images-nav {
     background-image: url(../../../assets/Articals/NewsNav.jpg) ;
     background-size: cover;
@@ -57,7 +54,7 @@ a{
     border: 1px solid #000;
     margin-bottom: 20px;
   }
-  main .container .right-sec .search-btn {
+  .search-btn {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -67,48 +64,48 @@ a{
     padding: 5px 0;
     margin-bottom: 20px;
   }
-  main .container .right-sec .search-btn button {
+  .search-btn button {
     background: none;
     border: none;
     padding-right: 10px;
   }
-  main .container .right-sec .search-btn button:hover {
+  .search-btn button:hover {
     cursor: pointer;
   }
-  main .container .right-sec .search-btn input {
+  .search-btn input {
     border: none;
     padding: 5px 0;
     padding-left: 10px;
   }
-  main .container .right-sec .search-btn input:focus {
+  .search-btn input:focus {
     outline: none;
    
     padding: 5px 0;
     padding-left: 10px;
   }
   /* recent-post */
-  main .container .right-sec .recent-post .post {
+  .recent-post .post {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
   }
   
-  main .container .right-sec .recent-post .post img {
+  .recent-post .post img {
     width: 100px;
     height: auto;
   }
-  main .container .right-sec .recent-post .post .content-post {
+  .post .content-post {
     margin-left: 11px;
   }
-  main .container .right-sec .recent-post .post .content-post h4 {
+  .post .content-post h4 {
     margin-bottom: 8px;
     font-size: 15px;
   }
-  main .container .right-sec .recent-post .post .content-post h4 a {
+  .post .content-post h4 a {
     color: #000;
     transition: all 0.3s;
   }
-  main .container .right-sec .recent-post .post .content-post h4:hover a {
+  .post .content-post h4:hover a {
     color: #b93f0b;
     transition: all 0.3s;
   }
@@ -128,67 +125,63 @@ a{
     transition: all 0.3s;
   }
   /* Left Posts */
-  main .container .left-sec .post {
-    /* display: flex; */
+  .left-sec .post {
     gap: 20px;
   }
-  main .container .left-sec .post:not(:last-child) {
+  .left-sec .post:not(:last-child) {
     margin-bottom: 20px;
   }
-  main .container .left-sec .post .box_image {
+  .left-sec .post .box_image {
     width: 215px;
     height: 300px;
     margin: auto;
   }
-  main .container .left-sec .post .box_image img {
+  .left-sec .post .box_image img {
     height: 100%;
     width: 100%;
     border: 2px solid #b93f0b;
 
   }
-  main .container .left-sec .post .content-post h1 a {
+  .content-post h1 a {
     color: #000;
     font-size: 25px;
     transition: all 0.3s;
   }
-  main .container .left-sec .post .content-post h1 a:hover {
+  .content-post h1 a:hover {
     color: #b93f0b;
     transition: all 0.3s;
   }
-  main .container .left-sec .post .content-post .post-defin{
+  .content-post .post-defin{
       font-weight: bold;
       font-size: 13px;
       margin: 10px 0;
      color: rgba(0, 0, 0, 0.8);
   
   }
-  main .container .left-sec .post .content-post p{
+  .content-post p{
      color: rgba(0, 0, 0, 0.7);
      line-height: 25px;
      margin-bottom: 10px;
- 
-     height: 150px;
      white-space: wrap;
      overflow: hidden;
      text-overflow: ellipsis;
      
   }
-  main .container .left-sec .post .content-post h5 a {
+  .content-post h5 a {
     color: #000;
     font-size: 17px;
     transition: all 0.3s;
   }
   
-  main .container .left-sec .post .content-post h5 a:hover {
+  .content-post h5 a:hover {
     color: #b93f0b;
-    /* font-size: 0.9rem; */
     transition: all 0.3s;
   }
   
   
 /* Responsive */
 @media (max-width:1199px) {
-  main .container .right-sec .search-btn button {
+  .search-btn button {
   
     padding-right: 35px;
   }
@@ -212,16 +205,16 @@ a{
         flex-direction: column;
         justify-content: center;
     }
-    main .container .right-sec{
+    .right-sec{
         width: 100%;
     }
-    main .container .right-sec .recent-post .post{
+    .recent-post .post{
         justify-content: flex-start;
     }
-    main .container .left-sec .post{
+    .post{
         flex-direction: column;
     }
-    main .container .left-sec .post img{
+    .post img{
         width: 100%;
     }
 }
@@ -239,33 +232,33 @@ a{
     .images-nav .header h1{
         font-size: 17px;
     }
-    main .container .right-sec h3{
+    .right-sec h3{
         font-size: 13px;
     }
-    main .container .right-sec .recent-post .post h4{
+    .post h4{
         font-size: 15px;
     }
-    main .container .right-sec .recent-post .post p{
+    .post p{
         font-size: 13px;
 
     }
-    main .container .left-sec .post .content-post h1 {
+    .post .content-post h1 {
         font-size: 18px;
     }
-    main .container .left-sec .post .content-post .post-defin{
+    .post .content-post .post-defin{
         font-size: 12px;
     }
-    main .container .left-sec .post .content-post p{
+    .post .content-post p{
         font-size: 12px;
 
     }
-    main .container .left-sec .post .content-post h5{
+    .post .content-post h5{
         font-size: 12px;
     }
-    main .container .right-sec .archive h4{
+    .archive h4{
         font-size: 15px;
     }
-    main .container .right-sec .archive p{
+    .archive p{
         font-size: 12px;
     }
 
