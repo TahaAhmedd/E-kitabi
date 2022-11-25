@@ -34,12 +34,14 @@
         <div class="my-2">
           <button type="button" (click)="onAddLinks()" class="btn btn-sm btn-warning">Add external links</button>
         </div>
-
-        <div class="form-group mt-1" *ngFor="let link of linkesControls; let i = index">
-          <input type="text" placeholder="Add out linke Related for Articale.." class="form-control"
-            [formControlName]="i" />
-        </div>
-
+   
+          <div class="form-group mt-1" *ngFor="let link of linkesControls; let i = index">
+            <div formGroupName={{i}} >
+              <input type="text" placeholder="Add Text linke Related for Link.." class="form-control" formControlName="text"/>
+              <input type="text" placeholder="Add out linke Related for Articale.." class="form-control" formControlName="link"/>
+            </div>
+          </div>
+        
       </div>
 
     </div>
@@ -97,6 +99,8 @@
         </div>
       </div>
       <button type="submit" class="btn btn-success mt-4" [disabled]="addartical.invalid">Add Art</button>
+      <!-- <button type="submit" class="btn btn-success mt-4" >Add Art</button> -->
+
     </div>
 
   </div>
