@@ -247,10 +247,10 @@
 {
     position: absolute;
     right: 0;
-    bottom: 1px;
+    bottom: -3px;
     background-color: #555;
     color: #FFF;
-    padding: 5px 15px;
+    padding: 8px 15px;
     cursor: pointer;
     transition: all .5s;
 }
@@ -445,19 +445,14 @@
     .bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg{
         width: 50vw;
     }
-    .bodylist .all .rightcontent .appcontentbody .childcontentbody .righttext{
+    /* .bodylist .all .rightcontent .appcontentbody .childcontentbody .righttext{
         width: auto;
-    }
+    } */
     .bodylist .all .leftcontent h3{
-        font-size: 20px;
+        font-size: 18px;
     }
     .appcontentbody .childcontentbody .righttext h5{
         font-size: small;
     }
 }
 
-@media screen and (max-width:375px){
-    .leftSort select{
-        width: 100px;
-    }
-}
