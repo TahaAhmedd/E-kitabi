@@ -16,6 +16,7 @@ import { AuthAdminGuard } from '../GArd/auth-admin.guard';
 import { FormsModule, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNewAdminComponent } from './component/add-new-admin/add-new-admin.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 let routes: Routes =[
     { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
     , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
@@ -52,7 +53,7 @@ let routes: Routes =[
   SharedModule,
     RouterModule.forChild(routes),
     FormsModule ,
-
+    MatPaginatorModule
   
   ],
   exports:[

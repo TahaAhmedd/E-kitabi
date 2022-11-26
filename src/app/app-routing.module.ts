@@ -5,6 +5,7 @@ import { uMainComponent } from './user/main/main.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
 const routes: Routes = [
+  {path:'login',component:LoginComponent},
   {path:'',redirectTo:"user/home",pathMatch:'full'},
 
   { 
@@ -19,7 +20,8 @@ const routes: Routes = [
     path: 'dashboard',component:dMainComponent, 
     loadChildren: () => import('./dashboard/dashboard.module').then(m =>m.DashboardModule )
   },
-  {path:"**",component:NotfoundComponent}
+  {path:"**",component:NotfoundComponent},
+  
 ];
 
 @NgModule({
