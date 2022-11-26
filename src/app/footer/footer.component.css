@@ -36,19 +36,19 @@ footer .ficon li i {
     transition: all .5s;
 }
 
-footer .ficon li:nth-child(1) i{
+footer .ficon a:nth-child(1) li i{
     color: #1877F2;
 }
-footer .ficon li:nth-child(2) i {
+footer .ficon a:nth-child(2) li i {
     color: #1DA1F2;
 }
-footer .ficon li:nth-child(3) i {
+footer .ficon a:nth-child(3) li i {
     color: #db4a39;
 }
-footer .ficon li:nth-child(4) i {
+footer .ficon a:nth-child(4) li i {
     color: #CD201F;
 }
-footer .ficon li:nth-child(5) i {
+footer .ficon a:nth-child(5) li i {
     color: #E4405F;
 }
 .ficon li i:hover{
