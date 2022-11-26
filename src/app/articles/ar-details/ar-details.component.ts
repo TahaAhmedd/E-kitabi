@@ -13,9 +13,8 @@ export class ArDetailsComponent implements OnInit {
 
 
   // This Var Use In Fetch Data In Html File
-  articles: any
-  pagNum :number =1
-
+  articles: any[]
+  pagNum :number=1
   // CatogeryWithCatogeryName 
   catogeryName:any
 
