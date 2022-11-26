@@ -6,7 +6,7 @@ import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
 import { DataBookResult } from 'src/app/Model/ApiResponse';
 import { BookService } from 'src/app/services/books/book.service';
 import { CatigotyBookService } from 'src/app/services/books/catigoty-book.service';
-
+// import {MatPaginator} from '@angular/material/paginator';
 @Component({
   selector: 'app-list-booke',
   templateUrl: './list-booke.component.html',
@@ -14,7 +14,7 @@ import { CatigotyBookService } from 'src/app/services/books/catigoty-book.servic
 })
 export class ListBookeComponent implements OnInit, OnChanges {
   arrBook: DataBookResult[];
-
+ pageNum:number=1
   //search
   formsearch: FormGroup = new FormGroup({
     search: new FormControl(''),
@@ -56,11 +56,14 @@ export class ListBookeComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.allCatBook()
-    this.getdata()
+    this.getdata(this.pageNum)
   }
-  getdata() {
-    return this.httpServes.getAll().subscribe((e) => {
-      this.arrBook = e.data;
+  getdata(pageNum:Number) {
+    return this.httpServes.getWithPagination(pageNum).subscribe((e) => {
+      console.log(e);
+      
+      
+        
     });
   }
   deletBook(id: any) {
@@ -68,7 +71,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
       next: () => {
         // this.tostSucces("The Book is Deleted Succesfuly")
         this.toast.success('The Book is Deleted Succesfuly');
-        this.getdata();
+        this.getdata(this.pageNum);
       },
       error: (err) => {
         this.toast.error('An error occurred, please try again');
@@ -125,7 +128,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
       next: (value) => {
         // console.log(value)
         this.toast.success('The Book is Deleted Succesfuly');
-        this.getdata();
+        this.getdata(this.pageNum);
       },
       error: (err) => {
         this.toast.error('An error occurred, please try again');
@@ -134,6 +137,9 @@ export class ListBookeComponent implements OnInit, OnChanges {
   }
   //////////////search ///////////////
 }
+
+
+
 
 
 export class DataBookUpdate{

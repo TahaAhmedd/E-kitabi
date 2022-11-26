@@ -53,4 +53,10 @@ export class BookService {
   searchBooke(search: string):Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/search/${search}`);
   }
+  //function get AllBook with pagination
+   getWithPagination (pagNum:Number)
+   
+   {
+    return this.http.get(`${environment.PathApi}/book/paginate/${pagNum}`)
+   }
 }
