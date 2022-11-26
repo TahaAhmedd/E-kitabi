@@ -29,13 +29,8 @@ export class AddArticalComponent implements OnInit {
     this.addartical = this.fb.group({
       categoryName: new FormControl("", [Validators.required]),
       title: new FormControl("", [Validators.required]),
-      links: new FormArray([
-        // new FormGroup({
-        //   textLink: new FormControl('', Validators.required),
-        //   link: new FormControl('', Validators.required)
-        // })
-
-      ]),
+      links: new FormArray([]),
+      innerLinks: new FormArray([]),
       text: new FormControl("", [Validators.required]),
       description: new FormControl("", [Validators.required]),
       keywords: new FormArray([]),
@@ -78,6 +73,7 @@ export class AddArticalComponent implements OnInit {
     formData.append('categoryName', this.addartical.get('categoryName').value);
     formData.append('title', this.addartical.get('title').value);
     formData.append('links', JSON.stringify(this.addartical.get('links').value));
+    formData.append('innerLinks', JSON.stringify(this.addartical.get('innerLinks').value));
     formData.append('text', this.addartical.get('text').value);
     formData.append('description', this.addartical.get('description').value);
     formData.append('keywords', this.addartical.get('keywords').value);
@@ -109,6 +105,9 @@ export class AddArticalComponent implements OnInit {
   get linkesControls() {
     return (<FormArray>this.addartical.get('links')).controls;
   }
+  get innerLinkesControls() {
+    return (<FormArray>this.addartical.get('innerLinks')).controls;
+  }
   get keywordsControl() {
     return (<FormArray>this.addartical.get('keywords')).controls;
   }
@@ -120,6 +119,14 @@ export class AddArticalComponent implements OnInit {
     });
     (<FormArray>this.addartical.get('links')).push(control)
   }
+    // Button On Add Input Use Add Links
+    onInnerAddLinks() {
+      const control = new FormGroup({
+        text:new FormControl('',Validators.required),
+        link:new FormControl('',Validators.required)
+      });
+      (<FormArray>this.addartical.get('innerLinks')).push(control)
+    }
   // Button On Add keys Use Add keys
   onAddKeys() {
     const control = new FormControl("", [Validators.required]);
