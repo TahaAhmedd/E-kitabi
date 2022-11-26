@@ -9,25 +9,25 @@
 <main>
     <div class="container">
         <section class="left-sec">
-            <div class="post" *ngFor="let one of catogeryName">
+            <div class="post d-flex" *ngFor="let one of catogeryName">
                 
-                <div class="row">
-                    <div class="col-lg-4" routerLink="/articles/list/{{one._id}}">
+             
+                    <div class="col-lg-6" routerLink="/articles/list/{{one._id}}">
                         <div class="box_image">
                             <img src="{{one.cover}}" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-6 ">
                         <div class="content-post">
                             <h1>
                                 <a routerLink="/articles/list/{{one._id}}" class="edTitle">{{one.title}}</a>
                             </h1>
-                            <div class="post-defin"><span>POSTS BY: <span>{{one.updatedAt | date}}</span></span></div>
+                            <div class="post-defin"><span>POSTS Date: <span>{{one.updatedAt | date}}</span></span></div>
                             <p title="{{one.text}}" class="testText">{{one.text}}...</p>
                             <h5><a routerLink="/articles/list/{{one._id}}">Read More <i class=" fa fa-arrow-right"></i></a></h5>
                         </div>
                     </div>
-                </div>
+                
             </div>
             
         </section>
@@ -42,7 +42,7 @@
             <hr>
             <div class="recent-post">
                 <div class="post" *ngFor="let art of articles">
-                    <img [src]="art.cover[0]" style="width:100px; height:100px ;" alt="">
+                    <img [src]="art.cover[0]"  alt="">
                     <div class="content-post">
                         <h4>
                             <a  routerLink="/articles/list/{{art._id}}">

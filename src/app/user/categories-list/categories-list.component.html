@@ -5,7 +5,7 @@
 
             <div class="leftcontent">
                 <div class="content">
-                    <h3>Books Categories</h3>
+                    <h3> <span style="color: #ce7852bf;">B</span> ooks Categories</h3>
                     <ul class="one" *ngFor="let item of catogry">
                        <a [routerLink]="['/user/list',item.title]"> <li>{{item.title}} <span>{{item.length}}</span></li></a>
                         
@@ -55,7 +55,7 @@
                                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                             </ul>
                             <h4>published Date:<span>{{item.createdAt| date:'yyyy-LLL'}}</span></h4>
-                            <h5>Page Count:<span>430</span></h5>
+                          
                             <a >
                                 <button title="Details To Book" [routerLink]="['/user/download',item._id]" >Details</button>
                             </a>

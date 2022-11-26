@@ -11,9 +11,9 @@
                 <div class="right-content">
 
                     <div class="book-imgcont" >
-                        <img src="{{listBook.cover}}" alt="">
+                        <img src="{{listBook?.cover}}" alt="">
                         <div class="book-content">
-                            <h2>{{listBook.title}}</h2>
+                            <h2>{{listBook?.title}}</h2>
                             <span class="stars">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -23,7 +23,7 @@
                             </span>
                             <hr>
                             <p>
-                                {{listBook.description}}
+                                {{listBook?.description}}
                             </p>
                             <button type="submit"  (click)="setLoading()">Download!</button>
                             <i class="fa fa-heart-o"></i>
@@ -40,7 +40,7 @@
                     <div class="description">
                         <h2>Description</h2>
                         <hr>
-                        <p>{{listBook.description}}</p>
+                        <p>{{listBook?.description}}</p>
                     </div>
                     <div class="related">
                         <h1>Related Products</h1>
@@ -48,7 +48,7 @@
                             <div class="carousel-inner ">
                               <div class="carousel-item active" data-bs-interval="10000">
                                 <img src="../../../assets/download/3.webp" class="d-block w-100 " alt="...">
-                                <p>You Better Be Lightning</p>
+                                <p></p>
                                 <div class="rate">
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>

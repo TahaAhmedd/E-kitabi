@@ -42,4 +42,7 @@ line-height: 30px;
     img{
         width: 100%;
     }
+    .text .container p{
+        width: 100%;    
+    }
 }

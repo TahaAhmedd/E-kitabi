@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CanActivate, ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/books/book.service';
 import { ApiResponse } from 'src/app/Model/ApiResponse';
 import { observable } from 'rxjs';
+import { ChangeDetectionStrategy } from '@angular/compiler';
 // import 'rxjs/Rx' ;
 @Component({
   selector: 'app-download-book',
@@ -16,7 +17,8 @@ export class DownloadBookComponent implements OnInit {
   loading: boolean = false;
   constructor(
     private canActive: ActivatedRoute,
-    private bookServes: BookService
+    private bookServes: BookService,
+    private cd:ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class DownloadBookComponent implements OnInit {
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
           this.listBook = bookData.data;
-          console.log(bookData.data);
+          console.log(bookData);
         });
       }
     });

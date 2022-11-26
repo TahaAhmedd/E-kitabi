@@ -1,7 +1,7 @@
 <div class="images-nav">
     <div class="header">
 
-        <h1>Read Article</h1>
+        <h1><span style="color: #ea895fbf;">R</span>ead Article</h1>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
                                 <img src="{{cat?.cover}}" alt="">
                             </a>
                             <h4 class="boxTitle">
-                                <a>{{cat?.title}}</a>
+                                <a href="/articles/list/{{cat?._id}}">{{cat?.title}}</a>
                             </h4>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
             <div class="side-con-Two">
                 <h2 class="recent">ARCHIVE</h2>
                 <h4  *ngFor="let ttest of allCategory">
-                    <span  routerLink="/articles/details/{{ttest.title}}" style="font-size: 15px; background-color: #999; padding:5px 10px; color: #FFF;cursor: pointer;">{{ttest.title}}</span>
+                    <span class="archives"  routerLink="/articles/details/{{ttest.title}}" >{{ttest.title}}</span>
                 </h4>
 
             </div>
