@@ -30,7 +30,6 @@
 
       <!-- Add Add external links -->
       <div formArrayName="links">
-
         <div class="my-2">
           <button type="button" (click)="onAddLinks()" class="btn btn-sm btn-warning">Add external links</button>
         </div>
@@ -39,6 +38,21 @@
             <div formGroupName={{i}} >
               <input type="text" placeholder="Add Text linke Related for Link.." class="form-control" formControlName="text"/>
               <input type="text" placeholder="Add out linke Related for Articale.." class="form-control" formControlName="link"/>
+            </div>
+          </div>
+      </div>
+
+      <!-- Add Add external links -->
+      <div formArrayName="innerLinks">
+
+        <div class="my-2">
+          <button type="button" (click)="onInnerAddLinks()" class="btn btn-sm btn-warning">Add inner links</button>
+        </div>
+    
+          <div class="form-group mt-1" *ngFor="let linkk of innerLinkesControls; let i = index">
+            <div formGroupName={{i}} >
+              <input type="text" placeholder="Add Text About Link Related for Link.." class="form-control" formControlName="text"/>
+              <input type="text" placeholder="Add Inner linke Related for Articale.." class="form-control" formControlName="link"/>
             </div>
           </div>
         
