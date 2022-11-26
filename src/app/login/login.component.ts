@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       this.Authserver.login(this.loginForm.value).subscribe({
         next: (result) => {
           console.log(result);        
-          let token=result.data.token
+          let token=result.token
           let id =result.data._id
           localStorage.setItem('id', id)
           localStorage.setItem('token', token )   

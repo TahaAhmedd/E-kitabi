@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiResponse, ApiResultBookById } from 'src/app/Model/ApiResponse';
+import { ApiRespaginat, ApiResponse, ApiResultBookById } from 'src/app/Model/ApiResponse';
 import {Bookes} from '../../Model/Bookes'
 import { environment } from './../../../environments/environment';
 
@@ -53,4 +53,10 @@ export class BookService {
   searchBooke(search: string):Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/search/${search}`);
   }
+  //function get AllBook with pagination
+   getWithPagination (pagNum:Number):Observable<ApiRespaginat>
+   
+   {
+    return this.http.get<ApiRespaginat>(`${environment.PathApi}/book/paginate/${pagNum}`)
+   }
 }

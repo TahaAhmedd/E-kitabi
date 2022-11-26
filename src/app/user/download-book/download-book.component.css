@@ -178,7 +178,7 @@ main .container .book-show .right-content .related h1 {
 
 @media (max-width:550px) {
   main .img-header h1 {
-    left: 25%;
+    left: 30%;
   }
 
   main .container .book-show .right-content .book-imgcont img {
@@ -186,4 +186,14 @@ main .container .book-show .right-content .related h1 {
   }
 
 
+}
+@media (max-width:430px) {
+  main .img-header h1 {
+    left: 25%;
+  }
+}
+@media (max-width:300px) {
+  main .img-header h1 {
+    left: 18%;
+  }
 }
