@@ -1,8 +1,16 @@
 .allPrudect {
 
     padding-top: 60px;
+    padding-bottom: 60px;
 
-
+}
+.card-title{
+    white-space: nowrap;
+    width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding-bottom: 10px;
 }
 .allPrudect .des {
     text-align: center;
@@ -27,8 +35,9 @@
     background-color: #000;
 }
 .card {
-    margin-bottom: 40px;
     transition: all 0.5s;
+    display: flex;
+    align-items: center;
 }
 .card:hover{
     transform: translateY(-5px);

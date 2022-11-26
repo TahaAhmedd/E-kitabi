@@ -28,6 +28,8 @@
 }
 .card_blog .card .card-body{
     padding: 40px;
+    height: 360px;
+    overflow: hidden;
 }
 .card_blog .card .card-body h5 {
     padding-bottom: 10px;
