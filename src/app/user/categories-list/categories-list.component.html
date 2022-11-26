@@ -54,7 +54,7 @@
                                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                             </ul>
-                            <h4>published Date:<span>{{item.createdAt}}</span></h4>
+                            <h4>published Date:<span>{{item.createdAt| date:'yyyy-LLL'}}</span></h4>
                             <h5>Page Count:<span>430</span></h5>
                             <a >
                                 <button title="Details To Book" [routerLink]="['/user/download',item._id]" >Details</button>

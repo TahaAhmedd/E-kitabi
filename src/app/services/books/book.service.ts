@@ -21,6 +21,7 @@ export class BookService {
     // console.log(Id)
     return this.http.get<ApiResultBookById>(`${environment.PathApi}/book/getbyid/${Id}`);
   }
+  
 
   // Function Get Book By CaticoryFrom Api
   getBookByCatigory(category: any): Observable<ApiResponse> {

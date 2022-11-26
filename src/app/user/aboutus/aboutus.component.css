@@ -38,3 +38,8 @@ line-height: 30px;
     color: #ce7852;
     font-weight: 700;
 }
+@media (max-width:580px) {
+    img{
+        width: 100%;
+    }
+}
