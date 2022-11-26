@@ -22,16 +22,50 @@
       </div>
     </div>
 
-    <div class="mt-5 w-50">
-      <label for="exampleFormControlInput1" class="form-label">Key Word Book:</label>
-      <input type="text" class="form-control" formControlName="keywords" placeholder="Please Add Key Words of Book">
-      <div class="mt-2 p-1 alert alert-danger"
-        *ngIf="addBook.get('keywords')?.touched && addBook.get('keywords')?.errors">
-        <small *ngIf="addBook.get('keywords')?.errors['required']">The Input Is Required</small>
+    
+    <!-- Inner Linkes -->
+    <div formArrayName="innerLinks">
+      <div class="my-2">
+        <button type="button" (click)="onAddLinks()" class="btn btn-sm btn-warning">Add Inner links</button>
       </div>
+ 
+        <div class="form-group mt-1" *ngFor="let link of innerlinkesControls; let i = index">
+          <div formGroupName={{i}} >
+            <input type="text" placeholder="Add Text linke Related for Link.." class="form-control mt-2" formControlName="text"/>
+            <input type="text" placeholder="Add Inner linke Related for Book.." class="form-control mt-2" formControlName="link"/>
+          </div>
+        </div>
     </div>
 
+     <!-- Add Add external links -->
+     <div formArrayName="externalLinks">
 
+      <div class="my-2">
+        <button type="button" (click)="onInnerAddLinks()" class="btn btn-sm btn-warning">Add External links</button>
+      </div>
+  
+        <div class="form-group mt-1" *ngFor="let linkk of externalLinkesControls; let i = index">
+          <div formGroupName={{i}} >
+            <input type="text" placeholder="Add Text About Link Related for Link.." class="form-control mt-2" formControlName="text"/>
+            <input type="text" placeholder="Add Outer linke Related for Book.." class="form-control mt-2" formControlName="link"/>
+          </div>
+        </div>
+      
+    </div>
+<!-- key Words -->
+    <div formArrayName="keywords">
+
+      <div class="my-2">
+        <button type="button" (click)="onAddKeys()" class="btn btn-sm btn-warning">Add keywords</button>
+      </div>
+
+      <div class="form-group mt-1" *ngFor="let keyword of keywordsControl; let i = index">
+        <input type="text" placeholder="Add Key Word related For Book.." class="form-control mb-2"
+          formControlName={{i}} />
+      </div>
+
+    </div>
+    <!-- Dis -->
     <div class="mt-5 w-50">
       <label for="exampleFormControlTextarea1" class="form-label">Description</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description"
