@@ -29,7 +29,13 @@ export class AddArticalComponent implements OnInit {
     this.addartical = this.fb.group({
       categoryName: new FormControl("", [Validators.required]),
       title: new FormControl("", [Validators.required]),
-      links: new FormArray([]),
+      links: new FormArray([
+        // new FormGroup({
+        //   textLink: new FormControl('', Validators.required),
+        //   link: new FormControl('', Validators.required)
+        // })
+
+      ]),
       text: new FormControl("", [Validators.required]),
       description: new FormControl("", [Validators.required]),
       keywords: new FormArray([]),
@@ -71,7 +77,7 @@ export class AddArticalComponent implements OnInit {
     console.log(this.addartical.value)
     formData.append('categoryName', this.addartical.get('categoryName').value);
     formData.append('title', this.addartical.get('title').value);
-    formData.append('links', this.addartical.get('links').value);
+    formData.append('links', JSON.stringify(this.addartical.get('links').value));
     formData.append('text', this.addartical.get('text').value);
     formData.append('description', this.addartical.get('description').value);
     formData.append('keywords', this.addartical.get('keywords').value);
@@ -108,7 +114,10 @@ export class AddArticalComponent implements OnInit {
   }
   // Button On Add Input Use Add Links
   onAddLinks() {
-    const control = new FormControl("", [Validators.required]);
+    const control = new FormGroup({
+      text:new FormControl('',Validators.required),
+      link:new FormControl('',Validators.required)
+    });
     (<FormArray>this.addartical.get('links')).push(control)
   }
   // Button On Add keys Use Add keys

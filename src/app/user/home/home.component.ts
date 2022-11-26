@@ -8,15 +8,16 @@ import { ArticlesService } from 'src/app/services/articles/articles.service';
 })
 export class HomeComponent implements OnInit {
   artData: any[]
+  pagNum :number =1
   constructor(private artService:ArticlesService) { }
 
   ngOnInit(): void {
-    this.getSomeCat()
+    this.getSomeCat(this.pagNum)
   }
 
-  getSomeCat(){
-    this.artService.getArticles().subscribe((e)=>{
-      this.artData = e.data.slice(-3)
+  getSomeCat(pagnum:number){
+    this.artService.getArticles(pagnum).subscribe((e)=>{
+      this.artData = e.data.paginatedData.slice(-3)
     })
   }
 }

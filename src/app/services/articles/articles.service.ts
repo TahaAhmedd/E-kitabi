@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponse } from 'src/app/Model/ApiResponse';
+import { ApiResponse, ApiRespaginat } from 'src/app/Model/ApiResponse';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,8 +12,8 @@ export class ArticlesService {
 
 
   // Function Get From Api 
-  getArticles():Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(`${environment.PathApi}/article/all`);
+  getArticles(pagNum :Number):Observable<ApiRespaginat> {
+    return this.http.get<ApiRespaginat>(`${environment.PathApi}/article/paginate/${pagNum}`);
   }
 
 
@@ -22,7 +22,11 @@ export class ArticlesService {
     return this.http.post(`${environment.PathApi}/article/newarticle`, form)
 
   }
-
+ //Function Search about Book
+ searchBooke(search: string):Observable<ApiResponse> {
+  return this.http.get<ApiResponse>(`${environment.PathApi}/book/search/${search}`);
+}
+///delet
   deleteArt(id:number){
     return this.http.delete(`${environment.PathApi}/article/delete/${id}`)
   }

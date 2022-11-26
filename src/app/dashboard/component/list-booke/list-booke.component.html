@@ -137,5 +137,11 @@
         </div>
       </tr>
     </tbody>
-  </table>
+
+    <div *ngFor='let in of counter(CountPage) ;let i = index' class="btn-group mr-2" role="group" aria-label="Second group">
+      <button (click)="getdata(i +1)" type="button" class="btn btn-primary">{{i +1}}</button>
+    </div>
+
+
+</table>
 </div>

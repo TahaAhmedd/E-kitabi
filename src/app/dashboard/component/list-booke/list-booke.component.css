@@ -126,3 +126,15 @@ transition: all 0.2s ease-in-out;
         justify-content: space-around;
         flex-wrap: wrap;
     }
+
+/* clas not found  */
+.notFound{
+    width: auto;
+    height: 80px;
+    justify-content: center;
+    background-color: #119da4;
+  text-align: center;
+  padding: 18px;
+  margin: 50px;
+  font-family: 'Courier New', Courier, monospace;
+}

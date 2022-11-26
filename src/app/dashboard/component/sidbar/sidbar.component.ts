@@ -18,7 +18,7 @@ export class SidbarComponent implements OnInit {
   logout()
   {
     this.AuthServes.Logout();
-    this.Routes.navigateByUrl('/user/login')
+    this.Routes.navigateByUrl('login')
 
   }
 }

@@ -13,8 +13,8 @@ export class ArDetailsComponent implements OnInit {
 
 
   // This Var Use In Fetch Data In Html File
-  articles: any
-
+  articles: any[]
+  pagNum :number=1
   // CatogeryWithCatogeryName 
   catogeryName:any
 
@@ -41,9 +41,9 @@ export class ArDetailsComponent implements OnInit {
 
 
     // Get All Articles 
-    this.serv.getArticles().subscribe((d) => {
+    this.serv.getArticles(this.pagNum).subscribe((d) => {
 
-      this.articles = d.data.slice(-4)
+      this.articles = d.data.paginatedData.slice(-4)
       // console.log(this.articles)
     })
 

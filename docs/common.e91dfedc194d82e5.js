@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkE_kitabi=self.webpackChunkE_kitabi||[]).push([[592],{1884:(P,E,i)=>{i.d(E,{x:()=>O});var f=i(4671),d=i(4482),C=i(5403);function O(t,n=f.y){return t=t??D,(0,d.e)((M,_)=>{let e,u=!0;M.subscribe((0,C.x)(_,l=>{const s=n(l);(u||!t(e,s))&&(u=!1,e=s,_.next(l))}))})}function D(t,n){return t===n}}}]);
