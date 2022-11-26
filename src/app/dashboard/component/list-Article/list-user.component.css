@@ -1,81 +1,92 @@
 .resentOrder,
-.recentcustoumer
-{
-    position: relative;
-    /* min-height: 10px; */
-    display: grid;
+.recentcustoumer {
     padding: 20px;
-    box-shadow: 0px 7px 25px rgba(0, 0, 0,0.08);
+    box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
     margin-top: 80px;
-    margin-right: 50px;
+    width: 97%;
 }
-.cardHeadr{
+
+.cardHeadr {
     display: flex;
     justify-content: space-between;
-    align-items:flex-start;
+    align-items: flex-start;
     margin-bottom: 10px;
     border-left: 3px solid #119DA4;
     padding-left: 30px;
 }
-.cardHeadr h2{
-    font-weight:600;
-   color: #251101;
+
+.cardHeadr h2 {
+    font-weight: 600;
+    color: #251101;
 }
-.btn{
+
+.btn {
     position: relative;
-    padding:5px 10px ;
-    /* background: #FFC090; */
+    padding: 5px 10px;
     text-decoration: none;
     border-radius: 6px;
 }
-.resentOrder table thead td{
+
+.resentOrder table thead td {
     font-weight: 600;
     padding-left: 20px;
     margin-top: 10px;
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
 }
+
+tbody {
+    width: 100%;
+}
+
 .resentOrder table tbody tr {
-color: #0077b6  ;
-padding: 10px;
-border-bottom: 1px solid #0077b6; 
-transition: all 0.2s ease-in-out;
- 
+    color: #0077b6;
+    padding: 10px;
+    border-bottom: 1px solid #0077b6;
+    transition: all 0.2s ease-in-out;
+
 }
- .delete:hover{
-    box-shadow: 0.5px 0.5px  5px #ff0e0e;
- }
- .upadte:hover{
+
+.delete:hover {
+    box-shadow: 0.5px 0.5px 5px #ff0e0e;
+}
+
+.upadte:hover {
     box-shadow: 0.5px 0.5px 5px #009dff;
 
- }
- .dis p{
-    white-space: nowrap; 
-    width: 30ch !important; 
+}
+
+.dis p {
+    white-space: nowrap;
+    width: 30ch !important;
     overflow: hidden !important;
-    text-overflow: ellipsis !important; 
- }
- .resentOrder table tbody tr:hover {
+    text-overflow: ellipsis !important;
+}
+
+.resentOrder table tbody tr:hover {
     background: #119da476;
     color: #070707;
     transition: all 0.5s ease-in-out;
-    
+
 }
+
 .resentOrder table tbody td {
     padding: 10px;
     padding-top: 10px;
- }
+}
+
 .resentOrder table tbody td:hover {
     padding: 10px;
- }
+}
 
 
- .show-images{
+.show-images {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.new{
+
+.new {
     border-left: 3px solid #119DA4;
     margin-top: 20px;
     padding-left: 20px;
@@ -83,64 +94,70 @@ transition: all 0.2s ease-in-out;
     margin-bottom: 30px;
 
 }
-.new:hover
-{
-transition: all 1s ease-in-out;
-color: #119DA4;
-letter-spacing: 2px;
+
+.new:hover {
+    transition: all 1s ease-in-out;
+    color: #119DA4;
+    letter-spacing: 2px;
 }
-.new span{
+
+.new span {
     color: #FFC800;
 }
-.category{
+
+.category {
     border-left: 3px solid #FFC800;
 
 }
-.row{
+
+.row {
     margin-bottom: 50px;
 }
-select{
+
+select {
     outline: #FFC800 1px solid;
     border: none;
     height: 35px;
 }
-select option{
+
+select option {
     color: #119DA4;
 }
-.addArtNa{
+
+.addArtNa {
     border-left: 3px solid #31353b;
     padding-left: 10px;
     transition: all 1s ease-in-out;
 
 
 }
-.addArtNa:hover{
+
+.addArtNa:hover {
     transition: all 1s ease-in-out;
-color: #119DA4;
-letter-spacing: 2px;
+    color: #119DA4;
+    letter-spacing: 2px;
 }
-/* .contImg{ */
-    /* margin-bottom: -600px; */
-/* } */
-.file{
-letter-spacing: 2px;
-    
+
+.file {
+    letter-spacing: 2px;
+
     transition: all 1s ease-in-out;
 }
-.file:hover{
+
+.file:hover {
     transition: all 1s ease-in-out;
     border-radius: 0px 30px 30px 0px;
     background-color: #119DA4;
 }
 
 /* class not found  */
-.notFound{
-     width: auto;
-     height: 80px;
-     justify-content: center;
-     background-color: #119da4;
-   text-align: center;
-   padding: 18px;
-   margin: 50px;
-   font-family: 'Courier New', Courier, monospace;
+.notFound {
+    width: auto;
+    height: 80px;
+    justify-content: center;
+    background-color: #119da4;
+    text-align: center;
+    padding: 18px;
+    margin: 50px;
+    font-family: 'Courier New', Courier, monospace;
 }
