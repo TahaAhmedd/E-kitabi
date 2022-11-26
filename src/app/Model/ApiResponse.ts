@@ -5,6 +5,12 @@ export class ApiResponse{
     status=true;
 }
 
+export class ApiRespaginat{
+    data:DataPagination;
+    success="";
+    message=true;
+    status=true;
+}
 export class ApiResultBookById{
     data:{}={};
     success="";
@@ -22,4 +28,10 @@ export interface DataBookResult{
     updatedAt:string;
     cover:string;
     link:string
+}
+export interface DataPagination{
+    noOfPages:number,
+    pageNumber :Number ,
+    paginatedData:[],
+
 }

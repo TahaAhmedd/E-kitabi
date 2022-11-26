@@ -2,8 +2,14 @@ import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs';
-import { DataBookResult } from 'src/app/Model/ApiResponse';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  switchMap,
+  Observable,
+} from 'rxjs';
+import { DataBookResult, DataPagination } from 'src/app/Model/ApiResponse';
 import { BookService } from 'src/app/services/books/book.service';
 import { CatigotyBookService } from 'src/app/services/books/catigoty-book.service';
 // import {MatPaginator} from '@angular/material/paginator';
@@ -14,7 +20,10 @@ import { CatigotyBookService } from 'src/app/services/books/catigoty-book.servic
 })
 export class ListBookeComponent implements OnInit, OnChanges {
   arrBook: DataBookResult[];
- pageNum:number=1
+  arrBook2: DataPagination[];
+  pageNum: number = 1;
+  noOfPages: number = 1;
+  CountPage:number
   //search
   formsearch: FormGroup = new FormGroup({
     search: new FormControl(''),
@@ -22,25 +31,31 @@ export class ListBookeComponent implements OnInit, OnChanges {
 
   addBook!: FormGroup;
   imagearr: any = [];
-  dataSelect:any[];
-  dataBook:DataBookUpdate
-  constructor(private httpServes: BookService, private toast: ToastrService,
-              private catService : CatigotyBookService
-    ) {
+  dataSelect: any[];
+  dataBook: DataBookUpdate;
+  constructor(
+    private httpServes: BookService,
+    private toast: ToastrService,
+    private catService: CatigotyBookService
+  ) {
     this.addBook = new FormGroup({
       title: new FormControl(this.dataBook?.title, [Validators.required]),
-      description: new FormControl(this.dataBook?.description, [Validators.required]),
-      bookImage: new FormControl("", [Validators.required]),
-      bookFile: new FormControl("", [Validators.required]),
+      description: new FormControl(this.dataBook?.description, [
+        Validators.required,
+      ]),
+      bookImage: new FormControl('', [Validators.required]),
+      bookFile: new FormControl('', [Validators.required]),
       keywords: new FormControl(this.dataBook?.keywords, [Validators.required]),
-      categoryName: new FormControl(this.dataBook?.categoryName, [Validators.required]),
+      categoryName: new FormControl(this.dataBook?.categoryName, [
+        Validators.required,
+      ]),
       fileSource: new FormControl(null),
       imageSource: new FormControl(null),
     });
 
     //search
 
-  this.formsearch
+    this.formsearch
       .get('search')
       .valueChanges.pipe(
         debounceTime(1000),
@@ -49,23 +64,29 @@ export class ListBookeComponent implements OnInit, OnChanges {
       )
       .subscribe((v) => {
         console.log(v.data);
+        v.status;
         this.arrBook = v?.data;
       });
   }
   ngOnChanges(): void {}
 
   ngOnInit(): void {
-    this.allCatBook()
-    this.getdata(this.pageNum)
+    this.allCatBook();
+    this.getdata(this.noOfPages);
   }
-  getdata(pageNum:Number) {
+  getdata(pageNum: Number) {
     return this.httpServes.getWithPagination(pageNum).subscribe((e) => {
-      console.log(e);
-      
-      
-        
+      this.arrBook = e.data.paginatedData;
+      pageNum = e.data.pageNumber;
+      this.CountPage=e.data.noOfPages
     });
   }
+
+  /////
+  counter(i: number) {
+    return new Array(i);
+  }
+  ///
   deletBook(id: any) {
     this.httpServes.deletBook(id).subscribe({
       next: () => {
@@ -105,25 +126,25 @@ export class ListBookeComponent implements OnInit, OnChanges {
     }
   }
 
-  allCatBook(){
-    this.catService.getAllBookCat().subscribe((e) => this.dataSelect = e.data)
+  allCatBook() {
+    this.catService
+      .getAllBookCat()
+      .subscribe((e) => (this.dataSelect = e.data));
   }
 
-  getBookById(id:any){
-    this.httpServes.getBookByID(id).subscribe((res)=>{
-      this.dataBook = Object.assign(res.data)
-    })
-
-
+  getBookById(id: any) {
+    this.httpServes.getBookByID(id).subscribe((res) => {
+      this.dataBook = Object.assign(res.data);
+    });
   }
   updateBook(id: number) {
-    const formData = new FormData()
-    formData.append("title", this.addBook.get("title").value)
-    formData.append("description", this.addBook.get("description").value)
-    formData.append("categoryName", this.addBook.get("categoryName").value)
-    formData.append("keywords", this.addBook.get("keywords").value)
-    formData.append("bookFile", this.addBook.get("fileSource").value)
-    formData.append("bookImage", this.addBook.get("imageSource").value)
+    const formData = new FormData();
+    formData.append('title', this.addBook.get('title').value);
+    formData.append('description', this.addBook.get('description').value);
+    formData.append('categoryName', this.addBook.get('categoryName').value);
+    formData.append('keywords', this.addBook.get('keywords').value);
+    formData.append('bookFile', this.addBook.get('fileSource').value);
+    formData.append('bookImage', this.addBook.get('imageSource').value);
     this.httpServes.editBook(id, formData).subscribe({
       next: (value) => {
         // console.log(value)
@@ -138,20 +159,14 @@ export class ListBookeComponent implements OnInit, OnChanges {
   //////////////search ///////////////
 }
 
-
-
-
-
-export class DataBookUpdate{
-  title:string ="";
-  description:string = "";
-  _id:string ="";
-  keywords:[] = [];
-  link:string = "";
-  cover:string = "";
-  createdAt:string = "";
-  categoryName:string = "";
-  updatedAt:string = ""
+export class DataBookUpdate {
+  title: string = '';
+  description: string = '';
+  _id: string = '';
+  keywords: [] = [];
+  link: string = '';
+  cover: string = '';
+  createdAt: string = '';
+  categoryName: string = '';
+  updatedAt: string = '';
 }
-
-

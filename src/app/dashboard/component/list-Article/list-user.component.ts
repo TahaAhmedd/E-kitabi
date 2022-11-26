@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { ArticlesService } from 'src/app/services/articles/articles.service';
+import { DataPagination } from 'src/app/Model/ApiResponse';
 
 @Component({
   selector: 'app-list-user',
@@ -10,10 +12,16 @@ import { ArticlesService } from 'src/app/services/articles/articles.service';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-  data:any[];
+  data:any|[];
+  CountPage:number 
   addartical!: FormGroup;
+  // formsearch!:FormGroup
   imageSrc: Array<File> = [];
   imagearr: any = [];
+  pagNum :number =1
+  formsearch = new FormGroup({
+    search: new FormControl(''),
+  });
   dataSelect:any[]= []
   constructor( private artService:ArticlesService,
                private toast: ToastrService,
@@ -29,25 +37,44 @@ export class ListUserComponent implements OnInit {
         cover: new FormControl("", [Validators.required]),
         imageSource: new FormControl([]),
       })
+      this.formsearch
+      .get('search')
+      .valueChanges.pipe(
+        debounceTime(1000),
+        distinctUntilChanged(),
+        switchMap((item) => this.artService.searchBooke(item))
+      )
+      .subscribe((v) => {
+        console.log(v.data.length);
+       v?.data;
+      });
     }
-
+    
   ngOnInit(): void {
-    this.getAllArt()
+    this.getAllArt(this.pagNum)
   }
 
-  getAllArt(){
-    this.artService.getArticles().subscribe((e)=> 
+  getAllArt(pagNum :number){
+    this.artService.getArticles(pagNum).subscribe((e)=> 
     { 
       console.log(e.data)
-      this.data = e.data
+      this.data = e.data.paginatedData
+      this.CountPage=e.data.noOfPages
+      console.log(this.data);
+      
+
     })
+  }
+  
+  counter(i: number) {
+    return new Array(i);
   }
 
   deleteArt(id : number){
     this.artService.deleteArt(id).subscribe({
       next: ()=>{
         this.toast.success("The Aricle Has Been Deleted Succesfuly")
-        this.getAllArt()
+        this.getAllArt(this.pagNum)
       },
       error: ()=>{
         this.toast.error("An error occurred, please try again")

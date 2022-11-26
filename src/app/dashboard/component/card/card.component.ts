@@ -10,6 +10,7 @@ import { BookService } from 'src/app/services/books/book.service';
 })
 export class CardComponent implements OnInit {
   artData: any[];
+  pagNum:number =1
   bookData: any[];
   bookLength: number
   artLength: number
@@ -20,7 +21,7 @@ export class CardComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.getSomeArticle()
+    this.getSomeArticle(this.pagNum)
     this.getSomeBook()
   }
 
@@ -53,10 +54,10 @@ export class CardComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/allartical');
   }
   
-  getSomeArticle(){
-    this.artService.getArticles().subscribe((e)=>{
-      this.artLength = e.data.length
-      this.artData = e.data.slice(-4)
+  getSomeArticle(pagnum:number){
+    this.artService.getArticles(pagnum).subscribe((e)=>{
+      this.artLength = e.data.paginatedData.length
+      this.artData = e.data.paginatedData.slice(-4)
     })
   }
 
@@ -64,7 +65,7 @@ export class CardComponent implements OnInit {
     this.artService.deleteArt(id).subscribe({
       next:()=>{
         this.toast.success("The Article is Deleted Successfuly")
-        this.getSomeArticle()
+        this.getSomeArticle(this.pagNum)
       },
       error: ()=>{
         this.toast.error("An error occurred, please try again")
