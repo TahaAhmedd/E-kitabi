@@ -4,6 +4,8 @@ import { BookService } from 'src/app/services/books/book.service';
 import { ApiResponse } from 'src/app/Model/ApiResponse';
 import { observable } from 'rxjs';
 import { ChangeDetectionStrategy } from '@angular/compiler';
+import { Meta, Title } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 // import 'rxjs/Rx' ;
 @Component({
   selector: 'app-download-book',
@@ -15,11 +17,19 @@ export class DownloadBookComponent implements OnInit {
   listBook: ApiResponse | any;
   link:any={};
   loading: boolean = false;
+  
+  dates: any
+   datePipe = new DatePipe('en-US');
+  value:any;
   constructor(
     private canActive: ActivatedRoute,
     private bookServes: BookService,
-    private cd:ChangeDetectorRef
-  ) {}
+    private cd:ChangeDetectorRef,
+    private metaTagService:Meta
+    ) {
+
+      // console.log(this.listBook);
+    }
 
   ngOnInit(): void {
     //get id from Route
@@ -32,13 +42,18 @@ export class DownloadBookComponent implements OnInit {
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
           this.listBook = bookData.data;
-          console.log(bookData);
+          this.dates=this.listBook.createdAt
+          console.log(this.listBook);
+          this.value = this.datePipe.transform(this.dates,'dd/MM/yyyy');
+          this.metaTagService.updateTag(
+            { name: 'date', content:`${this.value}` }
+            );
         });
       }
     });
-    console.log(this.listBook);
+    
   }
-
+  
   setLoading() {
     this.loading = true;
     window.scrollTo(0, 0);
@@ -52,8 +67,8 @@ export class DownloadBookComponent implements OnInit {
     console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe(response=>{
       this.downloadFile(response)
-
-
+      
+      
     })
   }
   downloadFile(data) {
