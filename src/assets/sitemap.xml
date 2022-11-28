@@ -10,5 +10,29 @@
   <url>
     <loc>http://localhost:4200/user/home</loc>
   </url>
+   <url>
+    <loc>http://localhost:4200/user/categories</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/user/list</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/articles/categories_Art</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/articles/details</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/user/aboutus</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/user/contactus</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/user/policy</loc>
+  </url>
+  <url>
+    <loc>http://localhost:4200/user/preview</loc>
+  </url>
  
 </urlset>

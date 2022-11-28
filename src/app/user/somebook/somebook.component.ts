@@ -16,7 +16,7 @@ export class SomebookComponent implements OnInit {
 
   getBooks(){
     this.bookServ.getAll().subscribe((e)=> {
-      console.log(e)
+      // console.log(e)
       this.books = e.data.slice(0,4)})
   }
 }

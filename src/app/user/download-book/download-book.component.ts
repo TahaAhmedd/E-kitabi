@@ -21,6 +21,7 @@ export class DownloadBookComponent implements OnInit {
   dates: any
    datePipe = new DatePipe('en-US');
   value:any;
+  links: any;
   constructor(
     private canActive: ActivatedRoute,
     private bookServes: BookService,
@@ -72,12 +73,14 @@ export class DownloadBookComponent implements OnInit {
     })
   }
   downloadFile(data) {
-    console.log(data.data.link);
-    const blob = new Blob([data.link], { type: 'text/pdf' });
+    this.links = data.data.link
+    console.log(this.links);
+    const blob = new Blob([this.links], { type: 'text/pdf' });
     console.log(blob);
-    const url= window.URL.createObjectURL(data.data.link);
-    console.log(url);
-    window.open(url);
+    window.open(this.links);
+    // const url= window.URL.createObjectURL(blob);
+    
+    // console.log(url);
   }
   // getbookById(id:string) {
   //   this.bookServes.getBookByID(this.curentId).subscribe((res) => {
