@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApiRespaginat, ApiResponse, ApiResultBookById } from 'src/app/Model/ApiResponse';
+import { ApiRespaginat, ApiResponse, ApiResponse0, ApiResultBookById } from 'src/app/Model/ApiResponse';
 import {Bookes} from '../../Model/Bookes'
 import { environment } from './../../../environments/environment';
 
@@ -17,9 +17,9 @@ export class BookService {
   }
 
   // Function Get Book By Id Api
-  getBookByID(Id:String) {
+  getBookByID(Id:String):Observable<ApiResponse0> {
     // console.log(Id)
-    return this.http.get<ApiResultBookById>(`${environment.PathApi}/book/getbyid/${Id}`);
+    return this.http.get<ApiResponse0>(`${environment.PathApi}/book/getbyid/${Id}`);
   }
 
   // Function Get Book By CaticoryFrom Api

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CanActivate, ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/books/book.service';
-import { ApiResponse } from 'src/app/Model/ApiResponse';
+import { ApiResponse, ApiResponse0, DataBookResult } from 'src/app/Model/ApiResponse';
 import { observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { json } from 'express';
+import { LoginComponent } from './../../login/login.component';
 
 @Component({
   selector: 'app-download-book',
@@ -11,8 +14,9 @@ import { observable } from 'rxjs';
 })
 export class DownloadBookComponent implements OnInit {
   curentId: string;
-  listBook: ApiResponse | any;
+  listBook : ApiResponse0  |any
   loading:boolean = false
+  listOuterLinke:[{}]
   constructor(
     private canActive: ActivatedRoute,
     private bookServes: BookService
@@ -28,10 +32,21 @@ export class DownloadBookComponent implements OnInit {
   
     if(this.curentId)
     {
-      this.bookServes.getBookByID(this.curentId).subscribe(
+      this.bookServes.getBookByID(this.curentId)
+     .subscribe(
         (bookData)=>
       {
-      this.listBook= bookData.data;
+        console.log(bookData);
+        
+      this.listBook= bookData.data
+      
+      
+       
+      
+        // console.log(this.listBook.data.forEach(el=>{console.log();
+        // }));
+        
+      
  
       })
     }
