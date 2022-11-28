@@ -1,8 +1,16 @@
+import { text } from "express";
+
 export class ApiResponse{
     data:[]=[];
     success="";
     message=true;
     status=true;
+}
+export class ApiResponse0{
+    data:DataBookResult[];
+    success=true;
+    message='';
+    
 }
 
 export class ApiRespaginat{
@@ -18,7 +26,7 @@ export class ApiResultBookById{
     status=true;
 }
 
-export interface DataBookResult{
+export class DataBookResult{
     _id:number;
     title:string;
     description:string;
@@ -27,7 +35,14 @@ export interface DataBookResult{
     createdAt:string;
     updatedAt:string;
     cover:string;
-    link:string
+    link:string;
+    innerLinks:[{}]
+    outerLinks:[{}]
+}
+
+export class datres{
+text:string
+link:string
 }
 export interface DataPagination{
     noOfPages:number,

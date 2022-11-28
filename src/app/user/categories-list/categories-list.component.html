@@ -5,7 +5,7 @@
 
             <div class="leftcontent">
                 <div class="content">
-                    <h3> <span style="color: #ce7852bf;">B</span> ooks Categories</h3>
+                    <h3> <span style="color: #ce7852bf;">B</span>ooks Categories</h3>
                     <ul class="one" *ngFor="let item of catogry">
                        <a [routerLink]="['/user/list',item.title]"> <li>{{item.title}} <span>{{item.length}}</span></li></a>
                         
@@ -47,6 +47,7 @@
                         <div class="righttext">
                             <h2>{{item.title}}</h2>
                             <p class="authors">{{item.description}}</p>
+                           
                             <ul class="star">
                                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
