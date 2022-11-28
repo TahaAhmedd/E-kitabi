@@ -1,38 +1,37 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiRespaginat, ApiResponse, ApiResultBookById } from 'src/app/Model/ApiResponse';
-import {Bookes} from '../../Model/Bookes'
+import { Bookes } from '../../Model/Bookes'
 import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/all`);
   }
 
   // Function Get Book By Id Api
-  getBookByID(Id:String) {
+  getBookByID(Id: String) {
     // console.log(Id)
     return this.http.get<ApiResultBookById>(`${environment.PathApi}/book/getbyid/${Id}`);
   }
-  
+
 
   // Function Get Book By CaticoryFrom Api
   getBookByCatigory(category: any): Observable<ApiResponse> {
-    console.log(category);
+    // console.log(category);
     return this.http.get<ApiResponse>(
       `${environment.PathApi}/book/books/${category}`
     );
   }
   getBookByTitle(title: string) {
-    console.log(title);
-
+    // console.log(title);
     return this.http.get(`${environment.PathApi}/book/books/${title}`);
   }
 
@@ -42,7 +41,7 @@ export class BookService {
   }
 
   // Function Delte b Book
-  deletBook(id : any) {
+  deletBook(id: any) {
     return this.http.delete(`${environment.PathApi}/book/delete/${id}`);
   }
 
@@ -51,13 +50,11 @@ export class BookService {
     return this.http.put(`${environment.PathApi}/book/update/${id}`, data);
   }
   //Function Search about Book
-  searchBooke(search: string):Observable<ApiResponse> {
+  searchBooke(search: string): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/search/${search}`);
   }
   //function get AllBook with pagination
-   getWithPagination (pagNum:Number):Observable<ApiRespaginat>
-   
-   {
+  getWithPagination(pagNum: Number): Observable<ApiRespaginat> {
     return this.http.get<ApiRespaginat>(`${environment.PathApi}/book/paginate/${pagNum}`)
-   }
+  }
 }
