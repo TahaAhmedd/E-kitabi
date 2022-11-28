@@ -40,7 +40,7 @@ export class ArticlesListComponent implements OnInit {
     // Get All Category 
     this.artCSer.gitAllCatArt().subscribe((test) => {
       this.allCategory = test.data
-      // console.log(test.data)
+      console.log(test.data)
     })
   }
 

@@ -9,39 +9,21 @@
 .app 
 {
     display: flex;
-    justify-content:flex-start;
+    background-color: #ce7852bf;
+    justify-content:center;
     height: 100vh;
 
 }
-.app .leftContent 
-{
-    /* background-image: url('../images/loginBook.jpg'); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 1000px;
-    padding: 30px;
-    height: auto;
-    position: relative;
 
-}
-.app .leftContent::after
-{
-    position:absolute;
-    content: "";
-    left:0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ce7852bf;
 
-}
 
 .app .rightContent
 {
-    width: 600px;
+    width: 450px;
+    height: 100vh;
     padding: 40px;
     text-align: center;
-    overflow: hidden;
+background-color: #FFF;
 
 }
 

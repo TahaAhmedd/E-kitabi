@@ -47,9 +47,10 @@ main .container .book-show .right-content .book-imgcont {
   margin-bottom: 40px;
 }
 
-/* main .container .book-show .book-content {
-    width: 90%;
-  } */
+main .container .book-show .book-content {
+  width: 100%;
+  text-align: center;
+  }
 main .container .book-show .book-content h4 {
   margin: 20px 0;
 }
@@ -60,9 +61,9 @@ main .container .book-show .book-content .stars i {
 }
 
 main .container .book-show .book-content hr {
-  margin: 20px 0;
+  margin: 20px auto;
   opacity: 0.3;
-  /* width: 80%; */
+  width: 80%;
 }
 
 main .container .book-show .book-content p {

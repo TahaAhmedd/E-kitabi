@@ -10,6 +10,10 @@
 .boxTitle {
     margin-left: 10px;
     text-transform: capitalize;
+    cursor: pointer;
+}
+.boxTitle a{
+    transition: all .3s;
 }
 .images-nav {
     background-image: url(../../../assets/Articals/NewsNav.jpg) ;
@@ -199,6 +203,7 @@ h2 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .dis p{
     white-space: nowrap; 
     width: 20ch !important; 
@@ -232,7 +237,7 @@ h2 {
     max-width: 100%;
     /* padding: 0 5px; */
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 
 .endArtical img {
@@ -243,57 +248,25 @@ h2 {
     border-top: 1px solid black;
     border-bottom: 0.6px solid #666;
     height: 35px;
-    padding: 7PX 0;
+    padding: 4px 0;
     margin-bottom: 7px;
 }
 
+.archives{
+    font-size: 15px; 
+    background-color:#999;
+     padding:5px 10px; 
+     color: #FFF;
+     cursor: pointer;
+transition: all .3s;
+
+}
+.archives:hover{
+background-color: #ce7852;
+transition: all .3s;
+}
 /* End Artical */
 
-/* start footer */
-footer {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-footer .ftext {
-    padding-top: 40px;
-    color: #666;
-    font-size: 15px;
-    padding-bottom: 20px;
-}
-
-footer .ficon li {
-    padding: 10px 10px;
-    display: inline-block;
-
-}
-
-footer .ficon li i {
-    font-size: 25px;
-    cursor: pointer;
-    transition: all .5s;
-}
-
-footer .ficon li i:hover {
-    color: #ce7852;
-}
-
-footer .flist li {
-    padding: 20px 15px;
-    display: inline-block;
-    font-weight: 600;
-    color: #555;
-    cursor: pointer;
-    transition: all .5s;
-}
-
-footer .flist li:hover {
-    color: #ce7852;
-}
-
-/*the End*/
 /*/////////// Media QUEIRY//////////*/
 @media (min-width: 300px) and (max-width: 768px) { 
  body {
@@ -320,9 +293,9 @@ footer .flist li:hover {
     }
     .pag-content {
 
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
     }
 
     .side-con-one {
