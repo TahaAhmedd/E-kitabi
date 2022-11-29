@@ -1,0 +1,370 @@
+.images-nav {
+    background-image: url(../../../assets/Articals/NewsNav.jpg) ;
+    background-size: cover;
+    background-attachment: fixed;
+  
+    height: 60vh;
+    display: block;
+    color: #fff;
+    /* margin-bottom: 70px; */
+  }
+  .images-nav .header {
+    top: 90px;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 60vh;
+    width: 100% !important;
+  }
+  .images-nav h1 {
+    color: #fff;
+    position: relative;
+    top: 40%;
+    text-align: center;
+  }
+
+
+
+.pagds {
+    display: flex;
+    flex-direction: row;
+
+    box-shadow: 0 0 15px #0000004d;
+    padding: 80px 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 20%; */
+
+    /* justify-content: space-evenly; */
+}
+
+.pag-content {
+    display: flex;
+    flex-direction: row;
+    padding-left: 70px;
+    padding-right: 0px;
+}
+
+.sidebar {
+    width: 25%;
+    max-width: 100%;
+    padding: 40px;
+    padding: 0 15px;
+
+}
+
+.side-con-one {
+    border-bottom: #333 solid 2px;
+    text-decoration: none;
+
+
+}
+
+.recent {
+    border-bottom: #333 solid 2px;
+}
+
+.side-con-one .content .sid-ecent-post {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    /* flex-flow: r; */
+}
+
+.sid-ecent-post img {
+    width: 100px;
+    margin: 7px;
+
+}
+
+.content-set {
+    display: flex;
+    padding-top: 10px;
+    margin: 3px;
+}
+
+.content-set a {
+    text-decoration: none;
+    line-height: 20px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.content-set a:hover {
+    color: #ce7852;
+}
+
+.ARCHIVE {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-con-Three {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto10px;
+}
+
+.side-con-Three .recent {
+    /* background-color: #ce7852; */
+    margin-right: 20px;
+    border-bottom: 2px solid #333;
+    width: 100%;
+
+}
+
+.tag-hash {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.side-con-Three a {
+    text-decoration: none;
+    color: #333;
+    height: 50px;
+    line-height: 37px;
+    background-color: #ebebeb;
+    margin: 7px 5px 5px 5px ;
+    padding: 5px 5px;
+
+}
+
+.side-con-Three a:hover {
+    color: #ce7852;
+
+}
+
+/*end sidbar*/
+/* sid-ecent-post */
+
+
+/*start Artical */
+.main {
+
+    width: 100%;
+    padding: 0 20px;
+}
+
+.main .content {
+    width: 80%;
+
+}
+
+.content .imageArtica {
+    width: 300px;
+    padding: 20px 0;
+}
+.imgArticle
+{
+    width: 800px;
+    height: 600px;
+}
+
+
+
+.content .inputSearch {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e1e1e1;
+    padding: 0 44px 0 20px;
+    margin: 20px 0;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: x-large;
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.contentArtical h3 {
+    font-weight: 900;
+    font-size: x-large;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.dis p{
+    white-space: nowrap; 
+    width: 20ch !important; 
+    overflow: hidden !important;
+    text-overflow: ellipsis !important; 
+ }
+.pragraph {
+    color: #333;
+    font-weight: 600;
+    color: #666;
+    line-height: 1.9;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: left;
+    /* color: aqua; */
+}
+
+.pragraph a {
+    text-decoration: none;
+    color: #ce7852;
+}
+
+.centerartical {
+    padding: 30px;
+    font-weight: 1000px;
+    font-size: x-large;
+    color: #333;
+}
+
+.endArtical {
+    display: flex;
+    max-width: 100%;
+    /* padding: 0 5px; */
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.endArtical img {
+    width: 49%;
+}
+
+.end-artical {
+    border-top: 1px solid black;
+    border-bottom: 0.6px solid #666;
+    height: 35px;
+    padding: 7PX 0;
+    margin-bottom: 7px;
+}
+
+/* End Artical */
+
+/* start footer */
+footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+footer .ftext {
+    padding-top: 40px;
+    color: #666;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+footer .ficon li {
+    padding: 10px 10px;
+    display: inline-block;
+
+}
+
+footer .ficon li i {
+    font-size: 25px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+footer .ficon li i:hover {
+    color: #ce7852;
+}
+
+footer .flist li {
+    padding: 20px 15px;
+    display: inline-block;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+footer .flist li:hover {
+    color: #ce7852;
+}
+
+/*the End*/
+/*/////////// Media QUEIRY//////////*/
+@media (min-width: 300px) and (max-width: 768px) { 
+ body {
+        margin: 0;
+        padding: 5px;
+        width: calc(100% - 0px);
+    } 
+ .pagds {
+        padding-bottom: 5px;
+        margin: 0;
+    }
+
+    .main {
+        margin: auto;
+        padding: auto;
+        text-align: center;
+          display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .main .content {
+        width:100%;
+      
+    }
+    .pag-content {
+
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .side-con-one {
+        width: 280px;
+
+    }
+    .side-con-Two {
+        display: inline-block;
+        width: 270px;
+        margin: 10px;
+    }
+
+    .side-con-Three {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        border-bottom: #333 solid 2px;
+    }
+
+    .centerartical {
+        padding: 0;
+    }
+
+    .content .inputSearch {
+        border: 1px solid #e1e1e1;
+        padding: 0 40px 0 20px;
+
+    }
+
+    .content .imageArtica {
+        width: 100px;
+        display: none;
+        padding: 20px 0;
+    }
+
+    .sid-ecent-post img {
+        width: 100px;
+        margin: 7px;
+    }
+.imgArticle
+{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+}
+    .sidebar {
+        width: 25%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+}
