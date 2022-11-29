@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  PathApi:"https://e-ekitabi-io-1223.herokuapp.com"
+  PathApi:"http://localhost:4000"
 };
 
 /*

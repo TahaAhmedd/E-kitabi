@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CanActivate, ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/books/book.service';
-import { ApiResponse } from 'src/app/Model/ApiResponse';
+import { ApiResponse, ApiResponse0, DataBookResult } from 'src/app/Model/ApiResponse';
 import { observable } from 'rxjs';
 import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Meta, Title } from '@angular/platform-browser';

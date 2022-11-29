@@ -1,0 +1,88 @@
+<h3>Form Book</h3>
+<hr>
+<form class="card" [formGroup]="form" (ngSubmit)="onSave()">
+    <div class="card-header">
+        <label>Add New Book</label>
+    </div>
+    <div class="card-body">
+        <h5>Add new Book:</h5>
+        <hr>
+        <div class="row">
+            <div class="col-md-2">title</div>
+            <div class="col-md-4">
+                <input formControlName="title" type="text" class="form-control">
+            </div>
+            <div class="col-md-2">categoryName </div>
+            <div class="col-md-4">
+                <input formControlName="categoryName" type="text" class="form-control">
+            </div>
+
+            <div class="col-md-2">description</div>
+            <div class="col-md-4">
+                <input formControlName="description" type="text" class="form-control">
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- <ng-container formGroupName="outerLinks">
+            <div class="row">
+                <div class="col-md-2">text </div>
+                <div class="col-md-4">
+                    <input formControlName="text" type="text" class="form-control">
+                </div>
+    
+                <div class="col-md-2">link </div>
+                <div class="col-md-4">
+                    <input formControlName="link" type="text" class="form-control">
+                </div>
+            </div>
+            
+        </ng-container> -->
+        <h5>innerLinks</h5>
+        <button type="button" class="btn btn-outline-primary" (click)="addNewForm()">Add New innerLinks</button>
+        <hr>
+        <ng-container formArrayName="innerLinks" *ngFor="let o of innerLinks.controls; let i = index">
+
+            <b>innerLinks {{i+1}}</b> <button type="button" class="btn btn-outline-danger mx-3 mt-3" (click)="removeForm1(i)">&times;</button>
+            <hr>
+
+            <div class="row mt-2" [formGroupName]="i">
+                <div class="col-md-2">link </div>
+                <div class="col-md-4">
+                    <input formControlName="link" type="text" class="form-control">
+                </div>
+    
+                <div class="col-md-2">text</div>
+                <div class="col-md-4">
+                    <input formControlName="text" type="text" class="form-control">
+                </div>
+            </div>
+            <!-- <hr> -->
+        </ng-container>
+        <h5>outerLinks</h5>
+        <button class="btn btn-outline-primary" type="button" (click)="addNewForm()">Add New outerLinks</button>
+        <hr>
+        <ng-container formArrayName="outerLinks" *ngFor="let o of outerLinks.controls; let i = index">
+
+            <b>outerLinks {{i+1}}</b> <button type="button" class="btn btn-outline-danger mx-3 mt-3" (click)="removeForm(i)">&times;</button>
+            <hr>
+
+            <div class="row mt-2" [formGroupName]="i">
+                <div class="col-md-2">link </div>
+                <div class="col-md-4">
+                    <input formControlName="link" type="text" class="form-control">
+                </div>
+    
+                <div class="col-md-2">text</div>
+                <div class="col-md-4">
+                    <input formControlName="text" type="text" class="form-control">
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="card-footer text-center">
+        <button type="submit"  class="btn btn-primary">Save</button>
+    </div>
+</form>
+
