@@ -1,140 +1,110 @@
 <app-loader *ngIf="loading"></app-loader>
 <main *ngIf="!loading">
-    <section class="img-header">
-        <div class="img-content">
-        </div>
-        <h1><span style="color: #ce7852bf;">V</span>iew the book</h1>
-    </section>
-    <div class="container">
+   <section class="img-header">
+       <div class="img-content">
+       </div>
+       <h1 ><span style="color: #ce7852bf;">V</span>iew the book</h1>
+   </section>
+   <div class="container">
 
-        <div class="book-show">
-            <div class="right-content">
+       <div class="book-show">
+           <div class="right-content">
 
-                <div class="book-imgcont">
-                    <img src="{{listBook?.cover}}" alt="">
-                    <div class="book-content">
-                        <h2>{{listBook?.title}}</h2>
-                        <span class="stars">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </span>
-                        <hr>
-                        <p>
-                            {{listBook?.description}}
-                        </p>
-                        <button type="submit" (click)="downLoadBook()">Download!</button>
-                        <i class="fa fa-heart-o"></i>
-                        <div class="share-social">
-                            <span>share:</span>
-                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                            <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"> </i></a>
-                            <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        </div>
-
-                        <div class="book-imgcont">
-                            <img src="{{listBook?.cover}}" alt="">
-                            <div class="book-content">
-                                <h2>{{listBook?.title}}</h2>
-                                <span class="stars">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </span>
-                                <hr>
-                                <p>
-                                    {{listBook?.description}}
-                                </p>
-                                <div *ngFor="let i of listBook.innerLinks">
-                                    <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                                </div>
-                                <div *ngFor="let i of listBook.outerLinks">
-                                    <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                                </div>
-                                <button type="submit" (click)="setLoading()">Download!</button>
-                                <i class="fa fa-heart-o"></i>
-                                <div class="share-social">
-                                    <span>share:</span>
-                                    <a href="https://www.facebook.com/" target="_blank"><i
-                                            class="fa fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram">
-                                        </i></a>
-                                    <a href="https://www.pinterest.com/" target="_blank"><i
-                                            class="fa fa-pinterest"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="description">
-                            <h2>Description</h2>
-                            <hr>
-                            <p>{{listBook?.description}}</p>
-                        </div>
-                        <div *ngFor="let i of listBook.innerLinks">
-                            <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                        </div>
-                        <div *ngFor="let i of listBook.outerLinks">
-                            <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                        </div>
-                        <div class="related">
-                            <h1>Related Products</h1>
-                            <div id="carouselExampleInterval" class=" w-75 carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner ">
-                                    <div class="carousel-item active" data-bs-interval="10000">
-                                        <img src="../../../assets/download/3.webp" class="d-block w-100 " alt="...">
-                                        <p></p>
-                                        <div class="rate">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="2000">
-                                        <img src="../../../assets/download/3.webp" class="d-block w-100" alt="...">
-                                        <p>You Better Be Lightning</p>
-                                        <div class="rate">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="../../../assets/download/3.webp" class="d-block w-100" alt="...">
-                                        <p>You Better Be Lightning</p>
-                                        <div class="rate">
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div>
-
+               <div class="book-imgcont" >
+                   <img src="{{listBook?.cover}}" alt="">
+                   <div class="book-content">
+                       <h2>{{listBook?.title}}</h2>
+                       <span class="stars">
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                           <i class="fa fa-star-o"></i>
+                       </span>
+                       <hr>
+                       <p>
+                           {{listBook?.description}}
+                       </p>
+                       <div  *ngFor="let i of listBook.innerLinks">
+                        <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                     </div>
-                </div>
+                    <div  *ngFor="let i of listBook.outerLinks">
+                        <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                        </div>
+                       <button type="submit"  (click)="downLoadBook()">Download!</button>
+                       <i class="fa fa-heart-o"></i>
+                       <div class="share-social">
+                           <span>share:</span>
+                           <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                           <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                           <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"> </i></a>
+                           <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                       </div>
+
+                   </div>
+               </div>
+               <div class="description">
+                   <h2>Description</h2>
+                   <hr>
+                   <p>{{listBook?.description}}</p>
+               </div>
+               <div  *ngFor="let i of listBook.innerLinks">
+                <a href="{{i.link}}" target="_blank">{{i.text}}</a>
             </div>
+            <div  *ngFor="let i of listBook.outerLinks">
+                <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                </div>
+               <div class="related">
+                   <h1>Related Products</h1>
+                   <div id="carouselExampleInterval" class=" w-75 carousel slide" data-bs-ride="carousel">
+                       <div class="carousel-inner ">
+                         <div class="carousel-item active" data-bs-interval="10000">
+                           <img src="../../../assets/download/3.webp" class="d-block w-100 " alt="...">
+                           <p></p>
+                           <div class="rate">
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                           </div>  
+                         </div>
+                         <div class="carousel-item" data-bs-interval="2000">
+                           <img src="../../../assets/download/3.webp" class="d-block w-100" alt="...">
+                           <p>You Better Be Lightning</p>
+                           <div class="rate">
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                           </div>
+                         </div>
+                         <div class="carousel-item">
+                           <img src="../../../assets/download/3.webp" class="d-block w-100" alt="...">
+                           <p>You Better Be Lightning</p>
+                           <div class="rate">
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                               <i class="fa fa-star-o"></i>
+                           </div>
+                         </div>
+                       </div>
+                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Previous</span>
+                       </button>
+                       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Next</span>
+                       </button>
+                     </div>
+           </div>
+           
+       </div>
+   </div>
+</div>
 
 </main>
