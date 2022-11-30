@@ -1,22 +1,32 @@
+<form   [formGroup]="addBook" (ngSubmit)="addBookData()">
 <div class="container">
   <h1 class="new" ><span> A</span>dd <span>N</span>ew <span>B</span>ook:</h1>
 <div class="mt-5 w-50">
     <label for="exampleFormControlInput1" class="form-label">Booke name:</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Please Add Book Name">
+    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="bookName" placeholder="Please Add Book Name">
   </div>
   <div class="mt-5 w-50">
     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Please Add Some Description About Book .... " rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="Description" placeholder="Please Add Some Description About Book .... " rows="3"></textarea>
   </div>
   <div class="contImg"  style="margin-top:20px">
     <!-- <label for="input-2" class="md-button md-raised md-primary"> <i class="fa-solid fa-upload"></i></label> -->
    
-
+<!-- //image  -->
     <input  id="input-2" (change)="readURL($event)" name="upload" id="fileimages" formControlName="fileimages" type="file" class="file "  data-show-upload="false" data-show-caption="true" multiple>
     <div class="show-images">
       <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150" alt="your image" />
     </div>
-    <input id="input-1" name="submit" value="Add Article" type="submit" class="submit mb-5 mt-4 btn btn-dark" >
+    
   </div>
-  <button type="submit" class="btn btn-primary butt">Add</button>
+  <div class="contetFile"  style="margin-top:20px">
+
+    <!-- fille -->
+    <input  id="input-3" name="filebook" id="filebook" formControlName="filebook" type="file" class="file "  data-show-upload="false" data-show-caption="true" multiple>
+
+  </div>
+
+  <input id="input-1" name="submit" value="Add Book" type="submit" class="submit mb-5 mt-4 btn btn-dark" >
+  
 </div>
+</form>

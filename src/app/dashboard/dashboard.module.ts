@@ -13,7 +13,8 @@ import { BookeCategoryComponent } from './component/booke-category/booke-categor
 import { AddCategoryComponent } from './component/add-category/add-category.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthAdminGuard } from '../GArd/auth-admin.guard';
-import { ReactiveFormsModule ,FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddNewAdminComponent } from './component/add-new-admin/add-new-admin.component';
 let routes: Routes =[
     { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
@@ -40,7 +41,8 @@ let routes: Routes =[
     BookeCategoryComponent,
     AddCategoryComponent,
     AddArticalComponent,
-    AddNewAdminComponent
+    AddNewAdminComponent,
+    AddBookeComponent
     
     // MatPaginatorModule
   ],
@@ -49,6 +51,8 @@ let routes: Routes =[
   SharedModule,
     RouterModule.forChild(routes),
     FormsModule ,
+
+  
   ],
   exports:[
     RouterModule
