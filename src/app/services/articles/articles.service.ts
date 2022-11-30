@@ -6,6 +6,19 @@ import { Injectable } from '@angular/core';
 })
 export class ArticlesService {
 
+
+
+
+  // Add New Articels 
+  addArticles(test:any){
+    console.log(test)
+    return this.http.post("http://localhost:4000/article/newarticle", test)
+    
+  }
+
+
+  /////////////////////////////////////////////////////////////// 
+
   // Add Linke Inside String
   // private url = "localhost:4000/Book";
   private url = "";
@@ -19,6 +32,10 @@ export class ArticlesService {
   getArticles() {
     return this.http.get(this.url);
   }
+
+
+
+
 
   
 
