@@ -19,6 +19,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 1000px;
+    padding: 30px;
+    height: auto;
     position: relative;
 
 }

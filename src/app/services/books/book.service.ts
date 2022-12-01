@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import {Bookes} from '../../Model/Bookes'
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class BookService {
   getAllBooks() {
     console.log('hell');
     this.http
-      .get<{[key:string]:Bookes}>('http://localhost:4000/book/all')
+      .get<{[key:string]:Bookes}>(`${environment.PathUrl}/book/all`)
       .pipe(
         map((res) => {
           const bookes = []
@@ -48,7 +49,7 @@ export class BookService {
   // Function Add Book From Api
   postBook(book: any) {
     return this.http
-      .post('http://localhost:4000/book/newbook', book)
+      .post(`${environment.PathUrl}/book/newbook`, book)
       .subscribe((res) => {
         console.log(res);
       });

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, observable, Observable, Subject } from 'rxjs';
-import { PathUrl } from 'src/environments/environment';
+import { environment } from './../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,16 +13,30 @@ export class UserService {
 
     login(DAta: any):Observable<any>
     { 
-        return  this.http.post(`https://fake-login-api-production.up.railway.app/api/auth/login`,DAta) 
+        return  this.http.post(`${environment.PathUrl}/admin/signin`, DAta) 
     };
     Logout ()
     {
       localStorage.removeItem('token'); 
+      localStorage.removeItem('id')
     };
      get IsUserloged():boolean
      {
        return (localStorage.getItem('token')!=null)? true: false
      }
+
+//update Account 
+update(accountId:any ,data :any):Observable<any>
+{
+   return  this.http.put(`${environment.PathUrl}/update${accountId}`,data)
+}
+
+
+
+ 
+
+
+
   // getUser(user:userlogin){
   //   console.log(user)
   //   let optios = {
