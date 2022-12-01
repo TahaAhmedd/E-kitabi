@@ -443,7 +443,7 @@
         row-gap: 20px;
     }
     .bodylist .all .rightcontent .appcontentbody .childcontentbody .leftimg{
-        width: auto;
+        width: 50vw;
     }
     .bodylist .all .rightcontent .appcontentbody .childcontentbody .righttext{
         width: auto;
