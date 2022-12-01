@@ -11,15 +11,20 @@ export class UserService {
     this.isloginuser=new BehaviorSubject<boolean>(this.IsUserloged)
    }
 
+   //login Admin
     login(DAta: any):Observable<any>
     { 
-        return  this.http.post(`${environment.PathUrl}/admin/signin`, DAta) 
+        return  this.http.post(`${environment.PathApi}/admin/signin`, DAta) 
     };
+
+    //log out Admin
     Logout ()
     {
       localStorage.removeItem('token'); 
       localStorage.removeItem('id')
     };
+
+//property 
      get IsUserloged():boolean
      {
        return (localStorage.getItem('token')!=null)? true: false
@@ -28,7 +33,7 @@ export class UserService {
 //update Account 
 update(accountId:any ,data :any):Observable<any>
 {
-   return  this.http.put(`${environment.PathUrl}/update${accountId}`,data)
+   return  this.http.put(`${environment.PathApi}/admin/update/${accountId}`,data)
 }
 
 
@@ -37,18 +42,10 @@ update(accountId:any ,data :any):Observable<any>
 
 
 
-  // getUser(user:userlogin){
-  //   console.log(user)
-  //   let optios = {
-  //     headers:new HttpHeaders({
-  //       'Content-Type':'application/josn'
-  //     })
-    // }
-    // return this.httb.post("https://kitabi.azurewebsites.net/api/auth/login",{"Email":user.Email,"Password":user.Password})
-    // return this.httb.post("https://kitabi.azurewebsites.net/api/auth/login",JSON.stringify( user),optios)
+
   }
 
-// }
+
 
 
 

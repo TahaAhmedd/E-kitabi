@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  PathUrl:"http://localhost:4000"
+  PathApi:"http://localhost:4000"
 };
 
 /*

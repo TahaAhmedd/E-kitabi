@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from './../../../services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-admin',
@@ -12,7 +14,9 @@ export class AddNewAdminComponent implements OnInit{
    id: any=localStorage.getItem('id');
        
    
-constructor(private userServis:UserService){}
+constructor(private userServis:UserService
+           ,private toster: ToastrService
+           ,private router :Router){}
 
 
 
@@ -37,11 +41,20 @@ initForm()
 
 editAccount()
 {
-  console.log("hell");
-  
-  // this.initForm()
-   this.userServis.update(this.id, this.editForm.value).subscribe(()=>{console.log('succsess');
-   })
+   this.userServis.update(this.id, this.editForm.value).subscribe({
+    next:(value)=> {
+      this.toster.success("The Account  is update Succesfuly","",{
+        positionClass:"toast-top-right",
+        progressBar:true,
+      })
+     
+    },
+    error:(err) =>{
+    
+    },
+  complete:()=>{
+   setTimeout(()=>{ this.router.navigate(['/user/login'])},2000)
+  }   })
 }
 
 }
