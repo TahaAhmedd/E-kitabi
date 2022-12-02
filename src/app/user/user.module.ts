@@ -23,7 +23,7 @@ let routes : Routes =[
   {path:'categories', component:CategoriesComponent},
   {path:'login', component:LoginComponent},
   {path:'list', component:CategoriesListComponent},
-  {path:'download', component:DownloadBookComponent},
+  {path:'download/:id', component:DownloadBookComponent},
   {path:'aboutus', component:AboutusComponent},
   {path:'contactus', component:ContactusComponent},
   {path:'policy', component:PolicyComponent},

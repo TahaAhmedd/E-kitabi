@@ -46,9 +46,9 @@ export class BookService {
     return this.http.get<ApiResponse>(`${environment.PathApi}/book/all`);
   }
   // Function Get Book By Id Api
-  getBookByID(Id:number) {
+  getBookByID(Id:String) {
     console.log(Id)
-    return this.http.get(`${environment.PathApi}/book/books/${Id}`);
+    return this.http.get<ApiResponse>(`${environment.PathApi}/book/getBook/${Id}`);
   }
 
 
