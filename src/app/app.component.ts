@@ -26,9 +26,8 @@ export class AppComponent implements OnInit {
           'At e-kitabi website, we offer you a package of the best books in all fields, including the field of engineering in all its branches, and there are stories and novels, as well as history, animals, and others, books constantly renewed. You can read and download books for free.',
       },
       { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'Ronak Patel' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'date', content: '2021-05-17', scheme: 'YYYY-MM-DD' },
+      { name: 'date', content: 'YYYY-MM-DD' },
       { charset: 'UTF-8' },
     ]);
     this.title.setTitle('EKitabi');

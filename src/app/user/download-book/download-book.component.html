@@ -31,7 +31,7 @@
                     <div  *ngFor="let i of listBook.outerLinks">
                         <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                         </div>
-                       <button type="submit"  (click)="setLoading()">Download!</button>
+                       <button type="submit"  (click)="downLoadBook()">Download!</button>
                        <i class="fa fa-heart-o"></i>
                        <div class="share-social">
                            <span>share:</span>
@@ -108,4 +108,3 @@
 </div>
 
 </main>
-
