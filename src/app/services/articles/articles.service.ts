@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiResponse } from 'src/app/Model/ApiResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +31,8 @@ export class ArticlesService {
 
 
   // Function Get From Api 
-  getArticles() {
-    return this.http.get(this.url);
+  getArticles():Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.url);
   }
 
 
@@ -38,5 +40,9 @@ export class ArticlesService {
 
 
   
+  // Get The Catogery With CatogeryName 
+  getWithCatName(title:string) :Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`http://localhost:4000/article/articles/${title}`)
+  }
 
 }

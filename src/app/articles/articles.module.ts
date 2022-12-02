@@ -7,12 +7,15 @@ import { CategoriesComponent } from '../user/categories/categories.component';
 import { HomeComponent } from '../user/home/home.component';
 import { AboutusComponent } from '../user/aboutus/aboutus.component';
 import { ContactusComponent } from '../user/contactus/contactus.component';
+import { Categories_ArtComponent } from '../user/categories_Art/categories_Art.component';
 
 let routes : Routes =[
   {path:'list', component:ArticlesListComponent},
-  {path:'details', component:ArDetailsComponent},
+  // After Cat Art 
+  {path:'details/:title', component:ArDetailsComponent},
   {path:'home', component:HomeComponent},
   {path:'categories', component:CategoriesComponent},
+  {path:'categories_Art', component:Categories_ArtComponent},
   {path:'aboutus', component:AboutusComponent},
   {path:'contactus', component:ContactusComponent},
 ]
@@ -20,7 +23,7 @@ let routes : Routes =[
 
 @NgModule({
   declarations: [
-    ArDetailsComponent
+    ArDetailsComponent,
   ],
   imports: [
     SharedModule,
