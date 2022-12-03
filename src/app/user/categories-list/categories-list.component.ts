@@ -38,6 +38,7 @@ export class CategoriesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
     //get CatName From Route
     this.canActive.paramMap.subscribe((pram) => {
       this.curentCat = pram.get('category');
