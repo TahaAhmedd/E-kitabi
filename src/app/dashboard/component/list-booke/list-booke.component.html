@@ -5,11 +5,11 @@
     <td>
       <div class="input-group">
         <div class="form-outline">
-          <form [formGroup]="formsearch" > 
-          <input type="search" id="form1" formControlName="search"   class="form-control" />
-        </form>
+          <form [formGroup]="formsearch" (submit)="search()">
+            <input type="search" id="form1" formControlName="title" class="form-control" />
+          </form>
         </div>
-        <button type="button" class="btn btn-primary">
+        <button type="button" (click)="search()" class="btn btn-primary">
           <i class="fas fa-search"></i>
         </button>
       </div>
@@ -19,7 +19,7 @@
     </td>
 
   </div>
-  <table >
+  <table>
     <thead>
       <tr>
         <td>Name</td>
@@ -30,7 +30,7 @@
         <td>Upadte</td>
       </tr>
     </thead>
-    <tbody >
+    <tbody>
       <tr *ngFor="let book of arrBook  index as i">
         <td class="dis">
           <p>{{book.title}}</p>
@@ -41,9 +41,8 @@
         <td class="dis"><img [src]="book.cover" style="width: 100px; height: 100px; " /></td>
         <td>{{book.categoryName}}</td>
         <td><button class="btn btn-outline-danger delete" (click)="deletBook(book._id)">Delete</button></td>
-        <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#T'+book._id"
-            (click)="getBookById(book._id)"
-          >
+        <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#T'+book._id" (click)="getBookById(book._id)">
             Update
           </button></td>
         <!-- Modal -->
@@ -72,60 +71,66 @@
                     <div class="mt-3 w-75">
                       <label for="exampleFormControlInput1" class="form-label">Booke name:</label>
                       <input type="text" class="form-control" formControlName="title">
-                      <div class="mt-2 p-1 alert alert-danger" *ngIf="addBook.get('title')?.touched && addBook.get('title')?.errors">
+                      <div class="mt-2 p-1 alert alert-danger"
+                        *ngIf="addBook.get('title')?.touched && addBook.get('title')?.errors">
                         <small *ngIf="addBook.get('title')?.errors['required']">Please Enter Abook Name</small>
                       </div>
                     </div>
-                
-                
+
+
                     <div class="mt-3 w-75">
                       <label for="exampleFormControlInput1" class="form-label">Key Word Book:</label>
-                      <input type="text" class="form-control" formControlName="keywords" placeholder="Please Add Key Words of Book">
+                      <input type="text" class="form-control" formControlName="keywords"
+                        placeholder="Please Add Key Words of Book">
                       <div class="mt-2 p-1 alert alert-danger"
                         *ngIf="addBook.get('keywords')?.touched && addBook.get('keywords')?.errors">
                         <small *ngIf="addBook.get('keywords')?.errors['required']">The Input Is Required</small>
                       </div>
                     </div>
-                
-                
+
+
                     <div class="mt-3 w-75">
                       <label for="exampleFormControlTextarea1" class="form-label">Description:</label>
                       <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description"
                         placeholder="Please Add Some Description About Book .... " rows="3"></textarea>
-                      <div class="mt-2 p-1 alert alert-danger" *ngIf="addBook.get('description')?.touched && addBook.get('description')?.errors">
+                      <div class="mt-2 p-1 alert alert-danger"
+                        *ngIf="addBook.get('description')?.touched && addBook.get('description')?.errors">
                         <small *ngIf="addBook.get('description')?.errors['required']">The Input Is Required</small>
                       </div>
                     </div>
-                
-                
+
+
                     <div class="contImg w-75" style="margin-top:20px">
                       <!-- //image  -->
-                
-                      <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="bookImage"
-                        type="file" class="file " data-show-upload="false" data-show-caption="true" multiple>
+
+                      <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages"
+                        formControlName="bookImage" type="file" class="file " data-show-upload="false"
+                        data-show-caption="true" multiple>
                       <div class="mt-2 p-1 alert alert-danger"
                         *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
-                        <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In Book</small>
+                        <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In
+                          Book</small>
                       </div>
                       <div class="show-images">
-                        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
-                          alt="your image" />
+                        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'"
+                          height="150" width="150" alt="your image" />
                       </div>
-                
+
                     </div>
                     <div class="contetFile w-75" style="margin-top:20px">
                       <!-- fille -->
-                      <input id="input-3" name="bookFile" id="filebook" formControlName="bookFile" type="file" class="file "
-                        data-show-upload="false" data-show-caption="true" multiple (change)="fileChange($event)">
+                      <input id="input-3" name="bookFile" id="filebook" formControlName="bookFile" type="file"
+                        class="file " data-show-upload="false" data-show-caption="true" multiple
+                        (change)="fileChange($event)">
                       <div class="mt-2 p-1 alert alert-danger"
                         *ngIf="addBook.get('bookFile')?.touched && addBook.get('bookFile')?.errors">
                         <small *ngIf="addBook.get('bookFile')?.errors['required']">Please Select Pdf File</small>
                       </div>
                     </div>
-                
+
                     <input id="input-1" name="submit" value="Add Book" [disabled]="addBook.invalid" type="submit"
                       class="submit mb-5 mt-4 btn btn-dark">
-                
+
                   </div>
                 </form>
               </div>
@@ -138,10 +143,11 @@
       </tr>
     </tbody>
 
-    <div *ngFor='let in of counter(CountPage) ;let i = index' class="btn-group mr-2" role="group" aria-label="Second group">
+    <div *ngFor='let in of counter(CountPage) ;let i = index' class="btn-group mr-2" role="group"
+      aria-label="Second group">
       <button (click)="getdata(i +1)" type="button" class="btn btn-primary">{{i +1}}</button>
     </div>
 
 
-</table>
+  </table>
 </div>

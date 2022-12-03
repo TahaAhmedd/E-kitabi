@@ -13,28 +13,29 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 })
 export class CategoriesListComponent implements OnInit {
   listBooke: ApiResponse | any;
+  AllBooke: ApiResponse | any;
   curentCat: string;
   catogry :any
   formsearch: FormGroup = new FormGroup({
-    search: new FormControl(''),
+    title: new FormControl(''),
   });
   constructor(
      private ApiServes: BookService
    , private canActive: ActivatedRoute
    , private serBookCat :CatigotyBookService
   ) {
-    this.formsearch
+  //   this.formsearch
 
-    .get('search')
-    .valueChanges.pipe(
-      debounceTime(1000),
-      distinctUntilChanged(),
-      switchMap((item) => this.ApiServes.searchBooke(item))
-    )
-    .subscribe((v) => {
-      console.log(v.data);
-      this.listBooke = v?.data;
-    });
+  //   .get('search')
+  //   .valueChanges.pipe(
+  //     debounceTime(1000),
+  //     distinctUntilChanged(),
+  //     switchMap((item) => this.ApiServes.searchBooke(item))
+  //   )
+  //   .subscribe((v) => {
+  //     console.log(v.data);
+  //     this.listBooke = v?.data;
+  //   });
   }
 
   ngOnInit(): void {
@@ -42,19 +43,34 @@ export class CategoriesListComponent implements OnInit {
     //get CatName From Route
     this.canActive.paramMap.subscribe((pram) => {
       this.curentCat = pram.get('category');
-      console.log(this.curentCat);
 
       if (this.curentCat) {
         this.ApiServes.getBookByCatigory(this.curentCat).subscribe(
           (bookData) => {
             this.listBooke=bookData.data
-            
+            this.AllBooke = bookData.data
           }
         );
       }
     });
     this.serBookCat.getAllBookCat().subscribe((response) => {
       this.catogry = response.data
-      // console.log(this.catogry)
   })}
+
+  search(){
+    if(this.formsearch.get("title").value == ""){
+      return this.listBooke = this.AllBooke
+    }
+    else{
+      this.ApiServes.searchBooke(this.formsearch.get("title").value).subscribe({
+        next: (res)=>{
+          console.log(res)
+          this.listBooke = res.data
+        },
+        error: (err)=>{
+          console.log(err)
+        }
+      })
+    }
+  }
 }
