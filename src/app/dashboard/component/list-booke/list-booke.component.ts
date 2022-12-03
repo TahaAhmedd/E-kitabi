@@ -23,10 +23,10 @@ export class ListBookeComponent implements OnInit, OnChanges {
   arrBook2: DataPagination[];
   pageNum: number = 1;
   noOfPages: number = 1;
-  CountPage:number
+  CountPage: number
   //search
   formsearch: FormGroup = new FormGroup({
-    search: new FormControl(''),
+    title: new FormControl(''),
   });
 
   addBook!: FormGroup;
@@ -55,20 +55,20 @@ export class ListBookeComponent implements OnInit, OnChanges {
 
     //search
 
-    this.formsearch
-      .get('search')
-      .valueChanges.pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        switchMap((item) => this.httpServes.searchBooke(item))
-      )
-      .subscribe((v) => {
-        console.log(v.data);
-        v.status;
-        this.arrBook = v?.data;
-      });
+    // this.formsearch
+    //   .get('search')
+    //   .valueChanges.pipe(
+    //     debounceTime(1000),
+    //     distinctUntilChanged(),
+    //     switchMap((item) => this.httpServes.searchBooke(item))
+    //   )
+    //   .subscribe((v) => {
+    //     console.log(v.data);
+    //     v.status;
+    //     this.arrBook = v?.data;
+    //   });
   }
-  ngOnChanges(): void {}
+  ngOnChanges(): void { }
 
   ngOnInit(): void {
     this.allCatBook();
@@ -78,7 +78,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
     return this.httpServes.getWithPagination(pageNum).subscribe((e) => {
       this.arrBook = e.data.paginatedData;
       pageNum = e.data.pageNumber;
-      this.CountPage=e.data.noOfPages
+      this.CountPage = e.data.noOfPages
     });
   }
 
@@ -157,7 +157,27 @@ export class ListBookeComponent implements OnInit, OnChanges {
     });
   }
   //////////////search ///////////////
+
+
+
+  search() {
+    if (this.formsearch.get("title").value == "") {
+      this.getdata(this.noOfPages)
+    }
+    else {
+      this.httpServes.searchBooke(this.formsearch.get("title").value).subscribe({
+        next: (res) => {
+          console.log(res)
+          this.arrBook = res.data
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+  }
 }
+
 
 export class DataBookUpdate {
   title: string = '';
