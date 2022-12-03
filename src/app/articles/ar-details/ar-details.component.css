@@ -85,8 +85,8 @@ a{
   }
   /* recent-post */
   .recent-post .post {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
     margin-bottom: 30px;
   }
   

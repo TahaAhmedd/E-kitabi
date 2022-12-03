@@ -32,17 +32,17 @@ export class ArticlesListComponent implements OnInit {
     // Get Art With Id
     this.serv.getArtWithId(idOneCat).subscribe((res) => {
       this.datas = res.data
-      console.log(this.datas);
+      // console.log(this.datas);
       
       // Get Arts With CtgoryName 
       this.serv.getWithCatName(this.datas?.categoryName).subscribe((allCategoryType) => {
         this.getCatogry = allCategoryType.data
         this.date=this.datas.createdAt
-        console.log(this.date);
+        // console.log(this.date);
         this.keywords=[...this.datas.keywords]
         console.log(this.datas);
         this.value = this.datePipe.transform(this.date,'dd/MM/yyyy');
-        console.log(this.value);
+        // console.log(this.value);
         this.metaTagService.updateTag(
           { name: 'date', content:`${this.value}` }
           );
@@ -57,7 +57,7 @@ export class ArticlesListComponent implements OnInit {
     // Get All Category 
     this.artCSer.gitAllCatArt().subscribe((test) => {
       this.allCategory = test.data
-      console.log(test.data)
+      // console.log(test.data)
 
     })
   }

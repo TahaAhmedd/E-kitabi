@@ -12,12 +12,12 @@
             <div class="post d-flex" *ngFor="let one of catogeryName">
                 
              
-                    <div class="col-lg-6" routerLink="/articles/list/{{one._id}}">
+                    <div class="col-lg-4" routerLink="/articles/list/{{one._id}}">
                         <div class="box_image">
                             <img src="{{one.cover}}" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-6 ">
+                    <div class="col-lg-8 ">
                         <div class="content-post">
                             <h1>
                                 <a routerLink="/articles/list/{{one._id}}" class="edTitle">{{one.title}}</a>
@@ -42,7 +42,7 @@
             <hr>
             <div class="recent-post">
                 <div class="post" *ngFor="let art of articles">
-                    <img [src]="art.cover[0]"  alt="">
+                    <!-- <img [src]="art.cover[0]"  alt=""> -->
                     <div class="content-post">
                         <h4>
                             <a  routerLink="/articles/list/{{art._id}}">
@@ -56,27 +56,17 @@
                         </h4>
                         <p>{{art.updatedAt | date}}</p>
                     </div>
-                </div>
-                
 
+                    <!-- <h3>ARCHIVE</h3> -->
+                    <hr>
+                    <div class="archive" *ngFor="let outerLinks of art.links">
+                        <p style="border-bottom:1px solid #EEE;padding-bottom:10px">
+                            <a href="{{outerLinks.link}}">{{outerLinks.text}}</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <h3>ARCHIVE</h3>
-            <hr>
-            <div class="archive">
-                <h4>June 2022</h4>
-                <p>
-                    <a href="">Signficant reading has a more info number</a>
-                </p>
-                <p>
-                    <a href="">Activities of the Frankfurt Book International</a>
-                </p>
-                <p>
-                    <a href="">The London Book Fair is to be packed with exciting</a>
-                </p>
-                <p>
-                    <a href="">Reading has a signficant info number of benefits</a>
-                </p>
-            </div>
+
         </section>
 
     </div>
