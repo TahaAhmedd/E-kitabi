@@ -17,7 +17,6 @@ import { FormsModule, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNewAdminComponent } from './component/add-new-admin/add-new-admin.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { TestCeseComponent } from './component/test-cese/test-cese.component';
 let routes: Routes =[
     { path: '', redirectTo:"/dashboard/card",pathMatch:'full'}
     , { path: 'card', component:CardComponent ,canActivate:[AuthAdminGuard]}//dashboard/home
@@ -29,7 +28,6 @@ let routes: Routes =[
     , { path: 'Allcategorey',component :BookeCategoryComponent ,canActivate:[AuthAdminGuard]}
     , { path: 'Addcategorey',component :AddCategoryComponent ,canActivate:[AuthAdminGuard]}
     ,{path:'addnewadmin',component:AddNewAdminComponent,canActivate:[AuthAdminGuard]}
-    ,{path:'TestCese',component:TestCeseComponent,canActivate:[AuthAdminGuard]}
   
 ]
 
@@ -47,7 +45,6 @@ let routes: Routes =[
     AddArticalComponent,
     AddNewAdminComponent,
     AddBookeComponent,
-    TestCeseComponent
     
     // MatPaginatorModule
   ],

@@ -5,11 +5,14 @@ export class ApiResponse{
     success="";
     message=true;
     status=true;
+    dataLinkOuter:[]=[];
+    dataLinksInner:[]=[];
 }
 export class ApiResponse0{
     data:DataBookResult[];
     success=true;
     message='';
+    d:{}={}
     
 }
 
@@ -21,9 +24,7 @@ export class ApiRespaginat{
 }
 export class ApiResultBookById{
     data:{}={};
-    success="";
-    message=true;
-    status=true;
+    dd:{}={}
 }
 
 export class DataBookResult{

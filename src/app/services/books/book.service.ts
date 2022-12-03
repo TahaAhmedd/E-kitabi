@@ -17,9 +17,9 @@ export class BookService {
   }
 
   // Function Get Book By Id Api
-  getBookByID(Id:String):Observable<ApiResponse0> {
+  getBookByID(Id:String):Observable<ApiResponse> {
     // console.log(Id)
-    return this.http.get<ApiResponse0>(`${environment.PathApi}/book/getbyid/${Id}`);
+    return this.http.get<ApiResponse>(`${environment.PathApi}/book/getbyid/${Id}`);
   }
   
 

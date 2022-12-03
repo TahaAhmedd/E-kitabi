@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  PathApi:"http://localhost:4000"
+  PathApi:"https://backendekitabiy.onrender.com"
+  // PathApi:"http://localhost:4000"
 };
 
 /*

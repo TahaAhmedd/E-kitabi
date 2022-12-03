@@ -24,7 +24,10 @@ footer .ftext {
     font-size: 15px;
     padding-bottom: 20px;
 }
-
+.ficon{
+    margin: 0 !important;
+    padding: 0 !important;
+}
 footer .ficon li {
     padding: 10px 10px;
 

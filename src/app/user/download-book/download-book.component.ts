@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/books/book.service';
 import { ApiResponse, ApiResponse0, DataBookResult } from 'src/app/Model/ApiResponse';
 import { observable } from 'rxjs';
-import { ChangeDetectionStrategy } from '@angular/compiler';
+import { ChangeDetectionStrategy, ThisReceiver } from '@angular/compiler';
 import { Meta, Title } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
 // import 'rxjs/Rx' ;
@@ -15,7 +15,9 @@ import { DatePipe } from '@angular/common';
 export class DownloadBookComponent implements OnInit {
   curentId: string;
   listBook: ApiResponse | any;
-  link:any={};
+  listLinkouter:any
+  listLinkInner:any
+  link:any;
   loading: boolean = false;
   
   dates: any
@@ -41,9 +43,10 @@ export class DownloadBookComponent implements OnInit {
 
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
+          console.log(bookData);
+          
           this.listBook = bookData.data;
           this.dates=this.listBook.createdAt
-          console.log(this.listBook);
           this.value = this.datePipe.transform(this.dates,'dd/MM/yyyy');
           this.metaTagService.updateTag(
             { name: 'date', content:`${this.value}` }
@@ -51,15 +54,15 @@ export class DownloadBookComponent implements OnInit {
         });
       }
     });
-    
   }
   
-  setLoading() {
+  setLoading(link:string) {
     this.loading = true;
     window.scrollTo(0, 0);
     setTimeout(() => {
       this.loading = false;
-      this.downLoadBook()
+      window.open(link,"_blanck")
+      // this.downLoadBook()
     }, 3000);
     
   }
@@ -67,6 +70,11 @@ export class DownloadBookComponent implements OnInit {
     console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe(response=>{
       this.downloadFile(response)
+      console.log(response);
+      this.listBook=response
+      console.log(this.listBook);
+      
+
       
       
     })
