@@ -62,8 +62,11 @@
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner d-flex align-items-center" style="width: 300px ; height: 350px;">
                           <div class="carousel-item active text-center" *ngFor="let book of relatedBook">
-                            <img [src]="book?.cover" class=" w-100 h-100" alt="...">
-                            <h5>{{book?.title}}</h5>
+                            <a [routerLink]="['/user/download',book?._id]">
+
+                                <img [src]="book?.cover" class="w-100" style="max-height: 320px ;" alt="...">
+                            </a>
+                            <h5 class="titleBook">{{book?.title}}</h5>
                           </div>
                           
                         </div>

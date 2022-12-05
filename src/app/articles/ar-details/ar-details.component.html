@@ -14,7 +14,7 @@
              
                     <div class="col-lg-4" routerLink="/articles/list/{{one._id}}">
                         <div class="box_image">
-                            <img src="{{one.cover}}" alt="">
+                            <img src="{{one.cover[0]}}" alt="">
                         </div>
                     </div>
                     <div class="col-lg-8 ">
@@ -42,7 +42,7 @@
             <hr>
             <div class="recent-post">
                 <div class="post" *ngFor="let art of articles">
-                    <!-- <img [src]="art.cover[0]"  alt=""> -->
+                    <img [src]="art.cover[0]"  alt="">
                     <div class="content-post">
                         <h4>
                             <a  routerLink="/articles/list/{{art._id}}">
