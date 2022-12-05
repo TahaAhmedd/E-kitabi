@@ -42,7 +42,7 @@
                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                         </div>
                         <!-- <a href="" download="{{listBook.link}}">download</a> -->
-                        <button type="submit"  (click)="setLoading(listBook.link)">Download!</button>
+                        <button type="submit"  (click)="setLoading(listBook?._doc.link)">Download!</button>
                         <i class="fa fa-heart-o"></i>
                         <div class="share-social">
                             <span>share:</span>

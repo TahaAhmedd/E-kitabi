@@ -28,7 +28,6 @@
 }
 .card_blog .card .card-body{
     padding: 40px;
-    height: 360px;
     overflow: hidden;
 }
 .card_blog .card .card-body h5 {
@@ -40,7 +39,7 @@
     color: #555;
     white-space: pre-wrap;
     text-overflow: ellipsis;
-    height: 22ch;
+    
     width: 100%;
     overflow: hidden;
 }
