@@ -18,7 +18,7 @@ catogry:any
     // Get All Books Art
     this.serBookCat.getAllBookCat().subscribe((response) => {
       this.catogry = response.data
-      console.log(this.catogry)
+      // console.log(this.catogry)
     })
 
 

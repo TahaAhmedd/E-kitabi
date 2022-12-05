@@ -44,11 +44,10 @@ export class DownloadBookComponent implements OnInit {
 
     this.canActive.paramMap.subscribe((pram) => {
       this.curentId = pram.get('id');
-      console.log(this.curentId);
 
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
-          console.log(bookData);
+          // console.log(bookData);
           
           this.listBook = bookData.data;
           this.dates=this.listBook.createdAt
@@ -68,29 +67,24 @@ export class DownloadBookComponent implements OnInit {
     window.scrollTo(0, 0);
     setTimeout(() => {
       this.loading = false;
-      window.open(link,"_blanck")
-      // this.downLoadBook()
+      // window.open(link,"_blanck")
+      this.downLoadBook()
     }, 3000);
     
   }
   downLoadBook(){
-    console.log(this.curentId);
+    // console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe(response=>{
       this.downloadFile(response)
       console.log(response);
-      this.listBook=response
-      console.log(this.listBook);
-      
-
-      
-      
+      this.listBook=response.data
     })
   }
-  downloadFile(data) {
-    this.links = data.data.link
-    console.log(this.links);
+  downloadFile(data:any) {
+    this.links = data.data._doc.link
+    // console.log(this.links);
     const blob = new Blob([this.links], { type: 'text/pdf' });
-    console.log(blob);
+    // console.log(blob);
     window.open(this.links);
     // const url= window.URL.createObjectURL(blob);
     
@@ -101,7 +95,6 @@ export class DownloadBookComponent implements OnInit {
   getBooksByCat(catName:string){
     this.bookServes.getBookByCatigory(catName).subscribe({
       next:(res)=>{
-        console.log(res)
         this.relatedBook = res.data.slice(-3)
         // console.log(this.relatedBook.length)
       }
