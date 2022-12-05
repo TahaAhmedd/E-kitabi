@@ -9,10 +9,10 @@
 <div class="pagds">
     <div class="pag-content">
         <div class="sidebar">
-            <h2>Search</h2>
+            <!-- <h2>Search</h2> -->
             <div class="side-con-one">
                 <div class="content">
-                    <input class="inputSearch" type="text" placeholder="Sarch for Artical">
+                    <!-- <input class="inputSearch" type="text" placeholder="Sarch for Artical"> -->
                     <h2 class="recent">RECENT POST</h2>
                     <div class="sid-ecent-post">
                         <div class="content-set" *ngFor="let cat of getCatogry">
@@ -20,7 +20,7 @@
                                 <img src="{{cat?.cover[0]}}" alt="">
                             </a>
                             <h4 class="boxTitle">
-                                <a href="#/articles/list/{{cat?._id}}">{{cat?.title}}</a>
+                                <a routerLink="/articles/list/{{cat?._id}}" (click)="test()">{{cat?.title.slice(0,21)}}...</a>
                             </h4>
                         </div>
                     </div>
@@ -43,13 +43,13 @@
                 <div class="contentArtical">
                     <h3 style="border-left: 1px solid #b4352a;padding-left: 10px ;">{{datas?.title}}</h3>
                     <p class="pragraph">{{datas?.text}}</p>
-                    <a href="{{datas?.links}}">Read more About Artical</a>
+                    <a href="{{datas?.links[0].link}}" target="_blank">Read more About Artical</a>
                     <div class="endArtical">
                         <img src="{{datas?.cover[1]}}" alt="the Artical">
                         <img src="{{datas?.cover[2]}}" alt="the Artical ">
                     </div>
                     <div class="end-artical">
-                        <p>Tags: library, shop</p>
+                        <p>Tags: {{datas.keywords}}</p>
                     </div>
 
                 </div>
