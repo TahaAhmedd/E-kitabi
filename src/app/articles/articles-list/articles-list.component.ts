@@ -21,7 +21,11 @@ export class ArticlesListComponent implements OnInit {
   value: any;
   datePipe = new DatePipe('en-US');
   keywords: any;
-  constructor(private route:ActivatedRoute,private metaTagService:Meta, private serv:ArticlesService, private artCSer:ArticleCategoryService) { }
+  constructor(private route:ActivatedRoute,private metaTagService:Meta, private serv:ArticlesService, private artCSer:ArticleCategoryService) { 
+
+
+
+  }
 
   ngOnInit(): void {
     window.scrollTo(0,0)
@@ -60,9 +64,14 @@ export class ArticlesListComponent implements OnInit {
       // console.log(test.data)
 
     })
+  };
+
+
+ test() {
+    console.log("test");
+    setTimeout(() => {
+      window.location.reload()
+    }, 1000)
   }
-
-
-   
 
 }

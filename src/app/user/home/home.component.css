@@ -39,7 +39,7 @@
     color: #555;
     white-space: pre-wrap;
     text-overflow: ellipsis;
-    
+    height: 31ch;
     width: 100%;
     overflow: hidden;
 }

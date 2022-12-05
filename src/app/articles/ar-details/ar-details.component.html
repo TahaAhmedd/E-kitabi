@@ -9,6 +9,7 @@
 <main>
     <div class="container">
         <section class="left-sec">
+            <h5 *ngIf="!catogeryName.length" class="text-center">Not Find The Article with this Name</h5>
             <div class="post d-flex" *ngFor="let one of catogeryName">
                 
              
@@ -34,8 +35,8 @@
         <section class="right-sec">
             <h3>SEARCH</h3>
             <hr>
-            <form class="search-btn">
-                <input type="text" placeholder="Search..." >
+            <form class="search-btn" [formGroup]="formSearch" (ngSubmit)="search()">
+                <input type="text" placeholder="Search By Article Name..." formControlName="title">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             <h3>RECENT POST</h3>

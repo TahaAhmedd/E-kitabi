@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CatigotyBookService } from 'src/app/services/books/catigoty-book.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categories-list',
@@ -12,7 +13,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
   styleUrls: ['./categories-list.component.css'],
 })
 export class CategoriesListComponent implements OnInit {
-  listBooke: ApiResponse | any;
+  listBooke:any[] =[];
   AllBooke: ApiResponse | any;
   curentCat: string;
   catogry :any
@@ -22,7 +23,8 @@ export class CategoriesListComponent implements OnInit {
   constructor(
      private ApiServes: BookService
    , private canActive: ActivatedRoute
-   , private serBookCat :CatigotyBookService
+   , private serBookCat :CatigotyBookService ,
+     private toast :ToastrService
   ) {
   //   this.formsearch
 
@@ -64,11 +66,19 @@ export class CategoriesListComponent implements OnInit {
     else{
       this.ApiServes.searchBooke(this.formsearch.get("title").value).subscribe({
         next: (res)=>{
-          console.log(res)
+          // console.log(res)
           this.listBooke = res.data
+          console.log(res)
+          if(res.status == 404){
+            
+          }
         },
         error: (err)=>{
-          console.log(err)
+          if(err.status == 404)
+          {
+            // console.log(err.status)
+            this.toast.error("This Name Cannot be Searched","Error")
+          }
         }
       })
     }
