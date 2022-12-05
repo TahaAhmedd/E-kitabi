@@ -17,7 +17,7 @@
                     <div class="sid-ecent-post">
                         <div class="content-set" *ngFor="let cat of getCatogry">
                             <a  class="boxImage">
-                                <img src="{{cat?.cover}}" alt="">
+                                <img src="{{cat?.cover[0]}}" alt="">
                             </a>
                             <h4 class="boxTitle">
                                 <a href="/articles/list/{{cat?._id}}">{{cat?.title}}</a>

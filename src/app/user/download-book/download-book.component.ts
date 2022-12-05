@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CanActivate, ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/books/book.service';
 import { ApiResponse, ApiResponse0, DataBookResult } from 'src/app/Model/ApiResponse';
@@ -24,6 +24,9 @@ export class DownloadBookComponent implements OnInit {
    datePipe = new DatePipe('en-US');
   value:any;
   links: any;
+
+  relatedBook:any[]; //Array To related Books 
+
   constructor(
     private canActive: ActivatedRoute,
     private bookServes: BookService,
@@ -33,6 +36,7 @@ export class DownloadBookComponent implements OnInit {
 
       // console.log(this.listBook);
     }
+  
 
   ngOnInit(): void {
     //get id from Route
@@ -52,9 +56,11 @@ export class DownloadBookComponent implements OnInit {
           this.metaTagService.updateTag(
             { name: 'date', content:`${this.value}` }
             );
+            this.getBooksByCat(this.listBook.categoryName) //Fetch Ctaegory Book Of Related Books Secthion
         });
       }
     });
+
   }
   
   setLoading(link:string) {
@@ -90,14 +96,15 @@ export class DownloadBookComponent implements OnInit {
     
     // console.log(url);
   }
-  // getbookById(id:string) {
-  //   this.bookServes.getBookByID(this.curentId).subscribe((res) => {
-  //     this.listBook = res.data;
-  //   });
-  // }
-  // async getbookById(id: string) {
-  //   this.bookServes.getBookByID(this.curentId).subscribe((res)=>{
+ 
 
-  //     this.listBook= res.data
-  //   })
+  getBooksByCat(catName:string){
+    this.bookServes.getBookByCatigory(catName).subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.relatedBook = res.data.slice(-3)
+        // console.log(this.relatedBook.length)
+      }
+    })
+  }
 }
