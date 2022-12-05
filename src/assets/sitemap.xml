@@ -5,34 +5,34 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>http://localhost:4200/</loc>
+    <loc>https://e-kitabi.com/</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/user/home</loc>
+    <loc>https://e-kitabi.com/user/home</loc>
   </url>
    <url>
-    <loc>http://localhost:4200/user/categories</loc>
+    <loc>https://e-kitabi.com/user/categories</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/user/list</loc>
+    <loc>https://e-kitabi.com/user/list</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/articles/categories_Art</loc>
+    <loc>https://e-kitabi.com/articles/categories_Art</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/articles/details</loc>
+    <loc>https://e-kitabi.com/articles/details</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/user/aboutus</loc>
+    <loc>https://e-kitabi.com/user/aboutus</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/user/contactus</loc>
+    <loc>https://e-kitabi.com/user/contactus</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/user/policy</loc>
+    <loc>https://e-kitabi.com/user/policy</loc>
   </url>
   <url>
-    <loc>http://localhost:4200/user/preview</loc>
+    <loc>https://e-kitabi.com/user/preview</loc>
   </url>
  
 </urlset>
