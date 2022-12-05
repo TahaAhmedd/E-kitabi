@@ -3,6 +3,7 @@ import { ArticlesService } from 'src/app/services/articles/articles.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class ArDetailsComponent implements OnInit {
   constructor(
     private serv:ArticlesService,
     private route:ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private toast: ToastrService
     ) { 
       this.formSearch = new FormGroup({
         title: new FormControl("") 
@@ -66,7 +68,13 @@ export class ArDetailsComponent implements OnInit {
           // console.log(res)
           this.catogeryName = res.data
         },
-        error:(err)=> console.log(err)
+        error:(err)=>{
+          if(err.status == 404)
+          {
+            // console.log(err.status)
+            this.toast.error("This Name Cannot be Searched","Error")
+          }
+        }
       })
     }
   }
