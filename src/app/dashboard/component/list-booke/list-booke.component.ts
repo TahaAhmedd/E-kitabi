@@ -167,7 +167,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
     else {
       this.httpServes.searchBooke(this.formsearch.get("title").value).subscribe({
         next: (res) => {
-          console.log(res)
+          // console.log(res)
           this.arrBook = res.data
         },
         error: (err) => {

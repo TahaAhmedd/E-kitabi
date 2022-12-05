@@ -13,6 +13,7 @@ import { DataPagination } from 'src/app/Model/ApiResponse';
 })
 export class ListUserComponent implements OnInit {
   data:any|[];
+  Alldata:any|[];
   CountPage:number 
   addartical!: FormGroup;
   // formsearch!:FormGroup
@@ -20,7 +21,7 @@ export class ListUserComponent implements OnInit {
   imagearr: any = [];
   pagNum :number =1
   formsearch = new FormGroup({
-    search: new FormControl(''),
+    title: new FormControl(''),
   });
   dataSelect:any[]= []
   constructor( private artService:ArticlesService,
@@ -37,17 +38,17 @@ export class ListUserComponent implements OnInit {
         cover: new FormControl("", [Validators.required]),
         imageSource: new FormControl([]),
       })
-      this.formsearch
-      .get('search')
-      .valueChanges.pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        switchMap((item) => this.artService.searchBooke(item))
-      )
-      .subscribe((v) => {
-        console.log(v.data.length);
-       v?.data;
-      });
+      // this.formsearch
+      // .get('search')
+      // .valueChanges.pipe(
+      //   debounceTime(1000),
+      //   distinctUntilChanged(),
+      //   switchMap((item) => this.artService.searchBooke(item))
+      // )
+      // .subscribe((v) => {
+      //   console.log(v.data.length);
+      //  v?.data;
+      // });
     }
     
   ngOnInit(): void {
@@ -57,10 +58,11 @@ export class ListUserComponent implements OnInit {
   getAllArt(pagNum :number){
     this.artService.getArticles(pagNum).subscribe((e)=> 
     { 
-      console.log(e.data)
+      // console.log(e.data)
       this.data = e.data.paginatedData
+      this.Alldata = e.data.paginatedData
       this.CountPage=e.data.noOfPages
-      console.log(this.data);
+      // console.log(this.data);
       
 
     })
@@ -89,7 +91,7 @@ export class ListUserComponent implements OnInit {
       formData.append("articleImages",this.imageSrc[i], this.imageSrc[i].name)
     }
     
-    console.log(this.addartical.value)
+    // console.log(this.addartical.value)
     formData.append('categoryName', this.addartical.get('categoryName').value);
     formData.append('title', this.addartical.get('title').value);
     formData.append('links', this.addartical.get('links').value);
@@ -119,7 +121,7 @@ export class ListUserComponent implements OnInit {
         const files = file[i]
         this.imageSrc.push(event.target.files[i])
       }
-      console.log(this.imageSrc)
+      // console.log(this.imageSrc)
 
     }
   }
@@ -139,5 +141,21 @@ export class ListUserComponent implements OnInit {
   onAddKeys() {
     const control = new FormControl("", [Validators.required]);
     (<FormArray>this.addartical.get('keywords')).push(control)
+  }
+
+  // Search
+  search(){
+    if(this.formsearch.get("title").value == ""){
+      this.data = this.Alldata
+    }
+    else{
+      this.artService.searchArticle(this.formsearch.get("title").value).subscribe({
+        next: (res)=>{
+          // console.log(res)
+          this.data = res.data
+        },
+        error:(err)=> console.log(err)
+      })
+    }
   }
 }

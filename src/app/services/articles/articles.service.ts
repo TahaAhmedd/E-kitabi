@@ -26,6 +26,11 @@ export class ArticlesService {
  searchBooke(search: string):Observable<ApiResponse> {
   return this.http.get<ApiResponse>(`${environment.PathApi}/book/search/${search}`);
 }
+
+// Search About Article
+ searchArticle(search: string):Observable<ApiResponse> {
+  return this.http.get<ApiResponse>(`${environment.PathApi}/article/search/${search}`);
+}
 ///delet
   deleteArt(id:number){
     return this.http.delete(`${environment.PathApi}/article/delete/${id}`)

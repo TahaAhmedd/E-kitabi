@@ -56,7 +56,7 @@ export class DownloadBookComponent implements OnInit {
           this.metaTagService.updateTag(
             { name: 'date', content:`${this.value}` }
             );
-            this.getBooksByCat(this.listBook.categoryName) //Fetch Ctaegory Book Of Related Books Secthion
+            this.getBooksByCat(this.listBook._doc.categoryName) //Fetch Ctaegory Book Of Related Books Secthion
         });
       }
     });

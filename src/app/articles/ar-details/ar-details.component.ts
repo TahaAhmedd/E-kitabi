@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from 'src/app/services/articles/articles.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -16,14 +17,19 @@ export class ArDetailsComponent implements OnInit {
   articles: any[]
   pagNum :number=1
   // CatogeryWithCatogeryName 
-  catogeryName:any
-
+  catogeryName:any[] = []
+  AllArtOfcatogeryName:any[]
+  formSearch:FormGroup
   // Enjection Services 
   constructor(
     private serv:ArticlesService,
     private route:ActivatedRoute,
     private location: Location
-    ) { }
+    ) { 
+      this.formSearch = new FormGroup({
+        title: new FormControl("") 
+      })
+    }
 
   ngOnInit() {
 
@@ -35,6 +41,7 @@ export class ArDetailsComponent implements OnInit {
     this.serv.getWithCatName(catogeryName).subscribe((res) => {
 
       this.catogeryName = res.data
+      this.AllArtOfcatogeryName = res.data
       // console.log(this.catogeryName)
     })
 
@@ -49,5 +56,18 @@ export class ArDetailsComponent implements OnInit {
 
   }
   
-  
+  search(){
+    if(this.formSearch.get("title").value == ""){
+      this.catogeryName = this.AllArtOfcatogeryName
+    }
+    else{
+      this.serv.searchArticle(this.formSearch.get("title").value).subscribe({
+        next: (res)=>{
+          // console.log(res)
+          this.catogeryName = res.data
+        },
+        error:(err)=> console.log(err)
+      })
+    }
+  }
 }
