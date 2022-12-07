@@ -132,14 +132,6 @@ main .container .book-show .right-content .related .slide {
   margin: 0 auto;
 }
 
-main .container .book-show .right-content .related .slide img {
-  height: 70vh;
-}
-
-main .container .book-show .right-content .related .slide .carousel-item {
-  text-align: center;
-
-}
 
 main .container .book-show .right-content .related h1 {
   text-align: center;
@@ -147,7 +139,19 @@ main .container .book-show .right-content .related h1 {
 
 }
 
-
+.titleBook{
+  width: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 15px;
+}
+.inner-links,.outer-links{
+  display: inline-block;
+}
+.inner-links a,.outer-links a{
+  margin: 10px;
+}
 
 /* Responsive */
 

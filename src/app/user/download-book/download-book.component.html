@@ -7,113 +7,67 @@
     </section>
     <div class="container">
 
-        <div class="book-show">
+        <div class="book-show mb-5">
             <div class="right-content">
 
                 <div class="book-imgcont">
-                    <img src="{{listBook?._doc.cover}}" alt="">
+                    <img src="{{listBook?._doc?.cover}}" alt="">
                     <div class="book-content">
-                        <h2>{{listBook?._doc.title}}</h2>
-                        <span class="stars">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </span>
+                        <h2>{{listBook?._doc?.title}}</h2>
+                       
                         <hr>
                         <p>
-                            {{listBook?._doc.description}}
+                            {{listBook?._doc?.description}}
                         </p>
-                        <div *ngFor="let i of listBook.innerLinks">
-                            <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                        </div>
-                       <!-- <button type="submit"  (click)="downLoadBook()">Download!</button>
-                       <i class="fa fa-heart-o"></i>
-                       <div class="share-social">
-                           <span>share:</span>
-                           <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                           <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                           <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"> </i></a>
-                           <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                       </div> -->
-
-                        <div *ngFor="let i of listBook.outerLinks">
-                            <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                        </div>
-                        <!-- <a href="" download="{{listBook.link}}">download</a> -->
-                        <button type="submit"  (click)="setLoading(listBook.link)">Download!</button>
-                        <i class="fa fa-heart-o"></i>
-                        <div class="share-social">
-                            <span>share:</span>
-                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                            <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"> </i></a>
-                            <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        </div>
+           <div>
+                         <div *ngFor="let i of listBook?.innerLinks">
+                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                         </div>
+                        
+            
+                         <div *ngFor="let i of listBook?.outerLinks">
+                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                         </div>
+           </div>
+                        <button (click)="setLoading(listBook?._doc.link)">Download</button>
+                      
+                    
 
                     </div>
                 </div>
                 <div class="description">
                     <h2>Description</h2>
                     <hr>
-                    <p>{{listBook?._doc.description}}</p>
+                    <p>{{listBook?._doc?.description}}</p>
                 </div>
-                <div *ngFor="let i of listBook.innerLinks">
+                <div *ngFor="let i of listBook?.innerLinks">
+                    <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                </div> 
+                <div *ngFor="let i of listBook?.outerLinks">
                     <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                 </div>
-                <div *ngFor="let i of listBook.outerLinks">
-                    <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                </div>
-                <div class="related">
+                <div class="d-flex flex-column align-items-center">
                     <h1>Related Book</h1>
-                    <div id="carouselExampleInterval" class=" w-75 carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner ">
-                            <div class="carousel-item active" data-bs-interval="10000">
-                                <img src="../../../assets/download/3.webp" class="d-block w-100 " alt="...">
-                                <p></p>
-                                <div class="rate">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <img src="../../../assets/download/3.webp" class="d-block w-100" alt="...">
-                                <p>You Better Be Lightning</p>
-                                <div class="rate">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../../../assets/download/3.webp" class="d-block w-100" alt="...">
-                                <p>You Better Be Lightning</p>
-                                <div class="rate">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner d-flex align-items-center" style="width: 300px ; height: 350px;">
+                          <div class="carousel-item active text-center" *ngFor="let book of relatedBook">
+                            <a [routerLink]="['/user/download',book?._id]">
+
+                                <img [src]="book?.cover" class="w-100" style="max-height: 320px ;" alt="Related Image">
+                            </a>
+                            <h5 class="titleBook">{{book?.title}}</h5>
+                          </div>
+                          
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
                         </button>
-                    </div>
+                      </div>
                 </div>
 
             </div>

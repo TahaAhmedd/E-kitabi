@@ -9,12 +9,13 @@
 <main>
     <div class="container">
         <section class="left-sec">
+            <h5 *ngIf="!catogeryName.length" class="text-center">Not Find The Article with this Name</h5>
             <div class="post d-flex" *ngFor="let one of catogeryName">
                 
              
                     <div class="col-lg-4" routerLink="/articles/list/{{one._id}}">
                         <div class="box_image">
-                            <img src="{{one.cover}}" alt="">
+                            <img src="{{one.cover[0]}}" alt="">
                         </div>
                     </div>
                     <div class="col-lg-8 ">
@@ -34,15 +35,15 @@
         <section class="right-sec">
             <h3>SEARCH</h3>
             <hr>
-            <form class="search-btn">
-                <input type="text" placeholder="Search..." >
+            <form class="search-btn" [formGroup]="formSearch" (ngSubmit)="search()">
+                <input type="text" placeholder="Search By Article Name..." formControlName="title">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             <h3>RECENT POST</h3>
             <hr>
             <div class="recent-post">
                 <div class="post" *ngFor="let art of articles">
-                    <!-- <img [src]="art.cover[0]"  alt=""> -->
+                    <img [src]="art.cover[0]"  alt="">
                     <div class="content-post">
                         <h4>
                             <a  routerLink="/articles/list/{{art._id}}">

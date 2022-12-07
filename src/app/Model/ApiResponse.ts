@@ -4,7 +4,7 @@ export class ApiResponse{
     data:[]=[];
     success="";
     message=true;
-    status=true;
+    status:number;
     dataLinkOuter:[]=[];
     dataLinksInner:[]=[];
 }

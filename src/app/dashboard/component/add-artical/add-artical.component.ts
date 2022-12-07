@@ -65,11 +65,12 @@ export class AddArticalComponent implements OnInit {
   AddArticle() {
 
     var formData = new FormData();
+    console.log(formData)
     for(let i = 0 ; i< this.imageSrc.length ; i++){
       formData.append("articleImages",this.imageSrc[i], this.imageSrc[i].name)
     }
     for(let i=0 ; i<(<FormArray>this.addartical.get('links')).length ; i++){
-      console.log((<FormArray>this.addartical.get('links')).length)
+      // console.log((<FormArray>this.addartical.get('links')).length)
       formData.append('links', JSON.stringify(this.addartical.get('links').value[i]));
     }
     for(let i=0 ; i<(<FormArray>this.addartical.get('innerLinks')).length ; i++){
@@ -78,14 +79,14 @@ export class AddArticalComponent implements OnInit {
     for(let i=0 ; i<(<FormArray>this.addartical.get('keywords')).length ; i++){
       formData.append('keywords', this.addartical.get('keywords').value[i]);
     }
-    console.log(this.addartical.value)
-    console.log(formData.get("links"))
+    // console.log(this.addartical.value)
+    // console.log(formData.get("links"))
     formData.append('categoryName', this.addartical.get('categoryName').value);
     formData.append('title', this.addartical.get('title').value);
     formData.append('text', this.addartical.get('text').value);
     formData.append('description', this.addartical.get('description').value);
     
-
+   
     this.artService.addArticles(formData).subscribe({
       next : ()=>{
         this.toast.success("The Article is Aded Succesfuly")

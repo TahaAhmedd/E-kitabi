@@ -19,12 +19,12 @@
         <div class="card_blog">
 
             <div class="row">
-                <div class="col-lg-4 col-sm-6 " *ngFor="let art of artData">
-                    <div class="card">
+                <div class="col-lg-4 col-sm-6 " style="cursor:pointer;"  *ngFor="let art of artData">
+                    <div class="card" [routerLink]="['/articles/list',art._id]">
                         <div class="card-body">
+                            <img [src]="art.cover[0]" class="card-img-top mb-3" alt="..." width="100%" height="250px">
                             <h5 class="card-title">{{art.title}}</h5>
                             <p class="card-text">{{art.text}}</p>
-                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         </div>
                     </div>
                 </div>
