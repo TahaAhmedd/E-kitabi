@@ -23,5 +23,11 @@ export class ArticleCategoryService {
     return this.httb.delete(`${environment.PathApi}/articlecate/delete/${id}`);
   }
 
+    // Up Catogery Category Art
+    postUpCatArt(id:any, data:any){
+      console.log("From Ser "+id, data)
+      return this.httb.put(`${environment.PathApi}/articlecate/update/${id}`,data)
+    }
+
 }
 
