@@ -22,4 +22,13 @@ export class CatigotyBookService {
   deleteCat(id:any){
     return this.httb.delete(`${environment.PathApi}/bookcate/delete/${id}`)
   }
+
+
+  // Up Catogery Category Book
+  postUpCat(id:any, data:any){
+    // console.log("From Ser "+id, data)
+    return this.httb.put(`${environment.PathApi}/bookcate/update/${id}`,data)
+  }
+
+
 }
