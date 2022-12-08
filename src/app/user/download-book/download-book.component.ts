@@ -26,6 +26,7 @@ export class DownloadBookComponent implements OnInit {
   links: any;
 
   relatedBook:any[]; //Array To related Books 
+  keyword: any;
 
   constructor(
     private canActive: ActivatedRoute,
@@ -50,12 +51,17 @@ export class DownloadBookComponent implements OnInit {
           // console.log(bookData);
           
           this.listBook = bookData.data;
-          this.dates=this.listBook.createdAt
+          this.dates=this.listBook._doc.createdAt
+          this.keyword=this.listBook._doc.keywords
+          console.log(this.keyword);
           this.value = this.datePipe.transform(this.dates,'dd/MM/yyyy');
           this.metaTagService.updateTag(
-            { name: 'date', content:`${this.value}` }
-            );
-            this.getBooksByCat(this.listBook._doc.categoryName) //Fetch Ctaegory Book Of Related Books Secthion
+            { name: 'date', content:`${this.keyword}` }
+            )
+            this.metaTagService.updateTag(
+              { name: 'keywords', content:`${[...this.keyword]}` }
+              );
+            this.getBooksByCat(this.listBook.categoryName) //Fetch Ctaegory Book Of Related Books Secthion
         });
       }
     });

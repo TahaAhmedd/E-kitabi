@@ -17,7 +17,7 @@
                     <div class="sid-ecent-post">
                         <div class="content-set" *ngFor="let cat of getCatogry">
                             <a  class="boxImage">
-                                <img src="{{cat?.cover[0]}}" alt="">
+                                <img src="{{cat?.cover[0]}}" alt="cover">
                             </a>
                             <h4 class="boxTitle">
                                 <a routerLink="/articles/list/{{cat?._id}}" (click)="test()">{{cat?.title.slice(0,21)}}...</a>

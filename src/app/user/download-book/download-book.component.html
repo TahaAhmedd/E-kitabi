@@ -14,34 +14,24 @@
                     <img src="{{listBook?._doc?.cover}}" alt="">
                     <div class="book-content">
                         <h2>{{listBook?._doc?.title}}</h2>
-                        <span class="stars">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </span>
+                       
                         <hr>
                         <p>
                             {{listBook?._doc?.description}}
                         </p>
-                        <div *ngFor="let i of listBook?.innerLinks">
-                            <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                        </div>
-                       
-
-                        <div *ngFor="let i of listBook?.outerLinks">
-                            <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                        </div>
+           <div>
+                         <div *ngFor="let i of listBook?.innerLinks">
+                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                         </div>
+                        
+            
+                         <div *ngFor="let i of listBook?.outerLinks">
+                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                         </div>
+           </div>
                         <button (click)="setLoading(listBook?._doc.link)">Download</button>
-                        <i class="fa fa-heart-o"></i>
-                        <div class="share-social">
-                            <span>share:</span>
-                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                            <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"> </i></a>
-                            <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        </div>
+                      
+                    
 
                     </div>
                 </div>
