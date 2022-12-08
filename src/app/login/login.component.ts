@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
-    localStorage.clear()
+    localStorage.removeItem("token")
+    localStorage.removeItem("id")
   }
   add() {
 
@@ -49,11 +50,14 @@ export class LoginComponent implements OnInit {
         },
         complete:()=>{
           let token =  localStorage.getItem("token")
-          if(token == this.token){
-            this.router.navigate(['dashboard/card'])
+          if(localStorage.getItem('token')){
+            if(token == this.token){
+              this.router.navigate(['dashboard/card'])
+              this.Authserver.isloginuser.next(true)
+            }
           }
           else{
-            this.toast.error("You Must Be Enter A valid Mail","Authentication Error")
+            this.Authserver.isloginuser.next(false)
           }
         }
 

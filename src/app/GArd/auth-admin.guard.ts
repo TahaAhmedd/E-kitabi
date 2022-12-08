@@ -7,15 +7,18 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { AppRoutingModule } from '../app-routing.module';
+import { LoginComponent } from '../login/login.component';
 import { UserService } from './../services/user/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthAdminGuard implements CanActivate {
-  constructor(private AuthServes: UserService , private router:Router) {}
+  isloged:boolean
+  constructor(private AuthServes: UserService , private router:Router , private toast : ToastrService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -24,9 +27,14 @@ export class AuthAdminGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.AuthServes.IsUserloged) {
+
+      this.AuthServes.isloginuser.subscribe((data)=>{
+        this.isloged = data
+      })
+    if (this.isloged) {
         return true;
     } else {
+      this.toast.error("You Must Be Enter A valid Mail","Authentication Error")
       return this.router.navigate(["login"])
     }
   }

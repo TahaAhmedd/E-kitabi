@@ -7,9 +7,9 @@ import { environment } from './../../../environments/environment';
 })
 export class UserService {
   httpOption ;
-   private  isloginuser !:BehaviorSubject<boolean>
-  constructor(private http:HttpClient) { 
-    this.isloginuser=new BehaviorSubject<boolean>(this.IsUserloged)
+  isloginuser:BehaviorSubject<boolean>
+  constructor(private http:HttpClient) {
+    this.isloginuser = new BehaviorSubject(false) 
     this.httpOption ={
       headers: new HttpHeaders({
         'Content-Type':'application/json'
@@ -50,6 +50,8 @@ export class UserService {
 //property 
      get IsUserloged():boolean
      {
+      let tok = localStorage.getItem('token')
+      
        return (localStorage.getItem('token')!=null)? true: false
      }
 
