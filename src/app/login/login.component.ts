@@ -37,14 +37,14 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.Authserver.login(this.loginForm.value).subscribe({
         next: (result) => {
-          console.log(result);        
+          // console.log(result);        
           this.token=result.data.token
           let id =result.data._id
           localStorage.setItem('id', id)
           localStorage.setItem('token', this.token )   
         },
         error:(err)=>{
-          console.log(err)
+          // console.log(err)
           this.toast.error("The Email Or Password Is Not Valid","Error")
         
         },
