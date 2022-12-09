@@ -45,6 +45,7 @@ export class UserService {
     {
       localStorage.removeItem('token'); 
       localStorage.removeItem('id')
+      this.isloginuser.next(false)
     };
 
 //property 
