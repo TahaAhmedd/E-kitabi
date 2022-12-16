@@ -1,0 +1,25 @@
+ <!-- Image Under Nav -->
+ <div class="images-nav">
+    <div class="header">
+
+        <h1> <span style="color: #ce7852bf;">B</span>ooks Categories</h1>
+    </div>
+</div>
+ 
+ <!-- ------Start gatigories----- -->
+ <div class="container">
+    <div class="title_cat d-flex justify-content-center align-items-center"><h2><span>All</span> Categories book Engineering</h2></div>
+    <div class="parent">
+        <div class="child" *ngFor="let cat of catogry">
+            <a [routerLink]="['/user/GetBook',cat.title]">
+                <div class="box">
+                    <img src="{{cat.cover}}" alt="">
+                    <div class="box_title">
+                        <h5>{{cat.title}}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- -----End Catigoury---- -->

@@ -4,8 +4,10 @@ import { dMainComponent } from './dashboard/component/main/main.component';
 import { uMainComponent } from './user/main/main.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
+import { AccontingComponent } from './dashboard/component/acconting/acconting.component';
 const routes: Routes = [
   {path:'login',component:LoginComponent},
+  {path:'AccontingComponent',component:AccontingComponent},
   {path:'',redirectTo:"user/home",pathMatch:'full'},
 
   { 

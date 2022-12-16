@@ -53,7 +53,7 @@ editAccount()
     
     },
   complete:()=>{
-   setTimeout(()=>{ this.router.navigate(['/user/login'])},2000)
+   setTimeout(()=>{ this.router.navigate(['/login'])},2000)
   }   })
 }
 

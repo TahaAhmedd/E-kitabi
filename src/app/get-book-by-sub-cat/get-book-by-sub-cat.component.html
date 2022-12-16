@@ -1,0 +1,75 @@
+<!-- Start Header -->
+<section class="bodylist">
+    <div class="container">
+        <div class="all">
+
+            <div class="leftcontent">
+                <div class="content">
+                    <h3> <span style="color: #ce7852bf;">B</span>ooks Categories</h3>
+                    <ul class="one" *ngFor="let item of catogry">
+                        <a [routerLink]="['/user/list',item.title]">
+                            <li>{{item.title}} <span>{{item.length}}</span></li>
+                        </a>
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div class="rightcontent">
+
+                <div class="head">
+
+                    <div class="leftSort">
+                        <select name="sort" id="">
+                            <option value="0">All...</option>
+                            <option value="2">Sort By Name</option>
+                        </select>
+                    </div>
+
+                    <div class="centertext">
+                        <form [formGroup]="formsearch" (submit)="search()">
+                            <input type="text" formControlName="title" id="searccInput"
+                                placeholder="Search by book name">
+                        </form>
+                        <span class="search" id="searchButton" (click)="search()">
+                            <i class="fa fa-search" aria-hidden="true" 
+                                title="Search">
+                            </i>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="appcontentbody">
+                    <h5 class="text-center mt-5" *ngIf="!listBooke.length">Not Found The Book Whith This Name...</h5>
+                    <div class="childcontentbody" *ngFor="let item of listBooke ">
+                        <div class="leftimg">
+                            <img src="{{item.cover}}" alt="">
+                        </div>
+
+                        <div class="righttext">
+                            <h2>{{item.title}}</h2>
+                            <p class="authors">{{item.description}}</p>
+
+                         
+                            <h4>published Date:<span>{{item.createdAt| date:'yyyy-LLL'}}</span></h4>
+
+                           
+                                <button title="Details To Book"
+                                    [routerLink]="['/user/download',item._id]">Details</button>
+                            
+                           
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

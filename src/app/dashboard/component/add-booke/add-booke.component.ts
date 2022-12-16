@@ -16,6 +16,7 @@ export class AddBookeComponent implements OnInit {
   imageSrc: any;
   imagearr: any = [];
   dataSelect:any[];
+  dataCat=[{title:"Civil"},{title:"Architectural"},{title:"Mechanical"},{title:"Surveying"},{title:"Electrical"},{title:"Electronics"}]
   private imageaObj: any = []
 
   constructor(private router: Router
@@ -29,7 +30,8 @@ export class AddBookeComponent implements OnInit {
       bookImage: new FormControl("", [Validators.required]),
       bookFile: new FormControl("", [Validators.required]),
       keywords: new FormArray([]),
-      categoryName: new FormControl("", [Validators.required]),
+      categoryName: new FormControl(""),
+      subCategoryName: new FormControl(""),
       fileSource: new FormControl(null),
       imageSource: new FormControl(null),
       innerLinks: new FormArray([]),
@@ -93,6 +95,7 @@ export class AddBookeComponent implements OnInit {
     formData.append("title",this.addBook.get("title").value)
     formData.append("description", this.addBook.get("description").value)
     formData.append("categoryName",this.addBook.get("categoryName").value)
+    formData.append("subCategoryName",this.addBook.get("subCategoryName").value)
     formData.append("bookFile",this.addBook.get("fileSource").value)
     formData.append("bookImage",this.addBook.get("imageSource").value)
 

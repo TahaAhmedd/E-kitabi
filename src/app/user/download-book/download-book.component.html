@@ -11,7 +11,7 @@
             <div class="right-content">
 
                 <div class="book-imgcont">
-                    <img src="{{listBook?._doc?.cover}}" alt="">
+                    <img src="{{listBook?._doc.cover}}" alt="">
                     <div class="book-content">
                         <h2>{{listBook?._doc?.title}}</h2>
                        
@@ -29,7 +29,7 @@
                              <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                          </div>
            </div>
-                        <button (click)="setLoading(listBook?._doc.link)">Download</button>
+                        <button (click)="setLoading(listBook._doc.link)">Download</button>
                       
                     
 

@@ -24,10 +24,16 @@ export class BookService {
 
 
   // Function Get Book By CaticoryFrom Api
-  getBookByCatigory(category: any): Observable<ApiResponse> {
+  getBookByCatigory(category: any ,pagNum:Number): Observable<ApiRespaginat> {
+    // console.log(category);
+    return this.http.get<ApiRespaginat>(
+      `${environment.PathApi}/book/books/${category}/${pagNum}`
+    );
+  }
+  getBookBySub(category: any ): Observable<ApiResponse> {
     // console.log(category);
     return this.http.get<ApiResponse>(
-      `${environment.PathApi}/book/books/${category}`
+      `${environment.PathApi}/book/booksub/${category}`
     );
   }
   getBookByTitle(title: string) {

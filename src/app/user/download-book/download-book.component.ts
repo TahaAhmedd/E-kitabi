@@ -17,6 +17,7 @@ export class DownloadBookComponent implements OnInit {
   listBook: ApiResponse | any;
   listLinkouter:any
   listLinkInner:any
+  pagNum=1;
   link:any;
   loading: boolean = false;
   
@@ -48,7 +49,7 @@ export class DownloadBookComponent implements OnInit {
 
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
-          // console.log(bookData);
+          console.log(bookData.data);
           
           this.listBook = bookData.data;
           this.dates=this.listBook._doc.createdAt
@@ -61,7 +62,7 @@ export class DownloadBookComponent implements OnInit {
             this.metaTagService.updateTag(
               { name: 'keywords', content:`${[...this.keyword]}` }
               );
-            this.getBooksByCat(this.listBook.categoryName) //Fetch Ctaegory Book Of Related Books Secthion
+            this.getBooksByCat(this.listBook.categoryName ,this.pagNum) //Fetch Ctaegory Book Of Related Books Secthion
         });
       }
     });
@@ -75,7 +76,7 @@ export class DownloadBookComponent implements OnInit {
       this.loading = false;
       // window.open(link,"_blanck")
       this.downLoadBook()
-    }, 3000);
+    }, 1000);
     
   }
   downLoadBook(){
@@ -98,10 +99,10 @@ export class DownloadBookComponent implements OnInit {
   }
  
 
-  getBooksByCat(catName:string){
-    this.bookServes.getBookByCatigory(catName).subscribe({
+  getBooksByCat(catName:string, pagNum:number){
+    this.bookServes.getBookByCatigory(catName ,pagNum ).subscribe({
       next:(res)=>{
-        this.relatedBook = res.data.slice(-3)
+        this.relatedBook = res.data.paginatedData.slice(-3)
         // console.log(this.relatedBook.length)
       }
     })

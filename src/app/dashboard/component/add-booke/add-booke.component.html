@@ -18,7 +18,17 @@
       </select>
       <div class="mt-2 p-1 alert alert-danger"
         *ngIf="addBook.get('categoryName')?.touched && addBook.get('categoryName')?.errors">
-        <small *ngIf="addBook.get('categoryName')?.errors['required']">The Input Is Required</small>
+        <small *ngIf="addBook.get('categoryName')">The Input Is Required</small>
+      </div>
+    </div>
+    <div class="mt-5  w-50">
+      <label class="w-100 form-label">Select Category Name Engineering :</label>
+      <select class="select w-100" formControlName="subCategoryName" name="subCategoryName">
+        <option *ngFor="let i of dataCat" [value]="i.title">{{i.title}}</option>
+      </select>
+      <div class="mt-2 p-1 alert alert-danger"
+        *ngIf="addBook.get('subCategoryName')?.touched && addBook.get('subCategoryName')?.errors">
+        <small *ngIf="addBook.get('subCategoryName')">The Input Is Required</small>
       </div>
     </div>
 

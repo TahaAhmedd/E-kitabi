@@ -43,7 +43,7 @@
 
 
                 <div class="appcontentbody">
-                    <h5 class="text-center mt-5" *ngIf="!listBooke.length">Not Found The Book Whith This Name...</h5>
+                    <!-- <h5 class="text-center mt-5" *ngIf="!listBooke.length">Not Found The Book Whith This Name...</h5> -->
                     <div class="childcontentbody" *ngFor="let item of listBooke ">
                         <div class="leftimg">
                             <img src="{{item.cover}}" alt="">
@@ -67,9 +67,19 @@
 
 
                 </div>
-
+                <nav aria-label="..."  role="group "
+                aria-label="Second group">
+                    <ul class="pagination pagination-lg " *ngFor='let in of counter(CountPage) ;let i = index'>
+                      <li class="page-item ">
+                        <button (click)="getdata(i +1)" class="page-link" href="#" tabindex="-1">{{i +1}}</button>
+                      </li>
+                    </ul>
+                  </nav>
             </div>
+
 
         </div>
     </div>
+   
 </section>
+

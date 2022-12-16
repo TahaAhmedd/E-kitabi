@@ -11,12 +11,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule  } from '@angular/material/progress-spinner'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './services/loader.interceptor';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { GetBookBySubCatComponent } from './get-book-by-sub-cat/get-book-by-sub-cat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotfoundComponent,
     LoginComponent,
+    SubCategoryComponent,
+    GetBookBySubCatComponent,
     
   ],
   imports: [

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './../../../services/user/user.service';
 
 @Component({
   selector: 'app-acconting',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acconting.component.css']
 })
 export class AccontingComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(
+    private userServes:UserService
+  ) { }
 
   ngOnInit(): void {
+  
+  
+    this.getUserById()
+  }
+  
+  getUserById()
+  {
+    this.userServes.getUserById().subscribe((D)=>{
+      console.log(D);
+      
+    })
   }
 
 }
