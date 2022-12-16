@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiResponse } from '../Model/ApiResponse';
 import { BookService } from '../services/books/book.service';
 import { CatigotyBookService } from '../services/books/catigoty-book.service';
+import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-get-book-by-sub-cat',
   templateUrl: './get-book-by-sub-cat.component.html',
@@ -19,6 +20,8 @@ export class GetBookBySubCatComponent implements OnInit{
 
   }
   listBooke:any[] =[];
+  CountPage:any
+  pagNum :any
   AllBooke: ApiResponse | any;
   curentCat: string;
   catogry :any
@@ -33,17 +36,29 @@ export class GetBookBySubCatComponent implements OnInit{
       console.log(this.curentCat)
 
       if (this.curentCat) {
-        this.ApiServes.getBookBySub(this.curentCat).subscribe(
-          (bookData) => {
-            this.listBooke=bookData.data
-            this.AllBooke = bookData.data
-          }
-        );
+   this.getBook(this.curentCat,this.pagNum)
       }
     });
     this.serBookCat.getAllBookCat().subscribe((response) => {
       this.catogry = response.data
   })}
+  getBook(curcat:string ,pagNum:number)
+  {
+    this.ApiServes.getBookBySub(this.curentCat,pagNum).subscribe(
+      (bookData) => {
+        this.listBooke=bookData.data.paginatedData
+        this.AllBooke = bookData.data.paginatedData
+        this.CountPage=bookData.data.noOfPages
+        this.pagNum=bookData.data.pageNumber
+      }
+    );
+  }
+  getdata(pagNum:number){
+this.getBook(this.curentCat ,pagNum)
+  }
+  counter(i: number) {
+    return new Array(i);
+  }
   search(){
     if(this.formsearch.get("title").value == ""){
       return this.listBooke = this.AllBooke
