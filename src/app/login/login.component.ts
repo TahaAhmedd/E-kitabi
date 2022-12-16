@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  token:any
   constructor(private Authserver: UserService
              ,private router:Router ,
              private toast : ToastrService ) {}
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
-    localStorage.clear()
+    localStorage.removeItem("token")
+    localStorage.removeItem("id")
   }
   add() {
 
@@ -35,22 +37,29 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.Authserver.login(this.loginForm.value).subscribe({
         next: (result) => {
-          console.log(result);        
-          let token=result.token
+          // console.log(result);        
+          this.token=result.data.token
           let id =result.data._id
           localStorage.setItem('id', id)
-          localStorage.setItem('token', token )   
-          this.router.navigate(['dashboard/card']) 
-              
+          localStorage.setItem('token', this.token )   
         },
         error:(err)=>{
-          console.log(err)
-          this.toast.error("The Email Or Password Is Not Valid","",{
-            positionClass:"toast-top-center"
-          })
-          // alert("the Email or Password valid!! ")
+          // console.log(err)
+          this.toast.error("The Email Or Password Is Not Valid","Error")
         
         },
+        complete:()=>{
+          let token =  localStorage.getItem("token")
+          if(localStorage.getItem('token')){
+            if(token == this.token){
+              this.router.navigate(['dashboard/card'])
+              this.Authserver.isloginuser.next(true)
+            }
+          }
+          else{
+            this.Authserver.isloginuser.next(false)
+          }
+        }
 
       });
     }

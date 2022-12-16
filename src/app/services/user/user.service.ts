@@ -19,11 +19,11 @@ import { environment } from './../../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  httpOption;
-  private isloginuser!: BehaviorSubject<boolean>;
-  constructor(private http: HttpClient) {
-    this.isloginuser = new BehaviorSubject<boolean>(this.IsUserloged);
-    this.httpOption = {
+  httpOption ;
+  isloginuser:BehaviorSubject<boolean>
+  constructor(private http:HttpClient) {
+    this.isloginuser = new BehaviorSubject(false) 
+    this.httpOption ={
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         
@@ -54,6 +54,45 @@ export class UserService {
       .post(`${environment.PathApi}/admin/login`, DAta, this.httpOption)
       .pipe(retry(2), catchError(this.handleError));
   }
+   //login Admin
+    // login(DAta: any):Observable<any>
+    // { 
+    //     return  this.http.post(`${environment.PathApi}/admin/login`, DAta ,this.httpOption)
+    //     .pipe(
+    //       retry(2),
+    //       catchError(this.handleError)
+    //     ) 
+    // };
+
+    //log out Admin
+    // Logout ()
+    // {
+    //   localStorage.removeItem('token'); 
+    //   localStorage.removeItem('id')
+    //   this.isloginuser.next(false)
+    // };
+
+//property 
+    //  get IsUserloged():boolean
+    //  {
+    //   let tok = localStorage.getItem('token')
+      
+    //    return (localStorage.getItem('token')!=null)? true: false
+    //  }
+
+//update Account 
+// update(accountId:any ,data :any):Observable<any>
+// {
+//    return  this.http.put(`${environment.PathApi}/admin/update/${accountId}`,data, this.httpOption)
+//    .pipe(
+//     retry(2),
+//     catchError(this.handleError)
+//   ) 
+// }
+
+
+
+ 
 
   //log out Admin
   Logout() {
