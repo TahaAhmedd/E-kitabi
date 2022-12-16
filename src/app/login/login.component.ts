@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
   add() {
 
-    console.log(this.loginForm.value)
+    // console.log(this.loginForm.value)
     if (this.loginForm.valid) {
       this.Authserver.login(this.loginForm.value).subscribe({
         next: (result) => {
