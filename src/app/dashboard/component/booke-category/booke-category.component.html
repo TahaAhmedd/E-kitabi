@@ -1,30 +1,70 @@
 
 
-    <!--All Cat Book  -->
+<!--All Cat Book  -->
 <div class="resentOrder">
   <div class="cardHeadr">
-      <h2> All Category Of Book</h2>
-      <td><button class="btn btn-primary" routerLink="/dashboard/Addcategorey">Add new Category</button></td>
+    <h2> All Category Of Book</h2>
+    <td><button class="btn btn-primary" routerLink="/dashboard/Addcategorey">Add new Category</button></td>
   </div>
   <table>
-      <thead>
-          <tr>
-              <td>Name</td>
-              <td>Cover</td>
-              <td>Delete</td>
-              <td>Upadte</td>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let bookCat of bookCatData">
-              <td class="dis"><p>{{bookCat.title}}</p></td>
-              <td class="dis">
-                <img [src]="bookCat.cover" style="width: 100px; height: 100px;" />
-              </td>
-              <td><button class="btn btn-outline-danger delete" (click)="deleteBookCat(bookCat._id)">Delete</button></td>
-              <td><button class="btn btn-outline-primary upadte">Update</button></td>
-          </tr>
-      </tbody>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Cover</td>
+        <td>Delete</td>
+        <td>Upadte</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bookCat of bookCatData">
+        <td class="dis">
+          <p>{{bookCat.title}}</p>
+        </td>
+        <td class="dis">
+          <img [src]="bookCat.cover" style="width: 100px; height: 100px;" />
+        </td>
+        <td><button class="btn btn-outline-danger delete" (click)="deleteBookCat(bookCat._id)">Delete</button></td>
+        <td><button class="btn btn-outline-primary upadte" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#T'+bookCat._id" data-bs-whatever="@getbootstrap">Update</button></td>
+        <!-- Start Model Up In Article books  -->
+        <div class="modal fade" [id]="'T'+bookCat._id" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update The Category</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="upCatBook" (ngSubmit)="upCatB(bookCat._id)" enctype="multipart/form-data">
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Please Add Category Book Name</label>
+                    <input type="text" class="form-control" id="recipient-name" formControlName="title">
+                  </div>
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Add Cover</label><br />
+                    <input type="file" formControlName="categoryImage" (change)="readURL($event)" accept="image/*" />
+                  </div>
+                  <div class="show-images">
+                    <div class="listimage" *ngFor="let item of imagearr let index= index">
+
+                      <img id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+                        alt="your image" />
+                      <i class="fa-solid fa-trash"></i>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <input type="submit" value="upadte Category Book" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Model Up In Article books  -->
+
+      </tr>
+    </tbody>
   </table>
 </div>
 
@@ -33,27 +73,68 @@
 <!-- All Cat Article -->
 <div class="resentOrder">
   <div class="cardHeadr">
-      <h2> All Category Of Article</h2>
-      <td><button class="btn btn-primary" routerLink="/dashboard/Addcategorey">Add new Category</button></td>
+    <h2> All Category Of Article</h2>
+    <td><button class="btn btn-primary" routerLink="/dashboard/Addcategorey">Add new Category</button></td>
   </div>
   <table>
-      <thead>
-          <tr>
-              <td>Name</td>
-              <td>Cover</td>
-              <td>Delete</td>
-              <!-- <td>Upadte</td> -->
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let artCat of artCatData">
-              <td class="dis"><p>{{artCat.title}}</p></td>
-              <td class="dis">
-                <img [src]="artCat.cover" style="width: 100px; height: 100px;" />
-              </td>
-              <td><button class="btn btn-outline-danger delete" (click)="deleteCatArt(artCat._id)">Delete</button></td>
-              <!-- <td><button class="btn btn-outline-primary upadte">Update</button></td> -->
-          </tr>
-      </tbody>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Cover</td>
+        <td>Delete</td>
+        <td>Upadte</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let artCat of artCatData">
+        <td class="dis">
+          <p>{{artCat.title}}</p>
+        </td>
+        <td class="dis">
+          <img [src]="artCat.cover" style="width: 100px; height: 100px;" />
+        </td>
+        <td><button class="btn btn-outline-danger delete" (click)="deleteCatArt(artCat._id)">Delete</button></td>
+        <td><button class="btn btn-outline-primary upadte" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#m'+artCat._id" data-bs-whatever="@getbootstrap">Update</button></td>
+
+
+        <!-- Start Model Up In Article books  -->
+        <div class="modal fade" [id]="'m'+artCat._id" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update The Category</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="upCatArt" (ngSubmit)="upCatA(artCat._id)" enctype="multipart/form-data">
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Please Add Category Article Name</label>
+                    <input type="text" class="form-control" id="recipient-name" formControlName="titlee">
+                  </div>
+                  <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Add Cover</label><br />
+                    <input type="file" formControlName="categoryImagee" (change)="readURLL($event)" accept="image/*" />
+                  </div>
+                  <div class="show-images">
+                    <div class="listimage" *ngFor="let item of imagearrr let index= index">
+
+                      <img id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+                        alt="your image" />
+                      <i class="fa-solid fa-trash"></i>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <input type="submit" value="Upadte Category Article" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Model Up In Article books  -->
+      </tr>
+    </tbody>
   </table>
 </div>
