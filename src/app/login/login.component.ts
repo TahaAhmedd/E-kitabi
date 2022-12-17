@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
-    localStorage.removeItem("token")
-    localStorage.removeItem("id")
+    // localStorage.removeItem("token")
+    // localStorage.removeItem("id")
   }
   add() {
 
-    console.log(this.loginForm.value)
+    // console.log(this.loginForm.value)
     if (this.loginForm.valid) {
       this.Authserver.login(this.loginForm.value).subscribe({
         next: (result) => {
