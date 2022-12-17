@@ -48,7 +48,7 @@
           <p class="text-center">{{i.categoryName}}</p>
         </td>
         <td><button class="btn btn-outline-danger delete" (click)="deleteArt(i._id)">Delete</button></td>
-        <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        <td><button type="button" class="btn btn-outline-primary" (click)="getById(i._id)" data-bs-toggle="modal"
             [attr.data-bs-target]="'#T'+i._id">
             Upadte
           </button></td>
@@ -67,7 +67,8 @@
                     <div class="row">
                       <h3 class="col-12 category ">Select Category:</h3>
                       <label class="visually-hidden" for="inlineFormSelectPref">Select Category:</label>
-                      <select class="select col-10 " name="categoryName" id="category" formControlName="categoryName">
+                      <select class="select col-10 " name="categoryName" id="category" formControlName="categoryName"
+                      [value]="dataOneArt.title" >
                         <option [value]="i.title" *ngFor="let i of dataSelect">{{i.title}}</option>
                       </select>
                       <div *ngIf="addartical.get('categoryName')?.touched && addartical.get('categoryName')?.invalid">
@@ -78,7 +79,7 @@
                 
                     <div class="mb-3 mt-2">
                       <label for="title" class="form-label addArtNa">Add Article Name:</label>
-                      <input type="text" class="form-control w-75 " placeholder="Add new Artical...." id="title"
+                      <input type="text" class="form-control w-75 " [value]="dataOneArt.title" placeholder="Add new Artical...." id="title"
                         formControlName="title">
                       <div *ngIf="addartical.get('title')?.touched && addartical.get('title')?.invalid">
                         <span class="text-danger" *ngIf="addartical.get('title')?.errors?.['required']">Please enter a Article

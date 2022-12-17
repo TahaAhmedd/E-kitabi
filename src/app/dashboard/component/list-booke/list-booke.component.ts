@@ -135,6 +135,8 @@ export class ListBookeComponent implements OnInit, OnChanges {
   getBookById(id: any) {
     this.httpServes.getBookByID(id).subscribe((res) => {
       this.dataBook = Object.assign(res.data);
+      // console.log(this.dataBook._doc);
+      
     });
   }
   updateBook(id: number) {
@@ -148,7 +150,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
     this.httpServes.editBook(id, formData).subscribe({
       next: (value) => {
         // console.log(value)
-        this.toast.success('The Book is Deleted Succesfuly');
+        this.toast.success('The Book is update Succesfuly');
         this.getdata(this.pageNum);
       },
       error: (err) => {
@@ -180,7 +182,8 @@ export class ListBookeComponent implements OnInit, OnChanges {
 
 
 export class DataBookUpdate {
-  title: string = '';
+  title: string 
+  _doc:DataBookResult
   description: string = '';
   _id: string = '';
   keywords: [] = [];

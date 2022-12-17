@@ -2,14 +2,14 @@
 <div class="container">
     <h1 class="new" ><span> E</span><span></span>idt <span></span>Account:</h1>
     <form [formGroup]="editForm" (ngSubmit)="editAccount()">
-  <div class="mt-5 w-50 ">
+  <div class="mt-5 w-50 " >
       <label for="exampleFormControlInput1" class="form-label">Name:</label>
-      <input type="email" formControlName="userName" class="form-control mb-2 " id="exampleFormControlInput1" placeholder="Please Enter Admin Name">
+      <input type="email" [value]="data.userName "  formControlName="userName" class="form-control mb-2 " id="exampleFormControlInput1" placeholder="Please Enter Admin Name">
     </div>
         <!-- Email input -->
         <div class="form-outline mb-4 w-50">
             <label class="form-label" for="loginName" >Email</label>
-            <input type="email"  id="loginName" class="form-control"placeholder="Please Enter Email"
+            <input type="email" [value]="data.email" id="loginName" class="form-control"placeholder="Please Enter Email"
             formControlName="email" />
           </div>
     
@@ -19,7 +19,7 @@
             <input type="password" id="loginPassword"  formControlName="password" class="form-control" placeholder="Please Enter Password" />
           </div>
           <div class="d-flex justify-content-end m-e-2 w-50">
-            <button type="submit" class="btn btn-primary ps-4 pe-4 pt-2 pb-2 fs-5">Edit</button>
+            <button type="submit" [disabled]="editForm.invalid" class="btn btn-primary ps-4 pe-4 pt-2 pb-2 fs-5">Edit</button>
 
           </div>
         </form>

@@ -7,7 +7,7 @@ import { UserService } from './../../../services/user/user.service';
   styleUrls: ['./acconting.component.css']
 })
 export class AccontingComponent implements OnInit {
-  
+  id: any=localStorage.getItem('id');
   constructor(
     private userServes:UserService
   ) { }
@@ -15,12 +15,12 @@ export class AccontingComponent implements OnInit {
   ngOnInit(): void {
   
   
-    this.getUserById()
+    this.getUserById(this.id)
   }
   
-  getUserById()
+  getUserById(id:any)
   {
-    this.userServes.getUserById().subscribe((D)=>{
+    this.userServes.getUserById(id).subscribe((D)=>{
       console.log(D);
       
     })
