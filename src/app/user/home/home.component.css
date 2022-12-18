@@ -31,9 +31,14 @@
     overflow: hidden;
 }
 .card_blog .card .card-body h5 {
-    padding-bottom: 10px;
+    padding-bottom: 149px;
     border-bottom: 1px solid #EEE;
-    
+    border-left: 1px solid var(--main-color);
+    white-space: break-spaces;
+    text-overflow: ellipsis;
+    height: 13ch;
+    width: fit-content;
+    overflow: hidden;
 }
 .card_blog .card .card-body p {
     color: #555;
@@ -42,4 +47,14 @@
     height: 31ch;
     width: 100%;
     overflow: hidden;
+}
+
+@media (max-width : 500px) {
+    .card-body{
+        padding: 10px !important;
+    }
+    .card-body h5{
+        height: auto !important;
+        padding-bottom: 10px !important;
+    }
 }
