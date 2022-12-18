@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Banner } from 'src/app/Model/Banner';
 import { ArticlesService } from 'src/app/services/articles/articles.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+ 
+  styleUrls: ['./home.component.css'],
+  
 })
 export class HomeComponent implements OnInit {
+
   artData: any[]
   pagNum :number =1
-  constructor(private artService:ArticlesService) { }
+  constructor(private artService:ArticlesService) {
+    
+   }
 
   ngOnInit(): void {
     this.getSomeCat(this.pagNum)

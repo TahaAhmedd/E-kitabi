@@ -49,12 +49,12 @@ export class DownloadBookComponent implements OnInit {
 
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
-          console.log(bookData.data);
+          // console.log(bookData.data);
           
           this.listBook = bookData.data;
           this.dates=this.listBook._doc.createdAt
           this.keyword=this.listBook._doc.keywords
-          console.log(this.keyword);
+          // console.log(this.keyword);
           this.value = this.datePipe.transform(this.dates,'dd/MM/yyyy');
           this.metaTagService.updateTag(
             { name: 'date', content:`${this.keyword}` }
@@ -83,7 +83,7 @@ export class DownloadBookComponent implements OnInit {
     // console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe(response=>{
       this.downloadFile(response)
-      console.log(response);
+      // console.log(response);
       this.listBook=response.data
     })
   }

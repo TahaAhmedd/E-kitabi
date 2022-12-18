@@ -5,9 +5,11 @@ import { FormsModule , ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr'
 import { LoaderComponent } from '../loader/loader.component';
+import { BannerComponent } from '../banner/banner.component';
 @NgModule({
   declarations: [
-    LoaderComponent
+    LoaderComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { LoaderComponent } from '../loader/loader.component';
     ReactiveFormsModule,
     RouterModule,
     ToastrModule,
-    LoaderComponent
+    LoaderComponent,
+    BannerComponent
   ]
 })
 export class SharedModule { }
