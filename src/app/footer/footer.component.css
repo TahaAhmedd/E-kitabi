@@ -75,5 +75,8 @@ footer .flist li a {
 footer .flist li a:hover {
     color: #ce7852;
 }
-
+.logo{
+    width: 130px;
+    height: auto;
+  }
 /* End Footer */

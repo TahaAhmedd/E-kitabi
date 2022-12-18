@@ -1,9 +1,3 @@
-
-/* @import url(./defualt.css); */
-
- 
-  
-
 /* Start Header */
 
 nav {
@@ -103,5 +97,9 @@ nav  .nav-respons i{
 .active{
   color: #b93f0b !important;
 }
+/* .logo{
+  width: 130px;
+  height: auto;
+} */
 /* End Nav */
 
