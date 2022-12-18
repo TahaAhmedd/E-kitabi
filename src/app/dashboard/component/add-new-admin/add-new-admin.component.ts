@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AddNewAdminComponent implements OnInit{
   editForm!:FormGroup
    id: any=localStorage.getItem('id');
+ data:any
        
    
 constructor(private userServis:UserService
@@ -23,11 +24,17 @@ constructor(private userServis:UserService
 ngOnInit():void
 {
  this.initForm()
-
+ this.getUserById(this.id)
 }
 ngOnChanges()
 {
   this.initForm()
+}
+getUserById(id:any)
+{
+  console.log(id);
+  
+  this.userServis.getUserById(id).subscribe(data=>{this.data=data.data })
 }
 initForm()
 {

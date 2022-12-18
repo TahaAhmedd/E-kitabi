@@ -20,6 +20,7 @@ export class ListUserComponent implements OnInit {
   imageSrc: Array<File> = [];
   imagearr: any = [];
   pagNum :number =1
+  dataOneArt:any
   formsearch = new FormGroup({
     title: new FormControl(''),
   });
@@ -38,17 +39,6 @@ export class ListUserComponent implements OnInit {
         cover: new FormControl("", [Validators.required]),
         imageSource: new FormControl([]),
       })
-      // this.formsearch
-      // .get('search')
-      // .valueChanges.pipe(
-      //   debounceTime(1000),
-      //   distinctUntilChanged(),
-      //   switchMap((item) => this.artService.searchBooke(item))
-      // )
-      // .subscribe((v) => {
-      //   console.log(v.data.length);
-      //  v?.data;
-      // });
     }
     
   ngOnInit(): void {
@@ -67,7 +57,15 @@ export class ListUserComponent implements OnInit {
 
     })
   }
-  
+  getById(id:number)
+  {
+    this.artService.getArtWithId(id).subscribe((data)=>{
+      this.dataOneArt=data.data
+      console.log(this.dataOneArt._id);
+      
+    })
+
+  }
   counter(i: number) {
     return new Array(i);
   }
@@ -86,6 +84,7 @@ export class ListUserComponent implements OnInit {
 
 
   updateArt(id:number){
+    this.getById(id)
     var formData = new FormData();
     for(let i = 0 ; i< this.imageSrc.length ; i++){
       formData.append("articleImages",this.imageSrc[i], this.imageSrc[i].name)

@@ -59,7 +59,8 @@
                   <div class="container d-flex justify-content-center flex-column align-items-center">
                     <div class="mt-2  w-75">
                       <label class="w-100 form-label">Select Category Name:</label>
-                      <select class="select w-100" formControlName="categoryName" name="categoryName">
+                      <select class="select w-100" formControlName="categoryName" name="categoryName"
+                      [value]="dataBook?._doc.categoryName" >
                         <option *ngFor="let i of dataSelect" [value]="i.title">{{i.title}}</option>
                       </select>
                       <div class="mt-2 p-1 alert alert-danger"
@@ -70,7 +71,7 @@
 
                     <div class="mt-3 w-75">
                       <label for="exampleFormControlInput1" class="form-label">Booke name:</label>
-                      <input type="text" class="form-control" formControlName="title">
+                      <input type="text" class="form-control"  [value]="dataBook?._doc.title" formControlName="title">
                       <div class="mt-2 p-1 alert alert-danger"
                         *ngIf="addBook.get('title')?.touched && addBook.get('title')?.errors">
                         <small *ngIf="addBook.get('title')?.errors['required']">Please Enter Abook Name</small>
@@ -80,7 +81,7 @@
 
                     <div class="mt-3 w-75">
                       <label for="exampleFormControlInput1" class="form-label">Key Word Book:</label>
-                      <input type="text" class="form-control" formControlName="keywords"
+                      <input type="text" class="form-control" [value]="dataBook?._doc.keywords" formControlName="keywords"
                         placeholder="Please Add Key Words of Book">
                       <div class="mt-2 p-1 alert alert-danger"
                         *ngIf="addBook.get('keywords')?.touched && addBook.get('keywords')?.errors">
@@ -92,6 +93,7 @@
                     <div class="mt-3 w-75">
                       <label for="exampleFormControlTextarea1" class="form-label">Description:</label>
                       <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="description"
+                      [value]="dataBook?._doc.description"
                         placeholder="Please Add Some Description About Book .... " rows="3"></textarea>
                       <div class="mt-2 p-1 alert alert-danger"
                         *ngIf="addBook.get('description')?.touched && addBook.get('description')?.errors">
@@ -103,7 +105,7 @@
                     <div class="contImg w-75" style="margin-top:20px">
                       <!-- //image  -->
 
-                      <input id="input-2" (change)="readURL($event)" name="bookImage" id="fileimages"
+                      <input id="input-2" [value]="dataBook?._doc.cover" (change)="readURL($event)" name="bookImage" id="fileimages"
                         formControlName="bookImage" type="file" class="file " data-show-upload="false"
                         data-show-caption="true" multiple>
                       <div class="mt-2 p-1 alert alert-danger"
@@ -119,7 +121,9 @@
                     </div>
                     <div class="contetFile w-75" style="margin-top:20px">
                       <!-- fille -->
-                      <input id="input-3" name="bookFile" id="filebook" formControlName="bookFile" type="file"
+                      <input id="input-3" name="bookFile" id="filebook" 
+                      [value]="dataBook?._doc.link"
+                      formControlName="bookFile" type="file"
                         class="file " data-show-upload="false" data-show-caption="true" multiple
                         (change)="fileChange($event)">
                       <div class="mt-2 p-1 alert alert-danger"

@@ -115,10 +115,10 @@ export class UserService {
       )
       .pipe(retry(2), catchError(this.handleError));
   }
-  getUserById():Observable<userGet>
+  getUserById(id:any):Observable<userGet>
   {
     
-    return this.http.get<userGet>(`${environment.PathApi}/admin/user`)
+    return this.http.get<userGet>(`${environment.PathApi}/admin/user/${id}`)
 
   }
 
@@ -126,6 +126,7 @@ export class UserService {
 }
 
 interface userlogin {
+  // id:any;
   Email: string;
   Password: string;
 }

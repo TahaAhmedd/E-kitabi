@@ -5,11 +5,13 @@
 export const environment = {
   production: false,
   // PathApi:"https://backend-hlwa.onrender.com"
+  // PathApi:"http://localhost:4000"
   PathApi:"https://lazy-pear-buffalo-cuff.cyclic.app",
   adsense: {
     adClient: 'ca-pub-5314532163672151',
     show: true
  }
+ 
 };
 
 /*
