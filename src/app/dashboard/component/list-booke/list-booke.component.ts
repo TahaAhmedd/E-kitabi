@@ -152,6 +152,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
         // console.log(value)
         this.toast.success('The Book is update Succesfuly');
         this.getdata(this.pageNum);
+        // console.log(this.pageNum)
       },
       error: (err) => {
         this.toast.error('An error occurred, please try again');

@@ -20,6 +20,7 @@ import { Categories_ArtComponent } from './categories_Art/categories_Art.compone
 import { WhyUsComponent } from './why-us/why-us.component';
 import { SubCategoryComponent } from '../sub-category/sub-category.component';
 import { GetBookBySubCatComponent } from '../get-book-by-sub-cat/get-book-by-sub-cat.component';
+
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home', component:HomeComponent},
@@ -55,6 +56,7 @@ let routes : Routes =[
         PreviewComponent,
         Categories_ArtComponent,
         WhyUsComponent,
+  
     ],
     imports: [
         SharedModule,
