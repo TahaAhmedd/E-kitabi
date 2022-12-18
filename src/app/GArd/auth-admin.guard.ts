@@ -17,8 +17,8 @@ import { UserService } from './../services/user/user.service';
   providedIn: 'root',
 })
 export class AuthAdminGuard implements CanActivate {
-  isloged:boolean
-  constructor(private AuthServes: UserService , private router:Router , private toast : ToastrService) {}
+  isloged: boolean
+  constructor(private AuthServes: UserService, private router: Router, private toast: ToastrService) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -28,14 +28,13 @@ export class AuthAdminGuard implements CanActivate {
     | boolean
     | UrlTree {
 
-      this.AuthServes.isloginuser.subscribe((data)=>{
-        this.isloged = data
-      })
-    if (this.isloged) {
-        return true;
+
+    if (this.AuthServes.IsUserloged) {
+      return true;
     } else {
-      this.toast.error("You Must Be Enter A valid Mail","Authentication Error")
-      return this.router.navigate(["login"])
+      this.toast.error("You Must Be Enter A valid Mail", "Authentication Error")
+      this.router.navigate(["login"])
+      return false
     }
   }
 }

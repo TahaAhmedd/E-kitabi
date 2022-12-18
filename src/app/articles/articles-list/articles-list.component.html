@@ -20,7 +20,7 @@
                                 <img src="{{cat?.cover[0]}}" alt="cover">
                             </a>
                             <h4 class="boxTitle">
-                                <a routerLink="/articles/list/{{cat?._id}}" (click)="test()">{{cat?.title.slice(0,21)}}...</a>
+                                <a routerLink="/articles/list/{{cat?._id}}" >{{cat?.title.slice(0,21)}}...</a>
                             </h4>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <img src="{{datas?.cover[2]}}" alt="the Artical ">
                     </div>
                     <div class="end-artical">
-                        <p>Tags: {{datas.keywords}}</p>
+                        <p class="p-0 m-0">Tags: {{datas.keywords}}</p>
                     </div>
 
                 </div>

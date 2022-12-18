@@ -35,7 +35,7 @@ export class CategoriesListComponent implements OnInit {
     //get CatName From Route
     this.canActive.paramMap.subscribe((pram) => {
       this.curentCat = pram.get('category');
-      console.log(this.curentCat)
+      // console.log(this.curentCat)
 
       if (this.curentCat) {
        this.get(this.curentCat ,this.pagNum)
@@ -51,7 +51,7 @@ export class CategoriesListComponent implements OnInit {
       (bookData) => {
         this.listBooke=bookData.data.paginatedData
         this.CountPage=bookData.data.noOfPages
-        console.log(this.listBooke);
+        // console.log(this.listBooke);
         
         this.AllBooke = bookData.data.paginatedData
       }
@@ -73,7 +73,7 @@ export class CategoriesListComponent implements OnInit {
         next: (res)=>{
           // console.log(res)
           this.listBooke = res.data
-          console.log(res)
+          // console.log(res)
           if(res.status == 404){
             
           }

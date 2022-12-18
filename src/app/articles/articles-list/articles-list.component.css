@@ -247,9 +247,12 @@ h2 {
 .end-artical {
     border-top: 1px solid black;
     border-bottom: 0.6px solid #666;
-    height: 35px;
+    /* height: 35px; */
     padding: 4px 0;
     margin-bottom: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .archives{

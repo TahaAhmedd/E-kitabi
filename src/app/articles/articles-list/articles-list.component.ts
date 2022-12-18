@@ -40,7 +40,7 @@ export class ArticlesListComponent implements OnInit {
       
       // Get Arts With CtgoryName 
       this.serv.getWithCatName(this.datas?.categoryName).subscribe((allCategoryType) => {
-        this.getCatogry = allCategoryType.data
+        this.getCatogry = allCategoryType.data.slice(-3)
         this.date=this.datas.createdAt
         // console.log(this.date);
         this.keywords=[...this.datas.keywords]

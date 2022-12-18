@@ -62,7 +62,9 @@ export class DownloadBookComponent implements OnInit {
             this.metaTagService.updateTag(
               { name: 'keywords', content:`${[...this.keyword]}` }
               );
-            this.getBooksByCat(this.listBook.categoryName ,this.pagNum) //Fetch Ctaegory Book Of Related Books Secthion
+            this.getBooksByCat(
+              this.listBook._doc?.categoryName == ""? {"subCat":this.listBook._doc.subCategoryName} : this.listBook._doc?.categoryName
+            ,this.pagNum) //Fetch Ctaegory Book Of Related Books Secthion
         });
       }
     });
@@ -99,12 +101,22 @@ export class DownloadBookComponent implements OnInit {
   }
  
 
-  getBooksByCat(catName:string, pagNum:number){
-    this.bookServes.getBookByCatigory(catName ,pagNum ).subscribe({
-      next:(res)=>{
-        this.relatedBook = res.data.paginatedData.slice(-3)
-        // console.log(this.relatedBook.length)
-      }
-    })
+  getBooksByCat(catName:any, pagNum:number){
+    if(typeof catName == "object")
+    {
+      this.bookServes.getBookBySub(catName.subCat , 1).subscribe({
+        next:(res)=>{
+          this.relatedBook = res.data.paginatedData.slice(-3)
+        }
+      })
+
+    }
+    else{
+      this.bookServes.getBookByCatigory(catName ,pagNum ).subscribe({
+        next:(res)=>{
+          this.relatedBook = res.data.paginatedData.slice(-3)
+        }
+      })
+    }
   }
 }
