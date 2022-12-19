@@ -5,6 +5,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import {
   BehaviorSubject,
   catchError,
@@ -19,14 +21,16 @@ import { environment } from './../../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  httpOption ;
-  isloginuser:BehaviorSubject<boolean>
-  constructor(private http:HttpClient) {
-    this.isloginuser = new BehaviorSubject(false) 
-    this.httpOption ={
+  httpOption;
+  token: string
+  constructor(private http: HttpClient,
+    private toast: ToastrService,
+    private router: Router
+  ) {
+    this.httpOption = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        
+
       }),
     };
   }
@@ -54,55 +58,36 @@ export class UserService {
       .post(`${environment.PathApi}/admin/login`, DAta, this.httpOption)
       .pipe(retry(2), catchError(this.handleError));
   }
-   //login Admin
-    // login(DAta: any):Observable<any>
-    // { 
-    //     return  this.http.post(`${environment.PathApi}/admin/login`, DAta ,this.httpOption)
-    //     .pipe(
-    //       retry(2),
-    //       catchError(this.handleError)
-    //     ) 
-    // };
 
-    //log out Admin
-    // Logout ()
-    // {
-    //   localStorage.removeItem('token'); 
-    //   localStorage.removeItem('id')
-    //   this.isloginuser.next(false)
-    // };
-
-//property 
-    //  get IsUserloged():boolean
-    //  {
-    //   let tok = localStorage.getItem('token')
-      
-    //    return (localStorage.getItem('token')!=null)? true: false
-    //  }
-
-//update Account 
-// update(accountId:any ,data :any):Observable<any>
-// {
-//    return  this.http.put(`${environment.PathApi}/admin/update/${accountId}`,data, this.httpOption)
-//    .pipe(
-//     retry(2),
-//     catchError(this.handleError)
-//   ) 
-// }
+  loged(data: any) {
+    this.login(data).subscribe({
+      next: (result) => {
+        console.log(result.data)
+        this.token = result.data.token
+        let id = result.data._id
+        localStorage.setItem("toomvdvdsvdvken", this.token)
+        localStorage.setItem("id", id)
+      },
+      error: () => {
+        this.toast.error("The Email Or Password Is Not Valid", "Error")
+      },
+      complete: () => {
+        this.router.navigate(['dashboard/card'])
+      }
+    })
+  }
 
 
-
- 
 
   //log out Admin
   Logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('toomvdvdsvdvken');
     localStorage.removeItem('id');
   }
 
   //property
   get IsUserloged(): boolean {
-    return localStorage.getItem('token') != null ? true : false;
+    return localStorage.getItem('toomvdvdsvdvken') != null ? true : false;
   }
 
   //update Account
@@ -115,9 +100,8 @@ export class UserService {
       )
       .pipe(retry(2), catchError(this.handleError));
   }
-  getUserById(id:any):Observable<userGet>
-  {
-    
+  getUserById(id: any): Observable<userGet> {
+
     return this.http.get<userGet>(`${environment.PathApi}/admin/user/${id}`)
 
   }
@@ -135,5 +119,5 @@ interface userlogin {
 class userGet {
   data: [];
   sucsess: true
-  message:''
+  message: ''
 }

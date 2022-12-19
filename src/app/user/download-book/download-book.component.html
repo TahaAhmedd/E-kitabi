@@ -14,24 +14,22 @@
                     <img src="{{listBook?._doc.cover}}" alt="">
                     <div class="book-content">
                         <h2>{{listBook?._doc?.title}}</h2>
-                       
+
                         <hr>
                         <p>
                             {{listBook?._doc?.description}}
                         </p>
-           <div>
-                         <div *ngFor="let i of listBook?.innerLinks">
-                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                         </div>
-                        
-            
-                         <div *ngFor="let i of listBook?.outerLinks">
-                             <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                         </div>
-           </div>
+                        <div>
+                            <div *ngFor="let i of listBook?.innerLinks">
+                                <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                            </div>
+
+
+                            <div *ngFor="let i of listBook?.outerLinks">
+                                <a href="{{i.link}}" target="_blank">{{i.text}}</a>
+                            </div>
+                        </div>
                         <button (click)="setLoading(listBook._doc.link)">Download</button>
-                      
-                    
 
                     </div>
                 </div>
@@ -42,7 +40,7 @@
                 </div>
                 <div *ngFor="let i of listBook?.innerLinks">
                     <a href="{{i.link}}" target="_blank">{{i.text}}</a>
-                </div> 
+                </div>
                 <div *ngFor="let i of listBook?.outerLinks">
                     <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                 </div>
@@ -50,24 +48,27 @@
                     <h1>Related Book</h1>
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner d-flex align-items-center" style="width: 300px ; height: 350px;">
-                          <div class="carousel-item active text-center" *ngFor="let book of relatedBook">
-                            <a [routerLink]="['/user/download',book?._id]">
+                            <div class="carousel-item active text-center" *ngFor="let book of relatedBook">
+                                <a [routerLink]="['/user/download',book?._id]">
 
-                                <img [src]="book?.cover" class="w-100" style="max-height: 320px ;" alt="Related Image">
-                            </a>
-                            <h5 class="titleBook">{{book?.title}}</h5>
-                          </div>
-                          
+                                    <img [src]="book?.cover" class="w-100" style="max-height: 320px ;"
+                                        alt="Related Image">
+                                </a>
+                                <h5 class="titleBook">{{book?.title}}</h5>
+                            </div>
+
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
                         </button>
-                      </div>
+                    </div>
                 </div>
 
             </div>

@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { LoaderService } from './services/loader.service';
 import { Meta, Title } from '@angular/platform-browser';
+import { Banner } from './Model/Banner';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  template: `<app-banner [banner]="banner"></app-banner>`,
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   // title = 'EKitabi';
+  banner: Banner;
   isLoading: Subject<boolean>;
   constructor(
     private loader: LoaderService,
@@ -18,6 +21,12 @@ export class AppComponent implements OnInit {
     this.isLoading = this.loader.isLoading;
   }
   ngOnInit() {
+    this.banner = new Banner(
+      'ca-pub-5314532163672151',
+      '5314532163672151',
+      'auto',
+     'true'
+    )
     this.metaService.addTags([
       { name: 'keywords', content: 'stories ,books ,novels ,' },
       {

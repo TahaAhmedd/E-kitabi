@@ -49,12 +49,12 @@ export class DownloadBookComponent implements OnInit {
 
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
-          console.log(bookData.data);
+          // console.log(bookData.data);
           
           this.listBook = bookData.data;
           this.dates=this.listBook._doc.createdAt
           this.keyword=this.listBook._doc.keywords
-          console.log(this.keyword);
+          // console.log(this.keyword);
           this.value = this.datePipe.transform(this.dates,'dd/MM/yyyy');
           this.metaTagService.updateTag(
             { name: 'date', content:`${this.keyword}` }
@@ -62,7 +62,9 @@ export class DownloadBookComponent implements OnInit {
             this.metaTagService.updateTag(
               { name: 'keywords', content:`${[...this.keyword]}` }
               );
-            this.getBooksByCat(this.listBook.categoryName ,this.pagNum) //Fetch Ctaegory Book Of Related Books Secthion
+            this.getBooksByCat(
+              this.listBook._doc?.categoryName == ""? {"subCat":this.listBook._doc.subCategoryName} : this.listBook._doc?.categoryName
+            ,this.pagNum) //Fetch Ctaegory Book Of Related Books Secthion
         });
       }
     });
@@ -83,7 +85,7 @@ export class DownloadBookComponent implements OnInit {
     // console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe(response=>{
       this.downloadFile(response)
-      console.log(response);
+      // console.log(response);
       this.listBook=response.data
     })
   }
@@ -99,12 +101,22 @@ export class DownloadBookComponent implements OnInit {
   }
  
 
-  getBooksByCat(catName:string, pagNum:number){
-    this.bookServes.getBookByCatigory(catName ,pagNum ).subscribe({
-      next:(res)=>{
-        this.relatedBook = res.data.paginatedData.slice(-3)
-        // console.log(this.relatedBook.length)
-      }
-    })
+  getBooksByCat(catName:any, pagNum:number){
+    if(typeof catName == "object")
+    {
+      this.bookServes.getBookBySub(catName.subCat , 1).subscribe({
+        next:(res)=>{
+          this.relatedBook = res.data.paginatedData.slice(-3)
+        }
+      })
+
+    }
+    else{
+      this.bookServes.getBookByCatigory(catName ,pagNum ).subscribe({
+        next:(res)=>{
+          this.relatedBook = res.data.paginatedData.slice(-3)
+        }
+      })
+    }
   }
 }

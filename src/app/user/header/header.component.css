@@ -54,6 +54,10 @@
     text-decoration: none;
     color: #3c3c3c;
 }
+/* .img-header{
+    width: 100%;
+    height: auto;
+} */
 
 /* Media  */
 @media (max-width: 575px) {

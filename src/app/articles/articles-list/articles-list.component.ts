@@ -40,11 +40,11 @@ export class ArticlesListComponent implements OnInit {
       
       // Get Arts With CtgoryName 
       this.serv.getWithCatName(this.datas?.categoryName).subscribe((allCategoryType) => {
-        this.getCatogry = allCategoryType.data
+        this.getCatogry = allCategoryType.data.slice(-3)
         this.date=this.datas.createdAt
         // console.log(this.date);
         this.keywords=[...this.datas.keywords]
-        console.log(this.datas);
+        // console.log(this.datas);
         this.value = this.datePipe.transform(this.date,'dd/MM/yyyy');
         // console.log(this.value);
         this.metaTagService.updateTag(
@@ -68,7 +68,7 @@ export class ArticlesListComponent implements OnInit {
 
 
  test() {
-    console.log("test");
+    // console.log("test");
     setTimeout(() => {
       window.location.reload()
     }, 1000)
