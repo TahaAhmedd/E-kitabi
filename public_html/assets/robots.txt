@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+
+Sitemap: https://e-kitabi.com/assets/sitemap.xml

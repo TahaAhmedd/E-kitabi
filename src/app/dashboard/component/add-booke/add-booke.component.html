@@ -85,15 +85,15 @@
       </div>
     </div>
 
-
-    <div class="contImg w-50" style="margin-top:20px">
+ 
+     <div class="contImg w-50" style="margin-top:20px">
       <!-- //image  -->
       <label for="Photo" class="form-label w-100 mb-3 mt-2 addArtNa">Book Picture</label>
-      <input id="input-2" #attachment (change)="readURL($event)" name="bookImage" id="fileimages" formControlName="bookImage"
-        type="file" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" >
+      <input id="input-2" #attachment (change)="readURL($event)" name="cover" id="fileimages" formControlName="cover"
+        type="text" accept="image/*" class="file " data-show-upload="false" data-show-caption="true" >
       <div class="mt-2 p-1 alert alert-danger"
-        *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
-        <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In Book</small>
+        *ngIf="addBook.get('cover')?.touched && addBook.get('bookImage')?.errors">
+        <small *ngIf="addBook.get('cover')?.errors['required']">Please Select Cover Image In Book</small>
       </div>
       <div class="mt-3  show-images" *ngFor="let item of imagearr let index= index">
         <img  id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
@@ -101,7 +101,7 @@
           <i class="fa-solid fa-trash"   (click)="deleteImage(index)" ></i>
       </div>
 
-    </div>
+    </div> --> -->
     <div class="contetFile w-50" style="margin-top:20px">
       <!-- fille -->
       <label for="Photo" class="form-label w-100 mb-3 mt-2 addArtNa">Book File</label>
