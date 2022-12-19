@@ -43,14 +43,14 @@ export class ListBookeComponent implements OnInit, OnChanges {
       description: new FormControl(this.dataBook?.description, [
         Validators.required,
       ]),
-      bookImage: new FormControl('', [Validators.required]),
+      cover: new FormControl('', [Validators.required]),
       bookFile: new FormControl('', [Validators.required]),
       keywords: new FormControl(this.dataBook?.keywords, [Validators.required]),
       categoryName: new FormControl(this.dataBook?.categoryName, [
         Validators.required,
       ]),
       fileSource: new FormControl(null),
-      imageSource: new FormControl(null),
+      // cover: new FormControl(null),
     });
 
     //search
@@ -106,7 +106,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
       const files = event.target.files;
       const file = event.target.files[0];
       this.addBook.patchValue({
-        imageSource: file,
+        cover: file,
       });
       for (var i = 0; i < files.length; i++) {
         const reader = new FileReader();
@@ -146,7 +146,7 @@ export class ListBookeComponent implements OnInit, OnChanges {
     formData.append('categoryName', this.addBook.get('categoryName').value);
     formData.append('keywords', this.addBook.get('keywords').value);
     formData.append('bookFile', this.addBook.get('fileSource').value);
-    formData.append('bookImage', this.addBook.get('imageSource').value);
+    formData.append('cover', this.addBook.get('cover').value);
     this.httpServes.editBook(id, formData).subscribe({
       next: (value) => {
         // console.log(value)

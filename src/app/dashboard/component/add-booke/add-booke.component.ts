@@ -27,13 +27,13 @@ export class AddBookeComponent implements OnInit {
     this.addBook = new FormGroup({
       title: new FormControl("", [Validators.required]),
       description: new FormControl("", [Validators.required]),
-      bookImage: new FormControl("", [Validators.required]),
+      cover: new FormControl("", [Validators.required]),
       bookFile: new FormControl("", [Validators.required]),
       keywords: new FormArray([]),
       categoryName: new FormControl(""),
       subCategoryName: new FormControl(""),
       fileSource: new FormControl(null),
-      imageSource: new FormControl(null),
+      // imageSource: new FormControl(null),
       innerLinks: new FormArray([]),
       externalLinks: new FormArray([]),
     })
@@ -97,7 +97,7 @@ export class AddBookeComponent implements OnInit {
     formData.append("categoryName",this.addBook.get("categoryName").value)
     formData.append("subCategoryName",this.addBook.get("subCategoryName").value)
     formData.append("bookFile",this.addBook.get("fileSource").value)
-    formData.append("bookImage",this.addBook.get("imageSource").value)
+    formData.append("cover",this.addBook.get("cover").value)
 
     this.httServes.postBook(formData).subscribe({
       next:(value)=> {

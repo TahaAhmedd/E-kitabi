@@ -105,12 +105,12 @@
                     <div class="contImg w-75" style="margin-top:20px">
                       <!-- //image  -->
 
-                      <input id="input-2" [value]="dataBook?._doc.cover" (change)="readURL($event)" name="bookImage" id="fileimages"
-                        formControlName="bookImage" type="file" class="file " data-show-upload="false"
+                      <input id="input-2" [value]="dataBook?._doc.cover" (change)="readURL($event)" name="cover" id="fileimages"
+                        formControlName="bookImage" type="tex" class="file " data-show-upload="false"
                         data-show-caption="true" multiple>
                       <div class="mt-2 p-1 alert alert-danger"
-                        *ngIf="addBook.get('bookImage')?.touched && addBook.get('bookImage')?.errors">
-                        <small *ngIf="addBook.get('bookImage')?.errors['required']">Please Select Cover Image In
+                        *ngIf="addBook.get('cover')?.touched && addBook.get('cover')?.errors">
+                        <small *ngIf="addBook.get('cover')?.errors['required']">Please Select Cover Image In
                           Book</small>
                       </div>
                       <div class="show-images">
@@ -132,7 +132,7 @@
                       </div>
                     </div>
 
-                    <input id="input-1" name="submit" value="Add Book" data-bs-dismiss="modal" [disabled]="addBook.invalid" type="submit"
+                    <input id="input-1" name="submit" value="Add Book" data-bs-dismiss="modal"  type="submit"
                       class="submit mb-5 mt-4 btn btn-dark">
 
                   </div>
