@@ -52,7 +52,7 @@ export class ListUserComponent implements OnInit {
       this.data = e.data.paginatedData
       this.Alldata = e.data.paginatedData
       this.CountPage=e.data.noOfPages
-      // console.log(this.data);
+      console.log(this.data);
       
 
     })

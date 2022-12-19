@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  PathApi:"https://lazy-pear-buffalo-cuff.cyclic.app"
+  PathApi:"https://backend-hlwa.onrender.com"
 };
