@@ -6,6 +6,7 @@ import { observable } from 'rxjs';
 import { ChangeDetectionStrategy, ThisReceiver } from '@angular/compiler';
 import { Meta, Title } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 // import 'rxjs/Rx' ;
 @Component({
   selector: 'app-download-book',
@@ -33,7 +34,8 @@ export class DownloadBookComponent implements OnInit {
     private canActive: ActivatedRoute,
     private bookServes: BookService,
     private cd:ChangeDetectorRef,
-    private metaTagService:Meta
+    private metaTagService:Meta,
+    private toast:ToastrService
     ) {
 
       // console.log(this.listBook);
@@ -57,7 +59,7 @@ export class DownloadBookComponent implements OnInit {
           // console.log(this.keyword);
           this.value = this.datePipe.transform(this.dates,'dd/MM/yyyy');
           this.metaTagService.updateTag(
-            { name: 'date', content:`${this.keyword}` }
+            { name: 'date', content:`${this.value}` }
             )
             this.metaTagService.updateTag(
               { name: 'keywords', content:`${[...this.keyword]}` }
@@ -83,11 +85,20 @@ export class DownloadBookComponent implements OnInit {
   }
   downLoadBook(){
     // console.log(this.curentId);
-    this.bookServes.getBookByID(this.curentId).subscribe(response=>{
+    this.bookServes.getBookByID(this.curentId).subscribe({
+      next:(response)=>{
       this.downloadFile(response)
       // console.log(response);
       this.listBook=response.data
-    })
+    },
+    error: (err)=>{
+      if(err.status == 404)
+      {
+        // console.log(err.status)
+        this.toast.error("This book not found","Error")
+      }
+    }
+  })
   }
   downloadFile(data:any) {
     this.links = data.data._doc.link

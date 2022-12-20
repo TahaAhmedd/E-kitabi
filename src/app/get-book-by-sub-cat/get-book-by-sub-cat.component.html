@@ -65,8 +65,8 @@
                     </div>
 
                     <nav aria-label="..." role="group " aria-label="Second group">
-                        <ul class="pagination pagination-sm mt-3" *ngFor='let in of counter(CountPage) ;let i = index'>
-                            <li class="page-item ">
+                        <ul class="pagination pagination-sm mt-3" >
+                            <li class="page-item " *ngFor='let in of counter(CountPage) ;let i = index'>
                                 <button (click)="getdata(i + 1)" class="page-link" href="#"
                                     tabindex="-1">{{i +1}}</button>
                             </li>
