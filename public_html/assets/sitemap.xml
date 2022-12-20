@@ -8,31 +8,31 @@
     <loc>https://e-kitabi.com/</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/user/home</loc>
+    <loc>https://e-kitabi.com/#/user/home</loc>
   </url>
    <url>
-    <loc>https://e-kitabi.com/user/categories</loc>
+    <loc>https://e-kitabi.com/#/user/categories</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/user/list</loc>
+    <loc>https://e-kitabi.com/#/user/list</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/articles/categories_Art</loc>
+    <loc>https://e-kitabi.com/#/articles/categories_Art</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/articles/details</loc>
+    <loc>https://e-kitabi.com/#/articles/details</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/user/aboutus</loc>
+    <loc>https://e-kitabi.com/#/user/aboutus</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/user/contactus</loc>
+    <loc>https://e-kitabi.com/#/user/contactus</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/user/policy</loc>
+    <loc>https://e-kitabi.com/#/user/policy</loc>
   </url>
   <url>
-    <loc>https://e-kitabi.com/user/preview</loc>
+    <loc>https://e-kitabi.com/#/user/preview</loc>
   </url>
  
 </urlset>
