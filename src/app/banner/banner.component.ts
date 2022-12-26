@@ -21,7 +21,7 @@ export class BannerComponent implements AfterViewInit  {
       } catch (e) {
           console.error(e);
       }
-  }, 0);
+  }, 2000);
   }
 
 }

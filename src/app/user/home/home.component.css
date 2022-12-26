@@ -31,13 +31,13 @@
     overflow: hidden;
 }
 .card_blog .card .card-body h5 {
-    padding-bottom: 149px;
+    /* padding-bottom: 149px; */
     border-bottom: 1px solid #EEE;
     border-left: 2px solid #ce7852;
     padding-left: 5px;
     white-space: break-spaces;
     text-overflow: ellipsis;
-    height: 13ch;
+    height: auto;
     width: fit-content;
     overflow: hidden;
 }

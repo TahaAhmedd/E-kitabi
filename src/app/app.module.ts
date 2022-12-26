@@ -13,7 +13,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from './services/loader.interceptor';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { GetBookBySubCatComponent } from './get-book-by-sub-cat/get-book-by-sub-cat.component';
-
+import { AdsenseModule } from 'ng2-adsense';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +31,10 @@ import { GetBookBySubCatComponent } from './get-book-by-sub-cat/get-book-by-sub-
     FormsModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-5445757198861186',
+      adSlot: 8338719125,
+    }),
   ],
   providers: [
     {

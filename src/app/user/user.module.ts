@@ -20,7 +20,7 @@ import { Categories_ArtComponent } from './categories_Art/categories_Art.compone
 import { WhyUsComponent } from './why-us/why-us.component';
 import { SubCategoryComponent } from '../sub-category/sub-category.component';
 import { GetBookBySubCatComponent } from '../get-book-by-sub-cat/get-book-by-sub-cat.component';
-
+import { AdsenseModule } from 'ng2-adsense';
 let routes : Routes =[
   {path:'',redirectTo:"home",pathMatch:'full'},
   {path:'home', component:HomeComponent},
@@ -61,6 +61,10 @@ let routes : Routes =[
     imports: [
         SharedModule,
         RouterModule.forChild(routes),
+        AdsenseModule.forRoot({
+            adClient: 'ca-pub-5314532163672151',
+            adSlot: 6264682910,
+          }),
     ]
 })
 export class UserModule { }

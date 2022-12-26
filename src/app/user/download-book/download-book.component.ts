@@ -87,12 +87,14 @@ export class DownloadBookComponent implements OnInit {
     // console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe({
       next:(response)=>{
+        console.log(response)
       this.downloadFile(response)
       // console.log(response);
       this.listBook=response.data
     },
-    error: (err)=>{
-      if(err.status == 404)
+    error: (response)=>{
+      console.log(response)
+      if(response.status == 404)
       {
         // console.log(err.status)
         this.toast.error("This book not found","Error")
@@ -101,13 +103,19 @@ export class DownloadBookComponent implements OnInit {
   })
   }
   downloadFile(data:any) {
+    
     this.links = data.data._doc.link
     // console.log(this.links);
     const blob = new Blob([this.links], { type: 'text/pdf' });
     // console.log(blob);
     window.open(this.links);
     // const url= window.URL.createObjectURL(blob);
-    
+    // console.log(this.links.response)
+    // if(this.links.status == 404)
+    // {
+    //   // console.log(err.status)
+    //   this.toast.error("This book not found","Error")
+    // }
     // console.log(url);
   }
  

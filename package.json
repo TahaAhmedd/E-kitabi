@@ -25,6 +25,7 @@
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.2.2",
     "express": "^4.18.2",
+    "ng2-adsense": "^11.0.0",
     "ngx-toastr": "^16.0.1",
     "ngx-ui-loader": "^13.0.0",
     "path": "^0.12.7",
