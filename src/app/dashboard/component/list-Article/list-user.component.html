@@ -30,7 +30,7 @@
         <td>Image</td>
         <td>Category Name</td>
         <td>Delete</td>
-        <td>Upadte</td>
+        <td>Update</td>
       </tr>
     </thead>
     <tbody>
@@ -50,7 +50,7 @@
         <td><button class="btn btn-outline-danger delete" (click)="deleteArt(i._id)">Delete</button></td>
         <td><button type="button" class="btn btn-outline-primary" (click)="getById(i._id)" data-bs-toggle="modal"
             [attr.data-bs-target]="'#T'+i._id">
-            Upadte
+            Update
           </button></td>
 
           <div class="modal fade" [id]="'T'+i._id" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -58,7 +58,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Ubdate Article ({{i.title}})</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Update Article ({{i.title}})</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -68,8 +68,8 @@
                       <h3 class="col-12 category ">Select Category:</h3>
                       <label class="visually-hidden" for="inlineFormSelectPref">Select Category:</label>
                       <select class="select col-10 " name="categoryName" id="category" formControlName="categoryName"
-                      [value]="dataOneArt.title" >
-                        <option [value]="i.title" *ngFor="let i of dataSelect">{{i.title}}</option>
+                      [value]="dataOneArt?.categoryName" >
+                        <option [value]="i?.title" *ngFor="let i of dataSelect">{{dataOneArt?.categoryName}}</option>
                       </select>
                       <div *ngIf="addartical.get('categoryName')?.touched && addartical.get('categoryName')?.invalid">
                         <span class="text-danger" *ngIf="addartical.get('categoryName')?.errors?.['required']">Please enter a Category Name</span>
@@ -100,7 +100,7 @@
                 
                         <div class="form-group mt-1" *ngFor="let link of linkesControls; let i = index">
                           <input type="text" placeholder="Add out linke Related for Articale.." class="form-control"
-                            [formControlName]="i" />
+                            [formControlName]="i" [value]="linkesControls" />
                         </div>
                 
                       </div>
@@ -115,7 +115,7 @@
                 
                       <div class="form-group mt-1" *ngFor="let keyword of keywordsControl; let i = index">
                         <input type="text" placeholder="Add out linke Related for Articale.." class="form-control"
-                          formControlName={{i}} />
+                          formControlName={{i}} [value]="keywordsControl" />
                       </div>
                 
                     </div>
@@ -124,7 +124,7 @@
                 
                     <div class="mb-3">
                       <label for="text" class="form-label mt-2 addArtNa">Description Article</label>
-                      <textarea class="form-control h-25 w-75 mt-4" id="text" formControlName="text" rows="6"></textarea>
+                      <textarea class="form-control h-25 w-75 mt-4" id="text" [value]="dataOneArt.description" formControlName="text" rows="6"></textarea>
                       <div *ngIf="addartical.get('text')?.touched && addartical.get('text')?.errors">
                         <span class="text-danger" *ngIf="addartical.get('text')?.errors?.['required']">Please enter a
                           description</span>
@@ -138,7 +138,7 @@
                             Photo</span>
                         </div>
                       <div class="show-images">
-                        <img *ngFor="let item of imagearr" id="blah" [src]="item || 'http://placehold.it/180'" height="150" width="150"
+                        <img *ngFor="let item of imagearr" id="blah" [src]="item || dataOneArt.cover[0]" height="150" width="150"
                           alt="your image" />
                       </div>
                       <button type="submit" class="btn btn-success mt-2" [disabled]="addartical.invalid">Add Art</button>

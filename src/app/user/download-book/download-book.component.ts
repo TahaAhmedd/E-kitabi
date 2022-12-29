@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 import { CanActivate, ActivatedRoute } from '@angular/router';
 import { BookService } from 'src/app/services/books/book.service';
 import { ApiResponse, ApiResponse0, DataBookResult } from 'src/app/Model/ApiResponse';
@@ -30,6 +30,7 @@ export class DownloadBookComponent implements OnInit {
   relatedBook:any[]; //Array To related Books 
   keyword: any;
 
+ 
   constructor(
     private canActive: ActivatedRoute,
     private bookServes: BookService,
@@ -45,13 +46,13 @@ export class DownloadBookComponent implements OnInit {
   ngOnInit(): void {
     //get id from Route
     // this.curentId
-
+  
     this.canActive.paramMap.subscribe((pram) => {
       this.curentId = pram.get('id');
 
       if (this.curentId) {
         this.bookServes.getBookByID(this.curentId).subscribe((bookData) => {
-          // console.log(bookData.data);
+          console.log(bookData.data);
           
           this.listBook = bookData.data;
           this.dates=this.listBook._doc.createdAt
@@ -72,7 +73,30 @@ export class DownloadBookComponent implements OnInit {
     });
 
   }
-  
+  downloadBtnfun() {
+   var timeLeft= 20;
+    (document.querySelector('.download-btn') as HTMLElement).style.display = "none";
+    document.querySelector('.countdown').innerHTML = `<div class='loadcontainer' ><div class='loading'  style="border: 1px solid #4a90e2; padding: 8px; border-radius: 3px; color: rgba(55, 57, 76, .3);">Please wait <span style=" color: #0693f6; font-size: 1.5em; font-weight: 800;">${timeLeft}</span> seconds. </div> </div> <br/>`;
+    (document.querySelector('.countdown') as HTMLElement).style.display = "block";
+    var downloadTimer = setInterval(function timeCount(){
+      // console.log(timeLeft)
+
+      timeLeft -= 1;
+      // console.log(timeLeft)
+      document.querySelector('.countdown').innerHTML = `<div class='loadcontainer'><div class='loading'  style="border: 1px solid #4a90e2; padding: 8px; border-radius: 3px; color: rgba(55, 57, 76, .3); ">Please wait <span style=" color: #0693f6; font-size: 1.5em; font-weight: 800;">${timeLeft}</span> seconds.</div></div><br/>`;
+
+      if(timeLeft <= 0){
+        clearInterval(downloadTimer);
+        (document.querySelector('.pleaseWait-text') as HTMLElement).style.display = "block";
+        (document.querySelector('.countdown')as HTMLElement).style.display = "none";
+        setTimeout(() => {
+          (document.querySelector('.countdown')as HTMLElement).style.display = "none";
+          (document.querySelector('.pleaseWait-text') as HTMLElement).style.display = "none";
+          (document.querySelector('.manualDownload-text') as HTMLElement).style.display = "block";
+        }, 4000);
+      }
+    }, 1000);
+  };
   setLoading(link:string) {
     this.loading = true;
     window.scrollTo(0, 0);
@@ -87,13 +111,13 @@ export class DownloadBookComponent implements OnInit {
     // console.log(this.curentId);
     this.bookServes.getBookByID(this.curentId).subscribe({
       next:(response)=>{
-        console.log(response)
+        // console.log(response)
       this.downloadFile(response)
       // console.log(response);
       this.listBook=response.data
     },
     error: (response)=>{
-      console.log(response)
+      // console.log(response)
       if(response.status == 404)
       {
         // console.log(err.status)
@@ -138,4 +162,5 @@ export class DownloadBookComponent implements OnInit {
       })
     }
   }
+  
 }

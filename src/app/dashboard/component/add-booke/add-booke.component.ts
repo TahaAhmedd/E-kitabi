@@ -32,7 +32,7 @@ export class AddBookeComponent implements OnInit {
       keywords: new FormArray([]),
       categoryName: new FormControl(""),
       subCategoryName: new FormControl(""),
-      fileSource: new FormControl(null),
+      // fileSource: new FormControl(null),
       // imageSource: new FormControl(null),
       innerLinks: new FormArray([]),
       externalLinks: new FormArray([]),
@@ -96,11 +96,12 @@ export class AddBookeComponent implements OnInit {
     formData.append("description", this.addBook.get("description").value)
     formData.append("categoryName",this.addBook.get("categoryName").value)
     formData.append("subCategoryName",this.addBook.get("subCategoryName").value)
-    formData.append("bookFile",this.addBook.get("fileSource").value)
+    formData.append("bookFile",this.addBook.get("bookFile").value)
     formData.append("cover",this.addBook.get("cover").value)
 
     this.httServes.postBook(formData).subscribe({
       next:(value)=> {
+        console.log(value)
         this.tost.success("The Book is Added Succesfuly","",{
           positionClass:"toast-bottom-right",
           progressBar:true,
@@ -109,7 +110,7 @@ export class AddBookeComponent implements OnInit {
         this.router.navigateByUrl("/dashboard/list")
       },
       error:(err)=> {
-        // console.log(err)
+        console.log(err)
         this.tost.error("An error occurred, please try again")
       },
     })

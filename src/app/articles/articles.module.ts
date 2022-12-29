@@ -9,6 +9,8 @@ import { AboutusComponent } from '../user/aboutus/aboutus.component';
 import { ContactusComponent } from '../user/contactus/contactus.component';
 import { Categories_ArtComponent } from '../user/categories_Art/categories_Art.component';
 import { CommonModule } from '@angular/common';
+import { AppModule } from '../app.module';
+import { AdsenseModule } from 'ng2-adsense';
 
 let routes : Routes =[
   {path:'list/:id', component:ArticlesListComponent},
@@ -30,7 +32,11 @@ let routes : Routes =[
   imports: [
     SharedModule,
     CommonModule,
-    RouterModule.forChild(routes)    
+    RouterModule.forChild(routes),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-5314532163672151',
+      adSlot: 6264682910,
+    }),
   ]
 })
 export class ArticlesModule { }

@@ -5,6 +5,7 @@
         </div>
         <h1><span style="color: #ce7852bf;">V</span>iew the book</h1>
     </section>
+    <ng-adsense></ng-adsense>
     <div class="container">
 
         <div class="book-show mb-5">
@@ -29,8 +30,26 @@
                                 <a href="{{i.link}}" target="_blank">{{i.text}}</a>
                             </div>
                         </div>
-                        <button (click)="setLoading(listBook._doc.link)">Download</button>
-
+                        <!-- <button (click)="setLoading(listBook._doc.link)">Download</button> -->
+                        <div class="download-container">
+                            <button type="button" (click)="downloadBtnfun()" class="button download-btn">Download Book</button>
+                            <!-- <a href="#" class="download-btn">Create Download Link</a> -->      
+                            <div class="countdown">
+                              
+                            </div>
+                            <div class="pleaseWait-text">
+                               <div class="progress">
+                                  <span class="progress-text truncate">Creating Download Book</span>
+                                  <div class="progress-status">&nbsp;</div>
+                               </div>
+                            </div>
+                            <div class="manualDownload-text">
+                              
+                               <button (click)="setLoading(listBook._doc.link)" class="button download-btn-now" type="submit" form="mkdir">Click to Download</button>
+                              
+                            </div>
+                         </div>
+                         <ng-adsense></ng-adsense>
                     </div>
                 </div>
                 <div class="description">
@@ -74,5 +93,5 @@
             </div>
         </div>
     </div>
-
+    <ng-adsense></ng-adsense>
 </main>
